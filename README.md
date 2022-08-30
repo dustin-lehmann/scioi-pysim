@@ -1,3 +1,0 @@
-# scioi_pysim
-
-## TBD ##
