@@ -6,13 +6,23 @@ from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject
 
 
 class EnvironmentDavid_thisExample(EnvironmentDavid):
+    agent1: TankRobotSimObject
+    agent2: TankRobotSimObject
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.agent1 = None
+        self.agent2 = None
 
     def action_controller(self, *args, **kwargs):
         super().action_controller(*args, **kwargs)
+
         if self.joystick.connected:
-            print(f"Axis 0: {self.joystick.axis[0]}")
+            # agent1 = self.world.getObjectsByName(name='Agent 1')[0]
+            # agent1.dynamics.input = [self.joystick.axis[0], self.joystick.axis[1]]
+            self.agent1.dynamics.input = [self.joystick.axis[0], self.joystick.axis[1]]
         else:
-            print("Joystick not connected")
+            pass
 
     def action_visualization(self, *args, **kwargs):
         super().action_visualization(*args, **kwargs)
@@ -27,6 +37,9 @@ def main():
     env = EnvironmentDavid_thisExample(Ts=1)
     agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
     agent2 = TankRobotSimObject(name='Agent 2', world=env.world)
+
+    env.agent1 = agent1
+    env.agent2 = agent2
 
     agent1.dynamics.input = [1, 0]
 
