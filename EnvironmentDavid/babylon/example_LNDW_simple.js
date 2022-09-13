@@ -411,11 +411,12 @@ class BoxRobot {
         this.body.position = ToBabylon([x*1000,y*1000,this.height/2])
         this.body.rotation.y = psi
     }
+
     setColour(collision) {
         // This fucntion is used to visualize a collision by changing the colour of a material to a certain colour (green/red)
         if (collision) {
-            //boxMat.diffuseColor = new BABYLON.Color3(0, 1, 0)
-            this.material.diffuseColor = new BABYLON.Color3.Red()
+            boxMat.diffuseColor = new BABYLON.Color3(0, 1, 0)
+
         } else {
             //boxMat.diffuseColor = new BABYLON.Color3(1, 0, 0);
             this.material.diffuseColor = new BABYLON.Color3.Green()
@@ -512,7 +513,10 @@ class Robot_Model {
 
     setCollision(state){
         if (state){
-            this.material.diffuseColor = new BABYLON.Color3(255/255,51/255,51/255)
+            console.log('status: ')
+            console.log(state)
+            // this.material.diffuseColor = new BABYLON.Color3(255/255,51/255,51/255)
+            this.material.diffuseColor = new BABYLON.Color3.Green()
         } else {
             this.material.diffuseColor = new BABYLON.Color3.White()
         }
@@ -721,7 +725,7 @@ class LNDW_scene_simple extends Scene {
         for (const [key, value] of Object.entries(robot_data)) {
             if (key in robots) {
                 robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
-                robots[key]['babylon'].setCollision(value['collision'])
+                // robots[key]['babylon'].setCollision(value['collision'])
             }
         }
 

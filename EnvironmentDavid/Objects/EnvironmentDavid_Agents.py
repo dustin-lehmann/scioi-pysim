@@ -38,7 +38,7 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
         self.height = height
 
         self.bounding_objects = {
-            'body': core.physics.CuboidPrimitive(dimensions=[self.length, self.width, self.height])
+            'body': core.physics.CuboidPrimitive(dimensions=[self.length, self.width, self.height], position=0,orientation=0)
         }
 
         self.offset = [0, 0, self.height / 2]

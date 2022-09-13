@@ -68,8 +68,8 @@ def main():
     # agent1.dynamics.input = [1, 0]
 
     def print_agent1_state(*args, **kwargs):
-        print(f"Agent 1 State: {agent1.dynamics.state}")
-
+        # print(f"Agent 1 State: {agent1.dynamics.state}")
+        pass
 
     core.scheduling.Action(name="Print Agent", function=print_agent1_state, parent=env.scheduling.actions['output'])
 

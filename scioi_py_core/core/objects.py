@@ -7,6 +7,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 from EnvironmentDavid.baseline.robot_simulation import RobotSimulation
+from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject, TankRobotPhysicalObject
 from scioi_py_core.utils.joystick.joystick_manager import Joystick
 
 
@@ -495,7 +496,8 @@ class VisulizationEnvironment:
 
     walls: list[Wall]
     floortiles: dict[str, Box]
-    robots: dict[str, BabylonRobot]
+    # robots: dict[str, BabylonRobot]
+    robot_list: list[TankRobotPhysicalObject or TankRobotSimObject]
     areas: dict[str, AreaBox]
     switches: dict[str, Switch]
     doors: dict[str, Door]
@@ -515,7 +517,8 @@ class VisulizationEnvironment:
         self.obstacles = []
         self.cells = []
         self.walls = []
-        self.robots: BabylonRobot = []
+        # self.robots: BabylonRobot = []
+        self.robot_list = []
         self.switches = {}
         self.doors = {}
         self.goals = {}
@@ -613,17 +616,19 @@ class VisulizationEnvironment:
             }
             json_dict['floor'][name] = tile_dict
 
-        for idx, robot in enumerate(self.robots):
+        for idx, robot in enumerate(self.robot_list):
+            orientation_test = robot.physics.bounding_objects['body'].orientation
+            robot_name = f"{idx}"
             robot_dict = {
-                'id': robot.id,
-                'position': robot.position,
+                'id': 0,
+                'position': robot.physics.bounding_objects['body'].position,
                 'length': robot.length,
                 'width': robot.width,
                 'height': robot.height,
-                'psi': robot.psi,
-                'name': f'robot{robot.id}'
+                'psi': robot.physics.bounding_objects['body'].orientation,
+                'name': f'robot{robot_name}'
             }
-            json_dict['robots'][name] = robot_dict
+            json_dict['robots'][robot_name] = robot_dict
 
         if file is not None:
             try:
@@ -717,112 +722,6 @@ class VisulizationEnvironment:
 
         return floor_tiles
 
-    # ------------------------------------------------------------------------------------------------------------------
-    # def generateSample(self):
-    #     sample = {'robots': {},
-    #               'floor': {},
-    #               'walls': {},
-    #               'doors': {},
-    #               'switches': {},
-    #               'goals': {}}
-    #
-    #     # for name, robot in self.robots.items():
-    #     #     robot_sample = {
-    #     #         'position': robot.position,
-    #     #         'psi': robot.psi,
-    #     #         'collision': robot.collision
-    #     #     }
-    #     #     sample['robots'][name] = robot_sample
-    #
-    #     for count, robot in enumerate(self.robots):
-    #         robot_sample = {
-    #             'position': robot.position,
-    #             'psi': robot.psi,
-    #             # 'collision': robot.collision
-    #             'collision': False
-    #         }
-    #         sample['robots'][count] = robot_sample
-    #
-    #     discovered_walls = []
-    #     discovered_doors = []
-    #     for robot in self.robots:
-    #
-    #         cell = self.getCellByPosition(robot.position, robot.position[1])
-    #         if cell is not None:
-    #             floor_tile = cell.floor_tile.name
-    #             sample['floor'][floor_tile] = {'highlight': 1, 'discoverer': robot.id}
-    #
-    #         point1 = [robot.position[0] + np.cos(robot.psi) * robot.length / 2 * 2,
-    #                   robot.position[1] + np.sin(robot.psi) * robot.length / 2 * 2]
-    #
-    #         point2 = [robot.position[0] - np.cos(robot.psi) * robot.length / 2 * 2,
-    #                   robot.position[1] - np.sin(robot.psi) * robot.length / 2 * 2]
-    #
-    #         cell1 = self.getCellByPosition(point1[0], point1[1])
-    #         cell2 = self.getCellByPosition(point2[0], point2[1])
-    #
-    #         if cell1 is not None:
-    #             walls1 = cell1.walls
-    #             for w in walls1:
-    #                 if w not in discovered_walls:
-    #                     discovered_walls.append(w)
-    #             doors1 = cell1.doors
-    #             for d in doors1:
-    #                 d.visible = True
-    #
-    #             goal1 = cell1.goal
-    #             if goal1 is not None:
-    #                 goal1.discovered = True
-    #
-    #         if cell2 is not None:
-    #             walls2 = cell2.walls
-    #             for w in walls2:
-    #                 if w not in discovered_walls:
-    #                     discovered_walls.append(w)
-    #             doors2 = cell2.doors
-    #             for d in doors2:
-    #                 d.visible = True
-    #
-    #             goal2 = cell2.goal
-    #             if goal2 is not None:
-    #                 goal2.discovered = True
-    #
-    #         for wall in discovered_walls:
-    #             sample['walls'][wall.name] = {'visible': 1}
-    #
-    #     # SWITCHES
-    #     for name, switch in self.switches.items():
-    #         switch.check(self.robots)
-    #
-    #         switch_dict = {
-    #             'state': switch.switch_state
-    #         }
-    #         sample['switches'][name] = switch_dict
-    #
-    #     # DOORS
-    #     for name, door in self.doors.items():
-    #         door.check()
-    #
-    #         door_dict = {
-    #             'state': door.open_state,
-    #             'visible': door.visible
-    #         }
-    #         sample['doors'][name] = door_dict
-    #
-    #     # GOALS
-    #     for name, goal in self.goals.items():
-    #         goal.check(self.robots)
-    #
-    #         goal_dict = {
-    #             'reached': goal.reached,
-    #             'visible': goal.discovered and goal.visible
-    #         }
-    #         sample['goals'][name] = goal_dict
-    #
-    #         sample['t'] = time.time() - self.start_time
-    #
-    #     return sample
-
     def generateSample(self):
         sample = {'robots': {},
                   'floor': {},
@@ -831,92 +730,19 @@ class VisulizationEnvironment:
                   'switches': {},
                   'goals': {}}
 
-        for count, robot in enumerate(self.robots):
+        # for count, robot in enumerate(self.robots):
+        for count, robot in enumerate(self.robot_list):
             robot_sample = {
-                'position': robot.position,
-                'psi': robot.psi,
+                'position': robot.physics.bounding_objects['body'].position,
+                'psi': robot.physics.bounding_objects['body'].orientation,
                 # 'collision': robot.collision
-                'collision': False
+                'collision': 0
             }
             sample['robots'][f'{count}'] = robot_sample
             # sample['robots'] = robot_sample
 
         discovered_walls = []
 
-        # for robot in self.robots:
-        #
-        #     cell = self.getCellByPosition(robot.position[0], robot.position[1])
-        #     if cell is not None:
-        #         floor_tile = cell.floor_tile.name
-        #         sample['floor'][floor_tile] = {'highlight': 1, 'discoverer': robot.id}
-        #
-        #     point1 = [robot.position[0] + np.cos(robot.psi) * robot.length / 2 * 2,
-        #               robot.position[1] + np.sin(robot.psi) * robot.length / 2 * 2]
-        #
-        #     point2 = [robot.position[0] - np.cos(robot.psi) * robot.length / 2 * 2,
-        #               robot.position[1] - np.sin(robot.psi) * robot.length / 2 * 2]
-        #
-        #     cell1 = self.getCellByPosition(point1[0], point1[1])
-        #     cell2 = self.getCellByPosition(point2[0], point2[1])
-        #
-        #     if cell1 is not None:
-        #         walls1 = cell1.walls
-        #         for w in walls1:
-        #             if w not in discovered_walls:
-        #                 discovered_walls.append(w)
-        #         doors1 = cell1.doors
-        #         for d in doors1:
-        #             d.visible = True
-        #
-        #         goal1 = cell1.goal
-        #         if goal1 is not None:
-        #             goal1.discovered = True
-        #
-        #     if cell2 is not None:
-        #         walls2 = cell2.walls
-        #         for w in walls2:
-        #             if w not in discovered_walls:
-        #                 discovered_walls.append(w)
-        #         doors2 = cell2.doors
-        #         for d in doors2:
-        #             d.visible = True
-        #
-        #         goal2 = cell2.goal
-        #         if goal2 is not None:
-        #             goal2.discovered = True
-        #
-        #     for wall in discovered_walls:
-        #         sample['walls'][wall.name] = {'visible': 1}
-        #
-        # # SWITCHES
-        # for name, switch in self.switches.items():
-        #     switch.check(self.robots)
-        #
-        #     switch_dict = {
-        #         'state': switch.switch_state
-        #     }
-        #     sample['switches'][name] = switch_dict
-        #
-        # # DOORS
-        # for name, door in self.doors.items():
-        #     door.check()
-        #
-        #     door_dict = {
-        #         'state': door.open_state,
-        #         'visible': door.visible
-        #     }
-        #     sample['doors'][name] = door_dict
-        #
-        # # GOALS
-        # for name, goal in self.goals.items():
-        #     goal.check(self.robots)
-        #
-        #     goal_dict = {
-        #         'reached': goal.reached,
-        #         'visible': goal.discovered and goal.visible
-        #     }
-        #     sample['goals'][name] = goal_dict
-        #
         sample['t'] = time.time() - self.start_time
 
         return sample
