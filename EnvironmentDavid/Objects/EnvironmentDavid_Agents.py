@@ -52,11 +52,17 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
 
 
 class TankRobotSimObject(core.dynamics.DynamicWorldObject):
+    length: float
+    width: float
+    height: float
     spaces = TankRobotSpaces
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs, ):
         self.dynamics = EnvironmentDavid_Dynamics.TankRobot_Dynamics()
         self.physics: TankRobotPhysicalObject = TankRobotPhysicalObject()
+        self.length = 0.157
+        self.width = 0.115
+        self.height = 0.052
 
         super().__init__(*args, **kwargs)
 

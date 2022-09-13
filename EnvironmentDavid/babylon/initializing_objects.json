@@ -1,0 +1,929 @@
+{
+  "GroundBoxFloor": {
+    "center_x": 0,
+    "center_y": 0,
+    "psi": 0,
+    "width": 5145,
+    "length": 3730,
+    "height": 1,
+    "type": "GroundBoxFloor"
+  },
+  "GroundBoxWall1": {
+    "center_x": 0,
+    "center_y": -1865.0,
+    "psi": 0,
+    "width": 5145,
+    "length": 10,
+    "height": 150,
+    "type": "GroundBoxWall"
+  },
+  "GroundBoxWall2": {
+    "center_x": 0,
+    "center_y": 1865.0,
+    "psi": 0,
+    "width": 5145,
+    "length": 10,
+    "height": 150,
+    "type": "GroundBoxWall"
+  },
+  "GroundBoxWall3": {
+    "center_x": 2572.5,
+    "center_y": 0,
+    "psi": 90,
+    "width": 3730,
+    "length": 10,
+    "height": 150,
+    "type": "GroundBoxWall"
+  },
+  "GroundBoxWall4": {
+    "center_x": -2572.5,
+    "center_y": 0,
+    "psi": 90,
+    "width": 3730,
+    "length": 10,
+    "height": 150,
+    "type": "GroundBoxWall"
+  },
+  "GroundBoxWall5": {
+    "center_x": 0,
+    "center_y": 0,
+    "psi": 0,
+    "width": 10,
+    "length": 3730,
+    "height": 150,
+    "type": "GroundBoxWall"
+  },
+  "Obstacle1": {
+    "center_x": -2405.5,
+    "center_y": 1556.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle2": {
+    "center_x": 141.5,
+    "center_y": 1556.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle3": {
+    "center_x": -2122.5,
+    "center_y": 1273.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle4": {
+    "center_x": 424.5,
+    "center_y": 1273.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle5": {
+    "center_x": -2405.5,
+    "center_y": 990.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle6": {
+    "center_x": 141.5,
+    "center_y": 990.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle7": {
+    "center_x": -2122.5,
+    "center_y": 707.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle8": {
+    "center_x": 424.5,
+    "center_y": 707.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle9": {
+    "center_x": -1981.0,
+    "center_y": 990.5,
+    "psi": 90,
+    "width": 1132.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle10": {
+    "center_x": 566.0,
+    "center_y": 990.5,
+    "psi": 90,
+    "width": 1132.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle11": {
+    "center_x": -1698.0,
+    "center_y": 1132.0,
+    "psi": 90,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle12": {
+    "center_x": 849.0,
+    "center_y": 1132.0,
+    "psi": 90,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle13": {
+    "center_x": -1415.0,
+    "center_y": 1132.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle14": {
+    "center_x": 1132.0,
+    "center_y": 1132.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle15": {
+    "center_x": -1132.0,
+    "center_y": 1132.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle16": {
+    "center_x": 1415.0,
+    "center_y": 1132.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle17": {
+    "center_x": -1273.5,
+    "center_y": 990.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle18": {
+    "center_x": 1273.5,
+    "center_y": 990.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle19": {
+    "center_x": -283.0,
+    "center_y": 1273.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle20": {
+    "center_x": 2264.0,
+    "center_y": 1273.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle21": {
+    "center_x": -1273.5,
+    "center_y": 707.5,
+    "psi": 0,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle22": {
+    "center_x": 1273.5,
+    "center_y": 707.5,
+    "psi": 0,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle23": {
+    "center_x": -1415.0,
+    "center_y": 424.5,
+    "psi": 0,
+    "width": 1132.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle24": {
+    "center_x": 1132.0,
+    "center_y": 424.5,
+    "psi": 0,
+    "width": 1132.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle25": {
+    "center_x": -849.0,
+    "center_y": 566.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle26": {
+    "center_x": 1698.0,
+    "center_y": 566.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle27": {
+    "center_x": -566.0,
+    "center_y": 990.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle28": {
+    "center_x": 1981.0,
+    "center_y": 990.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle29": {
+    "center_x": -424.5,
+    "center_y": 707.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle30": {
+    "center_x": 2122.5,
+    "center_y": 707.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle31": {
+    "center_x": -566.0,
+    "center_y": 566.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle32": {
+    "center_x": 1981.0,
+    "center_y": 566.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle33": {
+    "center_x": -283.0,
+    "center_y": 424.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle34": {
+    "center_x": 2264.0,
+    "center_y": 424.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle35": {
+    "center_x": -2264.0,
+    "center_y": 283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle36": {
+    "center_x": 283.0,
+    "center_y": 283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle37": {
+    "center_x": -1556.5,
+    "center_y": 424.5,
+    "psi": 0,
+    "width": 1415.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle38": {
+    "center_x": 990.5,
+    "center_y": 424.5,
+    "psi": 0,
+    "width": 1415.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle39": {
+    "center_x": -424.5,
+    "center_y": 141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle40": {
+    "center_x": 2122.5,
+    "center_y": 141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle41": {
+    "center_x": -2405.5,
+    "center_y": -141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle42": {
+    "center_x": 141.5,
+    "center_y": -141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle43": {
+    "center_x": -990.5,
+    "center_y": -141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle44": {
+    "center_x": 1556.5,
+    "center_y": -141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle45": {
+    "center_x": -141.5,
+    "center_y": -141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle46": {
+    "center_x": 2405.5,
+    "center_y": -141.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle47": {
+    "center_x": -1981.0,
+    "center_y": -283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle48": {
+    "center_x": 566.0,
+    "center_y": -283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle49": {
+    "center_x": -849.0,
+    "center_y": -141.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle50": {
+    "center_x": 1698.0,
+    "center_y": -141.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle51": {
+    "center_x": -283.0,
+    "center_y": -283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle52": {
+    "center_x": 2264.0,
+    "center_y": -283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle53": {
+    "center_x": -2264.0,
+    "center_y": -424.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle54": {
+    "center_x": 283.0,
+    "center_y": -424.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle55": {
+    "center_x": -1698.0,
+    "center_y": -566.0,
+    "psi": 90,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle56": {
+    "center_x": 849.0,
+    "center_y": -566.0,
+    "psi": 90,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle57": {
+    "center_x": -2264.0,
+    "center_y": -849.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle58": {
+    "center_x": 283.0,
+    "center_y": -849.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle59": {
+    "center_x": -2122.5,
+    "center_y": -990.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle60": {
+    "center_x": 424.5,
+    "center_y": -990.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle61": {
+    "center_x": -1981.0,
+    "center_y": -849.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle62": {
+    "center_x": 566.0,
+    "center_y": -849.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle63": {
+    "center_x": -1273.5,
+    "center_y": -990.5,
+    "psi": 0,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle64": {
+    "center_x": 1273.5,
+    "center_y": -990.5,
+    "psi": 0,
+    "width": 849.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle65": {
+    "center_x": -849.0,
+    "center_y": -849.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle66": {
+    "center_x": 1698.0,
+    "center_y": -849.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle67": {
+    "center_x": -1132.0,
+    "center_y": -707.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle68": {
+    "center_x": 1415.0,
+    "center_y": -707.5,
+    "psi": 0,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle69": {
+    "center_x": -1415.0,
+    "center_y": -566.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle70": {
+    "center_x": 1132.0,
+    "center_y": -566.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle71": {
+    "center_x": -1273.5,
+    "center_y": -424.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle72": {
+    "center_x": 1273.5,
+    "center_y": -424.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle73": {
+    "center_x": -1132.0,
+    "center_y": -283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle74": {
+    "center_x": 1415.0,
+    "center_y": -283.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle75": {
+    "center_x": -707.5,
+    "center_y": -424.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle76": {
+    "center_x": 1839.5,
+    "center_y": -424.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle77": {
+    "center_x": -283.0,
+    "center_y": -990.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle78": {
+    "center_x": 2264.0,
+    "center_y": -990.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle79": {
+    "center_x": -141.5,
+    "center_y": -1273.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle80": {
+    "center_x": 2405.5,
+    "center_y": -1273.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle81": {
+    "center_x": -566.0,
+    "center_y": -1273.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle82": {
+    "center_x": 1981.0,
+    "center_y": -1273.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle83": {
+    "center_x": -2405.5,
+    "center_y": -1556.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle84": {
+    "center_x": 141.5,
+    "center_y": -1556.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle85": {
+    "center_x": -2264.0,
+    "center_y": -1415.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle86": {
+    "center_x": 283.0,
+    "center_y": -1415.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle87": {
+    "center_x": -1981.0,
+    "center_y": -1415.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle88": {
+    "center_x": 566.0,
+    "center_y": -1415.0,
+    "psi": 90,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle89": {
+    "center_x": -1415.0,
+    "center_y": -1273.5,
+    "psi": 0,
+    "width": 1132.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle90": {
+    "center_x": 1132.0,
+    "center_y": -1273.5,
+    "psi": 0,
+    "width": 1132.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle91": {
+    "center_x": -849.0,
+    "center_y": -1556.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle92": {
+    "center_x": 1698.0,
+    "center_y": -1556.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle93": {
+    "center_x": -566.0,
+    "center_y": -1273.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle94": {
+    "center_x": 1981.0,
+    "center_y": -1273.5,
+    "psi": 90,
+    "width": 566.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle95": {
+    "center_x": -424.5,
+    "center_y": -1556.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Obstacle96": {
+    "center_x": 2122.5,
+    "center_y": -1556.5,
+    "psi": 0,
+    "width": 283.0,
+    "length": 10,
+    "height": 150,
+    "type": "Obstacle"
+  },
+  "Robot1": {
+    "center_x": 0,
+    "center_y": 0,
+    "psi": 90,
+    "width": 150,
+    "length": 125,
+    "height": 30,
+    "type": "Robot"
+  }
+}
