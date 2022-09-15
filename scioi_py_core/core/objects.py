@@ -9,6 +9,7 @@ from matplotlib import pyplot as plt
 from EnvironmentDavid.baseline.robot_simulation import RobotSimulation
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject, TankRobotPhysicalObject
 from scioi_py_core.utils.joystick.joystick_manager import Joystick
+from scioi_py_core.utils.orientations import psiFromRotMat
 
 
 class Box:
@@ -734,7 +735,7 @@ class VisulizationEnvironment:
         for count, robot in enumerate(self.robot_list):
             robot_sample = {
                 'position': robot.physics.bounding_objects['body'].position,
-                'psi': robot.physics.bounding_objects['body'].orientation,
+                'psi': psiFromRotMat(robot.physics.bounding_objects['body'].orientation),
                 # 'collision': robot.collision
                 'collision': 0
             }

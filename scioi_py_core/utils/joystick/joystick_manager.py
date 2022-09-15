@@ -5,10 +5,11 @@ import threading
 import pygame
 import time
 
-
 # source code from SO
 # https://stackoverflow.com/questions/19749404/is-it-possible-to-rumble-a-xbox-360-controller-with-python
 switchRumble = 0
+
+
 # Define necessary structures
 class XInputVibration(ctypes.Structure):
     _fields_ = [("wLeftMotorSpeed", ctypes.c_ushort),
@@ -120,8 +121,6 @@ class JoystickManager:
                     pass
 
             time.sleep(0.001)
-
-
 
 
 class Joystick:

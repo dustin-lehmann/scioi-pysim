@@ -34,7 +34,7 @@ class EnvironmentDavid(core.environment.Environment):
         pass
 
     def action_input(self, *args, **kwargs):
-        print("Action Input")
+        pass
 
     def action_controller(self, *args, **kwargs):
         pass

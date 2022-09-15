@@ -499,8 +499,14 @@ class Robot_Model {
         this.loaded = true
     }
 
+    setState(x,y,psi) {
+        console.log(psi)
+        this.setPosition(x,y)
+        this.setOrientation(psi)
+    }
+
     setPosition(x, y) {
-        this.mesh.position = ToBabylon([x,y,4])
+        this.mesh.position = ToBabylon([x*1000,y*1000,4])
 
 
         // this.pivotPointWheels.position.x = y
@@ -512,14 +518,12 @@ class Robot_Model {
     }
 
     setCollision(state){
-        if (state){
-            console.log('status: ')
-            console.log(state)
-            // this.material.diffuseColor = new BABYLON.Color3(255/255,51/255,51/255)
-            this.material.diffuseColor = new BABYLON.Color3.Green()
-        } else {
-            this.material.diffuseColor = new BABYLON.Color3.White()
-        }
+        // if (state){
+        //     // this.material.diffuseColor = new BABYLON.Color3(255/255,51/255,51/255)
+        //     this.material.diffuseColor = new BABYLON.Color3.Green()
+        // } else {
+        //     this.material.diffuseColor = new BABYLON.Color3.White()
+        // }
     }
 }
 
@@ -615,23 +619,19 @@ class LNDW_scene_simple extends Scene {
         this.drawCoordinateSystem()
         this.buildEnvironment();
 
-
-
-
-
-
         return this.scene;
     }
 
     buildEnvironment() {
         // Obstacles
+        console.log(walls)
         for (const [key, value] of Object.entries(walls)) {
             value['babylon'] = new Wall(this.scene,
-                value["length"],
-                value["width"],
+                value["length"]*1000,
+                value["width"]*1000,
                 value["height"],
-                value["center_x"],
-                value["center_y"],
+                value["center_x"]*1000,
+                value["center_y"]*1000,
                 value["psi"],
                 value["visible"])
             // this.shadowGenerator.addShadowCaster(value['babylon'].body)
@@ -639,10 +639,10 @@ class LNDW_scene_simple extends Scene {
         // Floor
         for (const [key, value] of Object.entries(floor_tiles)) {
             value['babylon'] = new FloorTile(this.scene,
-                value['length'],
-                value['width'],
+                value['length']*1000,
+                value['width']*1000,
                 value['height'],
-                [value['center_x'], value['center_y'],0])
+                [value['center_x']*1000, value['center_y']*1000,0])
         }
 
         // Robots
@@ -650,10 +650,10 @@ class LNDW_scene_simple extends Scene {
             value['babylon'] = new Robot(this.scene,
                 value['id'],
                 key,
-                value['length'],
-                value['width'],
+                value['length']*1000,
+                value['width']*1000,
                 value['height'],
-                value['position'],
+                value['position']*1000,
                 value['psi'],
                 this.shadowGenerator)
         }
@@ -711,21 +711,20 @@ class LNDW_scene_simple extends Scene {
 
         var line_z = BABYLON.MeshBuilder.CreateLines("line_z", {points: points_z}, this.scene);
         line_z.color = new BABYLON.Color3(0, 0, 1);
-        // console.log(lines)
+
 
     }
 
     onSample(sample) {
-        console.log('hi')
-        console.log(sample)
+
         this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
         // Robot
         var robot_data = sample['robots']
-        // console.log(this.camera.position)
         for (const [key, value] of Object.entries(robot_data)) {
             if (key in robots) {
+                console.log(robots[key])
                 robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
-                // robots[key]['babylon'].setCollision(value['collision'])
+                robots[key]['babylon'].setCollision(value['collision'])
             }
         }
 
