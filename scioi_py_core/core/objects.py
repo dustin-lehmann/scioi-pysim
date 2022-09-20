@@ -622,11 +622,11 @@ class VisulizationEnvironment:
             robot_name = f"{idx}"
             robot_dict = {
                 'id': 0,
-                'position': robot.physics.bounding_objects['body'].position,
-                'length': robot.length,
-                'width': robot.width,
-                'height': robot.height,
-                'psi': robot.physics.bounding_objects['body'].orientation,
+                'position': list(robot.physics.bounding_objects['body'].position),
+                'length': robot.physics.length,
+                'width': robot.physics.width,
+                'height': robot.physics.height,
+                'psi': psiFromRotMat(robot.configuration['rot']),
                 'name': f'robot{robot_name}'
             }
             json_dict['robots'][robot_name] = robot_dict

@@ -1,3 +1,4 @@
+import dataclasses
 from abc import ABC, abstractmethod
 from typing import Union
 
@@ -9,6 +10,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 # ======================================================================================================================
 
 class ObjectPrimitive(ABC):
+    collision: dataclasses.dataclass
     pass
 
     @abstractmethod
@@ -28,6 +30,7 @@ def collisionCuboidCuboid(cuboid1: 'CuboidPrimitive', cuboid2: 'CuboidPrimitive'
 def collisionCuboidSphere(cuboid: 'CuboidPrimitive', sphere: 'SpherePrimitive'):
     pass
 
+
 # ----------------------------------------------------------------------------------------------------------------------
 def collisionSphereSphere(sphere1: 'SpherePrimitive', sphere2: 'SpherePrimitive'):
     distance = np.linalg.norm(sphere2.position - sphere1.position) - sphere1.radius - sphere2.radius
@@ -38,6 +41,13 @@ def collisionSphereSphere(sphere1: 'SpherePrimitive', sphere2: 'SpherePrimitive'
 
 
 # ======================================================================================================================
+@dataclasses.dataclass
+class CuboidCollisionData:
+    collision_state: bool = False
+    collision_points: list = dataclasses.field(default_factory=list)
+    collision_areas: dict = dataclasses.field(default_factory=dict)
+
+
 class CuboidPrimitive(ObjectPrimitive):
     dimensions: list[float]
     position: np.ndarray
@@ -48,8 +58,9 @@ class CuboidPrimitive(ObjectPrimitive):
 
     discretization: Union[float, int]
     discretization_type: str  # 'spacing', 'number'
+    collision: CuboidCollisionData = CuboidCollisionData()
 
-    def __init__(self, dimensions: list, position: np.ndarray = None, orientation: np.ndarray = None,
+    def __init__(self, dimensions: list, position: Union[np.ndarray, list] = None, orientation: np.ndarray = None,
                  discretization_type: str = 'number', discretization: Union[int, float] = 10):
         self.dimensions = dimensions
         self.position = position
@@ -89,6 +100,9 @@ class CuboidPrimitive(ObjectPrimitive):
 
         if isinstance(object, SpherePrimitive):
             pass
+
+    def getDiagonal(self):
+        return np.sqrt(self.dimensions[0]**2 + self.dimensions[1]**2 + self.dimensions[2]**2)
 
     # === PRIVATE METHODS ==============================================================================================
     def _calcPointsIntrinsic(self, discretization, discretization_type):
@@ -164,26 +178,23 @@ class SpherePrimitive(ObjectPrimitive):
 
 
 # ======================================================================================================================
+@dataclasses.dataclass
+class PhysicalBodyCollisionData:
+    collision_state: bool = False
+    collided_primitives: list = dataclasses.field(default_factory=list)
+
+
 class PhysicalBody(ABC):
     bounding_objects: dict[str, ObjectPrimitive]
     proximity_sphere: SpherePrimitive
+    collision: PhysicalBodyCollisionData
 
-    # collision params
-    collision_check: bool
-    collidable: bool
-    collision_includes: ['WorldObject']
-    collision_excludes: ['WorldObject']
-
-    def __init__(self, collision_includes: [] = None,
-                 collision_excludes: [] = None, collision_check: bool = False, collidable: bool = True):
+    def __init__(self):
         self.proximity_sphere = SpherePrimitive(radius=-1)
-        self.collision_includes = collision_includes
-        self.collision_excludes = collision_excludes
-        self.collision_check = collision_check
-        self.collidable = collidable
+        self.collision = PhysicalBodyCollisionData()
 
     # === METHODS ======================================================================================================
-    def collision(self, other: 'PhysicalBody'):
+    def collisionCheck(self, other: 'PhysicalBody'):
         # Check if the two physical objects are close enough to collide
         if self.proximity_sphere.radius > 0 and other.proximity_sphere.radius > 0 and \
                 not self.proximity_sphere.collision(other.proximity_sphere):
@@ -217,6 +228,34 @@ class PhysicalBody(ABC):
         :return:
         """
         # TODO
+        ...
+
+    @abstractmethod
+    def _getProximitySphereRadius(self):
+        ...
+
+
+# ======================================================================================================================
+class CuboidPhysics(PhysicalBody):
+    def __init__(self, length, width, height, position, orientation):
+        super().__init__()
+        self.bounding_objects = {
+            'cuboid': CuboidPrimitive(dimensions=[length, width, height], position=position, orientation=orientation)
+        }
+
+    def update(self, position, orientation, *args, **kwargs):
+        self.bounding_objects['cuboid'].position = position
+        self.bounding_objects['cuboid'].orientation = orientation
+
+    def _calcProximitySphere(self):
+        self.proximity_sphere.radius = self._getProximitySphereRadius()
+        self.proximity_sphere.position = self.bounding_objects['cuboid'].position
+
+    def _getProximitySphereRadius(self):
+        return self.bounding_objects['cuboid'].getDiagonal()/2 * 1.1
+
+
+
 
 
 # ======================================================================================================================

@@ -72,10 +72,10 @@ def loop():
         # 2. Collision checking
         areas = env.collisionDetection(env.robots['robot_01'])
 
-        if env.robots['robot_01'].collision and last_collision_state is False:
+        if env.robots['robot_01'].collisionCheck and last_collision_state is False:
             jm.joysticks[0].rumble(strength=1, duration=0.25)
 
-        last_collision_state = env.robots['robot_01'].collision
+        last_collision_state = env.robots['robot_01'].collisionCheck
 
         # TODO: Put this into the robot class
         if 'front_left' in areas or 'front_right' in areas:

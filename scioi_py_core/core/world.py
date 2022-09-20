@@ -12,18 +12,26 @@ from ..core import scheduling as scheduling
 # TODO: Should this be a scheduled object if it can be simulated and real? Probably yes, but not simulated object.
 #  There has to be a switch somewhere telling that this is real and this not
 
+@dataclasses.dataclass
+class CollisionSettings:
+    check: bool = False
+    collidable: bool = True
+    includes: ['WorldObject'] = dataclasses.field(default_factory=lambda: [WorldObject])
+    excludes: ['WorldObject'] = dataclasses.field(default_factory=list)
+
+
+@dataclasses.dataclass
+class CollisionState:
+    settings: CollisionSettings = dataclasses.field(default_factory=CollisionSettings)
+    collision_state: bool = False
+    collision_objects: list = dataclasses.field(default_factory=list)
+
+
 # ======================================================================================================================
 class WorldObject(scheduling.ScheduledObject):
     world: 'World'
     physics: physics.PhysicalBody
-
-    # collision params
-
-    # collision_check: bool
-    # collidable: bool
-    # collision_includes: ['WorldObject']
-    # collision_excludes: ['WorldObject']
-
+    collision: CollisionState
     coordinate: spaces.State
     configuration: spaces.State
 
@@ -32,15 +40,21 @@ class WorldObject(scheduling.ScheduledObject):
 
     # === INIT =========================================================================================================
     def __init__(self, name: str = None, world: 'World' = None, collision_includes: [] = None,
-                 collision_excludes: [] = None, collision_check: bool = False, collidable: bool = True):
+                 collision_excludes: [] = None, collision_check: bool = False, collidable: bool = True, *args,
+                 **kwargs):
         print(name)
         super().__init__()
         self.name = name
         self.world = world
-        # self.collision_includes = collision_includes
-        # self.collision_excludes = collision_excludes
-        # self.collision_check = collision_check
-        # self.collidable = collidable
+
+        self.collision = CollisionState()
+        self.collision.settings.check = collision_check
+        self.collision.settings.collidable = collidable
+        if collision_includes is not None:
+            self.collision.settings.includes = collision_includes
+        if collision_excludes is not None:
+            self.collision.settings.excludes = collision_excludes
+
         # self.configuration = None
 
         scheduling.Action(name='physics_update', function=self.action_physics_update,
@@ -72,7 +86,7 @@ class WorldObject(scheduling.ScheduledObject):
 
     # === ACTIONS ======================================================================================================
     @abstractmethod
-    def action_physics_update(self, *args, **kwargs):
+    def action_physics_update(self, config, *args, **kwargs):
         pass
 
     def _init(self):
@@ -96,10 +110,10 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
     def __init__(self, spaces: WorldSpaces, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.spaces = spaces
-        self.objects: WorldObject = {}
+        self.objects: dict[str, 'WorldObject'] = {}
 
     # === METHODS ======================================================================================================
-    def addObject(self, objects: Union[WorldObject, list]):
+    def addObject(self, objects: Union[WorldObject, dict]):
 
         if not (isinstance(objects, list)):
             objects = [objects]
@@ -177,6 +191,38 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
                 objects.append(obj)
 
         return objects
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def physicsUpdate(self):
+        for name, obj in self.objects.items():
+            if obj.physics is not None:
+                obj.scheduling.actions['physics_update']()
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def collisionCheck(self):
+        """
+        this function is going to do all the collision functions: - check if object is even collidable - **check
+        spheres() (maybe Dustin already has a function that does exactly that)** check if object/agents  sphere is
+        close to an obstacle sphere - do collision checking → if true put collision points into min/max angle - from
+        min/max angle create new function that handles the inputs for a robot
+        """
+        # loop through dict of alle the objects within testbed (real and simulated)
+        for key, obj in self.objects.items():
+            # collision check is supposed to be done
+            if obj.collision.settings.check:
+                for _, collision_object in self.objects.items():
+                    if collision_object is not obj:
+                        # check if object even is collidable
+                        if collision_object.collision.settings.collidable:
+                            # Check if the object is in the include list
+                            if any(isinstance(collision_object, include_class) for include_class in
+                                   obj.collision.settings.includes):
+                                # Check if the object is not in the exclude list
+                                if not (any(isinstance(collision_object, exclude_class) for exclude_class in
+                                            obj.collision.settings.excludes)):
+                                    # do sphere check
+                                    print('add sphere check!')
+                                    ...
 
     def _init(self):
         pass

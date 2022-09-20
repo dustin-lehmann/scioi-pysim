@@ -70,12 +70,15 @@ class DynamicWorld_XYZR_Simple(core.world.World):
 
         phase_physics_update = core.scheduling.Action(name='physics_update', object=self,
                                                       function=self.action_physics_update, priority=15)
-        phase_environment = core.scheduling.Action(name='environment', object=self,
-                                                   function=self.action_environment, priority=16)
+
+        phase_collision = core.scheduling.Action(name='collision', object=self,
+                                                 function=self.collisionCheck, priority=16)
         phase_logic2 = core.scheduling.Action(name='logic2', object=self,
                                               function=self.action_logic2, priority=17)
         phase_output = core.scheduling.Action(name='output', object=self,
                                               function=self.action_output, priority=18)
+
+    # ==================================================================================================================
 
     def action_input(self, *args, **kwargs):
         pass
@@ -106,5 +109,3 @@ class DynamicWorld_XYZR_Simple(core.world.World):
 
     def _init(self, *args, **kwargs):
         pass
-
-

@@ -30,7 +30,7 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
     width: float
     height: float
 
-    def __init__(self, length: float = 0.157, width: float = 0.115, height: float = 0.052):
+    def __init__(self, length: float = 0.157, width: float = 0.115, height: float = 0.052, *args, **kwargs):
         super().__init__()
 
         self.length = length
@@ -38,32 +38,33 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
         self.height = height
 
         self.bounding_objects = {
-            'body': core.physics.CuboidPrimitive(dimensions=[self.length, self.width, self.height], position=0,
-                                                 orientation=0)
+            'body': core.physics.CuboidPrimitive(dimensions=[self.length, self.width, self.height], position=[0, 0, 0],
+                                                 orientation=np.eye(3))
         }
 
         self.offset = [0, 0, self.height / 2]
 
+        self.proximity_sphere.radius = self._getProximitySphereRadius()
+
     def update(self, position, orientation, *args, **kwargs):
         self.bounding_objects['body'].position = np.asarray(position) + np.asarray(self.offset)
         self.bounding_objects['body'].orientation = orientation
+        self._calcProximitySphere()
 
     def _calcProximitySphere(self):
-        pass
+        self.proximity_sphere.radius = self._getProximitySphereRadius()
+        self.proximity_sphere.update(position=self.bounding_objects['body'].position)
+
+    def _getProximitySphereRadius(self):
+        return (np.sqrt(self.length**2 + self.width**2 + self.height**2)/2)*1.1
 
 
 class TankRobotSimObject(core.dynamics.DynamicWorldObject):
-    length: float
-    width: float
-    height: float
     spaces = TankRobotSpaces
 
     def __init__(self, *args, **kwargs):
         self.dynamics = EnvironmentDavid_Dynamics.TankRobot_Dynamics()
-        self.physics: TankRobotPhysicalObject = TankRobotPhysicalObject()
-        self.length = 0.157
-        self.width = 0.115
-        self.height = 0.052
+        self.physics: TankRobotPhysicalObject = TankRobotPhysicalObject(*args, **kwargs)
 
         super().__init__(*args, **kwargs, collision_check=True, collidable=True)
 

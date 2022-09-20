@@ -62,7 +62,7 @@ def example_representations():
     body2.update(position=[-0.8, 0, 0], orientation=rotmatFromEuler(angles=[0, 0, 0.9*math.pi/4], convention='xyz'))
 
     # Check for collision between the two bodies
-    collision = body1.collision(body2)
+    collision = body1.collisionCheck(body2)
     print(f"{collision=}")
 
     # Plot both bodies
