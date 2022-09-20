@@ -1,8 +1,23 @@
-test = [1,2]
+class Test:
+    def __init__(self, var= 5, var2 = 2434):
+        self.x = var
+        self.var2 = var2
+        print(self.x, self.var2)
 
-def timesTwo(x):
-    return x * 2
+
+class Test2(Test):
+    def __init__(self, *args, **kwargs):
+        test2 = kwargs
+        super().__init__(*args, **kwargs)
+
+
+class Test3(Test2):
+    def __init__(self, *args, **kwargs):
+        print(kwargs['var'])
+        test3 = kwargs
+
+        super().__init__(*args, **kwargs)
+
 
 if __name__ == '__main__':
-
-    print([2*x for x in test])
+    test = Test3(var2 = 39, var=1)

@@ -168,8 +168,19 @@ class PhysicalBody(ABC):
     bounding_objects: dict[str, ObjectPrimitive]
     proximity_sphere: SpherePrimitive
 
-    def __init__(self):
+    # collision params
+    collision_check: bool
+    collidable: bool
+    collision_includes: ['WorldObject']
+    collision_excludes: ['WorldObject']
+
+    def __init__(self, collision_includes: [] = None,
+                 collision_excludes: [] = None, collision_check: bool = False, collidable: bool = True):
         self.proximity_sphere = SpherePrimitive(radius=-1)
+        self.collision_includes = collision_includes
+        self.collision_excludes = collision_excludes
+        self.collision_check = collision_check
+        self.collidable = collidable
 
     # === METHODS ======================================================================================================
     def collision(self, other: 'PhysicalBody'):

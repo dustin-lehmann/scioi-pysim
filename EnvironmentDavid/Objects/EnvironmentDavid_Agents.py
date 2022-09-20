@@ -38,7 +38,8 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
         self.height = height
 
         self.bounding_objects = {
-            'body': core.physics.CuboidPrimitive(dimensions=[self.length, self.width, self.height], position=0,orientation=0)
+            'body': core.physics.CuboidPrimitive(dimensions=[self.length, self.width, self.height], position=0,
+                                                 orientation=0)
         }
 
         self.offset = [0, 0, self.height / 2]
@@ -57,14 +58,14 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
     height: float
     spaces = TankRobotSpaces
 
-    def __init__(self, *args, **kwargs, ):
+    def __init__(self, *args, **kwargs):
         self.dynamics = EnvironmentDavid_Dynamics.TankRobot_Dynamics()
         self.physics: TankRobotPhysicalObject = TankRobotPhysicalObject()
         self.length = 0.157
         self.width = 0.115
         self.height = 0.052
 
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs, collision_check=True, collidable=True)
 
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], 0],

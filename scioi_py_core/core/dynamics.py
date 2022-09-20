@@ -112,7 +112,8 @@ class DynamicWorldObject(WorldObject, ABC):
 
     # === INIT =========================================================================================================
     def __init__(self, name, world, *args, **kwargs):
-        super().__init__(name=name)
+        test = kwargs
+        super().__init__(*args, **kwargs, name=name)
 
         # Register the dynamics action in the World Dynamics Phase
         Action(name='dynamics', function=self.action_dynamics, object=self)

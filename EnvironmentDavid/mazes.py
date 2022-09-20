@@ -301,6 +301,8 @@ maze_left_vs = [
     ['h', 6, 12, 2]
 ]
 
+
+
 maze_right_vs = []
 for index, Obstacle in enumerate(maze_left_vs):
     orientation = maze_left_vs[index][0]

@@ -17,6 +17,13 @@ class WorldObject(scheduling.ScheduledObject):
     world: 'World'
     physics: physics.PhysicalBody
 
+    # collision params
+
+    # collision_check: bool
+    # collidable: bool
+    # collision_includes: ['WorldObject']
+    # collision_excludes: ['WorldObject']
+
     coordinate: spaces.State
     configuration: spaces.State
 
@@ -24,10 +31,16 @@ class WorldObject(scheduling.ScheduledObject):
     id: str  # Unique ID of the object in the corresponding world
 
     # === INIT =========================================================================================================
-    def __init__(self, name: str = None, world: 'World' = None):
+    def __init__(self, name: str = None, world: 'World' = None, collision_includes: [] = None,
+                 collision_excludes: [] = None, collision_check: bool = False, collidable: bool = True):
+        print(name)
         super().__init__()
         self.name = name
         self.world = world
+        # self.collision_includes = collision_includes
+        # self.collision_excludes = collision_excludes
+        # self.collision_check = collision_check
+        # self.collidable = collidable
         # self.configuration = None
 
         scheduling.Action(name='physics_update', function=self.action_physics_update,
@@ -83,7 +96,7 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
     def __init__(self, spaces: WorldSpaces, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.spaces = spaces
-        self.objects = {}
+        self.objects: WorldObject = {}
 
     # === METHODS ======================================================================================================
     def addObject(self, objects: Union[WorldObject, list]):
