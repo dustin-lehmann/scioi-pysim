@@ -246,13 +246,14 @@ class CuboidPhysics(PhysicalBody):
     def update(self, position, orientation, *args, **kwargs):
         self.bounding_objects['cuboid'].position = position
         self.bounding_objects['cuboid'].orientation = orientation
+        self._calcProximitySphere()
 
     def _calcProximitySphere(self):
         self.proximity_sphere.radius = self._getProximitySphereRadius()
         self.proximity_sphere.position = self.bounding_objects['cuboid'].position
 
     def _getProximitySphereRadius(self):
-        return self.bounding_objects['cuboid'].getDiagonal()/2 * 1.1
+        return self.bounding_objects['cuboid'].getDiagonal()/2*1.1
 
 
 
