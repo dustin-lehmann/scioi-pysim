@@ -4,6 +4,8 @@ import re
 from abc import ABC, abstractmethod
 from typing import Union
 
+import union as union
+
 from ..core import spaces as spaces
 from ..core import physics as physics
 from ..core import scheduling as scheduling
@@ -16,8 +18,9 @@ from ..core import scheduling as scheduling
 class CollisionSettings:
     check: bool = False
     collidable: bool = True
-    includes: ['WorldObject'] = dataclasses.field(default_factory=lambda: [WorldObject])
-    excludes: ['WorldObject'] = dataclasses.field(default_factory=list)
+    _includes: ['WorldObject'] = dataclasses.field(default_factory=lambda: [WorldObject])
+    _excludes: ['WorldObject'] = dataclasses.field(default_factory=list)
+
 
 
 @dataclasses.dataclass
@@ -51,11 +54,9 @@ class WorldObject(scheduling.ScheduledObject):
         self.collision.settings.check = collision_check
         self.collision.settings.collidable = collidable
         if collision_includes is not None:
-            self.collision.settings.includes = collision_includes
+            self.collision.settings._includes = collision_includes
         if collision_excludes is not None:
-            self.collision.settings.excludes = collision_excludes
-
-        # self.configuration = None
+            self.collision.settings._excludes = collision_excludes
 
         scheduling.Action(name='physics_update', function=self.action_physics_update,
                           lambdas={'config': lambda: self.configuration}, object=self)
@@ -65,6 +66,7 @@ class WorldObject(scheduling.ScheduledObject):
                 world.addObject(self)
 
     # === PROPERTIES ===================================================================================================
+
     @property
     def coordinate(self):
         return self.world.spaces.coordinate_space.map(self.configuration)
@@ -217,11 +219,10 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
                         if collision_object.collision.settings.collidable:
                             # Check if the object is in the include list
                             if any(isinstance(collision_object, include_class) for include_class in
-                                   obj.collision.settings.includes):
+                                   obj.collision.settings._includes):
                                 # Check if the object is not in the exclude list
                                 if not (any(isinstance(collision_object, exclude_class) for exclude_class in
-                                            obj.collision.settings.excludes)):
-                                    print('hi')
+                                            obj.collision.settings._excludes)):
                                     # do proximity sphere check
                                     if obj.physics.collisionCheck(collision_object.physics):
                                         print('collision')

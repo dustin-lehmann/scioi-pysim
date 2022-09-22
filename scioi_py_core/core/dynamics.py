@@ -105,14 +105,12 @@ class DynamicWorldObjectSpaces:
     config_space: sp.Space = None
     map_statespace_to_configspace: sp.Mapping = None
 
-
 class DynamicWorldObject(WorldObject, ABC):
     dynamics: Dynamics
     spaces: DynamicWorldObjectSpaces
 
     # === INIT =========================================================================================================
     def __init__(self, name, world, *args, **kwargs):
-        test = kwargs
         super().__init__(*args, **kwargs, name=name)
 
         # Register the dynamics action in the World Dynamics Phase

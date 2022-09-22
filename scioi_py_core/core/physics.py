@@ -24,7 +24,7 @@ class ObjectPrimitive(ABC):
 
 # ----------------------------------------------------------------------------------------------------------------------
 def collisionCuboidCuboid(cuboid1: 'CuboidPrimitive', cuboid2: 'CuboidPrimitive'):
-    return False
+    return True
 
 
 def collisionCuboidSphere(cuboid: 'CuboidPrimitive', sphere: 'SpherePrimitive'):

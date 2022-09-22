@@ -3,7 +3,7 @@ from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject, TankRobotPhysicalObject
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
 from EnvironmentDavid.baseline.baseline_environment import BayblonVisualization
-from scioi_py_core.core.obstacles import  SimpleXYZRObstacle
+from scioi_py_core.core.obstacles import SimpleXYZRObstacle
 from EnvironmentDavid.mazes import maze_coop2
 import time
 
@@ -53,13 +53,11 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
 
 def main():
     env = EnvironmentDavid_thisExample(Ts=0.04)
-    agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
-    obstacle1 = SimpleXYZRObstacle(length = 100, width=100, height= 100, position=[0,0,0], world = env.world)
+    agent1 = TankRobotSimObject(name='Agent 1', world=env.world, collision_excludes= [SimpleXYZRObstacle])
+    obstacle1 = SimpleXYZRObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], world=env.world)
 
     env.agent1 = agent1
     env.obstacle1 = obstacle1
-
-
 
     # env.init(calltree=False)
     env.init()

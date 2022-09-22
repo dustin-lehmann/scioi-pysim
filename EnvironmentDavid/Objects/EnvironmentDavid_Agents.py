@@ -65,7 +65,6 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
     def __init__(self, *args, **kwargs):
         self.dynamics = EnvironmentDavid_Dynamics.TankRobot_Dynamics()
         self.physics: TankRobotPhysicalObject = TankRobotPhysicalObject(*args, **kwargs)
-
         super().__init__(*args, **kwargs, collision_check=True, collidable=True)
 
     def action_physics_update(self, config, *args, **kwargs):
