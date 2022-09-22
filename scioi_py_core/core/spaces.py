@@ -100,6 +100,12 @@ class Space:
     def ones(self):
         return State(space=self, value=np.ones(self.dof))
 
+    def none(self):
+        out = State(space=self)
+        for dim in self.dimensions:
+            out[dim.name] = None
+        return out
+
     # ------------------------------------------------------------------------------------------------------------------
     def map(self, state, force=True):
 

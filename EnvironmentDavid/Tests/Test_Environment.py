@@ -54,10 +54,10 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
 def main():
     env = EnvironmentDavid_thisExample(Ts=0.04)
     agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
-    obstacle1 = SimpleXYZRObstacle(length = 100, width=100, height= 100, position=0, world = env.world)
+    obstacle1 = SimpleXYZRObstacle(length = 100, width=100, height= 100, position=[0,0,0], world = env.world)
 
     env.agent1 = agent1
-    # env.obstacle1 = obstacle1
+    env.obstacle1 = obstacle1
 
 
 

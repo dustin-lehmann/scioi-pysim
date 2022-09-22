@@ -136,8 +136,8 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
             obj.world = self
 
             # Initialize the configuration and coordinate if not already done
-            # if not (hasattr(obj, 'configuration')) or obj.configuration is None:
-            #     obj.configuration = self.spaces.configuration_space.zeros()
+            if not (hasattr(obj, 'configuration')) or obj.configuration is None:
+                obj.configuration = self.spaces.configuration_space.none()
 
             # Give the object an id
             obj.id = f"{type(obj)}_{id(obj)}"

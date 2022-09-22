@@ -31,6 +31,11 @@ class SimpleXYZRObstacle(Obstacle):
     def __init__(self, length, width, height, position, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        self.configuration['x'] = position[0]
+        self.configuration['y'] = position[1]
+        self.configuration['z'] = position[2]
+        self.configuration['rot'] = np.eye(3)
+
         self.physics = core.physics.CuboidPhysics(length=length, width=width, height=height, position=position,
                                                   orientation=np.eye(3))
 
