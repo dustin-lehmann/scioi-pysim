@@ -208,11 +208,12 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
         """
         # loop through dict of alle the objects within testbed (real and simulated)
         for key, obj in self.objects.items():
-            # collision check is supposed to be done
+            # is a collision check to be done for this object?
             if obj.collision.settings.check:
                 for _, collision_object in self.objects.items():
+                    # don't check with the object itself
                     if collision_object is not obj:
-                        # check if object even is collidable
+                        # check if the other object even is collidable
                         if collision_object.collision.settings.collidable:
                             # Check if the object is in the include list
                             if any(isinstance(collision_object, include_class) for include_class in
@@ -220,9 +221,10 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
                                 # Check if the object is not in the exclude list
                                 if not (any(isinstance(collision_object, exclude_class) for exclude_class in
                                             obj.collision.settings.excludes)):
-                                    # do sphere check
-                                    print('add sphere check!')
-                                    ...
+                                    print('hi')
+                                    # do proximity sphere check
+                                    if obj.physics.collisionCheck(collision_object.physics):
+                                        print('collision')
 
     def _init(self):
         pass

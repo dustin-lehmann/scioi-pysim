@@ -6,7 +6,7 @@ import time
 import numpy as np
 from EnvironmentDavid.baseline.robot_simulation import RobotSimulation
 from scioi_py_core.utils.joystick.joystick_manager import Joystick
-from scioi_py_core.core.collision import Box
+from scioi_py_core.core.collisionCuboidCuboid import Box
 
 
 # class Box:

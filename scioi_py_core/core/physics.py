@@ -28,6 +28,7 @@ def collisionCuboidCuboid(cuboid1: 'CuboidPrimitive', cuboid2: 'CuboidPrimitive'
 
 
 def collisionCuboidSphere(cuboid: 'CuboidPrimitive', sphere: 'SpherePrimitive'):
+    print('the collision of cuboid and spehre has not been implemented yet! ')
     pass
 
 
@@ -195,7 +196,7 @@ class PhysicalBody(ABC):
 
     # === METHODS ======================================================================================================
     def collisionCheck(self, other: 'PhysicalBody'):
-        # Check if the two physical objects are close enough to collide
+        # Check if the two physical objects are close enough to collide by doing a proximity sphere check
         if self.proximity_sphere.radius > 0 and other.proximity_sphere.radius > 0 and \
                 not self.proximity_sphere.collision(other.proximity_sphere):
             return False

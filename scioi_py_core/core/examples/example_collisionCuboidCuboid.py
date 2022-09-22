@@ -1,5 +1,5 @@
 import math
-from scioi_py_core.core.collision import Box
+from scioi_py_core.core.collisionCuboidCuboid import Box
 from scioi_py_core.utils.plot import CubePlotBox, plot_points, plot_3d_vectors
 from matplotlib import pyplot as plt
 
