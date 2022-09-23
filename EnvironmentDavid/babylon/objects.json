@@ -1,20 +1,6 @@
 {
   "obstacles": {},
-  "robots": {
-    "0": {
-      "id": 0,
-      "position": [
-        0,
-        0,
-        0
-      ],
-      "length": 0.157,
-      "width": 0.115,
-      "height": 0.052,
-      "psi": 0.0,
-      "name": "robot0"
-    }
-  },
+  "robots": {},
   "areas": {},
   "floor": {
     "Floor_0_0": {

@@ -4,7 +4,6 @@ import re
 from abc import ABC, abstractmethod
 from typing import Union
 
-import union as union
 
 from ..core import spaces as spaces
 from ..core import physics as physics

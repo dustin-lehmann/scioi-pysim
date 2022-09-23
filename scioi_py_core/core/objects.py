@@ -641,6 +641,84 @@ class VisulizationEnvironment:
 
         return json.dumps(json_dict, indent=2)
 
+    def toJsonV2(self, file=None):
+        json_dict = {
+            'obstacles': {},
+            'robots': {},
+            'areas': {},
+            'floor': {},
+            'walls': {},
+            'switches': {},
+            'doors': {},
+            'goals': {}
+        }
+        for idx, wall in enumerate(self.walls):
+            wall_name = f"Wall_{idx}"
+            wall.name = wall_name
+            wall_dict = {
+                'center_x': wall.center[0],
+                'center_y': wall.center[1],
+                'psi': wall.psi,
+                'width': wall.size_x,
+                'length': wall.size_y,
+                'height': wall.height,
+                'state': wall.wall_state,
+                # 'visible': wall.visible,
+                'visible': True,  # todo: remove
+                'type': 'Wall'
+            }
+            json_dict['walls'][wall_name] = wall_dict
+
+        for idx, obstacle in enumerate(self.obstacles):
+            obstacle_name = f"Obstacle_{idx}"
+            obstacle.name = obstacle_name
+            obstacle_dict = {
+                'center_x': obstacle.center[0],
+                'center_y': obstacle.center[1],
+                'psi': obstacle.psi,
+                'width': obstacle.size_x,
+                'length': obstacle.size_y,
+                'height': obstacle.height,
+                'type': 'Obstacle'
+            }
+            json_dict['obstacles'][obstacle_name] = obstacle_dict
+
+        for name, tile in self.floortiles.items():
+            tile_dict = {
+                'center_x': tile.center[0],
+                'center_y': tile.center[1],
+                'psi': tile.psi,
+                'width': tile.size_x,
+                'length': tile.size_y,
+                'height': tile.height,
+                'type': 'Floor'
+            }
+            json_dict['floor'][name] = tile_dict
+
+        for idx, robot in enumerate(self.robot_list):
+            orientation_test = robot.physics.bounding_objects['body'].orientation
+            robot_name = f"{idx}"
+            robot_dict = {
+                'id': 0,
+                'position': list(robot.physics.bounding_objects['body'].position),
+                'length': robot.physics.length,
+                'width': robot.physics.width,
+                'height': robot.physics.height,
+                'psi': psiFromRotMat(robot.configuration['rot']),
+                'name': f'robot{robot_name}'
+            }
+            json_dict['robots'][robot_name] = robot_dict
+
+        if file is not None:
+            try:
+                with open(file, 'x') as outfile:
+                    json.dump(json_dict, outfile, indent=2)
+            except FileExistsError:
+                with open(file, 'w') as outfile:
+                    json.dump(json_dict, outfile, indent=2)
+
+        return json.dumps(json_dict, indent=2)
+
     @property
     def tile_size(self):
         return self.size_x / self.tiles_x

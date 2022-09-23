@@ -12,6 +12,12 @@ var switches = {}
 
 var goals = {}
 
+class createBoxFromJson {
+    constructor(json_dict)
+    {
+        pass
+    }
+}
 
 class createBoxObject {
     constructor(scene, length, width, height, center_x, center_z, psi,type)
