@@ -12,6 +12,8 @@ var switches = {}
 
 var goals = {}
 
+var all_objects= {}
+
 class createBoxFromJson {
     constructor(json_dict)
     {
@@ -29,6 +31,7 @@ class createBoxObject {
     }
 }
 
+// this function transforms input coordinates to babylon coordinates
 function ToBabylon(coordinates) {
     // return new BABYLON.Vector3(coordinates[0], -coordinates[2], coordinates[1])
     return new BABYLON.Vector3(coordinates[0], coordinates[2], -coordinates[1])
@@ -613,6 +616,7 @@ class LNDW_scene_simple extends Scene {
         });
 
         $.getJSON("objects.json", function(json) {
+            all_objects = json
             obstacles = json['obstacles']
             robots = json['robots']
             floor_tiles = json['floor']
@@ -622,6 +626,7 @@ class LNDW_scene_simple extends Scene {
             switches = json['switches']
             goals = json['goals']
         });
+        console.log(all_objects)
         this.drawCoordinateSystem()
         this.buildEnvironment();
 
@@ -629,9 +634,7 @@ class LNDW_scene_simple extends Scene {
     }
 
     buildEnvironment() {
-        // Obstacles
-        console.log(walls)
-        for (const [key, value] of Object.entries(walls)) {
+         for (const [key, value] of Object.entries(walls)) {
             value['babylon'] = new Wall(this.scene,
                 value["length"]*1000,
                 value["width"]*1000,
@@ -640,54 +643,67 @@ class LNDW_scene_simple extends Scene {
                 value["center_y"]*1000,
                 value["psi"],
                 value["visible"])
-            // this.shadowGenerator.addShadowCaster(value['babylon'].body)
-        }
-        // Floor
-        for (const [key, value] of Object.entries(floor_tiles)) {
-            value['babylon'] = new FloorTile(this.scene,
-                value['length']*1000,
-                value['width']*1000,
-                value['height'],
-                [value['center_x']*1000, value['center_y']*1000,0])
         }
 
-        // Robots
-        for (const [key, value] of Object.entries(robots)) {
-            value['babylon'] = new Robot(this.scene,
-                value['id'],
-                key,
-                value['length']*1000,
-                value['width']*1000,
-                value['height'],
-                value['position']*1000,
-                value['psi'],
-                this.shadowGenerator)
-        }
-        // Doors
-        for (const [key, value] of Object.entries(doors)) {
-            value['babylon'] = new Door(this.scene,
-            value['position'],
-            value['psi'],
-            value['length'],
-            value['circuit'],
-            value['visible']
-            )
-        }
-        // Switches
-        for (const [key, value] of Object.entries(switches)) {
-            value['babylon'] = new DoorSwitch(this.scene,
-            value['position'],
-            value['circuit'],
-            )
-        }
-        // Goals
-        for (const [key, value] of Object.entries(goals)) {
-            value['babylon'] = new Goal(this.scene,
-            value['position'],
-            value['size'],
-            value['visible'],
-            )
-        }
+        // // Obstacles
+        // // console.log(walls)
+        // for (const [key, value] of Object.entries(walls)) {
+        //     value['babylon'] = new Wall(this.scene,
+        //         value["length"]*1000,
+        //         value["width"]*1000,
+        //         value["height"],
+        //         value["center_x"]*1000,
+        //         value["center_y"]*1000,
+        //         value["psi"],
+        //         value["visible"])
+        //     // this.shadowGenerator.addShadowCaster(value['babylon'].body)
+        // }
+        // // Floor
+        // for (const [key, value] of Object.entries(floor_tiles)) {
+        //     value['babylon'] = new FloorTile(this.scene,
+        //         value['length']*1000,
+        //         value['width']*1000,
+        //         value['height'],
+        //         [value['center_x']*1000, value['center_y']*1000,0])
+        // }
+        //
+        // // Robots
+        // for (const [key, value] of Object.entries(robots)) {
+        //     value['babylon'] = new Robot(this.scene,
+        //         value['id'],
+        //         key,
+        //         value['length']*1000,
+        //         value['width']*1000,
+        //         value['height'],
+        //         value['position']*1000,
+        //         value['psi'],
+        //         this.shadowGenerator)
+        // }
+        // // Doors
+        // for (const [key, value] of Object.entries(doors)) {
+        //     value['babylon'] = new Door(this.scene,
+        //     value['position'],
+        //     value['psi'],
+        //     value['length'],
+        //     value['circuit'],
+        //     value['visible']
+        //     )
+        // }
+        // // Switches
+        // for (const [key, value] of Object.entries(switches)) {
+        //     value['babylon'] = new DoorSwitch(this.scene,
+        //     value['position'],
+        //     value['circuit'],
+        //     )
+        // }
+        // // Goals
+        // for (const [key, value] of Object.entries(goals)) {
+        //     value['babylon'] = new Goal(this.scene,
+        //     value['position'],
+        //     value['size'],
+        //     value['visible'],
+        //     )
+        // }
     }
 
     drawCoordinateSystem() {
@@ -723,48 +739,48 @@ class LNDW_scene_simple extends Scene {
 
     onSample(sample) {
 
-        this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
-        // Robot
-        var robot_data = sample['robots']
-        for (const [key, value] of Object.entries(robot_data)) {
-            if (key in robots) {
-                console.log(robots[key])
-                robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
-                robots[key]['babylon'].setCollision(value['collision'])
-            }
-        }
-
-        var floor_data = sample['floor']
-        for (const [key, value] of Object.entries(floor_data)) {
-            if (key in floor_tiles) {
-                floor_tiles[key]['babylon'].highlight(value['highlight'], value['discoverer'])
-            }
-        }
-
-        var wall_data = sample['walls']
-        for (const [key, value] of Object.entries(wall_data)) {
-            if (key in walls) {
-                walls[key]['babylon'].setVisibility(value['visible'])
-            }
-        }
-        var switch_data = sample['switches']
-        for (const [key, value] of Object.entries(switch_data)) {
-            if (key in switches) {
-                switches[key]['babylon'].pressed(value['state'])
-            }
-        }
-        var door_data = sample['doors']
-        for (const [key, value] of Object.entries(door_data)) {
-            if (key in doors) {
-                doors[key]['babylon'].open(value['state'])
-                doors[key]['babylon'].setVisibility(value['visible'])
-            }
-        }
-        var goal_data = sample['goals']
-        for (const [key, value] of Object.entries(goal_data)) {
-            if (key in goals) {
-                goals[key]['babylon'].setVisibility(value['visible'])
-            }
-        }
+    //     this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
+    //     // Robot
+    //     var robot_data = sample['robots']
+    //     for (const [key, value] of Object.entries(robot_data)) {
+    //         if (key in robots) {
+    //             console.log(robots[key])
+    //             robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
+    //             robots[key]['babylon'].setCollision(value['collision'])
+    //         }
+    //     }
+    //
+    //     var floor_data = sample['floor']
+    //     for (const [key, value] of Object.entries(floor_data)) {
+    //         if (key in floor_tiles) {
+    //             floor_tiles[key]['babylon'].highlight(value['highlight'], value['discoverer'])
+    //         }
+    //     }
+    //
+    //     var wall_data = sample['walls']
+    //     for (const [key, value] of Object.entries(wall_data)) {
+    //         if (key in walls) {
+    //             walls[key]['babylon'].setVisibility(value['visible'])
+    //         }
+    //     }
+    //     var switch_data = sample['switches']
+    //     for (const [key, value] of Object.entries(switch_data)) {
+    //         if (key in switches) {
+    //             switches[key]['babylon'].pressed(value['state'])
+    //         }
+    //     }
+    //     var door_data = sample['doors']
+    //     for (const [key, value] of Object.entries(door_data)) {
+    //         if (key in doors) {
+    //             doors[key]['babylon'].open(value['state'])
+    //             doors[key]['babylon'].setVisibility(value['visible'])
+    //         }
+    //     }
+    //     var goal_data = sample['goals']
+    //     for (const [key, value] of Object.entries(goal_data)) {
+    //         if (key in goals) {
+    //             goals[key]['babylon'].setVisibility(value['visible'])
+    //         }
+    //     }
     }
 }
