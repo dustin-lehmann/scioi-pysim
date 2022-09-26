@@ -1,23 +1,35 @@
 //import Data from "./data";
 
 var robots = {}
-var obstacles = {}
-var floor_tiles = {}
-var areas = {}
-var walls = {}
+var environment_objects= {}
 
-var doors = {}
-
-var switches = {}
-
-var goals = {}
-
-var all_objects= {}
-
+// function to create all the different objects in the visualization except for the robots
 class createBoxFromJson {
-    constructor(json_dict)
-    {
-        pass
+    constructor(scene, length, width, height, center_x, center_z, psi, visible) {
+        this.scene = scene;
+        this.visible=visible
+        this.body = BABYLON.MeshBuilder.CreateBox('box', {height: height, width: width, depth: length}, scene);
+        this.body.rotation.y = psi
+
+        this.body.position = ToBabylon([center_x, center_z, height/2])
+
+        let texture= "./twipr_models/textures/dark.png";
+        this.material = new BABYLON.StandardMaterial(this.scene);
+        this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
+        this.material.diffuseTexture.uScale = 0.5
+        this.material.diffuseTexture.vScale = 0.5
+        this.material.specularColor = new BABYLON.Color3(0,0,0)
+
+
+        this.body.material = this.material
+
+        this.setVisibility(this.visible)
+        console.log('creating box from json')
+
+        return this;
+    }
+    setVisibility(state){
+        this.body.visibility = state
     }
 }
 
@@ -112,9 +124,6 @@ class Wall {
         this.body.rotation.y = psi
 
         this.body.position = ToBabylon([center_x, center_z, height/2])
-
-
-        // this.collision_box_frame = new CollisionBoxFrame(this.scene)
 
         let texture= "./twipr_models/textures/dark.png";
         this.material = new BABYLON.StandardMaterial(this.scene);
@@ -236,8 +245,6 @@ class ObstacleBox {
         this.body.visibility = visibility
     }
 }
-
-
 
 class Door {
     constructor(scene, position, psi, length, id, visible) {
@@ -616,17 +623,10 @@ class LNDW_scene_simple extends Scene {
         });
 
         $.getJSON("objects.json", function(json) {
-            all_objects = json
-            obstacles = json['obstacles']
+            environment_objects = json['environment']
             robots = json['robots']
-            floor_tiles = json['floor']
-            areas = json['areas']
-            walls = json['walls']
-            doors = json['doors']
-            switches = json['switches']
-            goals = json['goals']
         });
-        console.log(all_objects)
+
         this.drawCoordinateSystem()
         this.buildEnvironment();
 
@@ -634,76 +634,34 @@ class LNDW_scene_simple extends Scene {
     }
 
     buildEnvironment() {
-         for (const [key, value] of Object.entries(walls)) {
-            value['babylon'] = new Wall(this.scene,
+        // console.log(environment_objects)
+         for (const [key, value] of Object.entries(environment_objects)) {
+            value['babylon'] = new createBoxFromJson(this.scene,
                 value["length"]*1000,
                 value["width"]*1000,
                 value["height"],
                 value["center_x"]*1000,
                 value["center_y"]*1000,
                 value["psi"],
-                value["visible"])
+                // value["visible"]
+                1
+            )
+             // console.log(value['type'])
+             }
+
+        // Robots
+        for (const [key, value] of Object.entries(robots)) {
+            value['babylon'] = new Robot(this.scene,
+                value['id'],
+                key,
+                value['length']*1000,
+                value['width']*1000,
+                value['height'],
+                value['position']*1000,
+                value['psi'],
+                this.shadowGenerator)
         }
 
-        // // Obstacles
-        // // console.log(walls)
-        // for (const [key, value] of Object.entries(walls)) {
-        //     value['babylon'] = new Wall(this.scene,
-        //         value["length"]*1000,
-        //         value["width"]*1000,
-        //         value["height"],
-        //         value["center_x"]*1000,
-        //         value["center_y"]*1000,
-        //         value["psi"],
-        //         value["visible"])
-        //     // this.shadowGenerator.addShadowCaster(value['babylon'].body)
-        // }
-        // // Floor
-        // for (const [key, value] of Object.entries(floor_tiles)) {
-        //     value['babylon'] = new FloorTile(this.scene,
-        //         value['length']*1000,
-        //         value['width']*1000,
-        //         value['height'],
-        //         [value['center_x']*1000, value['center_y']*1000,0])
-        // }
-        //
-        // // Robots
-        // for (const [key, value] of Object.entries(robots)) {
-        //     value['babylon'] = new Robot(this.scene,
-        //         value['id'],
-        //         key,
-        //         value['length']*1000,
-        //         value['width']*1000,
-        //         value['height'],
-        //         value['position']*1000,
-        //         value['psi'],
-        //         this.shadowGenerator)
-        // }
-        // // Doors
-        // for (const [key, value] of Object.entries(doors)) {
-        //     value['babylon'] = new Door(this.scene,
-        //     value['position'],
-        //     value['psi'],
-        //     value['length'],
-        //     value['circuit'],
-        //     value['visible']
-        //     )
-        // }
-        // // Switches
-        // for (const [key, value] of Object.entries(switches)) {
-        //     value['babylon'] = new DoorSwitch(this.scene,
-        //     value['position'],
-        //     value['circuit'],
-        //     )
-        // }
-        // // Goals
-        // for (const [key, value] of Object.entries(goals)) {
-        //     value['babylon'] = new Goal(this.scene,
-        //     value['position'],
-        //     value['size'],
-        //     value['visible'],
-        //     )
-        // }
     }
 
     drawCoordinateSystem() {

@@ -29,3 +29,20 @@ class SimpleXYZRObstacle(Obstacle):
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],
                             orientation=np.eye(3))
+
+
+class BabylonObstacle(SimpleXYZRObstacle):
+    texture: str = ''
+    def __init__(self, length, width, height, position, *args, **kwargs):
+        super().__init__(self, length, width, height, position, *args, **kwargs)
+
+
+class Walls(SimpleXYZRObstacle):
+    texture: str = ''
+    def __init__(self, length, width, height, position, *args, **kwargs):
+        super().__init__(self, length, width, height, position, *args, **kwargs)
+
+class Floor(SimpleXYZRObstacle):
+    texture: str = ''
+    def __init__(self, length, width, height, position, *args, **kwargs):
+        super().__init__(self, length, width, height, position, *args, **kwargs)
