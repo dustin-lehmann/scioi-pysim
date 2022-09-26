@@ -496,7 +496,8 @@ class VisulizationEnvironment:
     obstacles: list[ObstacleBox]
 
     walls: list[Wall]
-    floortiles: dict[str, Box]
+    # floortiles: dict[str, Box]
+    floortiles: list[FloorTile]
     # robots: dict[str, BabylonRobot]
     robot_list: list[TankRobotPhysicalObject or TankRobotSimObject]
     areas: dict[str, AreaBox]
@@ -518,6 +519,7 @@ class VisulizationEnvironment:
         self.obstacles = []
         self.cells = []
         self.walls = []
+        self.floortiles = []
         # self.robots: BabylonRobot = []
         self.robot_list = []
         self.switches = {}
@@ -528,8 +530,8 @@ class VisulizationEnvironment:
             for y in range(0, self.tiles_y):
                 self.cells.append(Cell(x=x, y=y))
 
-        self.generateBorders()
-        self.floortiles = self.generateFloor()
+        # self.generateBorders()
+        # self.floortiles = self.generateFloor()
 
         self.start_time = time.time()
 
@@ -599,17 +601,18 @@ class VisulizationEnvironment:
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 
-        for name, tile in self.floortiles.items():
-            tile_dict = {
-                'center_x': tile.center[0],
-                'center_y': tile.center[1],
-                'psi': tile.psi,
-                'width': tile.size_x,
-                'length': tile.size_y,
-                'height': tile.height,
-                'type': 'Floor'
-            }
-            json_dict['environment'][name] = tile_dict
+        #todo: change to list!
+        # for name, tile in self.floortiles.items():
+        #     tile_dict = {
+        #         'center_x': tile.center[0],
+        #         'center_y': tile.center[1],
+        #         'psi': tile.psi,
+        #         'width': tile.size_x,
+        #         'length': tile.size_y,
+        #         'height': tile.height,
+        #         'type': 'Floor'
+        #     }
+        #     json_dict['environment'][name] = tile_dict
 
         for idx, robot in enumerate(self.robot_list):
             orientation_test = robot.physics.bounding_objects['body'].orientation

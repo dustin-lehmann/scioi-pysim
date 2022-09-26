@@ -2,7 +2,7 @@ import asyncio
 import time
 
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
-from scioi_py_core.core.objects import VisulizationEnvironment, ObstacleBox, BabylonRobot, AreaBox, Door, Switch, Goal
+from EnvironmentDavid.babylon_core.babylon_objects import VisulizationEnvironment
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotPhysicalObject, TankRobotSimObject
 import threading
 

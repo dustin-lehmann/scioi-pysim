@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Test:
     def __init__(self, var= 5, var2 = 2434):
         self.x = var
@@ -20,4 +23,4 @@ class Test3(Test2):
 
 
 if __name__ == '__main__':
-    test = Test3(var2 = 39, var=1)
+    orientation=np.eye(3)
