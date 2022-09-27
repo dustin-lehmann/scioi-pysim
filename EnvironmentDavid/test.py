@@ -1,35 +1,33 @@
-import logging
-import math
-
-from scioi_py_core import core as core
-
-from Objects import EnvironmentDavid_World, EnvironmentDavid_Dynamics, EnvironmentDavid_Agents
-
-logging.basicConfig(
-    format='%(asctime)s.%(msecs)03d  %(levelname)-8s  %(message)s',
-    level=logging.INFO,
-    datefmt='%Y-%m-%d %H:%M:%S')
+import numpy as np
 
 
-def main():
-    world = EnvironmentDavid_World.DynamicWorld_XYZR_Simple(name='Testworld')
+class A:
+    def __init__(self, a=0, **kwargs):
+        super().__init__()
+        print(a)
 
-    agent1 = EnvironmentDavid_Agents.TankRobotSimObject(name='Agent 1', world=world)
-    agent2 = EnvironmentDavid_Agents.TankRobotSimObject(name='Agent 2', world=world)
 
-    agent1.dynamics.input = [1, 1]
-    agent2.dynamics.input = [3, -1]
+class B(A):
+    def __init__(self, b, *args, **kwargs):
+        self.a = b
+        super().__init__(*args, **kwargs)
+        print(b)
 
-    for i in range(0, 30):
-        world.scheduling.actions['dynamics']()
-        world.scheduling.actions['physics_update']()
-        print(agent1.dynamics.state)
-        print(agent2.dynamics.state)
 
-    # print(agent1.physics.collision(agent2.physics))
-    #
-    core.physics.PhysicsDebugPlot(representations=[agent1.physics, agent2.physics], limits={'x': [-1, 1], 'y': [-1, 1]})
+class C(A):
+    def __init__(self, c, *args, **kwargs):
+        self.a = c
+        super().__init__(**kwargs)
+
+        print(c)
+
+
+
+class D(C, B):
+    def __init__(self,d, **kwargs):
+        super().__init__(**kwargs)
+        print(d)
 
 
 if __name__ == '__main__':
-    main()
+    d = D(a=1, b=2, c=3, d=4)

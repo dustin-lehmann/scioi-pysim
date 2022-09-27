@@ -18,7 +18,7 @@ class EnvironmentDavid(core.environment.Environment):
         # babylon environment for visualization
         self.babylon_env = BayblonVisualization()
         self.name = 'Environment'
-        print('hier')
+
 
         # Actions
         core.scheduling.Action(name='input', object=self, priority=0, parent=self.action_step,

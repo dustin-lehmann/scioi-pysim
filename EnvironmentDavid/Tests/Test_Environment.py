@@ -2,7 +2,7 @@ import scioi_py_core.core as core
 from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject, TankRobotPhysicalObject
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
-from scioi_py_core.core.obstacles import SimpleXYZRObstacle, BabylonObstacle
+from scioi_py_core.core.obstacles import BabylonObstacle, SimpleXYZRObstacle
 from EnvironmentDavid.mazes import maze_coop2
 import time
 
@@ -13,7 +13,7 @@ mapping_turn = 9
 
 class EnvironmentDavid_thisExample(EnvironmentDavid):
     agent1: TankRobotSimObject
-    Obstacle1: SimpleXYZRObstacle
+    Obstacle1: BabylonObstacle
     agent2: TankRobotSimObject
 
     def __init__(self, *args, **kwargs):
@@ -21,7 +21,7 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
 
         self.agent1 = None
         self.agent2 = None
-        self.obstacle1 = None
+        # self.obstacle1 = None
 
     def action_controller(self, *args, **kwargs):
         super().action_controller(*args, **kwargs)
@@ -49,8 +49,8 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
 def main():
     env = EnvironmentDavid_thisExample(Ts=0.04)
     agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
-    # obstacle1 = BabylonObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], world=env.world)
-    obstacle1 = SimpleXYZRObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], world=env.world)
+    obstacle1 = BabylonObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], world=env.world, babylon_env = env.babylon_env)
+    # obstacle1 = SimpleXYZRObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], world=env.world)
 
 
     env.agent1 = agent1

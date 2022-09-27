@@ -4,7 +4,7 @@ import numpy as np
 
 import scioi_py_core.core as core
 
-from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid
+from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid, BayblonVisualization
 
 
 class Obstacle(core.world.WorldObject, ABC):
@@ -20,7 +20,7 @@ class SimpleXYZRObstacle(Obstacle):
     """
     physics: core.physics.CuboidPhysics
 
-    def __init__(self, length, width, height, position, *args, **kwargs):
+    def __init__(self, length:float, width:float, height:float, position, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.configuration['x'] = position[0]
@@ -37,41 +37,48 @@ class SimpleXYZRObstacle(Obstacle):
 
 
 # ----------------------------------------------- Babylon Objects ------------------------------------------------------
-class BabylonObject(ABC):
+class BabylonObject():
     """
     - class used whenever the object is supposed to be displayed in Babylon
     - adds itself depending on the object type to the list according to its type
-    - contains the name of the texture file used for the object
+    - contains the name of the texture file used for the object, default is the dark texture
     """
 
-    def __init__(self, world: EnvironmentDavid, texture_file: str = 'dark'):
+    def __init__(self, babylon_list: list, texture_file: str = 'dark'):
         print('initializing Babylon Object')
-        assert isinstance(world, EnvironmentDavid)
-        # environment where object is supposed to be displayed
-        self.babylon_env = world.babylon_env
         # texture the object is supposed to have
         self.texture_file = texture_file
+        # list with the right kind of objects
+        self.babylon_list = None
         # add the object to the babylon env list
-        self.add_to_babylon_list()
+        self._add_to_babylon_list()
 
-    @abstractmethod
-    def add_to_babylon_list(self):
+    def _add_to_babylon_list(self, babylon_list, texture=None):
         """
         adds the object to the correspondant list of the babylon environment, has to be defined for each type of object
         """
-        pass
+        if self.babylon_list is not None:
+            self.babylon_list.append()
+
+        else:
+            raise Exception('no babylon list to add object to!')
 
 
 class BabylonObstacle(SimpleXYZRObstacle, BabylonObject):
     """
     Obstacle class for obstacles that are supposed to be displayed in Babylon
     """
+    # list of babylon environment
+    babylon_list: list
+    # filepath for texture in babylon visualizatiobn
+    texture_path: str
 
-    def __init__(self, length, width, height, position, *args, **kwargs):
-        super().__init__(self, length, width, height, position, *args, **kwargs)
-
-    def add_to_babylon_list(self):
-        self.babylon_env.obstacles.append(self)
+    def __init__(self, babylon_env: BayblonVisualization , *args, **kwargs):
+        # set babylon list to list of obstacles
+        self.babylon_list = babylon_env.obstacles
+        # set the texture for obsatcles # todo
+        self.texture = None
+        super().__init__(babylon_list=self.babylon_list, texture_file=self.texture, *args, **kwargs)
 
 
 class BabylonWall(BabylonObstacle):
