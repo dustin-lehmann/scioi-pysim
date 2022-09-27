@@ -220,7 +220,7 @@ class BabylonRobot:
 
     joystick: Joystick
 
-    env: 'VisulizationEnvironment'
+    env: 'BabylonVisualizationEnvironment'
 
     simulation: RobotSimulation
 
@@ -491,7 +491,7 @@ class Cell:
         self.goal = None
 
 
-class VisulizationEnvironment:
+class BabylonVisualizationEnvironment:
     groundBox: Box
     obstacles: list[ObstacleBox]
 

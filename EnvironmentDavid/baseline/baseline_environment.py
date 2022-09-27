@@ -2,12 +2,12 @@ import asyncio
 import time
 
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
-from EnvironmentDavid.babylon_core.babylon_objects import VisulizationEnvironment
+from EnvironmentDavid.babylon_core.babylon_objects import BabylonVisualizationEnvironment
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotPhysicalObject, TankRobotSimObject
 import threading
 
 
-class BayblonVisualization(VisulizationEnvironment):
+class BayblonVisualization(BabylonVisualizationEnvironment):
     """
     this class has all the elements relevant for the babylon visualization of the Testbed
     """

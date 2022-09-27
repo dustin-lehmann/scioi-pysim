@@ -1,10 +1,10 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 import numpy as np
 
 import scioi_py_core.core as core
 
-from EnvironmentDavid.babylon_core.babylon_objects import VisulizationEnvironment
+from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid
 
 
 class Obstacle(core.world.WorldObject, ABC):
@@ -15,6 +15,9 @@ class Obstacle(core.world.WorldObject, ABC):
 
 # ======================================================================================================================
 class SimpleXYZRObstacle(Obstacle):
+    """
+    Simple Basis for obstacles used in Simulation
+    """
     physics: core.physics.CuboidPhysics
 
     def __init__(self, length, width, height, position, *args, **kwargs):
@@ -33,28 +36,52 @@ class SimpleXYZRObstacle(Obstacle):
                             orientation=np.eye(3))
 
 
-class BabylonObstacle(SimpleXYZRObstacle):
+# ----------------------------------------------- Babylon Objects ------------------------------------------------------
+class BabylonObject(ABC):
+    """
+    - class used whenever the object is supposed to be displayed in Babylon
+    - adds itself depending on the object type to the list according to its type
+    - contains the name of the texture file used for the object
+    """
+
+    def __init__(self, world: EnvironmentDavid, texture_file: str = 'dark'):
+        print('initializing Babylon Object')
+        assert isinstance(world, EnvironmentDavid)
+        # environment where object is supposed to be displayed
+        self.babylon_env = world.babylon_env
+        # texture the object is supposed to have
+        self.texture_file = texture_file
+        # add the object to the babylon env list
+        self.add_to_babylon_list()
+
+    @abstractmethod
+    def add_to_babylon_list(self):
+        """
+        adds the object to the correspondant list of the babylon environment, has to be defined for each type of object
+        """
+        pass
+
+
+class BabylonObstacle(SimpleXYZRObstacle, BabylonObject):
     """
     Obstacle class for obstacles that are supposed to be displayed in Babylon
     """
-    babylon_texture: str = ''
 
-    def __init__(self, length, width, height, position, babylon_env_list: list = None, *args, **kwargs):
+    def __init__(self, length, width, height, position, *args, **kwargs):
         super().__init__(self, length, width, height, position, *args, **kwargs)
 
-        if babylon_env_list is not None:
-            # add element to the babylon_env list, to later write the object in the json file for babylon
-            babylon_env_list.append(self)
+    def add_to_babylon_list(self):
+        self.babylon_env.obstacles.append(self)
 
 
-class Wall(BabylonObstacle):
+class BabylonWall(BabylonObstacle):
 
-    def __init__(self, length, width, height, position, babylon_env: VisulizationEnvironment, *args, **kwargs):
-        babylon_env_list = babylon_env.walls
-        super().__init__(self, length, width, height, position, babylon_env_list, *args, **kwargs)
+    def __init__(self, length, width, height, position, world: EnvironmentDavid, *args, **kwargs):
+        self.babylon_env_list = world.babylon_env.walls
+        super().__init__(self, length, width, height, position, world, *args, **kwargs)
 
 
-class WallsFromTiles(Wall):
+class WallsFromTiles(BabylonWall):
     """
     class that creates wall obstacles which position depends on the given Tile
     """
@@ -70,8 +97,8 @@ class FloorTile(BabylonObstacle):
 
     # todo: should a floor tile even be collidable? even relevant?
 
-    def __init__(self, length, width, height, position, babylon_env: VisulizationEnvironment, *args, **kwargs):
-        babylon_env_list = babylon_env.floortiles
+    def __init__(self, length, width, height, position, world: EnvironmentDavid, *args, **kwargs):
+        babylon_env_list = world.babylon_env.floortiles
         super().__init__(self, length, width, height, position, babylon_env_list * args, **kwargs)
 
 
