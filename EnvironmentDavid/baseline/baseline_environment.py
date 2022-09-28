@@ -7,7 +7,7 @@ from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotPhysicalOb
 import threading
 
 
-class BayblonVisualization(BabylonVisualizationEnvironment):
+class BabylonVisualization(BabylonVisualizationEnvironment):
     """
     this class has all the elements relevant for the babylon visualization of the Testbed
     """

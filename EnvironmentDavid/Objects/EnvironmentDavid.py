@@ -2,11 +2,11 @@ import scioi_py_core.utils.joystick.joystick
 from scioi_py_core import core as core
 from . import EnvironmentDavid_World
 import scioi_py_core.utils.joystick.joystick as joystick
-from EnvironmentDavid.baseline.baseline_environment import BayblonVisualization
+from EnvironmentDavid.baseline.baseline_environment import BabylonVisualization
 
 
 class EnvironmentDavid(core.environment.Environment):
-    babylon_env: BayblonVisualization
+    babylon_env: BabylonVisualization
     world: EnvironmentDavid_World.DynamicWorld_XYZR_Simple
     joystick: joystick.Joystick
     run_mode = 'rt'
@@ -16,7 +16,7 @@ class EnvironmentDavid(core.environment.Environment):
         super().__init__(*args, **kwargs)
         self.world = EnvironmentDavid_World.DynamicWorld_XYZR_Simple(name='World', parent=self)
         # babylon environment for visualization
-        self.babylon_env = BayblonVisualization()
+        self.babylon_env = BabylonVisualization()
         self.name = 'Environment'
 
 
