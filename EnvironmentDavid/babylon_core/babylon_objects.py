@@ -11,6 +11,8 @@ from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject,
 from scioi_py_core.utils.joystick.joystick_manager import Joystick
 from scioi_py_core.utils.orientations import psiFromRotMat
 
+# from scioi_py_core.core.obstacles import BabylonObstacle
+
 
 class Box:
     center: np.ndarray
@@ -587,21 +589,26 @@ class BabylonVisualizationEnvironment:
             }
             json_dict['environment'][wall_name] = wall_dict
 
+
+
         for idx, obstacle in enumerate(self.obstacles):
             obstacle_name = f"Obstacle_{idx}"
-            obstacle.name = obstacle_name
+            tobstacle = obstacle
+            # test = psiFromRotMat(obstacle['rot'])
+            obstacle.name = obstacle_name  # todo:  removable?
             obstacle_dict = {
-                'center_x': obstacle.center[0],
-                'center_y': obstacle.center[1],
-                'psi': obstacle.psi,
-                'width': obstacle.size_x,
-                'length': obstacle.size_y,
-                'height': obstacle.height,
-                'type': 'Obstacle'
+                'center_x': obstacle.configuration['x'],
+                'center_y': obstacle.configuration['y'],
+                'center_z': obstacle.configuration['z'],
+                'psi': psiFromRotMat(obstacle.configuration['rot']),
+                'length': obstacle.physics.bounding_objects['cuboid'].dimensions[0],
+                'width': obstacle.physics.bounding_objects['cuboid'].dimensions[1],
+                'height': obstacle.physics.bounding_objects['cuboid'].dimensions[0],
+                'type': obstacle.type
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 
-        #todo: change to list!
+        # todo: change to list!
         # for name, tile in self.floortiles.items():
         #     tile_dict = {
         #         'center_x': tile.center[0],
@@ -637,6 +644,22 @@ class BabylonVisualizationEnvironment:
                     json.dump(json_dict, outfile, indent=2)
 
         return json.dumps(json_dict, indent=2)
+
+    def list_to_json(self, objects_list: list, json_dict):
+        for idx, obstacle in enumerate(objects_list):
+            obstacle_name = f"Obstacle_{idx}"
+            obstacle.name = obstacle_name  # todo: removable?
+            obstacle_dict = {
+                'center_x': obstacle.configuration['x'],
+                'center_y': obstacle.configuration['y'],
+                'center_z': obstacle.configuration['z'],
+                'psi': psiFromRotMat(obstacle['rot']),
+                'length': obstacle.physics.dimensions[0],
+                'width': obstacle.physics.dimensions[1],
+                'height': obstacle.physics.dimensions[0],
+                'type': obstacle.type
+            }
+            json_dict['environment'][obstacle_name] = obstacle_dict
 
     @property
     def tile_size(self):

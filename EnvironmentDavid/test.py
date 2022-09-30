@@ -2,7 +2,7 @@ import numpy as np
 
 
 class A:
-    def __init__(self, a=0, **kwargs):
+    def __init__(self,a, **kwargs):
         super().__init__()
         print(a)
 
@@ -18,13 +18,11 @@ class C(A):
     def __init__(self, c, *args, **kwargs):
         self.a = c
         super().__init__(**kwargs)
-
         print(c)
 
 
-
 class D(C, B):
-    def __init__(self,d, **kwargs):
+    def __init__(self, d, **kwargs):
         super().__init__(**kwargs)
         print(d)
 

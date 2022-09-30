@@ -20,8 +20,7 @@ class SimpleXYZRObstacle(Obstacle):
     """
     physics: core.physics.CuboidPhysics
 
-    def __init__(self, length:float, width:float, height:float, position, *args, **kwargs):
-        print('OBstacle INIT!!!!!')
+    def __init__(self, length: float, width: float, height: float, position, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.configuration['x'] = position[0]
@@ -44,11 +43,18 @@ class BabylonObject:
     - adds itself depending on the object type to the list according to its type
     - contains the name of the texture file used for the object, default is the dark texture
     """
+    # list where objects of the same type are stored
+    babylon_list: list
+    # name of file that is used for babylon texture
+    texture_file: str
+    # object type, parameter that helps for distinction between objects
+    type: str
 
-    def __init__(self,babylon_list: list, texture_file: str = 'dark', *args, **kwargs):
-        print('initializing Babylon Object!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    def __init__(self, babylon_list: list, texture_file: str = 'dark', *args, **kwargs):
+        print('initializing Babylon Object!')
         # texture the object is supposed to have
         self.texture_file = texture_file
+        self.type = 'obstacle'
         # list with the right kind of objects
         self.babylon_list = babylon_list
         # add the object to the babylon env list
@@ -80,9 +86,9 @@ class BabylonObstacle(BabylonObject, SimpleXYZRObstacle):
         self.babylon_list = babylon_env.obstacles
         # set the texture for obsatcles # todo
         self.texture = None
-        super().__init__(babylon_list=self.babylon_list, texture_file=self.texture, *args, **kwargs)
-        # SimpleXYZRObstacle.__init__(self, *args, **kwargs)
-        # BabylonObject.__init__(self, babylon_list=self.babylon_list, texture_file=self.texture, *args, **kwargs)
+        # super().__init__(babylon_list=self.babylon_list, texture_file=self.texture, *args, **kwargs)
+        SimpleXYZRObstacle.__init__(self, *args, **kwargs)
+        BabylonObject.__init__(self, babylon_list=self.babylon_list, texture_file=self.texture, *args, **kwargs)
 
 
 class BabylonWall(BabylonObstacle):
