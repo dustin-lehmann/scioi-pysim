@@ -635,11 +635,13 @@ class LNDW_scene_simple extends Scene {
 
     buildEnvironment() {
         // console.log(environment_objects)
+        console.log(environment_objects)
          for (const [key, value] of Object.entries(environment_objects)) {
-            value['babylon'] = new createBoxFromJson(this.scene,
+            console.log('creating object')
+             value['babylon'] = new createBoxFromJson(this.scene,
                 value["length"]*1000,
                 value["width"]*1000,
-                value["height"],
+                value["height"]*1000,
                 value["center_x"]*1000,
                 value["center_y"]*1000,
                 value["psi"],
@@ -698,15 +700,15 @@ class LNDW_scene_simple extends Scene {
     onSample(sample) {
 
     //     this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
-    //     // Robot
-    //     var robot_data = sample['robots']
-    //     for (const [key, value] of Object.entries(robot_data)) {
-    //         if (key in robots) {
-    //             console.log(robots[key])
-    //             robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
-    //             robots[key]['babylon'].setCollision(value['collision'])
-    //         }
-    //     }
+        // Robot
+        var robot_data = sample['robots']
+        for (const [key, value] of Object.entries(robot_data)) {
+            if (key in robots) {
+                console.log(robots[key])
+                robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
+                robots[key]['babylon'].setCollision(value['collision'])
+            }
+        }
     //
     //     var floor_data = sample['floor']
     //     for (const [key, value] of Object.entries(floor_data)) {

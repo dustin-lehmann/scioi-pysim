@@ -12,6 +12,12 @@ class EnvironmentDavid(core.environment.Environment):
     run_mode = 'rt'
     Ts = 0.02
 
+    # parameters that determine the size and amount of tiles the testbed has
+    size_x: float = 5.094  # todo: put those values somewhere where it makes sense
+    size_y: float = 3.679
+    tiles_x: int = 18
+    tiles_y: int = 13
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.world = EnvironmentDavid_World.DynamicWorld_XYZR_Simple(name='World', parent=self)
@@ -36,6 +42,13 @@ class EnvironmentDavid(core.environment.Environment):
 
         core.scheduling.registerActions(self.world, self.scheduling.actions['world'])
         self.joystick = joystick.Joystick()
+
+    # todo remove from here
+    @property
+    def tile_size(self):
+        return self.tiles_x/self.size_x
+
+
 
     # === ACTIONS ======================================================================================================
 

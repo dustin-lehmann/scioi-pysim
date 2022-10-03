@@ -11,6 +11,7 @@ from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject,
 from scioi_py_core.utils.joystick.joystick_manager import Joystick
 from scioi_py_core.utils.orientations import psiFromRotMat
 
+
 # from scioi_py_core.core.obstacles import BabylonObstacle
 
 
@@ -499,7 +500,7 @@ class BabylonVisualizationEnvironment:
 
     walls: list[Wall]
     # floortiles: dict[str, Box]
-    floortiles: list[FloorTile]
+    floortiles_list: list[FloorTile]
     # robots: dict[str, BabylonRobot]
     robot_list: list[TankRobotPhysicalObject or TankRobotSimObject]
     areas: dict[str, AreaBox]
@@ -521,16 +522,16 @@ class BabylonVisualizationEnvironment:
         self.obstacles = []
         self.cells = []
         self.walls = []
-        self.floortiles = []
+        self.floortiles_list = []
         # self.robots: BabylonRobot = []
         self.robot_list = []
         self.switches = {}
         self.doors = {}
         self.goals = {}
 
-        for x in range(0, self.tiles_x):
-            for y in range(0, self.tiles_y):
-                self.cells.append(Cell(x=x, y=y))
+        # for x in range(0, self.tiles_x):
+        #     for y in range(0, self.tiles_y):
+        #         self.cells.append(Cell(x=x, y=y))
 
         # self.generateBorders()
         # self.floortiles = self.generateFloor()
@@ -589,11 +590,8 @@ class BabylonVisualizationEnvironment:
             }
             json_dict['environment'][wall_name] = wall_dict
 
-
-
         for idx, obstacle in enumerate(self.obstacles):
             obstacle_name = f"Obstacle_{idx}"
-            tobstacle = obstacle
             # test = psiFromRotMat(obstacle['rot'])
             obstacle.name = obstacle_name  # todo:  removable?
             obstacle_dict = {

@@ -11,12 +11,12 @@ class BabylonVisualization(BabylonVisualizationEnvironment):
     """
     this class has all the elements relevant for the babylon visualization of the Testbed
     """
-    size_x = 5.094  # size x of testbed in m
-    size_y = 3.679  # size y of testbed in m
-    tiles_x = 18
-    tiles_y = 13
-    base_height = 0.150
-    wall_thickness = 0.010
+    # size_x = 5.094  # size x of testbed in m
+    # size_y = 3.679  # size y of testbed in m
+    # tiles_x = 18
+    # tiles_y = 13
+    # base_height = 0.150
+    # wall_thickness = 0.010
     webapp = None
 
     def __init__(self):

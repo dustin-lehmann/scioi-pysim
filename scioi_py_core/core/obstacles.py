@@ -7,6 +7,9 @@ import scioi_py_core.core as core
 from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid, BabylonVisualization
 
 
+# from EnvironmentDavid.Tests.Test_Environment import EnvironmentDavid_thisExample
+
+
 class Obstacle(core.world.WorldObject, ABC):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -36,6 +39,19 @@ class SimpleXYZRObstacle(Obstacle):
                             orientation=np.eye(3))
 
 
+class SimpleWall(SimpleXYZRObstacle):
+    pass
+
+
+class FloorTile(SimpleXYZRObstacle):
+    """
+    create a square floor tile depending on how many tiles exist in Testbed and what the size of it is going to be
+    """
+
+    def __init__(self, tilesize, position, height: float = 0.001, *args, **kwargs):
+        super().__init__(tilesize, tilesize, height, position)
+
+
 # ----------------------------------------------- Babylon Objects ------------------------------------------------------
 class BabylonObject:
     """
@@ -56,7 +72,7 @@ class BabylonObject:
         self.texture_file = texture_file
         self.type = 'obstacle'
         # list with the right kind of objects
-        self.babylon_list = babylon_list
+        self.babylon_list = babylon_list  # todo: das muss doch nicht per parameter übergeben werden, hier kann man ja einfach auf self zurückgreifen
         # add the object to the babylon env list
         self._add_to_babylon_list()
 
@@ -68,7 +84,7 @@ class BabylonObject:
             self.babylon_list.append(self)
 
         else:
-            raise Exception('no babylon list to add object to!')
+            raise Exception('no babylon list to add object to given!')
 
 
 class BabylonObstacle(BabylonObject, SimpleXYZRObstacle):
@@ -77,7 +93,7 @@ class BabylonObstacle(BabylonObject, SimpleXYZRObstacle):
     """
     # list of babylon environment
     babylon_list: list
-    # filepath for texture in babylon visualizatiobn
+    # filepath for texture in babylon visualization
     texture_path: str
 
     def __init__(self, babylon_env: BabylonVisualization, *args, **kwargs):
@@ -89,6 +105,27 @@ class BabylonObstacle(BabylonObject, SimpleXYZRObstacle):
         # super().__init__(babylon_list=self.babylon_list, texture_file=self.texture, *args, **kwargs)
         SimpleXYZRObstacle.__init__(self, *args, **kwargs)
         BabylonObject.__init__(self, babylon_list=self.babylon_list, texture_file=self.texture, *args, **kwargs)
+
+
+class BabylonFloorTile(FloorTile, BabylonObject):
+    def __init__(self, tilesize, position, babylon_env: BabylonVisualization, *args, **kwargs):
+        self.babylon_list = babylon_env.floortiles_list
+        FloorTile.__init__(self, tilesize, position, *args, **kwargs)
+        BabylonObject.__init__(self, self.babylon_list)
+
+
+class BabylonSimpleFloor:
+    """
+    creates the Floor consisting of Tiles according to the number and size specified for the environment
+    """
+
+    def __init__(self, testbed_env: EnvironmentDavid, *args, **kwargs):
+        for x in range(0, testbed_env.tiles_x):
+            for y in range(0, testbed_env.tiles_y):  # todo pass the baxlon env
+                tile = BabylonFloorTile(babylon_env=testbed_env.babylon_env,
+                                        position=[testbed_env.tile_size / 2 + x * testbed_env.tile_size,
+                                                  testbed_env.tile_size / 2 + y * testbed_env.tile_size],
+                                        tilesize=testbed_env.tile_size, world=testbed_env.world)
 
 
 class BabylonWall(BabylonObstacle):
@@ -109,23 +146,15 @@ class WallsFromTiles(BabylonWall):
 
 class FloorTile(BabylonObstacle):
     """
-    creates a floor Tile for the Testbed
+    creates a  square floor Tile for the Testbed
     """
 
     # todo: should a floor tile even be collidable? even relevant since its beneath robot anyways?
 
-    def __init__(self, length, width, height, position, world: EnvironmentDavid, *args, **kwargs):
-        babylon_env_list = world.babylon_env.floortiles
-        super().__init__(self, length, width, height, position, babylon_env_list * args, **kwargs)
-
-
-class CreateTestbedFloor:
-    """
-    Creates all the Testbed Floortiles
-    """
-
-    def __init__(self):
-        pass
+    def __init__(self, tilesize, position, env: EnvironmentDavid, *args, **kwargs):
+        height = 1
+        babylon_env_list = env.babylon_env.floortiles_list
+        super().__init__(self, tilesize, tilesize, height, position, babylon_env_list * args, **kwargs)
 
 
 class CreateBabylonBasicEnvironment:
