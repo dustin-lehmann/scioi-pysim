@@ -2,7 +2,7 @@ import scioi_py_core.core as core
 from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject, TankRobotPhysicalObject
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
-from scioi_py_core.core.obstacles import BabylonObstacle, SimpleXYZRObstacle, BabylonSimpleFloor
+from scioi_py_core.core.obstacles import SimpleObstacle, SimpleXYZRObstacle
 from EnvironmentDavid.mazes import maze_coop2
 import time
 
@@ -13,12 +13,13 @@ mapping_turn = 9
 
 class EnvironmentDavid_thisExample(EnvironmentDavid):
     agent1: TankRobotSimObject
-    Obstacle1: BabylonObstacle
+    Obstacle1: SimpleObstacle
     agent2: TankRobotSimObject
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, visualization = None, visualization_settings = None, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        self.visualization = visualization
+        self.visualization_settings = visualization_settings
         self.agent1 = None
         self.agent2 = None
         # self.obstacle1 = None
@@ -34,28 +35,24 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
         super().action_visualization(*args, **kwargs)
         super().action_visualization(*args, **kwargs)
 
-        sample = self.babylon_env.generateSample()
+        sample = self.babylon_env.generateSample() # todo: move to the init where this function should be added
         self.babylon_env.webapp.sendSample(sample)
         time.sleep(0.001)
 
     def _init(self, *args, **kwargs):
         super()._init(*args, **kwargs)
 
-        # self.babylon_env.wallsFromList(maze_coop2)
-        if self.visualization = 'babylon':
+        if self.visualization == 'babylon':
+            # add all objects from the world to babylon
             for obj in self.world.objects:
-                if isinstance(obj, Agent):
-                    self.babylon_env.add_simulated_agent(obj)
-                elif isinstance(obj, SimpleXYZRObstacle):
-                    fdjhfsjkd
-                self.babylon.addObject(object)
+                self.babylon_env.add_object_to_babylon(obj)
 
         #
         self.babylon_env.start_babylon()
 
 
 def main():
-    env = EnvironmentDavid_thisExample(Ts=0.04, visualization='babylon', babylon_settings='fancy.json')
+    env = EnvironmentDavid_thisExample(Ts=0.04, visualization='babylon', visualization_settings='fancy.json')
     # floor = BabylonSimpleFloor(env)
     agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
 

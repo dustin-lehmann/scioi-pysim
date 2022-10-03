@@ -3,7 +3,8 @@ import time
 
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
 from EnvironmentDavid.babylon_core.babylon_objects import BabylonVisualizationEnvironment
-from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotPhysicalObject, TankRobotSimObject
+from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject
+from scioi_py_core.core.obstacles import Obstacle
 import threading
 
 
@@ -11,24 +12,27 @@ class BabylonVisualization(BabylonVisualizationEnvironment):
     """
     this class has all the elements relevant for the babylon visualization of the Testbed
     """
-    # size_x = 5.094  # size x of testbed in m
-    # size_y = 3.679  # size y of testbed in m
-    # tiles_x = 18
-    # tiles_y = 13
-    # base_height = 0.150
-    # wall_thickness = 0.010
     webapp = None
 
     def __init__(self):
         super().__init__()
 
-    def add_simulated_agent(self, *args: TankRobotPhysicalObject or TankRobotSimObject):
+    def add_object_to_babylon(self, *args: TankRobotSimObject) -> None:
         """
-        add another agent to the environment
+        - add one or multiple objects to the babylon Visualization
+        - depending on if it is a standard obstacle or a robots it gets added to one of the respective lists
         """
         for element in args:
-            # self.robots.append(BabylonRobot(element.length, element.width, element.height))
-            self.robot_list.append(element)
+            if isinstance(element, TankRobotSimObject):
+
+                self.robot_list.append(element)
+
+            elif isinstance(element, Obstacle):
+                self.obstacle_list.append(element)
+                print('adding obstacle')
+
+            else:
+                raise Exception('there is no matching list for this object type!')
 
     def start_babylon(self):
         # write all objects into jason
