@@ -42,23 +42,38 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
         super()._init(*args, **kwargs)
 
         # self.babylon_env.wallsFromList(maze_coop2)
-        self.babylon_env.add_simulated_agent(self.agent1)
+        if self.visualization = 'babylon':
+            for obj in self.world.objects:
+                if isinstance(obj, Agent):
+                    self.babylon_env.add_simulated_agent(obj)
+                elif isinstance(obj, SimpleXYZRObstacle):
+                    fdjhfsjkd
+                self.babylon.addObject(object)
+
+        #
         self.babylon_env.start_babylon()
 
 
 def main():
-    env = EnvironmentDavid_thisExample(Ts=0.04)
-    floor = BabylonSimpleFloor(env)
+    env = EnvironmentDavid_thisExample(Ts=0.04, visualization='babylon', babylon_settings='fancy.json')
+    # floor = BabylonSimpleFloor(env)
     agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
-    obstacle1 = BabylonObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], env=env,
-                                babylon_env=env.babylon_env)
-    # obstacle1 = SimpleXYZRObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], world=env.world)
 
-    env.agent1 = agent1
-    env.obstacle1 = obstacle1
+    obstacle1 = SimpleXYZRObstacle(name='Obstacle 1', length=0.1, width=0.1, height=0.1, position=[0, 0, 0],
+                                   world=env.world)
+    obstacle2 = SimpleXYZRObstacle(name='Obstacle 2', length=0.1, width=0.1, height=0.1, position=[0.5, 0, 0],
+                                   world=env.world)
+    obstacle3 = SimpleXYZRObstacle(name='Obstacle 3', length=0.1, width=0.1, height=0.1, position=[1, 0, 0],
+                                   world=env.world)
+
+    env.init()
+
+    # obstacle1 = BabylonObstacle(length=0.1, width=0.1, height=0.1, position=[0, 0, 0], env=env,
+    #                             babylon_env=env.babylon_env)
+
 
     # env.init(calltree=False)
-    env.init()
+
 
     env.start()
 
