@@ -17,19 +17,18 @@ class BabylonVisualization(BabylonVisualizationEnvironment):
     def __init__(self):
         super().__init__()
 
-    def add_object_to_babylon(self, *args: TankRobotSimObject) -> None:
+    def add_object_to_babylon(self, *args: 'TankRobotSimObject |Obstacle') -> None:         #todo: multiple type hints really look like that?
         """
         - add one or multiple objects to the babylon Visualization
         - depending on if it is a standard obstacle or a robots it gets added to one of the respective lists
         """
         for element in args:
             if isinstance(element, TankRobotSimObject):
-
-                self.robot_list.append(element)
+                self.robots_list.append(element)
 
             elif isinstance(element, Obstacle):
-                self.obstacle_list.append(element)
-                print('adding obstacle')
+                self.obstacles_list.append(element)
+
 
             else:
                 raise Exception('there is no matching list for this object type!')

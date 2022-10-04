@@ -400,111 +400,16 @@ class Wall(ObstacleBox):
             self.orientation = 'v'
 
 
-class Door(ObstacleBox):
-    open_state: int
-    circuit_id: int
-    switches: list
-
-    def __init__(self, id, switches, center, size_x, size_y, psi, **kwargs):
-        super().__init__(center, size_x, size_y, psi)
-
-        self.open_state = False
-        self.circuit_id = id
-        self.switches = switches
-        self.visible = False
-
-    def check(self):
-        if all(sw.switch_state for sw in self.switches):
-            self.open_state = True
-        else:
-            self.open_state = False
-
-
-class Switch:
-    switch_state: int
-    momentary: bool
-    cell: list
-    circuit_id: int
-    door: Door
-
-    def __init__(self, cell: list, momentary, id):
-        self.cell = cell
-        self.momentary = momentary
-        self.switch_state = False
-        self.circuit_id = id
-        self.door = None
-
-    def check(self, robots: dict[str, BabylonRobot]):
-
-        if any(self.cell == [robot.cell.x, robot.cell.y] for robot in robots.values()):
-            if self.door.visible:
-                self.switch_state = True
-        else:
-            if self.momentary:
-                if self.door.visible:
-                    self.switch_state = False
-
-
-class Goal:
-    cell: list
-    condition: str  # 'any' or 'all'
-    callback: callable
-    reached: bool
-
-    discovered: bool
-    visible: bool
-
-    def __init__(self, cell, condition, callback, visible):
-        self.cell = cell
-        self.condition = condition
-        self.callback = callback
-        self.reached = False
-        self.visible = visible
-        self.discovered = False
-
-    def check(self, robots: list):
-        reached_robots = []
-
-        for robot in robots:
-            if self.cell == [robot.cell.x, robot.cell.y]:
-                reached_robots.append(robot)
-
-        if self.condition == 'any' and len(reached_robots) > 0:
-            self.reached = True
-            self.callback(reached_robots)
-        elif self.condition == 'all' and len(reached_robots) == len(robots):
-            self.reached = True
-            self.callback(reached_robots)
-
-
-class Cell:
-    x: int
-    y: int
-    visited: bool
-    floor_tile: FloorTile
-    walls: list[Wall]
-    doors: list[Door]
-    goal: Goal
-
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.visited = False
-        self.walls = []
-        self.doors = []
-        self.goal = None
-
-
 class BabylonVisualizationEnvironment:
     groundBox: Box
 
-    obstacle_list: ['Obstacle']
+    obstacles_list: ['Obstacle']
 
     # robots: dict[str, BabylonRobot]
-    robot_list: list['TankRobotPhysicalObject']
+    robots_list: list['TankRobotPhysicalObject']
 
 
-    cells: list[Cell]
+
 
     size_x: float
     size_y: float
@@ -518,10 +423,10 @@ class BabylonVisualizationEnvironment:
         # self.obstacles = []
         # self.cells = []
         # self.walls = []
-        self.obstacle_list = []
-        self.floortiles_list = []
+        self.obstacles_list = []
+        # self.floortiles_list = []
         # self.robots: BabylonRobot = []
-        self.robot_list = []
+        self.robots_list = []
         # self.switches = {}
         # self.doors = {}
         # self.goals = {}
@@ -570,24 +475,8 @@ class BabylonVisualizationEnvironment:
             'environment': {},
             'robots': {}
         }
-        for idx, wall in enumerate(self.walls):
-            wall_name = f"Wall_{idx}"
-            wall.name = wall_name
-            wall_dict = {
-                'center_x': wall.center[0],
-                'center_y': wall.center[1],
-                'psi': wall.psi,
-                'width': wall.size_x,
-                'length': wall.size_y,
-                'height': wall.height,
-                'state': wall.wall_state,
-                # 'visible': wall.visible,
-                'visible': True,  # todo: remove
-                'type': 'Wall'
-            }
-            json_dict['environment'][wall_name] = wall_dict
 
-        for idx, obstacle in enumerate(self.obstacles):
+        for idx, obstacle in enumerate(self.obstacles_list):
             obstacle_name = f"Obstacle_{idx}"
             # test = psiFromRotMat(obstacle['rot'])
             obstacle.name = obstacle_name  # todo:  removable?
@@ -603,20 +492,7 @@ class BabylonVisualizationEnvironment:
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 
-        # todo: change to list!
-        # for name, tile in self.floortiles.items():
-        #     tile_dict = {
-        #         'center_x': tile.center[0],
-        #         'center_y': tile.center[1],
-        #         'psi': tile.psi,
-        #         'width': tile.size_x,
-        #         'length': tile.size_y,
-        #         'height': tile.height,
-        #         'type': 'Floor'
-        #     }
-        #     json_dict['environment'][name] = tile_dict
-
-        for idx, robot in enumerate(self.robot_list):
+        for idx, robot in enumerate(self.robots_list):
             orientation_test = robot.physics.bounding_objects['body'].orientation
             robot_name = f"{idx}"
             robot_dict = {
@@ -640,7 +516,7 @@ class BabylonVisualizationEnvironment:
 
         return json.dumps(json_dict, indent=2)
 
-    def list_to_json(self, objects_list: list, json_dict):
+    def dict_to_json(self, objects_list: list, json_dict):
         for idx, obstacle in enumerate(objects_list):
             obstacle_name = f"Obstacle_{idx}"
             obstacle.name = obstacle_name  # todo: removable?
@@ -747,7 +623,7 @@ class BabylonVisualizationEnvironment:
                   'goals': {}}
 
         # for count, robot in enumerate(self.robots):
-        for count, robot in enumerate(self.robot_list):
+        for count, robot in enumerate(self.robots_list):
             robot_sample = {
                 'position': robot.physics.bounding_objects['body'].position,
                 'psi': psiFromRotMat(robot.physics.bounding_objects['body'].orientation),

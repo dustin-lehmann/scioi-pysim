@@ -634,8 +634,6 @@ class LNDW_scene_simple extends Scene {
     }
 
     buildEnvironment() {
-        // console.log(environment_objects)
-        console.log(environment_objects)
          for (const [key, value] of Object.entries(environment_objects)) {
             console.log('creating object')
              value['babylon'] = new createBoxFromJson(this.scene,
@@ -648,7 +646,6 @@ class LNDW_scene_simple extends Scene {
                 // value["visible"]
                 1
             )
-             // console.log(value['type'])
              }
 
         // Robots

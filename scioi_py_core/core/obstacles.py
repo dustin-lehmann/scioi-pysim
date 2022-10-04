@@ -34,6 +34,8 @@ class SimpleXYZRObstacle(Obstacle):
         self.physics = core.physics.CuboidPhysics(length=length, width=width, height=height, position=position,
                                                   orientation=np.eye(3))
 
+        self.type = 'obstacle'
+
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],
                             orientation=np.eye(3))
@@ -49,6 +51,7 @@ class FloorTile(SimpleXYZRObstacle):
     """
 
     def __init__(self, tilesize, position, height: float = 0.001, *args, **kwargs):
+        self.type = 'floor'
         super().__init__(tilesize, tilesize, height, position)
 
 # class BabylonSimpleFloor:

@@ -1,5 +1,36 @@
 {
-  "environment": {},
+  "environment": {
+    "Obstacle_0": {
+      "center_x": 0.0,
+      "center_y": 0.0,
+      "center_z": 0.0,
+      "psi": 0.0,
+      "length": 0.1,
+      "width": 0.1,
+      "height": 0.1,
+      "type": "obstacle"
+    },
+    "Obstacle_1": {
+      "center_x": 0.5,
+      "center_y": 0.0,
+      "center_z": 0.0,
+      "psi": 0.0,
+      "length": 0.1,
+      "width": 0.1,
+      "height": 0.1,
+      "type": "obstacle"
+    },
+    "Obstacle_2": {
+      "center_x": 1.0,
+      "center_y": 0.0,
+      "center_z": 0.0,
+      "psi": 0.0,
+      "length": 0.1,
+      "width": 0.1,
+      "height": 0.1,
+      "type": "obstacle"
+    }
+  },
   "robots": {
     "0": {
       "id": 0,
