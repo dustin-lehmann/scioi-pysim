@@ -4,8 +4,6 @@ import numpy as np
 
 import scioi_py_core.core as core
 
-# from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid, BabylonVisualization
-
 
 # from EnvironmentDavid.Tests.Test_Environment import EnvironmentDavid_thisExample
 
@@ -47,25 +45,29 @@ class SimpleWall(SimpleXYZRObstacle):
 
 class FloorTile(SimpleXYZRObstacle):
     """
-    create a square floor tile depending on how many tiles exist in Testbed and what the size of it is going to be
+    create a square floor tile, size depending on how many tiles exist in Testbed and its general measurements
     """
 
-    def __init__(self, tilesize, position, height: float = 0.001, *args, **kwargs):
+    def __init__(self, position, tilesize, height: float = 0.001, *args, **kwargs):
         self.type = 'floor'
-        super().__init__(tilesize, tilesize, height, position)
+        # set z-coordinate of tile to actual floor level
+        position[2] = -height / 2
 
-# class BabylonSimpleFloor:
-#     """
-#     creates the Floor consisting of Tiles according to the number and size specified for the environment
-#     """
-#
-#     def __init__(self, *args, **kwargs):
-#         for x in range(0, testbed_env.tiles_x):
-#             for y in range(0, testbed_env.tiles_y):  # todo pass the baxlon env
-#                 tile = BabylonFloorTile(babylon_env=testbed_env.babylon_env,
-#                                         position=[testbed_env.tile_size / 2 + x * testbed_env.tile_size,
-#                                                   testbed_env.tile_size / 2 + y * testbed_env.tile_size],
-#                                         tilesize=testbed_env.tile_size, world=testbed_env.world)
+        super().__init__(length=tilesize, width=tilesize, height=height, position=position, *args, **kwargs)
+
+
+class Testbed_Floor:
+    """
+    creates the Floor consisting of Tiles according to the number and size specified for the environment
+    """
+
+    def __init__(self, env, *args, **kwargs):
+        for x in range(0, env.tiles_x):
+            for y in range(0, env.tiles_y):  # todo pass the baxlon env
+                tile = FloorTile(name=f'Floor {y}',position=[env.tile_size / 2 + x * env.tile_size,
+                                           env.tile_size / 2 + y * env.tile_size, 0],
+                                 tilesize=env.tile_size, *args, **kwargs)
+
 
 
 class SimpleObstacle(SimpleXYZRObstacle):

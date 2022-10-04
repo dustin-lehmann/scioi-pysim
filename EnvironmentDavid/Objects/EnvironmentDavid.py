@@ -46,7 +46,9 @@ class EnvironmentDavid(core.environment.Environment):
     # todo remove from here
     @property
     def tile_size(self):
-        return self.tiles_x/self.size_x
+        return self.size_x/self.tiles_x
+
+
 
 
 
