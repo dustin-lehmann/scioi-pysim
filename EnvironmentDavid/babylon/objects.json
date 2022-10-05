@@ -8,7 +8,8 @@
       "length": 0.1,
       "width": 0.1,
       "height": 0.1,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_1": {
       "center_x": 0.5,
@@ -18,7 +19,8 @@
       "length": 0.1,
       "width": 0.1,
       "height": 0.1,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_2": {
       "center_x": 1.0,
@@ -28,7 +30,8 @@
       "length": 0.1,
       "width": 0.1,
       "height": 0.1,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_3": {
       "center_x": 0.8333333333333321,
@@ -38,7 +41,8 @@
       "length": 1.6666666666666667,
       "width": 1.6666666666666667,
       "height": 0.001,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_4": {
       "center_x": 0.8333333333333321,
@@ -48,7 +52,8 @@
       "length": 1.6666666666666667,
       "width": 1.6666666666666667,
       "height": 0.001,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_5": {
       "center_x": 2.5,
@@ -58,7 +63,8 @@
       "length": 1.6666666666666667,
       "width": 1.6666666666666667,
       "height": 0.001,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_6": {
       "center_x": 2.5,
@@ -68,7 +74,8 @@
       "length": 1.6666666666666667,
       "width": 1.6666666666666667,
       "height": 0.001,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_7": {
       "center_x": -3.833333333333332,
@@ -78,7 +85,8 @@
       "length": 1.6666666666666667,
       "width": 1.6666666666666667,
       "height": 0.001,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     },
     "Obstacle_8": {
       "center_x": -3.833333333333332,
@@ -88,7 +96,8 @@
       "length": 1.6666666666666667,
       "width": 1.6666666666666667,
       "height": 0.001,
-      "type": "obstacle"
+      "type": "obstacle",
+      "discovered": false
     }
   },
   "robots": {

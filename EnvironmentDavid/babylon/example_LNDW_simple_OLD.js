@@ -245,6 +245,77 @@ class ObstacleBox {
         this.body.visibility = visibility
     }
 }
+//
+// class Door {
+//     constructor(scene, position, psi, length, id, visible) {
+//         this.position = position
+//         this.length = length
+//         this.psi = psi
+//         this.id = id
+//
+//         this.height = 200
+//
+//         this.scene = scene;
+//         this.body = BABYLON.MeshBuilder.CreateBox('box', {height: this.height, width: length, depth: 10}, scene);
+//         this.body.rotation.y = psi
+//
+//         this.body.position = ToBabylon([position[0], position[1], this.height/2])
+//
+//
+//          this.id = id
+//         this.material = new BABYLON.StandardMaterial("material", scene);
+//         this.body.material = this.material
+//
+//         if (id === 1){
+//             this.material.diffuseColor = new BABYLON.Color3.Red()
+//         } else if (id === 2){
+//             this.material.diffuseColor = new BABYLON.Color3.Blue()
+//         } else if (id === 3){
+//             this.material.diffuseColor = new BABYLON.Color3.Green()
+//         } else if (id === 4){
+//             this.material.diffuseColor = new BABYLON.Color3(242/255,87/255,15/255)
+//         }
+//
+//         this.setVisibility(visible)
+//
+//         // let texture= "./twipr_models/textures/dark.png";
+//         // this.material = new BABYLON.StandardMaterial(this.scene);
+//         // this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
+//         // this.material.diffuseTexture.uScale = 0.5
+//         // this.material.diffuseTexture.vScale = 0.5
+//         // this.material.specularColor = new BABYLON.Color3(0,0,0)
+//         //
+//         //
+//         // this.body.material = this.material
+//
+//         // this.setVisibility(this.visible)
+//         return this
+//     }
+//     setVisibility(state) {
+//         if (state === 0){
+//             this.hide()
+//         } else {
+//             this.body.visibility = state
+//         }
+//
+//     }
+//
+//     hide(){
+//         this.body.visibility = 0
+//     }
+//
+//     open(state){
+//         if (state) {
+//             this.body.scaling.y = 0
+//             this.body.position = ToBabylon([this.position[0], this.position[1], -this.height])
+//         } else {
+//             this.body.scaling.y = 1
+//             this.body.height = this.height
+//             this.body.position = ToBabylon([this.position[0], this.position[1], this.body.height/2])
+//         }
+//
+//     }
+// }
 
 class CollisionBoxFrame {
     constructor(scene, options) {
@@ -564,7 +635,8 @@ class LNDW_scene_simple extends Scene {
                 value["center_x"]*100,
                 value["center_y"]*100,
                 value["psi"],
-                value["visible"]
+                // value["visible"]
+                1
             )
              }
 
@@ -580,6 +652,7 @@ class LNDW_scene_simple extends Scene {
                 value['psi'],
                 this.shadowGenerator)
         }
+
     }
 
     drawCoordinateSystem() {
@@ -624,5 +697,38 @@ class LNDW_scene_simple extends Scene {
                 robots[key]['babylon'].setCollision(value['collision'])
             }
         }
+    //
+    //     var floor_data = sample['floor']
+    //     for (const [key, value] of Object.entries(floor_data)) {
+    //         if (key in floor_tiles) {
+    //             floor_tiles[key]['babylon'].highlight(value['highlight'], value['discoverer'])
+    //         }
+    //     }
+    //
+    //     var wall_data = sample['walls']
+    //     for (const [key, value] of Object.entries(wall_data)) {
+    //         if (key in walls) {
+    //             walls[key]['babylon'].setVisibility(value['visible'])
+    //         }
+    //     }
+    //     var switch_data = sample['switches']
+    //     for (const [key, value] of Object.entries(switch_data)) {
+    //         if (key in switches) {
+    //             switches[key]['babylon'].pressed(value['state'])
+    //         }
+    //     }
+    //     var door_data = sample['doors']
+    //     for (const [key, value] of Object.entries(door_data)) {
+    //         if (key in doors) {
+    //             doors[key]['babylon'].open(value['state'])
+    //             doors[key]['babylon'].setVisibility(value['visible'])
+    //         }
+    //     }
+    //     var goal_data = sample['goals']
+    //     for (const [key, value] of Object.entries(goal_data)) {
+    //         if (key in goals) {
+    //             goals[key]['babylon'].setVisibility(value['visible'])
+    //         }
+    //     }
     }
 }

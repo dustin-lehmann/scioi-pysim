@@ -225,6 +225,7 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
                                     # do proximity sphere check
                                     if obj.physics.collisionCheck(collision_object.physics):
                                         print('collision')
+                                        # pass
 
     def _init(self):
         pass

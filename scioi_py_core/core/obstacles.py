@@ -21,10 +21,10 @@ class SimpleXYZRObstacle(Obstacle):
     """
     physics: core.physics.CuboidPhysics
 
-    def __init__(self, length: float, width: float, height: float, position, *args, **kwargs):
+    def __init__(self, length: float, width: float, height: float, position, visible = False, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        position= position
+        position = position
 
         self.configuration['x'] = position[0]
         self.configuration['y'] = position[1]
@@ -35,6 +35,18 @@ class SimpleXYZRObstacle(Obstacle):
                                                   orientation=np.eye(3))
 
         self.type = 'obstacle'
+        self.visible = visible
+
+    @property
+    def visibile(self):
+        return self._visible
+
+
+    @visible.setter
+    def visible(self, state:bool):
+        self._visible = state
+        if visualization:
+            add message to sample
 
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],
@@ -71,11 +83,10 @@ class Testbed_Floor:
                 # tile = FloorTile(name=f'Floor {x}_{y}',position=[env.tile_size / 2 + x * env.tile_size,
                 #                            env.tile_size / 2 + y * env.tile_size, 0],
                 #                  tilesize=env.tile_size, *args, **kwargs)
-                position = [env.tile_size / 2 + x * env.tile_size,env.tile_size / 2 + y * env.tile_size, 0]
+                position = [env.tile_size / 2 + x * env.tile_size, env.tile_size / 2 + y * env.tile_size, 0]
                 tile = FloorTile(name=f'Floor {x}_{y}', position=position,
                                  tilesize=env.tile_size, *args, **kwargs)
                 print('hier')
-
 
 
 class SimpleObstacle(SimpleXYZRObstacle):
