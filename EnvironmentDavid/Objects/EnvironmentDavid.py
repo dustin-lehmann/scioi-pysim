@@ -13,10 +13,14 @@ class EnvironmentDavid(core.environment.Environment):
     Ts = 0.02
 
     # parameters that determine the size and amount of tiles the testbed has
-    size_x: float = 5.094  # todo: put those values somewhere where it makes sense
-    size_y: float = 3.679
-    tiles_x: int = 18
-    tiles_y: int = 13
+    # size_x: float = 5.094  # todo: put those values somewhere where it makes sense
+    # size_y: float = 3.679
+    size_x: float = 5
+    size_y: float = 5
+    # tiles_x: int = 18
+    # tiles_y: int = 13
+    tiles_x: int = 15
+    tiles_y: int = 15
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

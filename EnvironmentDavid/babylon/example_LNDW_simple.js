@@ -635,7 +635,6 @@ class LNDW_scene_simple extends Scene {
 
     buildEnvironment() {
          for (const [key, value] of Object.entries(environment_objects)) {
-            console.log('creating object')
              value['babylon'] = new createBoxFromJson(this.scene,
                 value["length"]*1000,
                 value["width"]*1000,
@@ -701,7 +700,6 @@ class LNDW_scene_simple extends Scene {
         var robot_data = sample['robots']
         for (const [key, value] of Object.entries(robot_data)) {
             if (key in robots) {
-                console.log(robots[key])
                 robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
                 robots[key]['babylon'].setCollision(value['collision'])
             }

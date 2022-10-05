@@ -51,6 +51,8 @@ class FloorTile(SimpleXYZRObstacle):
     def __init__(self, position, tilesize, height: float = 0.001, *args, **kwargs):
         self.type = 'floor'
         # set z-coordinate of tile to actual floor level
+        # if position[0] < 0:
+        #     raise Exception('Fehler')
         position[2] = -height / 2
 
         super().__init__(length=tilesize, width=tilesize, height=height, position=position, *args, **kwargs)
@@ -64,7 +66,7 @@ class Testbed_Floor:
     def __init__(self, env, *args, **kwargs):
         for x in range(0, env.tiles_x):
             for y in range(0, env.tiles_y):  # todo pass the baxlon env
-                tile = FloorTile(name=f'Floor {y}',position=[env.tile_size / 2 + x * env.tile_size,
+                tile = FloorTile(name=f'Floor {x}_{y}',position=[env.tile_size / 2 + x * env.tile_size,
                                            env.tile_size / 2 + y * env.tile_size, 0],
                                  tilesize=env.tile_size, *args, **kwargs)
 

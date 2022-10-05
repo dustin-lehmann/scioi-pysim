@@ -43,6 +43,7 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
         super()._init(*args, **kwargs)
 
         if self.visualization == 'babylon':
+            obj= self.world.getObjectsByType(Obstacle)
             # add all objects from the world to babylon
             for obj in self.world.getObjectsByType(Obstacle):  # todo: change to one single function_call? -> depends on how the robvots are used -> should they be added to a list with generate sample?
                 self.babylon_env.add_object_to_babylon(obj)
