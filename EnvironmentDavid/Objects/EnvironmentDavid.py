@@ -19,8 +19,8 @@ class EnvironmentDavid(core.environment.Environment):
     size_y: float = 5
     # tiles_x: int = 18
     # tiles_y: int = 13
-    tiles_x: int = 15
-    tiles_y: int = 15
+    tiles_x: int = 3
+    tiles_y: int = 2
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

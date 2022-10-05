@@ -24,6 +24,8 @@ class SimpleXYZRObstacle(Obstacle):
     def __init__(self, length: float, width: float, height: float, position, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        position= position
+
         self.configuration['x'] = position[0]
         self.configuration['y'] = position[1]
         self.configuration['z'] = position[2]
@@ -66,9 +68,13 @@ class Testbed_Floor:
     def __init__(self, env, *args, **kwargs):
         for x in range(0, env.tiles_x):
             for y in range(0, env.tiles_y):  # todo pass the baxlon env
-                tile = FloorTile(name=f'Floor {x}_{y}',position=[env.tile_size / 2 + x * env.tile_size,
-                                           env.tile_size / 2 + y * env.tile_size, 0],
+                # tile = FloorTile(name=f'Floor {x}_{y}',position=[env.tile_size / 2 + x * env.tile_size,
+                #                            env.tile_size / 2 + y * env.tile_size, 0],
+                #                  tilesize=env.tile_size, *args, **kwargs)
+                position = [env.tile_size / 2 + x * env.tile_size,env.tile_size / 2 + y * env.tile_size, 0]
+                tile = FloorTile(name=f'Floor {x}_{y}', position=position,
                                  tilesize=env.tile_size, *args, **kwargs)
+                print('hier')
 
 
 
@@ -103,19 +109,6 @@ class WallsFromTiles(SimpleWall):
 
     def __init__(self):
         pass
-
-
-# class FloorTile(SimpleObstacle):
-#     """
-#     creates a  square floor Tile for the Testbed
-#     """
-#
-#     # todo: should a floor tile even be collidable? even relevant since its beneath robot anyways?
-#
-#     def __init__(self, tilesize, position, env: EnvironmentDavid, *args, **kwargs):
-#         height = 1
-#         babylon_env_list = env.babylon_env.floortiles_list
-#         super().__init__(self, tilesize, tilesize, height, position, babylon_env_list * args, **kwargs)
 
 
 class CreateBabylonBasicEnvironment:
