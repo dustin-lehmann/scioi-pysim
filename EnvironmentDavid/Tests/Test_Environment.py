@@ -2,7 +2,7 @@ import scioi_py_core.core as core
 from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject, TankRobotPhysicalObject
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
-from scioi_py_core.core.obstacles import SimpleObstacle, SimpleXYZRObstacle, Obstacle, Testbed_Floor, FloorTile
+from scioi_py_core.core.obstacles import SimpleXYZRObstacle, Obstacle, Testbed_Floor, FloorTile
 from EnvironmentDavid.mazes import maze_coop2
 import time
 
@@ -13,7 +13,7 @@ mapping_turn = 9
 
 class EnvironmentDavid_thisExample(EnvironmentDavid):
     agent1: TankRobotSimObject
-    Obstacle1: SimpleObstacle
+    Obstacle1: SimpleXYZRObstacle
     agent2: TankRobotSimObject
 
     def __init__(self, visualization=None, visualization_settings=None, *args, **kwargs):

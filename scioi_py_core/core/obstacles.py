@@ -21,7 +21,7 @@ class SimpleXYZRObstacle(Obstacle):
     """
     physics: core.physics.CuboidPhysics
 
-    def __init__(self, length: float, width: float, height: float, position, visible = False, *args, **kwargs):
+    def __init__(self, length: float, width: float, height: float, position, visible=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         position = position
@@ -38,15 +38,13 @@ class SimpleXYZRObstacle(Obstacle):
         self.visible = visible
 
     @property
-    def visibile(self):
+    def visible(self):
         return self._visible
 
-
     @visible.setter
-    def visible(self, state:bool):
+    def visible(self, state: bool):
         self._visible = state
-        if visualization:
-            add message to sample
+        # add object to sample
 
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],
@@ -65,8 +63,6 @@ class FloorTile(SimpleXYZRObstacle):
     def __init__(self, position, tilesize, height: float = 0.001, *args, **kwargs):
         self.type = 'floor'
         # set z-coordinate of tile to actual floor level
-        # if position[0] < 0:
-        #     raise Exception('Fehler')
         position[2] = -height / 2
 
         super().__init__(length=tilesize, width=tilesize, height=height, position=position, *args, **kwargs)
@@ -86,31 +82,6 @@ class Testbed_Floor:
                 position = [env.tile_size / 2 + x * env.tile_size, env.tile_size / 2 + y * env.tile_size, 0]
                 tile = FloorTile(name=f'Floor {x}_{y}', position=position,
                                  tilesize=env.tile_size, *args, **kwargs)
-                print('hier')
-
-
-class SimpleObstacle(SimpleXYZRObstacle):
-    """
-    Obstacle class for obstacles that are supposed to be displayed in Babylon
-    """
-    # filepath for texture in babylon visualization
-    texture_path: str
-
-    obstacle: SimpleXYZRObstacle
-
-    def __init__(self, *args, **kwargs):
-        # set babylon list to list of obstacles
-
-        # set the texture for obsatcles # todo
-        self.texture = None
-        super().__init__(*args, **kwargs)
-
-
-# class SimpleWall(SimpleObstacle):
-#
-#     def __init__(self, length, width, height, position, world: EnvironmentDavid, *args, **kwargs):
-#         self.babylon_env_list = world.babylon_env.walls
-#         super().__init__(self, length, width, height, position, world, *args, **kwargs)
 
 
 class WallsFromTiles(SimpleWall):
@@ -120,10 +91,3 @@ class WallsFromTiles(SimpleWall):
 
     def __init__(self):
         pass
-
-
-class CreateBabylonBasicEnvironment:
-    """
-    creates the Basic Babylon environment with floor Tiles and Border walls on each side
-    """
-    pass

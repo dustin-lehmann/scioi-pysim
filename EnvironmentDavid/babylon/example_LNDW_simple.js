@@ -115,106 +115,6 @@ class FloorTile {
     }
 }
 
-//
-// class Wall {
-//     constructor(scene, length, width, height, center_x, center_z, psi, visible) {
-//         this.scene = scene;
-//         this.visible=visible
-//         this.body = BABYLON.MeshBuilder.CreateBox('box', {height: height, width: width, depth: length}, scene);
-//         this.body.rotation.y = psi
-//
-//         this.body.position = ToBabylon([center_x, center_z, height/2])
-//
-//         let texture= "./twipr_models/textures/dark.png";
-//         this.material = new BABYLON.StandardMaterial(this.scene);
-//         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
-//         this.material.diffuseTexture.uScale = 0.5
-//         this.material.diffuseTexture.vScale = 0.5
-//         this.material.specularColor = new BABYLON.Color3(0,0,0)
-//
-//
-//         this.body.material = this.material
-//
-//         this.setVisibility(this.visible)
-//
-//         return this;
-//     }
-//     setVisibility(state){
-//         this.body.visibility = state
-//     }
-// }
-
-// class Goal {
-//     constructor(scene, position, size, visible){
-//
-//         this.scene = scene
-//
-//         this.body = BABYLON.MeshBuilder.CreateBox('box', {height: 2, width: size, depth: size}, scene);
-//         this.body.position = ToBabylon([position[0], position[1], 8])
-//
-//         this.material = new BABYLON.StandardMaterial("material", scene);
-//         this.body.material = this.material
-//
-//         this.material.diffuseColor = new BABYLON.Color3(255/255,215/255,0/255)
-//         this.setVisibility(visible)
-//     }
-//         setVisibility(state){
-//         this.body.visibility = state
-//     }
-// }
-
-//
-// class DoorSwitch {
-//     constructor(scene, position, id) {
-//         this.scene = scene
-//
-//         this.height = 20
-//
-//         this.body = BABYLON.MeshBuilder.CreateCylinder('cylinder', {height:  this.height, diameter: 175})
-//         this.body.position = ToBabylon([position[0], position[1],  this.height/2])
-//
-//         this.position = position
-//
-//         this.material = new BABYLON.StandardMaterial("material", scene);
-//
-//         this.id = id
-//
-//         if (id === 1){
-//             this.material.diffuseColor = new BABYLON.Color3.Red()
-//         } else if (id === 2){
-//             this.material.diffuseColor = new BABYLON.Color3.Blue()
-//         } else if (id === 3){
-//             this.material.diffuseColor = new BABYLON.Color3.Green()
-//         } else if (id === 4){
-//             this.material.diffuseColor = new BABYLON.Color3(242/255,87/255,15/255)
-//         }
-//
-//         this.body.material = this.material
-//         return this
-//     }
-//
-//     pressed(state){
-//         if (state){
-//             this.body.height = 3
-//             this.body.position = ToBabylon([this.position[0], this.position[1],  this.body.height/2])
-//             // this.material.emissiveColor = new BABYLON.Color3.White()
-//             if (this.id === 1){
-//                 this.material.emissiveColor = new BABYLON.Color3.Red()
-//             } else if (this.id === 2){
-//                 this.material.emissiveColor = new BABYLON.Color3.Blue()
-//             } else if (this.id === 3){
-//                 this.material.emissiveColor = new BABYLON.Color3.Green()
-//             } else if (this.id === 4){
-//                 this.material.emissiveColor = new BABYLON.Color3(242/255,87/255,15/255)
-//             }
-//         } else {
-//             this.body.height = this.height
-//             this.body.position = ToBabylon([this.position[0], this.position[1],  this.body.height/2])
-//             this.material.emissiveColor = new BABYLON.Color3.Black()
-//         }
-//     }
-// }
-
 
 class ObstacleBox {
 //todo: add default param for heigth
@@ -224,9 +124,6 @@ class ObstacleBox {
         this.body.rotation.y = psi
 
         this.body.position = ToBabylon([center_x, center_z, height/2])
-
-
-        // this.collision_box_frame = new CollisionBoxFrame(this.scene)
 
         let texture= "./twipr_models/textures/walls_japanese.png";
         this.material = new BABYLON.StandardMaterial(this.scene);
@@ -353,7 +250,7 @@ class BoxRobot {
     }
 
     setState(x, y, psi){
-        this.body.position = ToBabylon([x*1000,y*1000,this.height/2])
+        this.body.position = ToBabylon([x,y,this.height/2])
         this.body.rotation.y = psi
     }
 
@@ -425,9 +322,9 @@ class Robot_Model {
 
     onLoad(newMeshes, particleSystems, skeletons){
         this.mesh = newMeshes[0]
-        this.mesh.scaling.x = 100
-        this.mesh.scaling.y = 100
-        this.mesh.scaling.z = 100
+        this.mesh.scaling.x = 1
+        this.mesh.scaling.y = 1
+        this.mesh.scaling.z = 1
 
         this.material = new BABYLON.StandardMaterial("material", this.scene);
         this.mesh.material = this.material
@@ -451,7 +348,7 @@ class Robot_Model {
     }
 
     setPosition(x, y) {
-        this.mesh.position = ToBabylon([x*100,y*100,0.004])
+        this.mesh.position = ToBabylon([x,y,0.004])
 
 
         // this.pivotPointWheels.position.x = y
@@ -488,17 +385,19 @@ class LNDW_scene_simple extends Scene {
 
         var json_objects = []
 
-        // this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, ToBabylon([5094/2,3679/2,0]), this.scene);
-        this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, ToBabylon([509.4/2,367.9/2,0]), this.scene);
+        // set rotation point for camera -> should be the middle of the testbed
+        this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, ToBabylon([50.94/2,36.79/2,0]), this.scene);
 
         // Positions the camera overwriting alpha, beta, radius
-        this.camera.setPosition(new BABYLON.Vector3(2506, 2818, 1987));
+        // this.camera.setPosition(new BABYLON.Vector3(0, 0, 20));
+        this.camera.setPosition(new BABYLON.Vector3(ToBabylon(20, 20, 20)));
+
         // This attaches the camera to the canvas
         this.camera.attachControl(this.canvas, true);
 
         //increase angular speed
-        this.camera.angularSensibilityY = 250
-        this.camera.angularSensibilityX = 250
+        this.camera.angularSensibilityY = 25000
+        this.camera.angularSensibilityX = 25000
         //increase Zooming speed
         this.camera.wheelPrecision = 0.2;
 
@@ -558,11 +457,11 @@ class LNDW_scene_simple extends Scene {
     buildEnvironment() {
          for (const [key, value] of Object.entries(environment_objects)) {
              value['babylon'] = new createBoxFromJson(this.scene,
-                value["length"]*100,
-                value["width"]*100,
-                value["height"]*100,
-                value["center_x"]*100,
-                value["center_y"]*100,
+                value["length"],
+                value["width"],
+                value["height"],
+                value["center_x"],
+                value["center_y"],
                 value["psi"],
                 value["visible"]
             )
@@ -573,10 +472,10 @@ class LNDW_scene_simple extends Scene {
             value['babylon'] = new Robot(this.scene,
                 value['id'],
                 key,
-                value['length']*100,
-                value['width']*100,
+                value['length'],
+                value['width'],
                 value['height'],
-                value['position']*100,
+                value['position'],
                 value['psi'],
                 this.shadowGenerator)
         }
@@ -585,15 +484,15 @@ class LNDW_scene_simple extends Scene {
     drawCoordinateSystem() {
         const points_x = [
             ToBabylon([0,0,0]),
-            ToBabylon([100,0,0])
+            ToBabylon([10,0,0])
         ]
         const points_y = [
             ToBabylon([0,0,0]),
-            ToBabylon([0,100,0])
+            ToBabylon([0,10,0])
         ]
         const points_z = [
             ToBabylon([0,0,0]),
-            ToBabylon([0,0,100])
+            ToBabylon([0,0,10])
         ]
         const options_x = {
             points: points_x,
@@ -618,6 +517,7 @@ class LNDW_scene_simple extends Scene {
     //     this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
         // Robot
         var robot_data = sample['robots']
+        // console.log(robot_data)
         for (const [key, value] of Object.entries(robot_data)) {
             if (key in robots) {
                 robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
