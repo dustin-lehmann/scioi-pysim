@@ -218,7 +218,7 @@ class ScheduledObject(ABC):
     scheduling: SchedulingData
     name: str
 
-    def __init__(self, name=None, parent=None):
+    def __init__(self, name=None, parent=None, *args, **kwargs):
         self.scheduling = SchedulingData(_object=self)
 
         if name is None:

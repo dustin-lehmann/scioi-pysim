@@ -179,7 +179,7 @@ class Obstacle(PhysicalObject):
 
 class Wall(Obstacle):
     """
-    wall that keeps robots from driving through
+    wall that keeps robot_textures from driving through
     """
     pass
 

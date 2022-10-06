@@ -14,13 +14,14 @@ class BabylonVisualization(BabylonVisualizationEnvironment):
     """
     webapp = None
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    def add_object_to_babylon(self, *args: 'TankRobotSimObject |Obstacle') -> None:         #todo: multiple type hints really look like that?
+    def add_object_to_babylon(self,
+                              *args: 'TankRobotSimObject |Obstacle') -> None:  # todo: do multiple type hints really look like that?
         """
         - add one or multiple objects to the babylon Visualization
-        - depending on if it is a standard obstacle or a robots it gets added to one of the respective lists
+        - depending on if it is a standard obstacle or a robot_textures it gets added to one of the respective lists
         """
         for element in args:
             if isinstance(element, TankRobotSimObject):
@@ -28,7 +29,6 @@ class BabylonVisualization(BabylonVisualizationEnvironment):
 
             elif isinstance(element, Obstacle):
                 self.obstacles_list.append(element)
-
 
             else:
                 raise Exception('there is no matching list for this object type!')

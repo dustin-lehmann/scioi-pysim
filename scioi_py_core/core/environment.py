@@ -35,7 +35,7 @@ class Environment(scheduling.ScheduledObject):
     '''
 
     # === INIT =========================================================================================================
-    def __init__(self, run_mode: str = None, Ts: float = None):
+    def __init__(self, run_mode: str = None, Ts: float = None, *args, **kwargs):
         super().__init__()
 
         if run_mode is not None:

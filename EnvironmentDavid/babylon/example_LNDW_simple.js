@@ -3,7 +3,7 @@
 var robots = {}
 var environment_objects= {}
 
-// function to create all the different objects in the visualization except for the robots
+// function to create all the different objects in the visualization except for the robot_textures
 class createBoxFromJson {
     constructor(scene, length, width, height, center_x, center_z, psi, visible) {
         this.scene = scene;
@@ -12,7 +12,6 @@ class createBoxFromJson {
         this.body.rotation.y = psi
 
         this.body.position = ToBabylon([center_x, center_z, height/2])
-        console.log(this.body.position)
         let texture= "./twipr_models/textures/dark.png";
         this.material = new BABYLON.StandardMaterial(this.scene);
         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
@@ -24,7 +23,6 @@ class createBoxFromJson {
         this.body.material = this.material
 
         this.setVisibility(this.visible)
-        console.log('creating box from json')
 
         return this;
     }
@@ -33,151 +31,10 @@ class createBoxFromJson {
     }
 }
 
-class createBoxObject {
-    constructor(scene, length, width, height, center_x, center_z, psi,type)
-    {
-        if(type == "Robot")
-            BoxRobot(scene,length,width,height,center_x,center_z,psi,type)
-        else
-            ObstacleBox(scene,length,width,height,center_x,center_z,psi,type)
-    }
-}
-
 // this function transforms input coordinates to babylon coordinates
 function ToBabylon(coordinates) {
     // return new BABYLON.Vector3(coordinates[0], -coordinates[2], coordinates[1])
     return new BABYLON.Vector3(coordinates[0], coordinates[2], -coordinates[1])
-}
-
-
-class FloorTile {
-    constructor(scene, length, width, height, position) {
-        this.scene = scene
-        this.body = BABYLON.MeshBuilder.CreateBox('box', {height: height, width: width, depth: length}, scene);
-        this.body.position = ToBabylon(position)
-
-        this.highlight1 = 0
-        this.highlight2 = 0
-
-        let texture= "./twipr_models/textures/ccc.png";
-
-        let uscale = 1;
-        let vscale = 1;
-        this.material = new BABYLON.StandardMaterial(this.scene);
-        this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
-        this.material.diffuseTexture.uScale = uscale
-        this.material.diffuseTexture.vScale = vscale
-        this.material.specularColor = new BABYLON.Color3(0,0,0)
-        this.body.receiveShadows = true;
-        this.body.material = this.material
-
-        this.highlight_body = BABYLON.MeshBuilder.CreateBox('box', {height: 1, width: width*0.95, depth: length*0.95}, scene);
-        this.highlight_material = new BABYLON.StandardMaterial("material", scene);
-        this.highlight_material.alpha = 0.125
-        this.highlight_body.material = this.highlight_material
-        this.highlight_body.position = ToBabylon([position[0], position[1], height/2+3])
-        this.highlight_body.visibility = 0
-
-    }
-
-    highlight(state, discoverer_id){
-        if (state){
-            this.highlight_body.visibility = 1
-            if (discoverer_id===1 && this.highlight1){
-                return
-            }
-            if (discoverer_id===1 && !this.highlight1){
-                if (!this.highlight2){
-                    this.highlight_material.diffuseColor = new BABYLON.Color3(1, 0, 0)
-                    this.highlight_material.emissiveColor = new BABYLON.Color3(1, 0, 0)
-                } else {
-                    this.highlight_material.diffuseColor = new BABYLON.Color3(1, 0, 1)
-                    this.highlight_material.emissiveColor = new BABYLON.Color3(1, 0, 1)
-                }
-                this.highlight1 = 1
-            }
-            if (discoverer_id===2 && !this.highlight2){
-                if (!this.highlight1){
-                    this.highlight_material.diffuseColor = new BABYLON.Color3(0, 0, 1)
-                    this.highlight_material.emissiveColor = new BABYLON.Color3(0, 0, 1)
-                } else {
-                    this.highlight_material.diffuseColor = new BABYLON.Color3(1, 0, 1)
-                    this.highlight_material.emissiveColor = new BABYLON.Color3(1, 0, 1)
-                }
-                this.highlight2 = 1
-            }
-
-
-             //new BABYLON.Color3.Green(
-        } else {
-            this.material.diffuseColor = new BABYLON.Color3(1,1,1)
-        }
-    }
-}
-
-
-class ObstacleBox {
-//todo: add default param for heigth
-    constructor(scene, length, width, height, center_x, center_z, psi,type) {
-        this.scene = scene;
-        this.body = BABYLON.MeshBuilder.CreateBox('box', {height: height, width: width, depth: length}, scene);
-        this.body.rotation.y = psi
-
-        this.body.position = ToBabylon([center_x, center_z, height/2])
-
-        let texture= "./twipr_models/textures/walls_japanese.png";
-        this.material = new BABYLON.StandardMaterial(this.scene);
-        this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
-        this.material.diffuseTexture.uScale = 0.5
-        this.material.diffuseTexture.vScale = 0.5
-        this.material.specularColor = new BABYLON.Color3(0,0,0)
-        this.body.receiveShadows = true;
-
-        this.body.material = this.material
-
-        return this;
-    }
-
-    setVisibility(visibility) {
-        this.body.visibility = visibility
-    }
-}
-
-class CollisionBoxFrame {
-    constructor(scene, options) {
-        this.scene = scene;
-        const defaults = {
-            length: 700,
-            width: 700,
-            height: 1,
-        };
-        options = {...defaults, ...options};
-
-        this.options = options
-
-        this.body = BABYLON.MeshBuilder.CreateBox('box', {height: options.height, width: options.length, depth: options.width}, scene);
-        this.material = new BABYLON.StandardMaterial("material", scene);
-        this.material.alpha = 0
-        this.body.material = this.material
-        this.body.enableEdgesRendering();
-        this.body.edgesColor.copyFromFloats(1, 0, 1, 0.5);
-        this.body.edgesWidth = 1000;
-        this.body.edgesShareWithInstances = true;
-        this.body.position.y = this.options.height/2
-
-        this.old_width = this.options.width
-        this.old_length = this.options.length
-
-        return this;
-    }
-
-    set_size_position(max_x, min_x, max_y, min_y ){
-        this.body.position.x = min_x + (max_x-min_x)/2
-        this.body.position.z = -(min_y + (max_y-min_y)/2)
-        var scaling_x = (max_x-min_x)/this.old_length
-        var scaling_z = (max_y-min_y)/this.old_width
-        this.body.scaling = new BABYLON.Vector3(scaling_x, 1, scaling_z);
-    }
 }
 
 class Robot {
@@ -255,7 +112,7 @@ class BoxRobot {
     }
 
     setColour(collision) {
-        // This fucntion is used to visualize a collision by changing the colour of a material to a certain colour (green/red)
+        // This function is used to visualize a collision by changing the colour of a material to a certain colour (green/red)
         if (collision) {
             boxMat.diffuseColor = new BABYLON.Color3(0, 1, 0)
 
@@ -271,7 +128,7 @@ class AgentIndicator {
         this.scene = scene;
         const defaults = {
             color: [0.8,0,0],
-            size: 3,
+            size: 0.3,
             id: 1,
         };
         options = {...defaults, ...options};
@@ -386,11 +243,11 @@ class LNDW_scene_simple extends Scene {
         var json_objects = []
 
         // set rotation point for camera -> should be the middle of the testbed
-        this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, ToBabylon([50.94/2,36.79/2,0]), this.scene);
+        this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, ToBabylon([5.094/2,3.679/2,0]), this.scene);
 
         // Positions the camera overwriting alpha, beta, radius
-        // this.camera.setPosition(new BABYLON.Vector3(0, 0, 20));
-        this.camera.setPosition(new BABYLON.Vector3(ToBabylon(20, 20, 20)));
+        this.camera.setPosition(new BABYLON.Vector3(0, 0, 4));
+        // this.camera.setPosition(new BABYLON.Vector3(ToBabylon(0, 20, 0)));
 
         // This attaches the camera to the canvas
         this.camera.attachControl(this.canvas, true);
@@ -399,7 +256,7 @@ class LNDW_scene_simple extends Scene {
         this.camera.angularSensibilityY = 25000
         this.camera.angularSensibilityX = 25000
         //increase Zooming speed
-        this.camera.wheelPrecision = 0.2;
+        this.camera.wheelPrecision = 1;
 
         //This creates a light, aiming 0,1,0 - to the sky (non-mesh)
         this.light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0.5,1,0), this.scene);
@@ -463,7 +320,7 @@ class LNDW_scene_simple extends Scene {
                 value["center_x"],
                 value["center_y"],
                 value["psi"],
-                value["visible"]
+                value["visible"],
             )
              }
 
@@ -484,15 +341,15 @@ class LNDW_scene_simple extends Scene {
     drawCoordinateSystem() {
         const points_x = [
             ToBabylon([0,0,0]),
-            ToBabylon([10,0,0])
+            ToBabylon([0.5,0,0])
         ]
         const points_y = [
             ToBabylon([0,0,0]),
-            ToBabylon([0,10,0])
+            ToBabylon([0,0.5,0])
         ]
         const points_z = [
             ToBabylon([0,0,0]),
-            ToBabylon([0,0,10])
+            ToBabylon([0,0,0.5])
         ]
         const options_x = {
             points: points_x,
@@ -517,7 +374,7 @@ class LNDW_scene_simple extends Scene {
     //     this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
         // Robot
         var robot_data = sample['robots']
-        // console.log(robot_data)
+        console.log(robot_data)
         for (const [key, value] of Object.entries(robot_data)) {
             if (key in robots) {
                 robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])

@@ -21,7 +21,7 @@ class SimpleXYZRObstacle(Obstacle):
     """
     physics: core.physics.CuboidPhysics
 
-    def __init__(self, length: float, width: float, height: float, position, visible=False, *args, **kwargs):
+    def __init__(self, length: float, width: float, height: float, position, visible=True, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         position = position
@@ -51,10 +51,6 @@ class SimpleXYZRObstacle(Obstacle):
                             orientation=np.eye(3))
 
 
-class SimpleWall(SimpleXYZRObstacle):
-    pass
-
-
 class FloorTile(SimpleXYZRObstacle):
     """
     create a square floor tile, size depending on how many tiles exist in Testbed and its general measurements
@@ -65,10 +61,10 @@ class FloorTile(SimpleXYZRObstacle):
         # set z-coordinate of tile to actual floor level
         position[2] = -height / 2
 
-        super().__init__(length=tilesize, width=tilesize, height=height, position=position, *args, **kwargs)
+        super().__init__(length=tilesize, width=tilesize, height=height, position=position, visible= True, *args, **kwargs)
 
 
-class Testbed_Floor:
+class TestbedFloor:
     """
     creates the Floor consisting of Tiles according to the number and size specified for the environment
     """
@@ -82,12 +78,3 @@ class Testbed_Floor:
                 position = [env.tile_size / 2 + x * env.tile_size, env.tile_size / 2 + y * env.tile_size, 0]
                 tile = FloorTile(name=f'Floor {x}_{y}', position=position,
                                  tilesize=env.tile_size, *args, **kwargs)
-
-
-class WallsFromTiles(SimpleWall):
-    """
-    class that creates wall obstacles which position depends on the given Tile
-    """
-
-    def __init__(self):
-        pass

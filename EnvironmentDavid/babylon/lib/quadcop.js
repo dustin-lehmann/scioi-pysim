@@ -27,7 +27,7 @@ class QuadcopScene extends Scene {
         const skybox = BABYLON.MeshBuilder.CreateBox('skyBox', {size:1000.0}, this.scene);
         const skyboxMaterial = new BABYLON.StandardMaterial('skyBox', this.scene);
         skyboxMaterial.backFaceCulling = false;
-        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('lib/textures/skybox', this.scene);
+        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('lib/textures.json/skybox', this.scene);
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
         skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
         skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
@@ -318,7 +318,7 @@ class Fire {
     constructor (emitter, scene, scale) {
         //Smoke
         const smokeSystem = new BABYLON.ParticleSystem("particles", 1000, scene);
-        smokeSystem.particleTexture = new BABYLON.Texture("lib/textures/flare.png", scene);
+        smokeSystem.particleTexture = new BABYLON.Texture("lib/textures.json/flare.png", scene);
         smokeSystem.emitter = emitter; // the starting object, the emitter
         smokeSystem.minEmitBox = new BABYLON.Vector3(-scale*0.5, scale*0, -scale*0.5); // Starting all from
         smokeSystem.maxEmitBox = new BABYLON.Vector3(scale*0.5, scale*1, scale*0.5); // To...
@@ -357,7 +357,7 @@ class Fire {
         const fireSystem = new BABYLON.ParticleSystem("particles", 2000, scene);
 
         //Texture of each particle
-        fireSystem.particleTexture = new BABYLON.Texture("lib/textures/flare.png", scene);
+        fireSystem.particleTexture = new BABYLON.Texture("lib/textures.json/flare.png", scene);
 
         // Where the particles come from
         fireSystem.emitter = emitter; // the starting object, the emitter

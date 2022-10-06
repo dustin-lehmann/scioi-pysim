@@ -2,6 +2,7 @@ import numpy as np
 
 import scioi_py_core.core as core
 import scioi_py_core.utils.orientations as ori
+from scioi_py_core.core.obstacles import FloorTile
 
 from . import EnvironmentDavid_Dynamics
 from . import EnvironmentDavid_World
@@ -63,9 +64,10 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
     spaces = TankRobotSpaces
 
     def __init__(self, *args, **kwargs):
+        self.type = 'TankRobot'
         self.dynamics = EnvironmentDavid_Dynamics.TankRobot_Dynamics()
         self.physics: TankRobotPhysicalObject = TankRobotPhysicalObject(*args, **kwargs)
-        super().__init__(*args, **kwargs, collision_check=True, collidable=True)
+        super().__init__(*args, **kwargs, collision_check=True, collidable=True, collision_excludes=[FloorTile])
 
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], 0],

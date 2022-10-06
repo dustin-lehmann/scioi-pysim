@@ -98,7 +98,7 @@ class IMUBox {
             dimX: 5.5,
             dimY: 3.5,
             dimZ: 1.3,
-            texture: 'lib/textures/texture_imu.png', // set to false to use colors on top and front side
+            texture: 'lib/textures.json/texture_imu.png', // set to false to use colors on top and front side
             color: COLORS.C1,
             led: true,
             axes: true,
@@ -206,7 +206,7 @@ class IMUScene extends Scene {
         const defaults = {
             signal: 'quat',
             axisSignal: undefined,
-            texture: 'lib/textures/texture_imu.png',
+            texture: 'lib/textures.json/texture_imu.png',
         };
         options = {...defaults, ...options};
         super(id);

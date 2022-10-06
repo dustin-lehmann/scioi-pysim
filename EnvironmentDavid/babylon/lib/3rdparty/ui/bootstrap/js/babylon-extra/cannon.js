@@ -3610,7 +3610,7 @@ var Utils = _dereq_('../utils/Utils');
 module.exports = ContactMaterial;
 
 /**
- * Defines what happens when two materials meet.
+ * Defines what happens when two material_textures meet.
  * @class ContactMaterial
  * @constructor
  * @param {Material} m1
@@ -3640,7 +3640,7 @@ function ContactMaterial(m1, m2, options){
     this.id = ContactMaterial.idCounter++;
 
     /**
-     * Participating materials
+     * Participating material_textures
      * @property {Array} materials
      * @todo  Should be .materialA and .materialB instead
      */
@@ -12867,7 +12867,7 @@ function World(){
 	this.collisionMatrixPrevious = new ArrayCollisionMatrix();
 
     /**
-     * All added materials
+     * All added material_textures
      * @property materials
      * @type {Array}
      */
@@ -12936,14 +12936,14 @@ var tmpArray1 = [];
 var tmpRay = new Ray();
 
 /**
- * Get the contact material between materials m1 and m2
+ * Get the contact material between material_textures m1 and m2
  * @method getContactMaterial
  * @param {Material} m1
  * @param {Material} m2
  * @return {ContactMaterial} The contact material if it was found.
  */
 World.prototype.getContactMaterial = function(m1,m2){
-    return this.contactMaterialTable.get(m1.id,m2.id); //this.contactmaterials[this.mats2cmat[i+j*this.materials.length]];
+    return this.contactMaterialTable.get(m1.id,m2.id); //this.contactmaterials[this.mats2cmat[i+j*this.material_textures.length]];
 };
 
 /**

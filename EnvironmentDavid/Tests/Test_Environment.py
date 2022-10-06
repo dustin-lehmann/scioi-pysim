@@ -2,7 +2,7 @@ import scioi_py_core.core as core
 from EnvironmentDavid.Objects.EnvironmentDavid import EnvironmentDavid
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject, TankRobotPhysicalObject
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
-from scioi_py_core.core.obstacles import SimpleXYZRObstacle, Obstacle, Testbed_Floor, FloorTile
+from scioi_py_core.core.obstacles import SimpleXYZRObstacle, Obstacle, TestbedFloor, FloorTile
 from EnvironmentDavid.mazes import maze_coop2
 import time
 
@@ -16,10 +16,9 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
     Obstacle1: SimpleXYZRObstacle
     agent2: TankRobotSimObject
 
-    def __init__(self, visualization=None, visualization_settings=None, *args, **kwargs):
+    def __init__(self, visualization=None,*args, **kwargs):
         super().__init__(*args, **kwargs)
         self.visualization = visualization
-        self.visualization_settings = visualization_settings
         self.agent1 = None
         self.agent2 = None
         # self.obstacle1 = None
@@ -56,7 +55,7 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
 
 
 def main():
-    env = EnvironmentDavid_thisExample(Ts=0.04, visualization='babylon', visualization_settings='fancy.json')
+    env = EnvironmentDavid_thisExample(Ts=0.04, visualization='babylon', texture_settings='fancy.json')
     # floor = BabylonSimpleFloor(env)
     agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
     env.agent1 = agent1
@@ -68,11 +67,8 @@ def main():
     obstacle3 = SimpleXYZRObstacle(name='Obstacle 3', length=0.1, width=0.1, height=0.1, position=[1, 0, 0],
                                    world=env.world)
 
-    # tile = FloorTile(name='Obstacle 3', tilesize=0.27, position=[0, 0, 0],
-    #                                world=env.world)
-    testbed_floor = Testbed_Floor(env=env, world=env.world)
+    testbed_floor = TestbedFloor(env=env, world=env.world)
 
-    # floor = BabylonSimpleFloor(testbed_env= env)
 
     env.init()
 

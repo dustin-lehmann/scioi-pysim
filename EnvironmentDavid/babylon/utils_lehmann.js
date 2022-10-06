@@ -8,7 +8,7 @@ class TiledGround{
         this.tiledGround = new BABYLON.MeshBuilder.CreateTiledGround("Tiled Ground", {xmin: -a/2, zmin: -b/2, xmax: a/2, zmax: b/2, subdivisions: grid}, scene);
 
     //Create the multi material
-    // Create differents materials
+    // Create differents material_textures
     this.whiteMaterial = new BABYLON.StandardMaterial("White", scene);
     this.whiteMaterial.diffuseColor = new BABYLON.Color3(color1[0],color1[1],color1[2]);
     this.whiteMaterial.specularColor = new BABYLON.Color3(0, 0, 0);

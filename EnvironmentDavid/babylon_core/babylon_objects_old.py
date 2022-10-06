@@ -330,9 +330,9 @@ from scioi_py_core.core.obstacles import Obstacle
 #     # ------------------------------------------------------------------------------------------------------------------
 #     def collisionDetection(self):
 #         """
-#         - check for collision of the robots
+#         - check for collision of the robot_textures
 #         - create cluster from current robot position
-#         - check collision of robots with every wall, door or area that belongs to the cells which are in the cluster
+#         - check collision of robot_textures with every wall, door or area that belongs to the cells which are in the cluster
 #         :return:
 #         """
 #         self.collision = False
@@ -404,7 +404,7 @@ class BabylonVisualizationEnvironment:
 
     obstacles_list: ['Obstacle']
 
-    # robots: dict[str, BabylonRobot]
+    # robot_textures: dict[str, BabylonRobot]
     robots_list: list['TankRobotPhysicalObject']
 
 
@@ -424,7 +424,7 @@ class BabylonVisualizationEnvironment:
         # self.walls = []
         self.obstacles_list = []
         # self.floortiles_list = []
-        # self.robots: BabylonRobot = []
+        # self.robot_textures: BabylonRobot = []
         self.robots_list = []
         # self.switches = {}
         # self.doors = {}
@@ -472,7 +472,7 @@ class BabylonVisualizationEnvironment:
     def toJson(self, file=None):
         json_dict = {
             'environment': {},
-            'robots': {}
+            'robot_textures': {}
         }
 
         for idx, obstacle in enumerate(self.obstacles_list):
@@ -503,7 +503,7 @@ class BabylonVisualizationEnvironment:
                 'psi': psiFromRotMat(robot.configuration['rot']),
                 'name': f'robot{robot_name}'
             }
-            json_dict['robots'][robot_name] = robot_dict
+            json_dict['robot_textures'][robot_name] = robot_dict
 
         if file is not None:
             try:
@@ -614,14 +614,14 @@ class BabylonVisualizationEnvironment:
     #     return floor_tiles
 
     def generateSample(self):
-        sample = {'robots': {},
+        sample = {'robot_textures': {},
                   'floor': {},
                   'walls': {},
                   'doors': {},
                   'switches': {},
                   'goals': {}}
 
-        # for count, robot in enumerate(self.robots):
+        # for count, robot in enumerate(self.robot_textures):
         for count, robot in enumerate(self.robots_list):
             robot_sample = {
                 'position': robot.physics.bounding_objects['body'].position,
@@ -629,8 +629,8 @@ class BabylonVisualizationEnvironment:
                 # 'collision': robot.collision
                 'collision': 0
             }
-            sample['robots'][f'{count}'] = robot_sample
-            # sample['robots'] = robot_sample
+            sample['robot_textures'][f'{count}'] = robot_sample
+            # sample['robot_textures'] = robot_sample
 
         discovered_walls = []
 
@@ -661,7 +661,7 @@ class BabylonVisualizationEnvironment:
 
     # ------------------------------------------------------------------------------------------------------------------
     # def collisionDetection(self):
-    #     for name, robot in self.robots.items():
+    #     for name, robot in self.robot_textures.items():
     #         robot.collisionDetection()
 
     # ------------------------------------------------------------------------------------------------------------------

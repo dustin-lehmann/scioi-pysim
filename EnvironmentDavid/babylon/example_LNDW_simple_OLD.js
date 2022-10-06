@@ -3,7 +3,7 @@
 var robots = {}
 var environment_objects= {}
 
-// function to create all the different objects in the visualization except for the robots
+// function to create all the different objects in the visualization except for the robot_textures
 class createBoxFromJson {
     constructor(scene, length, width, height, center_x, center_z, psi, visible) {
         this.scene = scene;
@@ -13,7 +13,7 @@ class createBoxFromJson {
 
         this.body.position = ToBabylon([center_x, center_z, height/2])
         console.log(this.body.position)
-        let texture= "./twipr_models/textures/dark.png";
+        let texture= "./twipr_models/textures.json/walls_dark.png";
         this.material = new BABYLON.StandardMaterial(this.scene);
         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
         this.material.diffuseTexture.uScale = 0.5
@@ -59,7 +59,7 @@ class FloorTile {
         this.highlight1 = 0
         this.highlight2 = 0
 
-        let texture= "./twipr_models/textures/ccc.png";
+        let texture= "./twipr_models/textures.json/floor_bright.png";
 
         let uscale = 1;
         let vscale = 1;
@@ -125,7 +125,7 @@ class FloorTile {
 //
 //         this.body.position = ToBabylon([center_x, center_z, height/2])
 //
-//         let texture= "./twipr_models/textures/dark.png";
+//         let texture= "./twipr_models/textures.json/walls_dark.png";
 //         this.material = new BABYLON.StandardMaterial(this.scene);
 //         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
 //         this.material.diffuseTexture.uScale = 0.5
@@ -217,7 +217,7 @@ class FloorTile {
 
 
 class ObstacleBox {
-//todo: add default param for heigth
+//todo: add default param for height
     constructor(scene, length, width, height, center_x, center_z, psi,type) {
         this.scene = scene;
         this.body = BABYLON.MeshBuilder.CreateBox('box', {height: height, width: width, depth: length}, scene);
@@ -228,7 +228,7 @@ class ObstacleBox {
 
         // this.collision_box_frame = new CollisionBoxFrame(this.scene)
 
-        let texture= "./twipr_models/textures/walls_japanese.png";
+        let texture= "./twipr_models/textures.json/walls_japanese.png";
         this.material = new BABYLON.StandardMaterial(this.scene);
         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
         this.material.diffuseTexture.uScale = 0.5
@@ -278,7 +278,7 @@ class ObstacleBox {
 //
 //         this.setVisibility(visible)
 //
-//         // let texture= "./twipr_models/textures/dark.png";
+//         // let texture= "./twipr_models/textures.json/walls_dark.png";
 //         // this.material = new BABYLON.StandardMaterial(this.scene);
 //         // this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
 //         // this.material.diffuseTexture.uScale = 0.5

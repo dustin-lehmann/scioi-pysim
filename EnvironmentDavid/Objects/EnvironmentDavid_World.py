@@ -18,8 +18,8 @@ coordinate_space_world = core.spaces.Space(dimensions=[
                           wrapping=True),
     core.spaces.Dimension(name='y', limits=[world_y_min, world_y_max],
                           wrapping=True),
-    core.spaces.Dimension(name='z', limits=[world_z_min, world_z_max],
-                          wrapping=True),
+    core.spaces.Dimension(name='z',
+                          wrapping=False),
 ]
 )
 

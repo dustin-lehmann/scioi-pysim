@@ -1,7 +1,7 @@
 import json
 import time
 
-from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotPhysicalObject
+from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject
 from scioi_py_core.utils.orientations import psiFromRotMat
 from scioi_py_core.core.obstacles import Obstacle
 
@@ -10,8 +10,8 @@ class BabylonVisualizationEnvironment:
 
     # list where all not moving objects are stored
     obstacles_list: ['Obstacle']
-    # list with all the robots that are active in the testbed
-    robots_list: list['TankRobotPhysicalObject']
+    # list with all the robot_textures that are active in the testbed
+    robots_list: list['TankRobotSimObject']
 
     size_x: float
     size_y: float
@@ -21,8 +21,8 @@ class BabylonVisualizationEnvironment:
     base_height: float
     wall_thickness: float
 
-    def __init__(self):
-
+    def __init__(self, texture_settings=None, *args, **kwargs):
+        self.texture_settings = texture_settings
         self.obstacles_list = []
         self.robots_list = []
 
@@ -30,13 +30,20 @@ class BabylonVisualizationEnvironment:
 
     def toJson(self, file=None):
         json_dict = {
+            # texture pack that is going to be used for babylon
+            'textures': {},
+            # all the objects that are no agents (not moving)
             'environment': {},
+            # robots in the testbed (simulated and real ones)
             'robots': {}
         }
+        # textures
+        json_dict['textures'] = self.texture_settings
 
+        # obstacles
         for idx, obstacle in enumerate(self.obstacles_list):
             obstacle_name = f"Obstacle_{idx}"
-            obstacle.name = obstacle_name  # todo:  removable?
+
             obstacle_dict = {
                 'center_x': obstacle.configuration['x'],
                 'center_y': obstacle.configuration['y'],
@@ -46,10 +53,12 @@ class BabylonVisualizationEnvironment:
                 'width': obstacle.physics.bounding_objects['cuboid'].dimensions[1],
                 'height': obstacle.physics.bounding_objects['cuboid'].dimensions[2],
                 'type': obstacle.type,
-                'discovered': obstacle.visible
+                'visible': obstacle.visible,
+                'name': obstacle.name
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 
+        # robots
         for idx, robot in enumerate(self.robots_list):
             orientation_test = robot.physics.bounding_objects['body'].orientation
             robot_name = f"{idx}"
@@ -60,7 +69,8 @@ class BabylonVisualizationEnvironment:
                 'width': robot.physics.width,
                 'height': robot.physics.height,
                 'psi': psiFromRotMat(robot.configuration['rot']),
-                'name': f'robot{robot_name}'
+                'name': f'robot{robot_name}',
+                'type': robot.type
             }
             json_dict['robots'][robot_name] = robot_dict
 
@@ -180,7 +190,7 @@ class BabylonVisualizationEnvironment:
                   'switches': {},
                   'goals': {}}
 
-        # for count, robot in enumerate(self.robots):
+        # for count, robot in enumerate(self.robot_textures):
         for count, robot in enumerate(self.robots_list):
             robot_sample = {
                 'position': robot.physics.bounding_objects['body'].position,
@@ -189,7 +199,7 @@ class BabylonVisualizationEnvironment:
                 'collision': 0
             }
             sample['robots'][f'{count}'] = robot_sample
-            # sample['robots'] = robot_sample
+            # sample['robot_textures'] = robot_sample
 
         discovered_walls = []
 
@@ -220,7 +230,7 @@ class BabylonVisualizationEnvironment:
 
     # ------------------------------------------------------------------------------------------------------------------
     # def collisionDetection(self):
-    #     for name, robot in self.robots.items():
+    #     for name, robot in self.robot_textures.items():
     #         robot.collisionDetection()
 
     # ------------------------------------------------------------------------------------------------------------------

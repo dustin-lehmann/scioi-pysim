@@ -3,8 +3,8 @@ class SegmentBox {
     constructor(scene, options) {
         this.scene = scene;
         const texture = {
-            FLU: 'lib/textures/texture_imu.png', // set to false to use colors on top and front side
-            RFU: 'lib/textures/texture_imu_smartphone.png',
+            FLU: 'lib/textures.json/texture_imu.png', // set to false to use colors on top and front side
+            RFU: 'lib/textures.json/texture_imu_smartphone.png',
         };
         const axis = {
             FLU:{x:[1, 0, 0],
@@ -59,7 +59,7 @@ class SegmentBox {
             boxOpts.depth = y * options.scale;
 
             if (options.texture === undefined) {
-                options.texture = _.get(texture, options.coordinates, 'lib/textures/texture_imu.png');
+                options.texture = _.get(texture, options.coordinates, 'lib/textures.json/texture_imu.png');
             }
             if (options.axis === undefined) {
                 options.axis = _.get(axis, options.coordinates, axis.FLU);

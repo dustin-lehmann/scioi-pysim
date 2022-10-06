@@ -15622,7 +15622,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _button3D__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button3D */ "./3D/controls/button3D.ts");
 /* harmony import */ var babylonjs_Materials_standardMaterial__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babylonjs/Materials/standardMaterial */ "babylonjs/Misc/observable");
 /* harmony import */ var babylonjs_Materials_standardMaterial__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babylonjs_Materials_standardMaterial__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _materials_fluentMaterial__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../materials/fluentMaterial */ "./3D/materials/fluentMaterial.ts");
+/* harmony import */ var _materials_fluentMaterial__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../material_textures/fluentMaterial */ "./3D/materials/fluentMaterial.ts");
 /* harmony import */ var _2D_controls_stackPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../2D/controls/stackPanel */ "./2D/controls/stackPanel.ts");
 /* harmony import */ var _2D_controls_image__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../2D/controls/image */ "./2D/controls/image.ts");
 /* harmony import */ var _2D_controls_textBlock__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../2D/controls/textBlock */ "./2D/controls/textBlock.ts");
@@ -16934,7 +16934,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VolumeBasedPanel", function() { return _controls__WEBPACK_IMPORTED_MODULE_0__["VolumeBasedPanel"]; });
 
-/* harmony import */ var _materials__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./materials */ "./3D/materials/index.ts");
+/* harmony import */ var _materials__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./material_textures */ "./3D/materials/index.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FluentMaterialDefines", function() { return _materials__WEBPACK_IMPORTED_MODULE_1__["FluentMaterialDefines"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FluentMaterial", function() { return _materials__WEBPACK_IMPORTED_MODULE_1__["FluentMaterial"]; });
@@ -16955,7 +16955,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ "./3D/materials/fluentMaterial.ts":
 /*!****************************************!*\
-  !*** ./3D/materials/fluentMaterial.ts ***!
+  !*** ./3D/material_textures/fluentMaterial.ts ***!
   \****************************************/
 /*! exports provided: FluentMaterialDefines, FluentMaterial */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -17254,7 +17254,7 @@ babylonjs_Misc_decorators__WEBPACK_IMPORTED_MODULE_1__["_TypeStore"].RegisteredT
 
 /***/ "./3D/materials/index.ts":
 /*!*******************************!*\
-  !*** ./3D/materials/index.ts ***!
+  !*** ./3D/material_textures/index.ts ***!
   \*******************************/
 /*! exports provided: FluentMaterialDefines, FluentMaterial */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -17273,7 +17273,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ "./3D/materials/shaders/fluent.fragment.ts":
 /*!*************************************************!*\
-  !*** ./3D/materials/shaders/fluent.fragment.ts ***!
+  !*** ./3D/material_textures/shaders/fluent.fragment.ts ***!
   \*************************************************/
 /*! exports provided: fluentPixelShader */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -17295,7 +17295,7 @@ var fluentPixelShader = { name: name, shader: shader };
 
 /***/ "./3D/materials/shaders/fluent.vertex.ts":
 /*!***********************************************!*\
-  !*** ./3D/materials/shaders/fluent.vertex.ts ***!
+  !*** ./3D/material_textures/shaders/fluent.vertex.ts ***!
   \***********************************************/
 /*! exports provided: fluentVertexShader */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {

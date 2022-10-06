@@ -26,7 +26,7 @@ class EnvironmentDavid(core.environment.Environment):
         super().__init__(*args, **kwargs)
         self.world = EnvironmentDavid_World.DynamicWorld_XYZR_Simple(name='World', parent=self)
         # babylon environment for visualization
-        self.babylon_env = BabylonVisualization()
+        self.babylon_env = BabylonVisualization(*args, *kwargs)
         self.name = 'Environment'
 
 

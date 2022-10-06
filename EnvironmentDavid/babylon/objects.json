@@ -1,4 +1,5 @@
 {
+  "textures": "Ts",
   "environment": {
     "Obstacle_0": {
       "center_x": 0.0,
@@ -9,7 +10,8 @@
       "width": 0.1,
       "height": 0.1,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Obstacle 1"
     },
     "Obstacle_1": {
       "center_x": 0.5,
@@ -20,7 +22,8 @@
       "width": 0.1,
       "height": 0.1,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Obstacle 2"
     },
     "Obstacle_2": {
       "center_x": 1.0,
@@ -31,7 +34,8 @@
       "width": 0.1,
       "height": 0.1,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Obstacle 3"
     },
     "Obstacle_3": {
       "center_x": 0.8333333333333321,
@@ -42,7 +46,8 @@
       "width": 1.6666666666666667,
       "height": 0.001,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Floor 0_0"
     },
     "Obstacle_4": {
       "center_x": 0.8333333333333321,
@@ -53,7 +58,8 @@
       "width": 1.6666666666666667,
       "height": 0.001,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Floor 0_1"
     },
     "Obstacle_5": {
       "center_x": 2.5,
@@ -64,7 +70,8 @@
       "width": 1.6666666666666667,
       "height": 0.001,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Floor 1_0"
     },
     "Obstacle_6": {
       "center_x": 2.5,
@@ -75,7 +82,8 @@
       "width": 1.6666666666666667,
       "height": 0.001,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Floor 1_1"
     },
     "Obstacle_7": {
       "center_x": -3.833333333333332,
@@ -86,7 +94,8 @@
       "width": 1.6666666666666667,
       "height": 0.001,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Floor 2_0"
     },
     "Obstacle_8": {
       "center_x": -3.833333333333332,
@@ -97,7 +106,8 @@
       "width": 1.6666666666666667,
       "height": 0.001,
       "type": "obstacle",
-      "discovered": false
+      "visible": true,
+      "name": "Floor 2_1"
     }
   },
   "robots": {
@@ -112,7 +122,8 @@
       "width": 0.115,
       "height": 0.052,
       "psi": 0.0,
-      "name": "robot0"
+      "name": "robot0",
+      "type": "TankRobot"
     }
   }
 }
