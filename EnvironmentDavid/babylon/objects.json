@@ -4,7 +4,7 @@
     "Obstacle_0": {
       "center_x": 0.0,
       "center_y": 0.0,
-      "center_z": 0.0,
+      "center_z": 0,
       "psi": 0.0,
       "length": 0.1,
       "width": 0.1,
@@ -16,7 +16,7 @@
     "Obstacle_1": {
       "center_x": 0.5,
       "center_y": 0.0,
-      "center_z": 0.0,
+      "center_z": 0,
       "psi": 0.0,
       "length": 0.1,
       "width": 0.1,
@@ -28,7 +28,7 @@
     "Obstacle_2": {
       "center_x": 1.0,
       "center_y": 0.0,
-      "center_z": 0.0,
+      "center_z": 0,
       "psi": 0.0,
       "length": 0.1,
       "width": 0.1,
@@ -38,76 +38,4216 @@
       "name": "Obstacle 3"
     },
     "Obstacle_3": {
-      "center_x": 0.8333333333333321,
-      "center_y": 0.8333333333333321,
-      "center_z": -0.0004999999999997229,
+      "center_x": 0.14149999999999974,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
       "psi": 0.0,
-      "length": 1.6666666666666667,
-      "width": 1.6666666666666667,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
       "height": 0.001,
       "type": "obstacle",
       "visible": true,
       "name": "Floor 0_0"
     },
     "Obstacle_4": {
-      "center_x": 0.8333333333333321,
-      "center_y": 2.5,
-      "center_z": -0.0004999999999997229,
+      "center_x": 0.14149999999999974,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
       "psi": 0.0,
-      "length": 1.6666666666666667,
-      "width": 1.6666666666666667,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
       "height": 0.001,
       "type": "obstacle",
       "visible": true,
       "name": "Floor 0_1"
     },
     "Obstacle_5": {
-      "center_x": 2.5,
-      "center_y": 0.8333333333333321,
-      "center_z": -0.0004999999999997229,
+      "center_x": 0.14149999999999974,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
       "psi": 0.0,
-      "length": 1.6666666666666667,
-      "width": 1.6666666666666667,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_2"
+    },
+    "Obstacle_6": {
+      "center_x": 0.14149999999999974,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_3"
+    },
+    "Obstacle_7": {
+      "center_x": 0.14149999999999974,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_4"
+    },
+    "Obstacle_8": {
+      "center_x": 0.14149999999999974,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_5"
+    },
+    "Obstacle_9": {
+      "center_x": 0.14149999999999974,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_6"
+    },
+    "Obstacle_10": {
+      "center_x": 0.14149999999999974,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_7"
+    },
+    "Obstacle_11": {
+      "center_x": 0.14149999999999974,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_8"
+    },
+    "Obstacle_12": {
+      "center_x": 0.14149999999999974,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_9"
+    },
+    "Obstacle_13": {
+      "center_x": 0.14149999999999974,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_10"
+    },
+    "Obstacle_14": {
+      "center_x": 0.14149999999999974,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_11"
+    },
+    "Obstacle_15": {
+      "center_x": 0.14149999999999974,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 0_12"
+    },
+    "Obstacle_16": {
+      "center_x": 0.4245000000000001,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
       "height": 0.001,
       "type": "obstacle",
       "visible": true,
       "name": "Floor 1_0"
     },
-    "Obstacle_6": {
-      "center_x": 2.5,
-      "center_y": 2.5,
-      "center_z": -0.0004999999999997229,
+    "Obstacle_17": {
+      "center_x": 0.4245000000000001,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
       "psi": 0.0,
-      "length": 1.6666666666666667,
-      "width": 1.6666666666666667,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
       "height": 0.001,
       "type": "obstacle",
       "visible": true,
       "name": "Floor 1_1"
     },
-    "Obstacle_7": {
-      "center_x": -3.833333333333332,
-      "center_y": 0.8333333333333321,
-      "center_z": -0.0004999999999997229,
+    "Obstacle_18": {
+      "center_x": 0.4245000000000001,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
       "psi": 0.0,
-      "length": 1.6666666666666667,
-      "width": 1.6666666666666667,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_2"
+    },
+    "Obstacle_19": {
+      "center_x": 0.4245000000000001,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_3"
+    },
+    "Obstacle_20": {
+      "center_x": 0.4245000000000001,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_4"
+    },
+    "Obstacle_21": {
+      "center_x": 0.4245000000000001,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_5"
+    },
+    "Obstacle_22": {
+      "center_x": 0.4245000000000001,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_6"
+    },
+    "Obstacle_23": {
+      "center_x": 0.4245000000000001,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_7"
+    },
+    "Obstacle_24": {
+      "center_x": 0.4245000000000001,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_8"
+    },
+    "Obstacle_25": {
+      "center_x": 0.4245000000000001,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_9"
+    },
+    "Obstacle_26": {
+      "center_x": 0.4245000000000001,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_10"
+    },
+    "Obstacle_27": {
+      "center_x": 0.4245000000000001,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_11"
+    },
+    "Obstacle_28": {
+      "center_x": 0.4245000000000001,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 1_12"
+    },
+    "Obstacle_29": {
+      "center_x": 0.7074999999999996,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
       "height": 0.001,
       "type": "obstacle",
       "visible": true,
       "name": "Floor 2_0"
     },
-    "Obstacle_8": {
-      "center_x": -3.833333333333332,
-      "center_y": 2.5,
-      "center_z": -0.0004999999999997229,
+    "Obstacle_30": {
+      "center_x": 0.7074999999999996,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
       "psi": 0.0,
-      "length": 1.6666666666666667,
-      "width": 1.6666666666666667,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
       "height": 0.001,
       "type": "obstacle",
       "visible": true,
       "name": "Floor 2_1"
+    },
+    "Obstacle_31": {
+      "center_x": 0.7074999999999996,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_2"
+    },
+    "Obstacle_32": {
+      "center_x": 0.7074999999999996,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_3"
+    },
+    "Obstacle_33": {
+      "center_x": 0.7074999999999996,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_4"
+    },
+    "Obstacle_34": {
+      "center_x": 0.7074999999999996,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_5"
+    },
+    "Obstacle_35": {
+      "center_x": 0.7074999999999996,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_6"
+    },
+    "Obstacle_36": {
+      "center_x": 0.7074999999999996,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_7"
+    },
+    "Obstacle_37": {
+      "center_x": 0.7074999999999996,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_8"
+    },
+    "Obstacle_38": {
+      "center_x": 0.7074999999999996,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_9"
+    },
+    "Obstacle_39": {
+      "center_x": 0.7074999999999996,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_10"
+    },
+    "Obstacle_40": {
+      "center_x": 0.7074999999999996,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_11"
+    },
+    "Obstacle_41": {
+      "center_x": 0.7074999999999996,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 2_12"
+    },
+    "Obstacle_42": {
+      "center_x": 0.9904999999999999,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_0"
+    },
+    "Obstacle_43": {
+      "center_x": 0.9904999999999999,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_1"
+    },
+    "Obstacle_44": {
+      "center_x": 0.9904999999999999,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_2"
+    },
+    "Obstacle_45": {
+      "center_x": 0.9904999999999999,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_3"
+    },
+    "Obstacle_46": {
+      "center_x": 0.9904999999999999,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_4"
+    },
+    "Obstacle_47": {
+      "center_x": 0.9904999999999999,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_5"
+    },
+    "Obstacle_48": {
+      "center_x": 0.9904999999999999,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_6"
+    },
+    "Obstacle_49": {
+      "center_x": 0.9904999999999999,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_7"
+    },
+    "Obstacle_50": {
+      "center_x": 0.9904999999999999,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_8"
+    },
+    "Obstacle_51": {
+      "center_x": 0.9904999999999999,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_9"
+    },
+    "Obstacle_52": {
+      "center_x": 0.9904999999999999,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_10"
+    },
+    "Obstacle_53": {
+      "center_x": 0.9904999999999999,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_11"
+    },
+    "Obstacle_54": {
+      "center_x": 0.9904999999999999,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 3_12"
+    },
+    "Obstacle_55": {
+      "center_x": 1.2734999999999994,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_0"
+    },
+    "Obstacle_56": {
+      "center_x": 1.2734999999999994,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_1"
+    },
+    "Obstacle_57": {
+      "center_x": 1.2734999999999994,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_2"
+    },
+    "Obstacle_58": {
+      "center_x": 1.2734999999999994,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_3"
+    },
+    "Obstacle_59": {
+      "center_x": 1.2734999999999994,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_4"
+    },
+    "Obstacle_60": {
+      "center_x": 1.2734999999999994,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_5"
+    },
+    "Obstacle_61": {
+      "center_x": 1.2734999999999994,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_6"
+    },
+    "Obstacle_62": {
+      "center_x": 1.2734999999999994,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_7"
+    },
+    "Obstacle_63": {
+      "center_x": 1.2734999999999994,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_8"
+    },
+    "Obstacle_64": {
+      "center_x": 1.2734999999999994,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_9"
+    },
+    "Obstacle_65": {
+      "center_x": 1.2734999999999994,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_10"
+    },
+    "Obstacle_66": {
+      "center_x": 1.2734999999999994,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_11"
+    },
+    "Obstacle_67": {
+      "center_x": 1.2734999999999994,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 4_12"
+    },
+    "Obstacle_68": {
+      "center_x": 1.5564999999999998,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_0"
+    },
+    "Obstacle_69": {
+      "center_x": 1.5564999999999998,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_1"
+    },
+    "Obstacle_70": {
+      "center_x": 1.5564999999999998,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_2"
+    },
+    "Obstacle_71": {
+      "center_x": 1.5564999999999998,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_3"
+    },
+    "Obstacle_72": {
+      "center_x": 1.5564999999999998,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_4"
+    },
+    "Obstacle_73": {
+      "center_x": 1.5564999999999998,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_5"
+    },
+    "Obstacle_74": {
+      "center_x": 1.5564999999999998,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_6"
+    },
+    "Obstacle_75": {
+      "center_x": 1.5564999999999998,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_7"
+    },
+    "Obstacle_76": {
+      "center_x": 1.5564999999999998,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_8"
+    },
+    "Obstacle_77": {
+      "center_x": 1.5564999999999998,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_9"
+    },
+    "Obstacle_78": {
+      "center_x": 1.5564999999999998,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_10"
+    },
+    "Obstacle_79": {
+      "center_x": 1.5564999999999998,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_11"
+    },
+    "Obstacle_80": {
+      "center_x": 1.5564999999999998,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 5_12"
+    },
+    "Obstacle_81": {
+      "center_x": 1.8395000000000001,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_0"
+    },
+    "Obstacle_82": {
+      "center_x": 1.8395000000000001,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_1"
+    },
+    "Obstacle_83": {
+      "center_x": 1.8395000000000001,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_2"
+    },
+    "Obstacle_84": {
+      "center_x": 1.8395000000000001,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_3"
+    },
+    "Obstacle_85": {
+      "center_x": 1.8395000000000001,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_4"
+    },
+    "Obstacle_86": {
+      "center_x": 1.8395000000000001,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_5"
+    },
+    "Obstacle_87": {
+      "center_x": 1.8395000000000001,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_6"
+    },
+    "Obstacle_88": {
+      "center_x": 1.8395000000000001,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_7"
+    },
+    "Obstacle_89": {
+      "center_x": 1.8395000000000001,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_8"
+    },
+    "Obstacle_90": {
+      "center_x": 1.8395000000000001,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_9"
+    },
+    "Obstacle_91": {
+      "center_x": 1.8395000000000001,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_10"
+    },
+    "Obstacle_92": {
+      "center_x": 1.8395000000000001,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_11"
+    },
+    "Obstacle_93": {
+      "center_x": 1.8395000000000001,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 6_12"
+    },
+    "Obstacle_94": {
+      "center_x": 2.1224999999999996,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_0"
+    },
+    "Obstacle_95": {
+      "center_x": 2.1224999999999996,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_1"
+    },
+    "Obstacle_96": {
+      "center_x": 2.1224999999999996,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_2"
+    },
+    "Obstacle_97": {
+      "center_x": 2.1224999999999996,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_3"
+    },
+    "Obstacle_98": {
+      "center_x": 2.1224999999999996,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_4"
+    },
+    "Obstacle_99": {
+      "center_x": 2.1224999999999996,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_5"
+    },
+    "Obstacle_100": {
+      "center_x": 2.1224999999999996,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_6"
+    },
+    "Obstacle_101": {
+      "center_x": 2.1224999999999996,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_7"
+    },
+    "Obstacle_102": {
+      "center_x": 2.1224999999999996,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_8"
+    },
+    "Obstacle_103": {
+      "center_x": 2.1224999999999996,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_9"
+    },
+    "Obstacle_104": {
+      "center_x": 2.1224999999999996,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_10"
+    },
+    "Obstacle_105": {
+      "center_x": 2.1224999999999996,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_11"
+    },
+    "Obstacle_106": {
+      "center_x": 2.1224999999999996,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 7_12"
+    },
+    "Obstacle_107": {
+      "center_x": 2.4055,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_0"
+    },
+    "Obstacle_108": {
+      "center_x": 2.4055,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_1"
+    },
+    "Obstacle_109": {
+      "center_x": 2.4055,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_2"
+    },
+    "Obstacle_110": {
+      "center_x": 2.4055,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_3"
+    },
+    "Obstacle_111": {
+      "center_x": 2.4055,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_4"
+    },
+    "Obstacle_112": {
+      "center_x": 2.4055,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_5"
+    },
+    "Obstacle_113": {
+      "center_x": 2.4055,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_6"
+    },
+    "Obstacle_114": {
+      "center_x": 2.4055,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_7"
+    },
+    "Obstacle_115": {
+      "center_x": 2.4055,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_8"
+    },
+    "Obstacle_116": {
+      "center_x": 2.4055,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_9"
+    },
+    "Obstacle_117": {
+      "center_x": 2.4055,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_10"
+    },
+    "Obstacle_118": {
+      "center_x": 2.4055,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_11"
+    },
+    "Obstacle_119": {
+      "center_x": 2.4055,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 8_12"
+    },
+    "Obstacle_120": {
+      "center_x": 2.6885000000000003,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_0"
+    },
+    "Obstacle_121": {
+      "center_x": 2.6885000000000003,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_1"
+    },
+    "Obstacle_122": {
+      "center_x": 2.6885000000000003,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_2"
+    },
+    "Obstacle_123": {
+      "center_x": 2.6885000000000003,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_3"
+    },
+    "Obstacle_124": {
+      "center_x": 2.6885000000000003,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_4"
+    },
+    "Obstacle_125": {
+      "center_x": 2.6885000000000003,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_5"
+    },
+    "Obstacle_126": {
+      "center_x": 2.6885000000000003,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_6"
+    },
+    "Obstacle_127": {
+      "center_x": 2.6885000000000003,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_7"
+    },
+    "Obstacle_128": {
+      "center_x": 2.6885000000000003,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_8"
+    },
+    "Obstacle_129": {
+      "center_x": 2.6885000000000003,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_9"
+    },
+    "Obstacle_130": {
+      "center_x": 2.6885000000000003,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_10"
+    },
+    "Obstacle_131": {
+      "center_x": 2.6885000000000003,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_11"
+    },
+    "Obstacle_132": {
+      "center_x": 2.6885000000000003,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 9_12"
+    },
+    "Obstacle_133": {
+      "center_x": 2.9715,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_0"
+    },
+    "Obstacle_134": {
+      "center_x": 2.9715,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_1"
+    },
+    "Obstacle_135": {
+      "center_x": 2.9715,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_2"
+    },
+    "Obstacle_136": {
+      "center_x": 2.9715,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_3"
+    },
+    "Obstacle_137": {
+      "center_x": 2.9715,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_4"
+    },
+    "Obstacle_138": {
+      "center_x": 2.9715,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_5"
+    },
+    "Obstacle_139": {
+      "center_x": 2.9715,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_6"
+    },
+    "Obstacle_140": {
+      "center_x": 2.9715,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_7"
+    },
+    "Obstacle_141": {
+      "center_x": 2.9715,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_8"
+    },
+    "Obstacle_142": {
+      "center_x": 2.9715,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_9"
+    },
+    "Obstacle_143": {
+      "center_x": 2.9715,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_10"
+    },
+    "Obstacle_144": {
+      "center_x": 2.9715,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_11"
+    },
+    "Obstacle_145": {
+      "center_x": 2.9715,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 10_12"
+    },
+    "Obstacle_146": {
+      "center_x": 3.2544999999999993,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_0"
+    },
+    "Obstacle_147": {
+      "center_x": 3.2544999999999993,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_1"
+    },
+    "Obstacle_148": {
+      "center_x": 3.2544999999999993,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_2"
+    },
+    "Obstacle_149": {
+      "center_x": 3.2544999999999993,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_3"
+    },
+    "Obstacle_150": {
+      "center_x": 3.2544999999999993,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_4"
+    },
+    "Obstacle_151": {
+      "center_x": 3.2544999999999993,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_5"
+    },
+    "Obstacle_152": {
+      "center_x": 3.2544999999999993,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_6"
+    },
+    "Obstacle_153": {
+      "center_x": 3.2544999999999993,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_7"
+    },
+    "Obstacle_154": {
+      "center_x": 3.2544999999999993,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_8"
+    },
+    "Obstacle_155": {
+      "center_x": 3.2544999999999993,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_9"
+    },
+    "Obstacle_156": {
+      "center_x": 3.2544999999999993,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_10"
+    },
+    "Obstacle_157": {
+      "center_x": 3.2544999999999993,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_11"
+    },
+    "Obstacle_158": {
+      "center_x": 3.2544999999999993,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 11_12"
+    },
+    "Obstacle_159": {
+      "center_x": 3.5375000000000005,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_0"
+    },
+    "Obstacle_160": {
+      "center_x": 3.5375000000000005,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_1"
+    },
+    "Obstacle_161": {
+      "center_x": 3.5375000000000005,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_2"
+    },
+    "Obstacle_162": {
+      "center_x": 3.5375000000000005,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_3"
+    },
+    "Obstacle_163": {
+      "center_x": 3.5375000000000005,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_4"
+    },
+    "Obstacle_164": {
+      "center_x": 3.5375000000000005,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_5"
+    },
+    "Obstacle_165": {
+      "center_x": 3.5375000000000005,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_6"
+    },
+    "Obstacle_166": {
+      "center_x": 3.5375000000000005,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_7"
+    },
+    "Obstacle_167": {
+      "center_x": 3.5375000000000005,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_8"
+    },
+    "Obstacle_168": {
+      "center_x": 3.5375000000000005,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_9"
+    },
+    "Obstacle_169": {
+      "center_x": 3.5375000000000005,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_10"
+    },
+    "Obstacle_170": {
+      "center_x": 3.5375000000000005,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_11"
+    },
+    "Obstacle_171": {
+      "center_x": 3.5375000000000005,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 12_12"
+    },
+    "Obstacle_172": {
+      "center_x": 3.8205,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_0"
+    },
+    "Obstacle_173": {
+      "center_x": 3.8205,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_1"
+    },
+    "Obstacle_174": {
+      "center_x": 3.8205,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_2"
+    },
+    "Obstacle_175": {
+      "center_x": 3.8205,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_3"
+    },
+    "Obstacle_176": {
+      "center_x": 3.8205,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_4"
+    },
+    "Obstacle_177": {
+      "center_x": 3.8205,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_5"
+    },
+    "Obstacle_178": {
+      "center_x": 3.8205,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_6"
+    },
+    "Obstacle_179": {
+      "center_x": 3.8205,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_7"
+    },
+    "Obstacle_180": {
+      "center_x": 3.8205,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_8"
+    },
+    "Obstacle_181": {
+      "center_x": 3.8205,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_9"
+    },
+    "Obstacle_182": {
+      "center_x": 3.8205,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_10"
+    },
+    "Obstacle_183": {
+      "center_x": 3.8205,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_11"
+    },
+    "Obstacle_184": {
+      "center_x": 3.8205,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 13_12"
+    },
+    "Obstacle_185": {
+      "center_x": 4.1034999999999995,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_0"
+    },
+    "Obstacle_186": {
+      "center_x": 4.1034999999999995,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_1"
+    },
+    "Obstacle_187": {
+      "center_x": 4.1034999999999995,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_2"
+    },
+    "Obstacle_188": {
+      "center_x": 4.1034999999999995,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_3"
+    },
+    "Obstacle_189": {
+      "center_x": 4.1034999999999995,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_4"
+    },
+    "Obstacle_190": {
+      "center_x": 4.1034999999999995,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_5"
+    },
+    "Obstacle_191": {
+      "center_x": 4.1034999999999995,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_6"
+    },
+    "Obstacle_192": {
+      "center_x": 4.1034999999999995,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_7"
+    },
+    "Obstacle_193": {
+      "center_x": 4.1034999999999995,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_8"
+    },
+    "Obstacle_194": {
+      "center_x": 4.1034999999999995,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_9"
+    },
+    "Obstacle_195": {
+      "center_x": 4.1034999999999995,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_10"
+    },
+    "Obstacle_196": {
+      "center_x": 4.1034999999999995,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_11"
+    },
+    "Obstacle_197": {
+      "center_x": 4.1034999999999995,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 14_12"
+    },
+    "Obstacle_198": {
+      "center_x": 4.386499999999999,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_0"
+    },
+    "Obstacle_199": {
+      "center_x": 4.386499999999999,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_1"
+    },
+    "Obstacle_200": {
+      "center_x": 4.386499999999999,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_2"
+    },
+    "Obstacle_201": {
+      "center_x": 4.386499999999999,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_3"
+    },
+    "Obstacle_202": {
+      "center_x": 4.386499999999999,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_4"
+    },
+    "Obstacle_203": {
+      "center_x": 4.386499999999999,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_5"
+    },
+    "Obstacle_204": {
+      "center_x": 4.386499999999999,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_6"
+    },
+    "Obstacle_205": {
+      "center_x": 4.386499999999999,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_7"
+    },
+    "Obstacle_206": {
+      "center_x": 4.386499999999999,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_8"
+    },
+    "Obstacle_207": {
+      "center_x": 4.386499999999999,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_9"
+    },
+    "Obstacle_208": {
+      "center_x": 4.386499999999999,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_10"
+    },
+    "Obstacle_209": {
+      "center_x": 4.386499999999999,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_11"
+    },
+    "Obstacle_210": {
+      "center_x": 4.386499999999999,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 15_12"
+    },
+    "Obstacle_211": {
+      "center_x": 4.6695,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_0"
+    },
+    "Obstacle_212": {
+      "center_x": 4.6695,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_1"
+    },
+    "Obstacle_213": {
+      "center_x": 4.6695,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_2"
+    },
+    "Obstacle_214": {
+      "center_x": 4.6695,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_3"
+    },
+    "Obstacle_215": {
+      "center_x": 4.6695,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_4"
+    },
+    "Obstacle_216": {
+      "center_x": 4.6695,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_5"
+    },
+    "Obstacle_217": {
+      "center_x": 4.6695,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_6"
+    },
+    "Obstacle_218": {
+      "center_x": 4.6695,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_7"
+    },
+    "Obstacle_219": {
+      "center_x": 4.6695,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_8"
+    },
+    "Obstacle_220": {
+      "center_x": 4.6695,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_9"
+    },
+    "Obstacle_221": {
+      "center_x": 4.6695,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_10"
+    },
+    "Obstacle_222": {
+      "center_x": 4.6695,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_11"
+    },
+    "Obstacle_223": {
+      "center_x": 4.6695,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 16_12"
+    },
+    "Obstacle_224": {
+      "center_x": 4.9525,
+      "center_y": 0.14150000000000018,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_0"
+    },
+    "Obstacle_225": {
+      "center_x": 4.9525,
+      "center_y": 0.42449999999999966,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_1"
+    },
+    "Obstacle_226": {
+      "center_x": 4.9525,
+      "center_y": 0.7075,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_2"
+    },
+    "Obstacle_227": {
+      "center_x": 4.9525,
+      "center_y": 0.9904999999999995,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_3"
+    },
+    "Obstacle_228": {
+      "center_x": 4.9525,
+      "center_y": 1.2734999999999999,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_4"
+    },
+    "Obstacle_229": {
+      "center_x": 4.9525,
+      "center_y": 1.5565000000000002,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_5"
+    },
+    "Obstacle_230": {
+      "center_x": 4.9525,
+      "center_y": 1.8394999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_6"
+    },
+    "Obstacle_231": {
+      "center_x": 4.9525,
+      "center_y": 2.1225,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_7"
+    },
+    "Obstacle_232": {
+      "center_x": 4.9525,
+      "center_y": 2.4055000000000004,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_8"
+    },
+    "Obstacle_233": {
+      "center_x": 4.9525,
+      "center_y": 2.6885,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_9"
+    },
+    "Obstacle_234": {
+      "center_x": 4.9525,
+      "center_y": 2.9714999999999994,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_10"
+    },
+    "Obstacle_235": {
+      "center_x": 4.9525,
+      "center_y": 3.2544999999999997,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_11"
+    },
+    "Obstacle_236": {
+      "center_x": 4.9525,
+      "center_y": 3.5375,
+      "center_z": -0.0005,
+      "psi": 0.0,
+      "length": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "width": {
+        "x": 0.28300000000000003,
+        "y": 0.283
+      },
+      "height": 0.001,
+      "type": "obstacle",
+      "visible": true,
+      "name": "Floor 17_12"
     }
   },
   "robots": {

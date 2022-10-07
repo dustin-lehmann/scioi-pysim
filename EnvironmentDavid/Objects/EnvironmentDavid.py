@@ -13,14 +13,10 @@ class EnvironmentDavid(core.environment.Environment):
     Ts = 0.02
 
     # parameters that determine the size and amount of tiles the testbed has
-    # size_x: float = 5.094  # todo: put those values somewhere where it makes sense
-    # size_y: float = 3.679
-    size_x: float = 5
-    size_y: float = 5
-    # tiles_x: int = 18
-    # tiles_y: int = 13
-    tiles_x: int = 3
-    tiles_y: int = 2
+    size_x: float = 5.094  # todo: put those values somewhere where it makes sense
+    size_y: float = 3.679
+    tiles_x: int = 18
+    tiles_y: int = 13
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -50,7 +46,18 @@ class EnvironmentDavid(core.environment.Environment):
     # todo remove from here
     @property
     def tile_size(self):
-        return self.size_x/self.tiles_x
+        """
+        calculate tilesize from the size of the testbed and the number of tiles for x and y
+        :return: list with tilesize [x,y]
+        """
+        x_limits = self.world.spaces.coordinate_space.dimensions[0].limits
+        x_size = x_limits[1]-x_limits[0]
+        y_limits = self.world.spaces.coordinate_space.dimensions[1].limits
+        y_size = y_limits[1] - y_limits[0]
+        tilesize = {'x': x_size/self.tiles_x,
+                    'y': y_size/self.tiles_y}
+
+        return tilesize
 
 
 

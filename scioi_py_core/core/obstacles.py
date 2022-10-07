@@ -75,6 +75,8 @@ class TestbedFloor:
                 # tile = FloorTile(name=f'Floor {x}_{y}',position=[env.tile_size / 2 + x * env.tile_size,
                 #                            env.tile_size / 2 + y * env.tile_size, 0],
                 #                  tilesize=env.tile_size, *args, **kwargs)
-                position = [env.tile_size / 2 + x * env.tile_size, env.tile_size / 2 + y * env.tile_size, 0]
+                # position = [env.tile_size['x'] / 2 + x * env.tile_size['x'], env.tile_size['y'] / 2 + y * env.tile_size['y'], 0]
+                position = [0.283 / 2 + x * 0.283,
+                            0.283 / 2 + y * 0.283, 0]
                 tile = FloorTile(name=f'Floor {x}_{y}', position=position,
                                  tilesize=env.tile_size, *args, **kwargs)

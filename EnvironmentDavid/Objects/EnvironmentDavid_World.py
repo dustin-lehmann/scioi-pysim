@@ -3,14 +3,14 @@ import numpy as np
 from scioi_py_core import core as core
 
 # Definitions
-world_x_min = -4
-world_x_max = 4
+world_x_min = 0.0
+world_x_max = 5.094
 
-world_y_min = -4
-world_y_max = 4
+world_y_min = 0.0
+world_y_max = 3.679
 
-world_z_min = -1
-world_z_max = 1
+world_z_min = -100.0
+world_z_max = 100.0
 
 # === SPACES ===========================================================================================================
 coordinate_space_world = core.spaces.Space(dimensions=[
@@ -18,7 +18,7 @@ coordinate_space_world = core.spaces.Space(dimensions=[
                           wrapping=True),
     core.spaces.Dimension(name='y', limits=[world_y_min, world_y_max],
                           wrapping=True),
-    core.spaces.Dimension(name='z',
+    core.spaces.Dimension(name='z', limits=[world_z_min, world_z_max],
                           wrapping=False),
 ]
 )
@@ -29,7 +29,7 @@ configuration_space_world = core.spaces.Space(dimensions=[
     core.spaces.Dimension(name='y', limits=[world_y_min, world_y_max],
                           wrapping=True),
     core.spaces.Dimension(name='z', limits=[world_z_min, world_z_max],
-                          wrapping=True),
+                          wrapping=False),
     core.spaces.Dimension(name='rot', dimension=(3, 3), type=np.ndarray)  # Rotation Matrix
 ])
 
