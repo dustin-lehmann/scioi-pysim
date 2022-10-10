@@ -18,7 +18,7 @@ coordinate_space_world = core.spaces.Space(dimensions=[
                           wrapping=True),
     core.spaces.Dimension(name='y', limits=[world_y_min, world_y_max],
                           wrapping=True),
-    core.spaces.Dimension(name='z', limits=[world_z_min, world_z_max],
+    core.spaces.Dimension(name='z',
                           wrapping=False),
 ]
 )
@@ -28,8 +28,8 @@ configuration_space_world = core.spaces.Space(dimensions=[
                           wrapping=True),
     core.spaces.Dimension(name='y', limits=[world_y_min, world_y_max],
                           wrapping=True),
-    core.spaces.Dimension(name='z', limits=[world_z_min, world_z_max],
-                          wrapping=False),
+    core.spaces.Dimension(name='z',
+                          wrapping=True),
     core.spaces.Dimension(name='rot', dimension=(3, 3), type=np.ndarray)  # Rotation Matrix
 ])
 

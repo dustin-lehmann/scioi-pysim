@@ -21,10 +21,15 @@ class SimpleXYZRObstacle(Obstacle):
     """
     physics: core.physics.CuboidPhysics
 
-    def __init__(self, length: float, width: float, height: float, position, visible=True, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, length: float, width: float, height: float, position, visible=True, name=None, world=None, *args,
+                 **kwargs):
+        super().__init__(name = name, world= world,*args, **kwargs)
 
-        position = position
+        if world is None:
+            raise Exception('obstacle has no world!')  # todo: better ways to make sure these params are given?
+
+        if name is None:
+            raise Exception('obstacle has no name!')
 
         self.configuration['x'] = position[0]
         self.configuration['y'] = position[1]
@@ -44,7 +49,7 @@ class SimpleXYZRObstacle(Obstacle):
     @visible.setter
     def visible(self, state: bool):
         self._visible = state
-        # add object to sample
+        # todo: add object to sample
 
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],
@@ -60,8 +65,10 @@ class FloorTile(SimpleXYZRObstacle):
         self.type = 'floor'
         # set z-coordinate of tile to actual floor level
         position[2] = -height / 2
-
-        super().__init__(length=tilesize, width=tilesize, height=height, position=position, visible= True, *args, **kwargs)
+        tilesize_x = tilesize['x']
+        tilesize_y = tilesize['y']
+        super().__init__(length=tilesize_y, width=tilesize_x, height=height, position=position, visible=True, *args,
+                         **kwargs)
 
 
 class TestbedFloor:
@@ -71,12 +78,25 @@ class TestbedFloor:
 
     def __init__(self, env, *args, **kwargs):
         for x in range(0, env.tiles_x):
-            for y in range(0, env.tiles_y):  # todo pass the baxlon env
-                # tile = FloorTile(name=f'Floor {x}_{y}',position=[env.tile_size / 2 + x * env.tile_size,
-                #                            env.tile_size / 2 + y * env.tile_size, 0],
-                #                  tilesize=env.tile_size, *args, **kwargs)
-                # position = [env.tile_size['x'] / 2 + x * env.tile_size['x'], env.tile_size['y'] / 2 + y * env.tile_size['y'], 0]
-                position = [0.283 / 2 + x * 0.283,
-                            0.283 / 2 + y * 0.283, 0]
-                tile = FloorTile(name=f'Floor {x}_{y}', position=position,
-                                 tilesize=env.tile_size, *args, **kwargs)
+            for y in range(0, env.tiles_y):
+                # calculate position of next floortile
+                position = [env.tile_size['x'] / 2 + x * env.tile_size['x'],
+                            env.tile_size['y'] / 2 + y * env.tile_size['y'], 0]
+                # create a new floortile
+                FloorTile(name=f'Floor {x}_{y}', position=position,
+                          tilesize=env.tile_size, *args, **kwargs)
+
+
+class Wall(SimpleXYZRObstacle):
+    """
+    create a wall
+    """
+    wall_height: float
+    wall_length: float
+
+    def __init__(self, position: list['float'], lenght: float, height: float, *args, **kwargs):
+        self.type = 'wall'
+        wall_thickness = 0.01
+        super().__init__(length=lenght, width=wall_thickness, height=height, position=position, visible=True,
+                         *args,
+                         **kwargs)

@@ -19,6 +19,8 @@ class tester:
 if __name__ == '__main__':
     ted = tester()
     y=ted.return_dict['y']
+    power = ted.return_dict['x']**2
+    print(y)
 
 
     print('ende')

@@ -103,6 +103,9 @@ class CuboidPrimitive(ObjectPrimitive):
             pass
 
     def getDiagonal(self):
+        test1 =self.dimensions[0]
+        test2 = self.dimensions[0]
+        test3 = self.dimensions[0]
         return np.sqrt(self.dimensions[0]**2 + self.dimensions[1]**2 + self.dimensions[2]**2)
 
     # === PRIVATE METHODS ==============================================================================================

@@ -13,7 +13,7 @@ class EnvironmentDavid(core.environment.Environment):
     Ts = 0.02
 
     # parameters that determine the size and amount of tiles the testbed has
-    size_x: float = 5.094  # todo: put those values somewhere where it makes sense
+    size_x: float = 5.094  # todo: put those values somewhere it makes sense
     size_y: float = 3.679
     tiles_x: int = 18
     tiles_y: int = 13
@@ -24,7 +24,6 @@ class EnvironmentDavid(core.environment.Environment):
         # babylon environment for visualization
         self.babylon_env = BabylonVisualization(*args, *kwargs)
         self.name = 'Environment'
-
 
         # Actions
         core.scheduling.Action(name='input', object=self, priority=0, parent=self.action_step,
@@ -39,32 +38,26 @@ class EnvironmentDavid(core.environment.Environment):
         core.scheduling.Action(name='output', object=self, priority=4, parent=self.action_step,
                                function=self.action_output)
 
-
         core.scheduling.registerActions(self.world, self.scheduling.actions['world'])
         self.joystick = joystick.Joystick()
 
     # todo remove from here
     @property
-    def tile_size(self):
+    def tile_size(self) -> dict:
         """
         calculate tilesize from the size of the testbed and the number of tiles for x and y
         :return: list with tilesize [x,y]
         """
         x_limits = self.world.spaces.coordinate_space.dimensions[0].limits
-        x_size = x_limits[1]-x_limits[0]
+        x_size = x_limits[1] - x_limits[0]
         y_limits = self.world.spaces.coordinate_space.dimensions[1].limits
         y_size = y_limits[1] - y_limits[0]
-        tilesize = {'x': x_size/self.tiles_x,
-                    'y': y_size/self.tiles_y}
+        tilesize = {'x': x_size / self.tiles_x,
+                    'y': y_size / self.tiles_y}
 
         return tilesize
 
-
-
-
-
     # === ACTIONS ======================================================================================================
-
 
     def _action_step(self, *args, **kwargs):
         pass

@@ -1,18 +1,26 @@
 //import Data from "./data";
 
+var texture_pack = ''
 var robots = {}
 var environment_objects= {}
+var textures = {}
 
 // function to create all the different objects in the visualization except for the robot_textures
 class createBoxFromJson {
-    constructor(scene, length, width, height, center_x, center_z, psi, visible) {
+    constructor(scene, length, width, height, center_x, center_z, psi, visible, type) {
         this.scene = scene;
         this.visible=visible
         this.body = BABYLON.MeshBuilder.CreateBox('box', {height: height, width: width, depth: length}, scene);
         this.body.rotation.y = psi
 
         this.body.position = ToBabylon([center_x, center_z, height/2])
-        let texture= "./twipr_models/textures/dark.png";
+        // let texture= "./twipr_models/textures/dark.png";
+        console.log('hello')
+        console.log(textures["materials"][type])
+        // texture file selected via object type
+        let texture_file = textures["materials"][type]
+        // relative texture path
+        let texture= "./texture_pack/textures/"+texture_file;
         this.material = new BABYLON.StandardMaterial(this.scene);
         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
         this.material.diffuseTexture.uScale = 0.5
@@ -128,7 +136,7 @@ class AgentIndicator {
         this.scene = scene;
         const defaults = {
             color: [0.8,0,0],
-            size: 0.3,
+            size: 0.03,
             id: 1,
         };
         options = {...defaults, ...options};
@@ -149,7 +157,7 @@ class AgentIndicator {
         return this;
     }
     setPosition(x, y) {
-        this.sphere.position = ToBabylon([x,y,17.5])
+        this.sphere.position = ToBabylon([x,y,0.2])
 
     }
 
@@ -246,8 +254,7 @@ class LNDW_scene_simple extends Scene {
         this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, ToBabylon([5.094/2,3.679/2,0]), this.scene);
 
         // Positions the camera overwriting alpha, beta, radius
-        this.camera.setPosition(new BABYLON.Vector3(0, 0, 4));
-        // this.camera.setPosition(new BABYLON.Vector3(ToBabylon(0, 20, 0)));
+        this.camera.setPosition(new BABYLON.Vector3(2.5, 1.5, 7));
 
         // This attaches the camera to the canvas
         this.camera.attachControl(this.canvas, true);
@@ -256,7 +263,7 @@ class LNDW_scene_simple extends Scene {
         this.camera.angularSensibilityY = 25000
         this.camera.angularSensibilityX = 25000
         //increase Zooming speed
-        this.camera.wheelPrecision = 1;
+        this.camera.wheelPrecision = 10;
 
         //This creates a light, aiming 0,1,0 - to the sky (non-mesh)
         this.light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0.5,1,0), this.scene);
@@ -277,7 +284,7 @@ class LNDW_scene_simple extends Scene {
         // Textbox
         this.textbox = new BABYLON.GUI.TextBlock();
         this.textbox.fontSize = 40;
-        this.textbox.text = "fdsfd";
+        this.textbox.text = "Time";
         this.textbox.color = "white";
         this.textbox.paddingTop = 3;
         this.textbox.paddingLeft = 3;
@@ -300,9 +307,16 @@ class LNDW_scene_simple extends Scene {
             async: false
         });
 
+        //----------------------------------------read from JSON--------------------------------------------------------
         $.getJSON("objects.json", function(json) {
+            texture_pack = json['textures']
             environment_objects = json['environment']
             robots = json['robots']
+        });
+        console.log('hjdsahpjfdfjphfdsöjlföhjkhö')
+        $.getJSON("../texture_packs/standard_textures.json", function(json) {
+
+            textures = json
         });
 
         this.drawCoordinateSystem()
@@ -312,6 +326,7 @@ class LNDW_scene_simple extends Scene {
     }
 
     buildEnvironment() {
+        console.log(Object.entries(environment_objects))
          for (const [key, value] of Object.entries(environment_objects)) {
              value['babylon'] = new createBoxFromJson(this.scene,
                 value["length"],
@@ -321,6 +336,7 @@ class LNDW_scene_simple extends Scene {
                 value["center_y"],
                 value["psi"],
                 value["visible"],
+                 value["type"]
             )
              }
 
@@ -341,15 +357,15 @@ class LNDW_scene_simple extends Scene {
     drawCoordinateSystem() {
         const points_x = [
             ToBabylon([0,0,0]),
-            ToBabylon([0.5,0,0])
+            ToBabylon([0.25,0,0])
         ]
         const points_y = [
             ToBabylon([0,0,0]),
-            ToBabylon([0,0.5,0])
+            ToBabylon([0,0.25,0])
         ]
         const points_z = [
             ToBabylon([0,0,0]),
-            ToBabylon([0,0,0.5])
+            ToBabylon([0,0,0.25])
         ]
         const options_x = {
             points: points_x,
@@ -371,10 +387,11 @@ class LNDW_scene_simple extends Scene {
 
     onSample(sample) {
 
-    //     this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
+        this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
         // Robot
+
         var robot_data = sample['robots']
-        console.log(robot_data)
+        // console.log(this.camera)
         for (const [key, value] of Object.entries(robot_data)) {
             if (key in robots) {
                 robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
