@@ -2,25 +2,22 @@ import dataclasses
 from abc import ABC
 from EnvironmentDavid.baseline.baseline_environment import BabylonVisualization
 
-class tester:
-    @property
-    def return_dict(self):
-        x = 3
-        y = 2
-        diggi = {
-            'x' : x,
-            'y' : y
-        }
-        return diggi
+
+class A:
+    def __init__(self):
+        self.a = 1
+
+class B(A):
+    def __init__(self):
+        self.a = 2
+        super().__init__()
 
 
 
 
 if __name__ == '__main__':
-    ted = tester()
-    y=ted.return_dict['y']
-    power = ted.return_dict['x']**2
-    print(y)
+    ted = B()
+
 
 
     print('ende')

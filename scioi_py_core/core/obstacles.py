@@ -62,13 +62,13 @@ class FloorTile(SimpleXYZRObstacle):
     """
 
     def __init__(self, position, tilesize, height: float = 0.001, *args, **kwargs):
-        self.type = 'floor'
         # set z-coordinate of tile to actual floor level
         position[2] = -height / 2
         tilesize_x = tilesize['x']
         tilesize_y = tilesize['y']
         super().__init__(length=tilesize_y, width=tilesize_x, height=height, position=position, visible=True, *args,
                          **kwargs)
+        self.type = 'floor_tile'
 
 
 class TestbedFloor:
@@ -95,8 +95,15 @@ class Wall(SimpleXYZRObstacle):
     wall_length: float
 
     def __init__(self, position: list['float'], lenght: float, height: float, *args, **kwargs):
-        self.type = 'wall'
         wall_thickness = 0.01
         super().__init__(length=lenght, width=wall_thickness, height=height, position=position, visible=True,
                          *args,
                          **kwargs)
+        self.type = 'wall'
+
+class WallfromTile(Wall):
+    """
+    create a wall horizontal/vertical which is positioned bottom/left
+    """
+    def __init__(self, tile, orientation, *args, **kwargs):
+        

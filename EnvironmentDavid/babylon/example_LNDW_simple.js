@@ -15,12 +15,18 @@ class createBoxFromJson {
 
         this.body.position = ToBabylon([center_x, center_z, height/2])
         // let texture= "./twipr_models/textures/dark.png";
-        console.log('hello')
-        console.log(textures["materials"][type])
+        // console.log('hello')
+        // console.log(textures["materials"][type])
+        // console.log(type)
         // texture file selected via object type
+        // console.log(111111111)
+
         let texture_file = textures["materials"][type]
+
         // relative texture path
-        let texture= "./texture_pack/textures/"+texture_file;
+        let texture= "./texture_packs/textures/material_textures/"+texture_file;
+        console.log(texture)
+
         this.material = new BABYLON.StandardMaterial(this.scene);
         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
         this.material.diffuseTexture.uScale = 0.5
@@ -328,6 +334,8 @@ class LNDW_scene_simple extends Scene {
     buildEnvironment() {
         console.log(Object.entries(environment_objects))
          for (const [key, value] of Object.entries(environment_objects)) {
+             // console.log(value['type'])
+             // console.log(value['length'])
              value['babylon'] = new createBoxFromJson(this.scene,
                 value["length"],
                 value["width"],
@@ -336,7 +344,7 @@ class LNDW_scene_simple extends Scene {
                 value["center_y"],
                 value["psi"],
                 value["visible"],
-                 value["type"]
+                 value["type"],
             )
              }
 

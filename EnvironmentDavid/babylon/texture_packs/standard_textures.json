@@ -1,7 +1,8 @@
 {
   "materials": {
-    "walls": "walls_dark.png",
-    "floor": "floor_bright.png"
+    "obstacle": "walls_dark.png",
+    "wall": "walls_dark.png",
+    "floor_tile": "floor_bright.png"
   },
   "robots": {
     "tank_robots": "robot_1.babylon"
