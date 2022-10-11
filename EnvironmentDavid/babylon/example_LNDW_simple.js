@@ -319,8 +319,11 @@ class LNDW_scene_simple extends Scene {
             environment_objects = json['environment']
             robots = json['robots']
         });
-        //todo: hier val einfügen 
-        $.getJSON("../texture_packs/standard_textures.json", function(json) {
+        //todo: hier val einfügen
+        var texture_path = "../texture_packs/"+texture_pack+".json"
+        console.log(texture_path)
+        // $.getJSON("../texture_packs/standard_textures.json", function(json) {
+        $.getJSON(texture_path, function(json) {
 
             textures = json
         });

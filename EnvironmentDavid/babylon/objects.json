@@ -1,5 +1,5 @@
 {
-  "textures": "fancy.json",
+  "textures": "standard_textures",
   "environment": {
     "Obstacle_0": {
       "center_x": 0.0,
