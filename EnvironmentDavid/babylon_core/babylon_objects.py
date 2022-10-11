@@ -29,16 +29,8 @@ class BabylonVisualizationEnvironment:
         self.start_time = time.time()
 
     def toJson(self, file=None):
-        json_dict = {
-            # texture pack that is going to be used for babylon
-            'textures': {},
-            # all the objects that are no agents (not moving)
-            'environment': {},
-            # robots in the testbed (simulated and real ones)
-            'robots': {}
-        }
+        json_dict = {'textures': self.texture_settings, 'environment': {}, 'robots': {}}
         # textures
-        json_dict['textures'] = self.texture_settings
 
         # obstacles
         for idx, obstacle in enumerate(self.obstacles_list):

@@ -23,7 +23,7 @@ class SimpleXYZRObstacle(Obstacle):
 
     def __init__(self, length: float, width: float, height: float, position, visible=True, name=None, world=None, *args,
                  **kwargs):
-        super().__init__(name = name, world= world,*args, **kwargs)
+        super().__init__(name=name, world=world, *args, **kwargs)
 
         if world is None:
             raise Exception('obstacle has no world!')  # todo: better ways to make sure these params are given?
@@ -101,9 +101,11 @@ class Wall(SimpleXYZRObstacle):
                          **kwargs)
         self.type = 'wall'
 
-class WallfromTile(Wall):
+
+class WallOnTile(Wall):
     """
     create a wall horizontal/vertical which is positioned bottom/left
     """
+
     def __init__(self, tile, orientation, *args, **kwargs):
-        
+        pass
