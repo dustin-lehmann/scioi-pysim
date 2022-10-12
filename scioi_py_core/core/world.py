@@ -4,7 +4,6 @@ import re
 from abc import ABC, abstractmethod
 from typing import Union
 
-
 from ..core import spaces as spaces
 from ..core import physics as physics
 from ..core import scheduling as scheduling
@@ -19,7 +18,6 @@ class CollisionSettings:
     collidable: bool = True
     _includes: ['WorldObject'] = dataclasses.field(default_factory=lambda: [WorldObject])
     _excludes: ['WorldObject'] = dataclasses.field(default_factory=list)
-
 
 
 @dataclasses.dataclass
@@ -39,6 +37,7 @@ class WorldObject(scheduling.ScheduledObject):
 
     name: str  # Name given by the user
     id: str  # Unique ID of the object in the corresponding world
+    object_type: str = 'object'
 
     # === INIT =========================================================================================================
     def __init__(self, name: str = None, world: 'World' = None, collision_includes: [] = None,
@@ -85,6 +84,15 @@ class WorldObject(scheduling.ScheduledObject):
 
         self._configuration = value
 
+    # === METHODS ======================================================================================================
+    def getSample(self):
+        sample = {'name': self.name,
+                  'class': self.__class__.__name__,
+                  'object_type': self.object_type,
+                  'configuration': self.configuration
+                  }
+        return sample
+
     # === ACTIONS ======================================================================================================
     @abstractmethod
     def action_physics_update(self, config, *args, **kwargs):
@@ -92,6 +100,16 @@ class WorldObject(scheduling.ScheduledObject):
 
     def _init(self):
         pass
+
+
+sample = {'world': {},
+          'added': {},
+          'deleted': {},
+
+}
+
+for o in world.objects:
+    sample['world'][o.name] = o.getSample()
 
 
 # ======================================================================================================================

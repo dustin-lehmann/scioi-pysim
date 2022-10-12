@@ -1,17 +1,17 @@
-from matplotlib import pyplot as plt
+class Wall:
+    object_type = 'wall'
 
-from scioi_py_core.core.physics import SpherePrimitive, PhysicsSpherePlot
 
+class Wall_rot(Wall):
+    object_type = 'wall_rot'
+
+class Wall_rot_special(Wall_rot):
+    ...
 
 def main():
-    sphere = SpherePrimitive(radius=2, position=[0, 0, 10])
+    x = Wall()
 
-
-
-    PhysicsSpherePlot(ax=ax, sphere=sphere)
-
-    plt.show()
-
+    pass
 
 if __name__ == '__main__':
     main()

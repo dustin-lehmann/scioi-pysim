@@ -9,6 +9,8 @@ import scioi_py_core.core as core
 
 
 class Obstacle(core.world.WorldObject, ABC):
+    object_type = 'obstacle'
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.collision.settings.check = False
