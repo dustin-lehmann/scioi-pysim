@@ -34,7 +34,7 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
         super().action_visualization(*args, **kwargs)
         super().action_visualization(*args, **kwargs)
 
-        sample = self.babylon_env.generateSample()  # todo: move to the init where this function should be added
+        sample = self.babylon_env.generate_sample()  # todo: move to the init where this function should be added
         self.babylon_env.webapp.sendSample(sample)
         time.sleep(0.001)
 

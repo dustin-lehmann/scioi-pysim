@@ -142,7 +142,7 @@ def loop():
 
         # DEBUG
 
-        sample = env.generateSample()
+        sample = env.generate_sample()
 
         webapp.sendSample(sample)
 

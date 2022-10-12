@@ -43,6 +43,24 @@ class createBoxFromJson {
     setVisibility(state){
         this.body.visibility = state
     }
+
+        setState(x,y,psi) {
+        // console.log(psi)
+        this.setPosition(x,y)
+        this.setOrientation(psi)
+    }
+
+    setPosition(x, y, z) {
+        this.body.position = ToBabylon([x,y,z])
+
+
+        // this.pivotPointWheels.position.x = y
+        // this.pivotPointWheels.position.z = x
+    }
+    setOrientation(psi){
+        this.body.rotation.y = psi
+        // this.pivotPointBody.rotation.x = theta
+    }
 }
 
 // this function transforms input coordinates to babylon coordinates
@@ -213,7 +231,7 @@ class Robot_Model {
     }
 
     setState(x,y,psi) {
-        console.log(psi)
+        // console.log(psi)
         this.setPosition(x,y)
         this.setOrientation(psi)
     }
@@ -256,6 +274,8 @@ class LNDW_scene_simple extends Scene {
 
         var json_objects = []
 
+        //------------------------------------------------Camera settings-----------------------------------------------
+
         // set rotation point for camera -> should be the middle of the testbed
         this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, ToBabylon([5.094/2,3.679/2,0]), this.scene);
 
@@ -265,7 +285,8 @@ class LNDW_scene_simple extends Scene {
         // This attaches the camera to the canvas
         this.camera.attachControl(this.canvas, true);
 
-        //increase angular speed
+        //---------------------------------------Moving sensibilty settings---------------------------------------------
+
         this.camera.angularSensibilityY = 25000
         this.camera.angularSensibilityX = 25000
         //increase Zooming speed
@@ -287,7 +308,8 @@ class LNDW_scene_simple extends Scene {
 
         this.ui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("ui", true, this.scene);
 
-        // Textbox
+        //------------------------------------------elapsed timeTextbox-------------------------------------------------
+
         this.textbox = new BABYLON.GUI.TextBlock();
         this.textbox.fontSize = 40;
         this.textbox.text = "Time";
@@ -314,12 +336,14 @@ class LNDW_scene_simple extends Scene {
         });
 
         //----------------------------------------read from JSON--------------------------------------------------------
+
+        // get world objects and the selected texture pack
         $.getJSON("objects.json", function(json) {
             texture_pack = json['textures']
             environment_objects = json['environment']
             robots = json['robots']
         });
-        //todo: hier val einfügen
+        // get textures from texture pack
         var texture_path = "../texture_packs/"+texture_pack+".json"
         console.log(texture_path)
         // $.getJSON("../texture_packs/standard_textures.json", function(json) {
@@ -328,7 +352,9 @@ class LNDW_scene_simple extends Scene {
             textures = json
         });
 
+        // draw coordinate system which helps for orientation
         this.drawCoordinateSystem()
+
         this.buildEnvironment();
 
         return this.scene;
@@ -398,15 +424,28 @@ class LNDW_scene_simple extends Scene {
 
     onSample(sample) {
 
+        console.log(sample)
         this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
-        // Robot
 
-        var robot_data = sample['robots']
+        var robot_sample_data = sample['robots']
+        var environment_sample_data = sample['environment']
+        console.log(robots)
+        console.log(environment_objects)
         // console.log(this.camera)
-        for (const [key, value] of Object.entries(robot_data)) {
+
+        // update robot objects
+        for (const [key, value] of Object.entries(robot_sample_data)) {
             if (key in robots) {
                 robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
                 robots[key]['babylon'].setCollision(value['collision'])
+            }
+        }
+
+        // update environment objects
+        for (const [key, value] of Object.entries(environment_sample_data)) {
+            if (key in environment_objects) {
+                environment_objects[key].setState(value['position'][0], value['position'][1], value['psi'])
+
             }
         }
     }

@@ -2,7 +2,7 @@ import asyncio
 import time
 
 from EnvironmentDavid.babylon import BABYLON_LiveBackend
-from EnvironmentDavid.babylon_core.babylon_objects import BabylonVisualizationEnvironment
+from EnvironmentDavid.babylon_core.objects_to_babylon import BabylonVisualizationEnvironment
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject
 from scioi_py_core.core.obstacles import Obstacle
 import threading

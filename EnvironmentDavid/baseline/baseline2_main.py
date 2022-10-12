@@ -85,7 +85,7 @@ def loop():
         env.robots['robot_01'].updateSimulation(input_1)
         env.robots['robot_02'].updateSimulation(input_2)
 
-        sample = env.generateSample()
+        sample = env.generate_sample()
         # -----------------------------------
         # 6. Visualization
 

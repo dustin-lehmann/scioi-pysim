@@ -92,95 +92,17 @@ class BabylonVisualizationEnvironment:
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 
-    # @property
-    # def tile_size(self):
-    #     return self.size_x / self.tiles_x
-
-    # def generateBorders(self):
-    #     wall1 = Wall.fromTiles('h', 0, 0, self.tiles_x, tile_size=self.size_x / self.tiles_x,
-    #                            wall_thickness=self.wall_thickness, edge_discretization=1)
-    #
-    #     wall2 = Wall.fromTiles('v', 0, 0, self.tiles_y, tile_size=self.size_x / self.tiles_x,
-    #                            wall_thickness=self.wall_thickness, edge_discretization=1)
-    #
-    #     wall3 = Wall.fromTiles('h', 0, self.tiles_y, self.tiles_x, tile_size=self.size_x / self.tiles_x,
-    #                            wall_thickness=self.wall_thickness, edge_discretization=1)
-    #
-    #     wall4 = Wall.fromTiles('v', self.tiles_x, 0, self.tiles_y, tile_size=self.size_x / self.tiles_x,
-    #                            wall_thickness=self.wall_thickness, edge_discretization=1)
-    #
-    #     for wall in wall1:
-    #         self.walls.append(wall)
-    #     for wall in wall2:
-    #         self.walls.append(wall)
-    #     for wall in wall3:
-    #         self.walls.append(wall)
-    #     for wall in wall4:
-    #         self.walls.append(wall)
-    #
-    #     for wall in self.walls:
-    #         x = wall.center[0]
-    #         y = wall.center[1]
-    #
-    #         if wall.orientation == 'h' or wall.orientation == TileBoxOrientation.H:
-    #             cell1 = self.getCellByPosition(x, y + self.tile_size / 2)
-    #             cell2 = self.getCellByPosition(x, y - self.tile_size / 2)
-    #         else:
-    #             cell1 = self.getCellByPosition(x + self.tile_size / 2, y)
-    #             cell2 = self.getCellByPosition(x - self.tile_size / 2, y)
-    #
-    #         if cell1 is None and cell2 is None:
-    #             pass
-    #         if cell1 is not None and wall not in cell1.walls:
-    #             cell1.walls.append(wall)
-    #         if cell2 is not None and wall not in cell2.walls:
-    #             cell2.walls.append(wall)
-
-    # def getCell(self, x, y):
-    #
-    #     return next((cell for cell in self.cells if cell.x == x and cell.y == y), None)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    # def getCellByPosition(self, x_pos, y_pos):
-    #     # print(f'x_pos {x_pos}')
-    #     # print(f'y_pos{y_pos}')
-    #     x = int(math.floor(x_pos / self.tile_size))
-    #     y = int(math.floor(y_pos / self.tile_size))
-    #
-    #     return self.getCell(x, y)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    # def getCellPosition(self, cell):
-    #     if isinstance(cell, Cell):
-    #         return [cell.x * self.tile_size + self.tile_size / 2, cell.y * self.tile_size + self.tile_size / 2]
-    #     elif isinstance(cell, list):
-    #         cell = self.getCell(cell[0], cell[1])
-    #         return [cell.x * self.tile_size + self.tile_size / 2, cell.y * self.tile_size + self.tile_size / 2]
-
-    # ------------------------------------------------------------------------------------------------------------------
-    # def generateFloor(self):
-    #     floor_tiles = {}
-    #     for x in range(0, self.tiles_x):
-    #         for y in range(0, self.tiles_y):
-    #             tile = FloorTile(
-    #                 center=[self.tile_size / 2 + x * self.tile_size, self.tile_size / 2 + y * self.tile_size],
-    #                 size_x=self.tile_size, size_y=self.tile_size, psi=0, height=1, edge_discretization=1)
-    #             name = f"Floor_{x}_{y}"
-    #             tile.name = name
-    #             floor_tiles[name] = tile
-    #
-    #             cell = self.getCell(x, y)
-    #             cell.floor_tile = tile
-    #
-    #     return floor_tiles
-
-    def generateSample(self):
+    def generate_sample(self):
+        """
+        generate a sample with data for:
+        -robots (position
+        -objects
+        -elapsed time
+        :return:
+        """
         sample = {'robots': {},
-                  'floor': {},
-                  'walls': {},
-                  'doors': {},
-                  'switches': {},
-                  'goals': {}}
+                  'environment': {}
+                  }
 
         # for count, robot in enumerate(self.robot_textures):
         for count, robot in enumerate(self.robots_list):
@@ -191,9 +113,13 @@ class BabylonVisualizationEnvironment:
                 'collision': 0
             }
             sample['robots'][f'{count}'] = robot_sample
-            # sample['robot_textures'] = robot_sample
 
-        discovered_walls = []
+        for count, obstacle in enumerate(self.obstacles_list):
+            obstacle_sample = {
+                'position': obstacle.physics.bounding_objects['cuboid'].position,
+                'psi': psiFromRotMat(obstacle.physics.bounding_objects['cuboid'].orientation),
+            }
+            sample['environment'][obstacle.name] = obstacle_sample
 
         sample['t'] = time.time() - self.start_time
 
