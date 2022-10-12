@@ -11,7 +11,7 @@ class Wall_rot_special(Wall_rot):
 def main():
     x = Wall()
 
-    pass
+    print(id(x))
 
 if __name__ == '__main__':
     main()
