@@ -102,15 +102,15 @@ class WorldObject(scheduling.ScheduledObject):
     def _init(self):
         pass
 
-
-sample = {'world': {},
-          'added': {},
-          'deleted': {},
-
-}
-
-for o in world.objects:
-    sample['world'][o.id] = o.getSample()
+#
+# sample = {'world': {},
+#           'added': {},
+#           'deleted': {},
+#
+# }
+#
+# for o in world.objects:
+#     sample['world'][o.id] = o.getSample()
 
 
 # ======================================================================================================================

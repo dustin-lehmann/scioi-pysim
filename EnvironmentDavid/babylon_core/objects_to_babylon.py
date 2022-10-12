@@ -4,14 +4,15 @@ import time
 from EnvironmentDavid.Objects.EnvironmentDavid_Agents import TankRobotSimObject
 from scioi_py_core.utils.orientations import psiFromRotMat
 from scioi_py_core.core.obstacles import Obstacle
+from scioi_py_core.core.world import WorldObject
 
 
 class BabylonVisualizationEnvironment:
-
-    # list where all not moving objects are stored
-    obstacles_list: ['Obstacle']
-    # list with all the robot_textures that are active in the testbed
-    robots_list: list['TankRobotSimObject']
+    # # list where all not moving objects are stored
+    # obstacles_list: list['Obstacle']
+    # # list with all the robot_textures that are active in the testbed
+    # robots_list: list['TankRobotSimObject']
+    babylon_objects_dict: dict
 
     size_x: float
     size_y: float
@@ -23,8 +24,14 @@ class BabylonVisualizationEnvironment:
 
     def __init__(self, texture_settings=None, *args, **kwargs):
         self.texture_settings = texture_settings
-        self.obstacles_list = []
-        self.robots_list = []
+
+        # self.obstacles_list = []
+        # self.robots_list = []
+        self.babylon_objects_dict = {
+            'existing': list['WorldObject'],
+            'added': list['WorldObject'],
+            'deleted': list['WorldObject']
+        }
 
         self.start_time = time.time()
 
@@ -37,34 +44,35 @@ class BabylonVisualizationEnvironment:
             obstacle_name = f"Obstacle_{idx}"
 
             obstacle_dict = {
-                'center_x': obstacle.configuration['x'],
+                'center_x': obstacle.configuration['x'],  # todo: give an array
                 'center_y': obstacle.configuration['y'],
                 'center_z': obstacle.configuration['z'],
                 'psi': psiFromRotMat(obstacle.configuration['rot']),
                 'length': obstacle.physics.bounding_objects['cuboid'].dimensions[0],
                 'width': obstacle.physics.bounding_objects['cuboid'].dimensions[1],
                 'height': obstacle.physics.bounding_objects['cuboid'].dimensions[2],
-                'type': obstacle.type,
                 'visible': obstacle.visible,
-                'name': obstacle.name
+                'name': obstacle.name,
+                'type': obstacle.type,
+                'id': obstacle.id
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 
         # robots
         for idx, robot in enumerate(self.robots_list):
             orientation_test = robot.physics.bounding_objects['body'].orientation
-            robot_name = f"{idx}"
+
             robot_dict = {
-                'id': 0,
                 'position': list(robot.physics.bounding_objects['body'].position),
                 'length': robot.physics.length,
                 'width': robot.physics.width,
                 'height': robot.physics.height,
                 'psi': psiFromRotMat(robot.configuration['rot']),
-                'name': f'robot{robot_name}',
-                'type': robot.type
+                'name': robot.name,
+                'type': robot.type,
+                'id': robot.id
             }
-            json_dict['robots'][robot_name] = robot_dict
+            json_dict['robots'][robot.name] = robot_dict
 
         if file is not None:
             try:
@@ -100,26 +108,29 @@ class BabylonVisualizationEnvironment:
         -elapsed time
         :return:
         """
-        sample = {'robots': {},
-                  'environment': {}
-                  }
-
-        # for count, robot in enumerate(self.robot_textures):
-        for count, robot in enumerate(self.robots_list):
-            robot_sample = {
-                'position': robot.physics.bounding_objects['body'].position,
-                'psi': psiFromRotMat(robot.physics.bounding_objects['body'].orientation),
-                # 'collision': robot.collision
-                'collision': 0
-            }
-            sample['robots'][f'{count}'] = robot_sample
-
-        for count, obstacle in enumerate(self.obstacles_list):
-            obstacle_sample = {
-                'position': obstacle.physics.bounding_objects['cuboid'].position,
-                'psi': psiFromRotMat(obstacle.physics.bounding_objects['cuboid'].orientation),
-            }
-            sample['environment'][obstacle.name] = obstacle_sample
+        sample = self.babylon_objects_dict
+        # sample = {'robots': {},
+        #           'environment': {}
+        #           }
+        #
+        # # for count, robot in enumerate(self.robot_textures):
+        # for count, robot in enumerate(self.robots_list):
+        #     robot_sample = {
+        #         'position': robot.physics.bounding_objects['body'].position,
+        #         'psi': psiFromRotMat(robot.physics.bounding_objects['body'].orientation),
+        #         # 'collision': robot.collision
+        #         'collision': 0,
+        #         'id': robot.id
+        #     }
+        #     sample['robots'][robot.name] = robot_sample
+        #
+        # for count, obstacle in enumerate(self.obstacles_list):
+        #     obstacle_sample = {
+        #         'position': obstacle.physics.bounding_objects['cuboid'].position,
+        #         'psi': psiFromRotMat(obstacle.physics.bounding_objects['cuboid'].orientation),
+        #         'id': robot.id
+        #     }
+        #     sample['environment'][obstacle.name] = obstacle_sample
 
         sample['t'] = time.time() - self.start_time
 

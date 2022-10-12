@@ -445,6 +445,9 @@ class LNDW_scene_simple extends Scene {
         for (const [key, value] of Object.entries(environment_sample_data)) {
             if (key in environment_objects) {
                 environment_objects[key].setState(value['position'][0], value['position'][1], value['psi'])
+            }
+            else
+            {
 
             }
         }
