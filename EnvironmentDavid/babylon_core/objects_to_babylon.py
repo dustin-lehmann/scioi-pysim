@@ -42,21 +42,22 @@ class BabylonVisualizationEnvironment:
     def generate_sample(self):
         """
         generate a sample with data for:
-        -robots (position
-        -objects
-        -elapsed time
+        -time -> ['t']
+
         :return:
         """
+        self.babylon_objects_dict['added'] = {}
+        self.babylon_objects_dict['deleted'] = {}
         sample = self.babylon_objects_dict
 
         sample['t'] = time.time() - self.start_time
 
         # remove deleted items from dict with currently existing items
-        self.babylon_objects_dict['existing'] = {k: self.babylon_objects_dict['world'][k] for k in
+        self.babylon_objects_dict['world'] = {k: self.babylon_objects_dict['world'][k] for k in
                                                  self.babylon_objects_dict['world'] if
                                                  k not in self.babylon_objects_dict['deleted']}
         # add all newly added items to existing items
-        self.babylon_objects_dict['existing'] = self.babylon_objects_dict['world'] | \
+        self.babylon_objects_dict['world'] = self.babylon_objects_dict['world'] | \
                                                 self.babylon_objects_dict['added']
 
         return sample

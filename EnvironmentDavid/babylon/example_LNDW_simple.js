@@ -1,14 +1,20 @@
 //import Data from "./data";
 
 var texture_pack = ''
-var objects = {}
+var babylon_objects = {}
 // var robots = {}
 // var environment_objects= {}
 var textures = {}
 
+
+//===Objects============================================================================================================
 // function to create all the different objects in the visualization except for the robot_textures
+
+// class to create all different types of obstalces
 class createBoxFromJson {
+
     constructor(scene, length, width, height, center_x, center_y, center_z, psi, visible, classname) {
+        this.object_type = 'obstacle'
         this.scene = scene;
         if (typeof visible == "undefined"){print('dfhjfdskhpfshpffhfphjgfhjpgfhjgfdgfgf')}
         this.visible=visible
@@ -16,18 +22,11 @@ class createBoxFromJson {
         this.body.rotation.y = psi
 
         this.body.position = ToBabylon([center_x, center_y, center_z])
-        // let texture= "./twipr_models/textures/dark.png";
-        // console.log('hello')
-        // console.log(textures["materials"][type])
-        // console.log(type)
         // texture file selected via object type
-        // console.log(111111111)
-        console.log(classname)
         let texture_file = textures["materials"][classname]
 
         // relative texture path
         let texture= "./texture_packs/textures/material_textures/"+texture_file;
-        console.log(texture)
 
         this.material = new BABYLON.StandardMaterial(this.scene);
         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)
@@ -67,12 +66,15 @@ class createBoxFromJson {
 
 // this function transforms input coordinates to babylon coordinates
 function ToBabylon(coordinates) {
-    // return new BABYLON.Vector3(coordinates[0], -coordinates[2], coordinates[1])
     return new BABYLON.Vector3(coordinates[0], coordinates[2], -coordinates[1])
 }
 
+//===Agents,Robots======================================================================================================
+
+// base class for Agents/Robots
 class Robot {
     constructor (scene, id, name, length, width, height, position, psi, shadowGenerator){
+        this.object_type = 'agent'
         this.name = name
         this.scene = scene
         this.length = length
@@ -123,7 +125,6 @@ class Robot {
         this.robot_model.setCollision(state)
     }
 }
-
 
 class BoxRobot {
     constructor(scene, length, width, height, position, psi,type) {
@@ -260,7 +261,7 @@ class Robot_Model {
     }
 }
 
-// #####################################################################################################################
+// ===Basic Envrionment settings========================================================================================
 class LNDW_scene_simple extends Scene {
     constructor(id, options) {
         const defaults = {
@@ -343,14 +344,11 @@ class LNDW_scene_simple extends Scene {
         $.getJSON("objects.json", function(json) {
             // selection of the used texture pack
             texture_pack = json['textures']
-            // environment_objects = json['environment']
-            // robots = json['robots']
-
-            objects = json['objects']
+            // all objects displayed in babylon
+            babylon_objects = json['objects']
         });
         // get textures from texture pack
         var texture_path = "../texture_packs/"+texture_pack+".json"
-        // $.getJSON("../texture_packs/standard_textures.json", function(json) {
         $.getJSON(texture_path, function(json) {
 
             textures = json
@@ -365,8 +363,8 @@ class LNDW_scene_simple extends Scene {
     }
 
     buildEnvironment() {
-        console.log(objects)
-        for (const [key, value] of Object.entries(objects)) {
+        console.log(babylon_objects)
+        for (const [key, value] of Object.entries(babylon_objects)) {
             // console.log(value['type'])
             // console.log(value['length'])
             // object is an obstacle -> create ObstacleBox
@@ -385,37 +383,37 @@ class LNDW_scene_simple extends Scene {
             }
 
             if (value['object_type'] == 'agent') {
-                for (const [key, value] of Object.entries(robots)) {
-                    value['name'] = new Robot(this.scene,
-                        value['id'],
-                        value['name'],
-                        value['parameters']['length'],
-                        value['parameters']['width'],
-                        value['parameters']['height'], // todo-> von class auf Texture schließen!
-                        value['position'],
-                        value['psi'],
-                        this.shadowGenerator)
-                }
+
+                value['name'] = new Robot(this.scene,
+                    value['id'],
+                    value['name'],
+                    value['parameters']['length'],
+                    value['parameters']['width'],
+                    value['parameters']['height'], // todo-> von class auf Texture schließen!
+                    value['position'],
+                    value['psi'],
+                    this.shadowGenerator)
+
             }
         }
     }
 
     drawCoordinateSystem() {
         const points_x = [
-            ToBabylon([0,0,0]),
-            ToBabylon([0.25,0,0])
+            ToBabylon([0, 0, 0]),
+            ToBabylon([0.25, 0, 0])
         ]
         const points_y = [
-            ToBabylon([0,0,0]),
-            ToBabylon([0,0.25,0])
+            ToBabylon([0, 0, 0]),
+            ToBabylon([0, 0.25, 0])
         ]
         const points_z = [
-            ToBabylon([0,0,0]),
-            ToBabylon([0,0,0.25])
+            ToBabylon([0, 0, 0]),
+            ToBabylon([0, 0, 0.25])
         ]
         const options_x = {
             points: points_x,
-            color: new BABYLON.Color3(1,0,0),
+            color: new BABYLON.Color3(1, 0, 0),
             updatable: false
         }
 
@@ -434,30 +432,28 @@ class LNDW_scene_simple extends Scene {
     onSample(sample) {
 
 
-    //     console.log(sample)
-    //     this.textbox.text = 'Time: ' + sample['t'].toFixed(2) + ' s'
-    //
-    //     var robot_sample_data = sample['robots']
-    //     var environment_sample_data = sample['environment']
-    //     // console.log(this.camera)
-    //
-    //     // update robot objects
-    //     for (const [key, value] of Object.entries(robot_sample_data)) {
-    //         if (key in robots) {
-    //             robots[key]['babylon'].setState(value['position'][0], value['position'][1], value['psi'])
-    //             robots[key]['babylon'].setCollision(value['collision'])
-    //         }
-    //     }
-    //
-    //     // update environment objects
-    //     for (const [key, value] of Object.entries(environment_sample_data)) {
-    //         if (key in environment_objects) {
-    //             environment_objects[key].setState(value['position'][0], value['position'][1], value['psi'])
-    //         }
-    //         else
-    //         {
-    //
-    //         }
-    //     }
+        console.log(sample)
+
+        //update all existing world objects
+        for (const [key, value] of Object.entries(sample['world'])) {
+            if (babylon_objects[key].object_type == 'obstacle') {
+                console.log(babylon_objects[key])
+            }
+
+        if (babylon_objects[key].object_type == 'agent') {
+            console.log("agent here")
+            }
+        }
+
+
+        for (const [key, value] of Object.entries(sample['added']))
+        {
+            //todo:
+        }
+
+        for (const [key, value] of Object.entries(sample['deleted']))
+        {
+            //todo:
+        }
     }
 }

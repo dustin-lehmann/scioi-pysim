@@ -1,10 +1,10 @@
 {
   "textures": "standard_textures",
   "objects": {
-    "<class 'EnvironmentDavid.Objects.EnvironmentDavid_Agents.TankRobotSimObject'>_1859713929120": {
+    "<class 'EnvironmentDavid.Objects.EnvironmentDavid_Agents.TankRobotSimObject'>_2751383179168": {
       "name": "Agent 1",
       "class": "TankRobotSimObject",
-      "object_type": "object",
+      "object_type": "agent",
       "position": {
         "x": 0.0,
         "y": 0.0,
@@ -17,7 +17,7 @@
         "height": 0.052
       }
     },
-    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_1857993513040": {
+    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_2751674625856": {
       "name": "Obstacle 1",
       "class": "SimpleXYZRObstacle",
       "object_type": "obstacle",
@@ -34,7 +34,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_1857993489760": {
+    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_2751705122896": {
       "name": "Obstacle 2",
       "class": "SimpleXYZRObstacle",
       "object_type": "obstacle",
@@ -51,7 +51,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_1857993488752": {
+    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_2751705124000": {
       "name": "Obstacle 3",
       "class": "SimpleXYZRObstacle",
       "object_type": "obstacle",
@@ -68,7 +68,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.Wall'>_1857993487648": {
+    "<class 'scioi_py_core.core.obstacles.Wall'>_2751705186608": {
       "name": "Wall 1",
       "class": "Wall",
       "object_type": "obstacle",
@@ -85,7 +85,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1857993445776": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705187760": {
       "name": "Floor 0_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -102,7 +102,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1857993446544": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705187808": {
       "name": "Floor 0_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -119,7 +119,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1857993449280": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705188912": {
       "name": "Floor 0_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -136,7 +136,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1857993447792": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705190016": {
       "name": "Floor 0_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -153,7 +153,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002580384": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705211664": {
       "name": "Floor 0_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -170,7 +170,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002581488": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705212768": {
       "name": "Floor 0_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -187,7 +187,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002582592": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705213872": {
       "name": "Floor 0_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -204,7 +204,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002608336": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705235520": {
       "name": "Floor 0_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -221,7 +221,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002609488": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705236672": {
       "name": "Floor 0_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -238,7 +238,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002610640": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705237824": {
       "name": "Floor 0_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -255,7 +255,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002611792": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705238976": {
       "name": "Floor 0_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -272,7 +272,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002633488": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705264768": {
       "name": "Floor 0_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -289,7 +289,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002634640": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705265920": {
       "name": "Floor 0_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -306,7 +306,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002635792": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705267072": {
       "name": "Floor 1_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -323,7 +323,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002661584": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705288768": {
       "name": "Floor 1_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -340,7 +340,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002662736": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705289920": {
       "name": "Floor 1_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -357,7 +357,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002663888": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705291072": {
       "name": "Floor 1_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -374,7 +374,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002665040": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705292224": {
       "name": "Floor 1_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -391,7 +391,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002682640": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705318016": {
       "name": "Floor 1_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -408,7 +408,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002683792": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705319168": {
       "name": "Floor 1_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -425,7 +425,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002685328": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705320320": {
       "name": "Floor 1_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -442,7 +442,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002715264": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705346112": {
       "name": "Floor 1_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -459,7 +459,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002716416": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705347264": {
       "name": "Floor 1_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -476,7 +476,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002717568": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705348416": {
       "name": "Floor 1_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -493,7 +493,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002743360": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705349568": {
       "name": "Floor 1_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -510,7 +510,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002744512": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705379888": {
       "name": "Floor 1_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -527,7 +527,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002745664": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705381040": {
       "name": "Floor 2_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -544,7 +544,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858002746816": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705382192": {
       "name": "Floor 2_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -561,7 +561,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024264320": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705399792": {
       "name": "Floor 2_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -578,7 +578,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024265472": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705400944": {
       "name": "Floor 2_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -595,7 +595,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024266624": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705402096": {
       "name": "Floor 2_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -612,7 +612,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024292416": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705403248": {
       "name": "Floor 2_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -629,7 +629,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024293568": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705424944": {
       "name": "Floor 2_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -646,7 +646,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024294720": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705426096": {
       "name": "Floor 2_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -663,7 +663,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024295872": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705427248": {
       "name": "Floor 2_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -680,7 +680,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024321664": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705457136": {
       "name": "Floor 2_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -697,7 +697,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024322816": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705458288": {
       "name": "Floor 2_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -714,7 +714,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024323968": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705459440": {
       "name": "Floor 2_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -731,7 +731,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024349760": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705460592": {
       "name": "Floor 2_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -748,7 +748,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024350912": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705486384": {
       "name": "Floor 3_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -765,7 +765,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024352064": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705487536": {
       "name": "Floor 3_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -782,7 +782,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024353216": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705488688": {
       "name": "Floor 3_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -799,7 +799,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024374912": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705514480": {
       "name": "Floor 3_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -816,7 +816,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024376064": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705515632": {
       "name": "Floor 3_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -833,7 +833,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024377216": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705516784": {
       "name": "Floor 3_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -850,7 +850,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024399008": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705517936": {
       "name": "Floor 3_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -867,7 +867,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024400112": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705539632": {
       "name": "Floor 3_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -884,7 +884,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024401264": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705540784": {
       "name": "Floor 3_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -901,7 +901,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024402416": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705541936": {
       "name": "Floor 3_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -918,7 +918,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024428208": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705563632": {
       "name": "Floor 3_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -935,7 +935,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024429360": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705564784": {
       "name": "Floor 3_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -952,7 +952,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024430512": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705565936": {
       "name": "Floor 3_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -969,7 +969,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024460400": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705567088": {
       "name": "Floor 4_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -986,7 +986,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024461552": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705592880": {
       "name": "Floor 4_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1003,7 +1003,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024462704": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705594080": {
       "name": "Floor 4_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1020,7 +1020,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024463856": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705595232": {
       "name": "Floor 4_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1037,7 +1037,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024485552": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705621024": {
       "name": "Floor 4_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1054,7 +1054,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024486704": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705622176": {
       "name": "Floor 4_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1071,7 +1071,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024487856": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705623328": {
       "name": "Floor 4_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1088,7 +1088,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024505456": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705624480": {
       "name": "Floor 4_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1105,7 +1105,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024506608": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705642080": {
       "name": "Floor 4_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1122,7 +1122,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024507760": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705643232": {
       "name": "Floor 4_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1139,7 +1139,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024508912": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705644384": {
       "name": "Floor 4_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1156,7 +1156,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024538800": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705678368": {
       "name": "Floor 4_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1173,7 +1173,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024539952": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705679520": {
       "name": "Floor 4_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1190,7 +1190,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024541056": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705680672": {
       "name": "Floor 5_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1207,7 +1207,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024566848": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705681824": {
       "name": "Floor 5_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1224,7 +1224,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024568000": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705703520": {
       "name": "Floor 5_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1241,7 +1241,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024569152": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705704672": {
       "name": "Floor 5_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1258,7 +1258,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024570304": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705705824": {
       "name": "Floor 5_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1275,7 +1275,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024596096": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705731616": {
       "name": "Floor 5_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1292,7 +1292,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024597248": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705732768": {
       "name": "Floor 5_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1309,7 +1309,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024598400": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705733872": {
       "name": "Floor 5_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1326,7 +1326,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024620096": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705735024": {
       "name": "Floor 5_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1343,7 +1343,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024621248": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705756720": {
       "name": "Floor 5_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1360,7 +1360,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024622400": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705757872": {
       "name": "Floor 5_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1377,7 +1377,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024623552": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705759024": {
       "name": "Floor 5_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1394,7 +1394,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024657536": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705797104": {
       "name": "Floor 5_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1411,7 +1411,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024658688": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705798256": {
       "name": "Floor 6_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1428,7 +1428,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024659840": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705799408": {
       "name": "Floor 6_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1445,7 +1445,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024681536": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705800560": {
       "name": "Floor 6_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1462,7 +1462,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024682688": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705822256": {
       "name": "Floor 6_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1479,7 +1479,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024683840": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705823408": {
       "name": "Floor 6_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1496,7 +1496,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024684992": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705824560": {
       "name": "Floor 6_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1513,7 +1513,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024706688": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705846256": {
       "name": "Floor 6_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1530,7 +1530,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024707840": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705847408": {
       "name": "Floor 6_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1547,7 +1547,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024708992": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705848560": {
       "name": "Floor 6_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1564,7 +1564,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024734784": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705849712": {
       "name": "Floor 6_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1581,7 +1581,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024735936": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705875504": {
       "name": "Floor 6_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1598,7 +1598,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024737088": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705876656": {
       "name": "Floor 6_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1615,7 +1615,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024738240": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705877808": {
       "name": "Floor 6_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1632,7 +1632,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024772224": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705911792": {
       "name": "Floor 7_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1649,7 +1649,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024773376": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705912944": {
       "name": "Floor 7_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1666,7 +1666,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024774528": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705914096": {
       "name": "Floor 7_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1683,7 +1683,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024792128": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705915248": {
       "name": "Floor 7_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1700,7 +1700,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024793280": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705932848": {
       "name": "Floor 7_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1717,7 +1717,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024794432": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705934000": {
       "name": "Floor 7_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1734,7 +1734,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024795584": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705935152": {
       "name": "Floor 7_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1751,7 +1751,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024817280": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705956848": {
       "name": "Floor 7_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1768,7 +1768,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024818432": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705958000": {
       "name": "Floor 7_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1785,7 +1785,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024819584": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705959152": {
       "name": "Floor 7_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1802,7 +1802,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024853568": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705960304": {
       "name": "Floor 7_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1819,7 +1819,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024854720": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705990192": {
       "name": "Floor 7_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1836,7 +1836,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024855872": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705991344": {
       "name": "Floor 7_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1853,7 +1853,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024857024": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751705992496": {
       "name": "Floor 8_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1870,7 +1870,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024882816": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706018288": {
       "name": "Floor 8_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1887,7 +1887,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024883968": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706019440": {
       "name": "Floor 8_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1904,7 +1904,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024885120": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706020592": {
       "name": "Floor 8_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1921,7 +1921,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024906816": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706021744": {
       "name": "Floor 8_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1938,7 +1938,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024907968": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706043440": {
       "name": "Floor 8_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1955,7 +1955,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024909120": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706044592": {
       "name": "Floor 8_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1972,7 +1972,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024910272": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706045744": {
       "name": "Floor 8_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -1989,7 +1989,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024931968": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706071536": {
       "name": "Floor 8_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2006,7 +2006,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024933120": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706072688": {
       "name": "Floor 8_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2023,7 +2023,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024934272": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706073840": {
       "name": "Floor 8_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2040,7 +2040,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024960064": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706074992": {
       "name": "Floor 8_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2057,7 +2057,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024961216": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706100784": {
       "name": "Floor 8_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2074,7 +2074,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024962368": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706101936": {
       "name": "Floor 9_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2091,7 +2091,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024963520": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706103088": {
       "name": "Floor 9_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2108,7 +2108,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024989312": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706128880": {
       "name": "Floor 9_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2125,7 +2125,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024990464": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706130032": {
       "name": "Floor 9_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2142,7 +2142,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858024991616": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706131184": {
       "name": "Floor 9_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2159,7 +2159,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025013312": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706132336": {
       "name": "Floor 9_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2176,7 +2176,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025014464": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706154032": {
       "name": "Floor 9_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2193,7 +2193,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025015616": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706155184": {
       "name": "Floor 9_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2210,7 +2210,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025016768": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706156336": {
       "name": "Floor 9_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2227,7 +2227,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025042560": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706186224": {
       "name": "Floor 9_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2244,7 +2244,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025043712": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706187376": {
       "name": "Floor 9_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2261,7 +2261,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025044864": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706188528": {
       "name": "Floor 9_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2278,7 +2278,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025070656": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706189680": {
       "name": "Floor 9_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2295,7 +2295,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025071808": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706211376": {
       "name": "Floor 10_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2312,7 +2312,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025072960": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706212528": {
       "name": "Floor 10_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2329,7 +2329,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025074112": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706213680": {
       "name": "Floor 10_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2346,7 +2346,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025099904": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706239472": {
       "name": "Floor 10_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2363,7 +2363,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025101056": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706240624": {
       "name": "Floor 10_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2380,7 +2380,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025102208": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706241776": {
       "name": "Floor 10_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2397,7 +2397,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025123904": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706242928": {
       "name": "Floor 10_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2414,7 +2414,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025125056": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706260528": {
       "name": "Floor 10_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2431,7 +2431,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025126256": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706261728": {
       "name": "Floor 10_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2448,7 +2448,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025127408": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706262880": {
       "name": "Floor 10_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2465,7 +2465,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025157296": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706292768": {
       "name": "Floor 10_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2482,7 +2482,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025158448": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706293920": {
       "name": "Floor 10_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2499,7 +2499,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025159600": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706295072": {
       "name": "Floor 10_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2516,7 +2516,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025185392": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706296224": {
       "name": "Floor 11_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2533,7 +2533,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025186544": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706322016": {
       "name": "Floor 11_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2550,7 +2550,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025187696": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706323168": {
       "name": "Floor 11_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2567,7 +2567,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025188848": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706324320": {
       "name": "Floor 11_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2584,7 +2584,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025210544": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706350112": {
       "name": "Floor 11_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2601,7 +2601,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025211696": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706351264": {
       "name": "Floor 11_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2618,7 +2618,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025212848": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706352416": {
       "name": "Floor 11_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2635,7 +2635,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025234544": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706353568": {
       "name": "Floor 11_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2652,7 +2652,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025235696": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706375264": {
       "name": "Floor 11_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2669,7 +2669,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025236848": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706376416": {
       "name": "Floor 11_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2686,7 +2686,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025238000": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706377568": {
       "name": "Floor 11_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2703,7 +2703,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025263792": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706407456": {
       "name": "Floor 11_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2720,7 +2720,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025264944": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706408608": {
       "name": "Floor 11_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2737,7 +2737,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025266096": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706409760": {
       "name": "Floor 12_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2754,7 +2754,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025291888": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706410912": {
       "name": "Floor 12_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2771,7 +2771,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025293040": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706432608": {
       "name": "Floor 12_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2788,7 +2788,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025294192": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706433760": {
       "name": "Floor 12_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2805,7 +2805,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025295344": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706434912": {
       "name": "Floor 12_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2822,7 +2822,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025321136": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706456608": {
       "name": "Floor 12_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2839,7 +2839,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025322288": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706457760": {
       "name": "Floor 12_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2856,7 +2856,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025323440": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706458912": {
       "name": "Floor 12_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2873,7 +2873,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025345136": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706460064": {
       "name": "Floor 12_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2890,7 +2890,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025346288": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706485856": {
       "name": "Floor 12_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2907,7 +2907,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025347440": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706487008": {
       "name": "Floor 12_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2924,7 +2924,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025348592": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706488160": {
       "name": "Floor 12_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2941,7 +2941,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025378480": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706518048": {
       "name": "Floor 12_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2958,7 +2958,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025380304": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706519200": {
       "name": "Floor 13_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2975,7 +2975,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025381456": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706520352": {
       "name": "Floor 13_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -2992,7 +2992,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025399056": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706521504": {
       "name": "Floor 13_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3009,7 +3009,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025400208": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706539104": {
       "name": "Floor 13_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3026,7 +3026,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025401360": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706540256": {
       "name": "Floor 13_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3043,7 +3043,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025427152": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706541408": {
       "name": "Floor 13_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3060,7 +3060,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025428304": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706563104": {
       "name": "Floor 13_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3077,7 +3077,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025429456": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706564256": {
       "name": "Floor 13_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3094,7 +3094,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025430608": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706565408": {
       "name": "Floor 13_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3111,7 +3111,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025456400": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706566560": {
       "name": "Floor 13_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3128,7 +3128,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025457552": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706596448": {
       "name": "Floor 13_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3145,7 +3145,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025458704": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706597600": {
       "name": "Floor 13_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3162,7 +3162,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025484496": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706598752": {
       "name": "Floor 13_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3179,7 +3179,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025485648": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706628640": {
       "name": "Floor 14_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3196,7 +3196,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025486800": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706630464": {
       "name": "Floor 14_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3213,7 +3213,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025487952": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706631616": {
       "name": "Floor 14_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3230,7 +3230,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025513792": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706653312": {
       "name": "Floor 14_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3247,7 +3247,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025514944": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706654464": {
       "name": "Floor 14_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3264,7 +3264,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025516096": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706655616": {
       "name": "Floor 14_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3281,7 +3281,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025541888": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706681408": {
       "name": "Floor 14_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3298,7 +3298,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025543040": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706682560": {
       "name": "Floor 14_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3315,7 +3315,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025544192": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706683712": {
       "name": "Floor 14_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3332,7 +3332,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025545344": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706684864": {
       "name": "Floor 14_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3349,7 +3349,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025571136": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706706560": {
       "name": "Floor 14_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3366,7 +3366,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025572288": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706707712": {
       "name": "Floor 14_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3383,7 +3383,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025573440": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706708864": {
       "name": "Floor 14_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3400,7 +3400,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025595136": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706730608": {
       "name": "Floor 15_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3417,7 +3417,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025596288": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706731760": {
       "name": "Floor 15_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3434,7 +3434,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025597440": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706732912": {
       "name": "Floor 15_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3451,7 +3451,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025598592": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706734064": {
       "name": "Floor 15_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3468,7 +3468,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025624384": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706751664": {
       "name": "Floor 15_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3485,7 +3485,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025625536": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706752816": {
       "name": "Floor 15_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3502,7 +3502,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025626736": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706753968": {
       "name": "Floor 15_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3519,7 +3519,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025656624": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706787952": {
       "name": "Floor 15_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3536,7 +3536,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025657776": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706789104": {
       "name": "Floor 15_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3553,7 +3553,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025658928": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706790256": {
       "name": "Floor 15_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3570,7 +3570,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025660080": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706791408": {
       "name": "Floor 15_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3587,7 +3587,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025677680": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706817200": {
       "name": "Floor 15_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3604,7 +3604,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025678832": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706818352": {
       "name": "Floor 15_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3621,7 +3621,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025679984": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706819552": {
       "name": "Floor 16_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3638,7 +3638,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025705776": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706841248": {
       "name": "Floor 16_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3655,7 +3655,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025706928": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706842400": {
       "name": "Floor 16_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3672,7 +3672,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025708080": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706843552": {
       "name": "Floor 16_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3689,7 +3689,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025709232": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706844704": {
       "name": "Floor 16_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3706,7 +3706,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025735024": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706870496": {
       "name": "Floor 16_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3723,7 +3723,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025736176": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706871648": {
       "name": "Floor 16_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3740,7 +3740,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025737328": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706872800": {
       "name": "Floor 16_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3757,7 +3757,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025763120": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706898592": {
       "name": "Floor 16_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3774,7 +3774,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025764272": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706899744": {
       "name": "Floor 16_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3791,7 +3791,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025765424": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706900896": {
       "name": "Floor 16_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3808,7 +3808,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025766576": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706902048": {
       "name": "Floor 16_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3825,7 +3825,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025796464": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706629840": {
       "name": "Floor 16_12",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3842,7 +3842,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025797616": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706932512": {
       "name": "Floor 17_0",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3859,7 +3859,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025798768": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706933616": {
       "name": "Floor 17_1",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3876,7 +3876,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025881904": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751706934768": {
       "name": "Floor 17_2",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3893,7 +3893,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025883056": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707484848": {
       "name": "Floor 17_3",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3910,7 +3910,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025884208": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707486000": {
       "name": "Floor 17_4",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3927,7 +3927,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025885360": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707487152": {
       "name": "Floor 17_5",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3944,7 +3944,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025911152": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707512992": {
       "name": "Floor 17_6",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3961,7 +3961,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025379680": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707514144": {
       "name": "Floor 17_7",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3978,7 +3978,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025379632": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707515296": {
       "name": "Floor 17_8",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -3995,7 +3995,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025914032": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707516448": {
       "name": "Floor 17_9",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -4012,7 +4012,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025943872": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707538144": {
       "name": "Floor 17_10",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -4029,7 +4029,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025945024": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707539296": {
       "name": "Floor 17_11",
       "class": "FloorTile",
       "object_type": "obstacle",
@@ -4046,7 +4046,7 @@
         "visible": true
       }
     },
-    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1858025946224": {
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_2751707540448": {
       "name": "Floor 17_12",
       "class": "FloorTile",
       "object_type": "obstacle",

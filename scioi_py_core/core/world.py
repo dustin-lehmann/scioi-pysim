@@ -228,7 +228,9 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
     # ------------------------------------------------------------------------------------------------------------------
     def create_world_sample(self) -> dict:
         """
-        creates sample-dictionary of all world objects
+                - newly to world added objects
+        - newly from world deleted objects
+        - update already existing objects (e.g. their position)
         :return: sample dictionary
         """
         tmp_sample = self.sample['world']
@@ -238,11 +240,6 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
         for o in self.objects.values():
             self.sample['world'][o.id] = o.getSample()
 
-        # shared_items = {k: self.babylon_env.babylon_objects_dict['world'][k] for k in
-        #                 self.babylon_env.babylon_objects_dict['world'] if
-        #                 k in self.world.objects and self.babylon_env.babylon_objects_dict['world'][k] ==
-        #                 self.world.objects[k]}
-        # determine which objects have been added
         self.sample['added'] = {k: self.sample['world'][k] for k in
                                 set(self.sample['world']) - set(tmp_sample)}
 

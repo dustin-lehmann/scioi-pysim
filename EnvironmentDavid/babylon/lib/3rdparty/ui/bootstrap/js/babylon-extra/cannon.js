@@ -10826,7 +10826,7 @@ module.exports = Pool;
 function Pool(){
     /**
      * The pooled objects
-     * @property {Array} objects
+     * @property {Array} babylon_objects
      */
     this.objects = [];
 

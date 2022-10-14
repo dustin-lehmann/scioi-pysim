@@ -47,7 +47,11 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
         self.babylon_env.start_babylon()
 
     def update_babylon_objects(self):
+        """
+        update the babylon object dictionary with:
 
+        :return: nothinh
+        """
         sample = self.world.create_world_sample()
         self.babylon_env.babylon_objects_dict = sample
 

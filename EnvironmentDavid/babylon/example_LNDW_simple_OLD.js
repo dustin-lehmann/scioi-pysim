@@ -20,7 +20,6 @@ class createBoxFromJson {
         this.material.diffuseTexture.vScale = 0.5
         this.material.specularColor = new BABYLON.Color3(0,0,0)
 
-
         this.body.material = this.material
 
         this.setVisibility(this.visible)

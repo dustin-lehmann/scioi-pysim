@@ -62,6 +62,7 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
 
 class TankRobotSimObject(core.dynamics.DynamicWorldObject):
     spaces = TankRobotSpaces
+    object_type: str = 'agent'
 
     def __init__(self, *args, **kwargs):
         self.type = 'TankRobot'
