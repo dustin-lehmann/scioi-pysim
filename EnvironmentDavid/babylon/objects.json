@@ -1,3115 +1,2634 @@
 {
   "textures": "standard_textures",
-  "environment": {
-    "Obstacle_0": {
-      "center_x": 0.0,
-      "center_y": 0.0,
-      "center_z": 0,
-      "psi": 0.0,
-      "length": 0.1,
-      "width": 0.1,
-      "height": 0.1,
-      "visible": true,
-      "name": "Obstacle 1",
-      "type": "obstacle",
-      "id": "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_2012515860688"
-    },
-    "Obstacle_1": {
-      "center_x": 0.5,
-      "center_y": 0.0,
-      "center_z": 0,
-      "psi": 0.0,
-      "length": 0.1,
-      "width": 0.1,
-      "height": 0.1,
-      "visible": true,
-      "name": "Obstacle 2",
-      "type": "obstacle",
-      "id": "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_2012515862896"
-    },
-    "Obstacle_2": {
-      "center_x": 1.0,
-      "center_y": 0.0,
-      "center_z": 0,
-      "psi": 0.0,
-      "length": 0.1,
-      "width": 0.1,
-      "height": 0.1,
-      "visible": true,
-      "name": "Obstacle 3",
-      "type": "obstacle",
-      "id": "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_2012515864000"
-    },
-    "Obstacle_3": {
-      "center_x": 2.5,
-      "center_y": 1.6,
-      "center_z": 0.0,
-      "psi": 0.0,
-      "length": 2,
-      "width": 0.01,
-      "height": 0.1,
-      "visible": true,
-      "name": "Wall 1",
-      "type": "wall",
-      "id": "<class 'scioi_py_core.core.obstacles.Wall'>_2012515865104"
-    },
-    "Obstacle_4": {
-      "center_x": 0.14149999999999974,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515866256"
-    },
-    "Obstacle_5": {
-      "center_x": 0.14149999999999974,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515866304"
-    },
-    "Obstacle_6": {
-      "center_x": 0.14149999999999974,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515867408"
-    },
-    "Obstacle_7": {
-      "center_x": 0.14149999999999974,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515868560"
-    },
-    "Obstacle_8": {
-      "center_x": 0.14149999999999974,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515869712"
-    },
-    "Obstacle_9": {
-      "center_x": 0.14149999999999974,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515870864"
-    },
-    "Obstacle_10": {
-      "center_x": 0.14149999999999974,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515872016"
-    },
-    "Obstacle_11": {
-      "center_x": 0.14149999999999974,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515873504"
-    },
-    "Obstacle_12": {
-      "center_x": 0.14149999999999974,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515874656"
-    },
-    "Obstacle_13": {
-      "center_x": 0.14149999999999974,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515875808"
-    },
-    "Obstacle_14": {
-      "center_x": 0.14149999999999974,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540977312"
-    },
-    "Obstacle_15": {
-      "center_x": 0.14149999999999974,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540978464"
-    },
-    "Obstacle_16": {
-      "center_x": 0.14149999999999974,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 0_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540979616"
-    },
-    "Obstacle_17": {
-      "center_x": 0.4245000000000001,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540980768"
-    },
-    "Obstacle_18": {
-      "center_x": 0.4245000000000001,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540981920"
-    },
-    "Obstacle_19": {
-      "center_x": 0.4245000000000001,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540983072"
-    },
-    "Obstacle_20": {
-      "center_x": 0.4245000000000001,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540984224"
-    },
-    "Obstacle_21": {
-      "center_x": 0.4245000000000001,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540985376"
-    },
-    "Obstacle_22": {
-      "center_x": 0.4245000000000001,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540986528"
-    },
-    "Obstacle_23": {
-      "center_x": 0.4245000000000001,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540987680"
-    },
-    "Obstacle_24": {
-      "center_x": 0.4245000000000001,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540988832"
-    },
-    "Obstacle_25": {
-      "center_x": 0.4245000000000001,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540989984"
-    },
-    "Obstacle_26": {
-      "center_x": 0.4245000000000001,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540991136"
-    },
-    "Obstacle_27": {
-      "center_x": 0.4245000000000001,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540992288"
-    },
-    "Obstacle_28": {
-      "center_x": 0.4245000000000001,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012540993440"
-    },
-    "Obstacle_29": {
-      "center_x": 0.4245000000000001,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 1_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541027424"
-    },
-    "Obstacle_30": {
-      "center_x": 0.7075000000000005,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541028576"
-    },
-    "Obstacle_31": {
-      "center_x": 0.7075000000000005,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541029776"
-    },
-    "Obstacle_32": {
-      "center_x": 0.7075000000000005,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541030928"
-    },
-    "Obstacle_33": {
-      "center_x": 0.7075000000000005,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541032080"
-    },
-    "Obstacle_34": {
-      "center_x": 0.7075000000000005,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541033232"
-    },
-    "Obstacle_35": {
-      "center_x": 0.7075000000000005,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541034384"
-    },
-    "Obstacle_36": {
-      "center_x": 0.7075000000000005,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541035536"
-    },
-    "Obstacle_37": {
-      "center_x": 0.7075000000000005,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541036688"
-    },
-    "Obstacle_38": {
-      "center_x": 0.7075000000000005,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541037840"
-    },
-    "Obstacle_39": {
-      "center_x": 0.7075000000000005,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541038992"
-    },
-    "Obstacle_40": {
-      "center_x": 0.7075000000000005,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541040144"
-    },
-    "Obstacle_41": {
-      "center_x": 0.7075000000000005,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541041296"
-    },
-    "Obstacle_42": {
-      "center_x": 0.7075000000000005,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 2_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541042448"
-    },
-    "Obstacle_43": {
-      "center_x": 0.9904999999999999,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541207504"
-    },
-    "Obstacle_44": {
-      "center_x": 0.9904999999999999,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541208656"
-    },
-    "Obstacle_45": {
-      "center_x": 0.9904999999999999,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541209808"
-    },
-    "Obstacle_46": {
-      "center_x": 0.9904999999999999,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541210960"
-    },
-    "Obstacle_47": {
-      "center_x": 0.9904999999999999,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541212112"
-    },
-    "Obstacle_48": {
-      "center_x": 0.9904999999999999,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541213264"
-    },
-    "Obstacle_49": {
-      "center_x": 0.9904999999999999,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541214368"
-    },
-    "Obstacle_50": {
-      "center_x": 0.9904999999999999,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541215520"
-    },
-    "Obstacle_51": {
-      "center_x": 0.9904999999999999,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541216672"
-    },
-    "Obstacle_52": {
-      "center_x": 0.9904999999999999,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541217824"
-    },
-    "Obstacle_53": {
-      "center_x": 0.9904999999999999,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541218976"
-    },
-    "Obstacle_54": {
-      "center_x": 0.9904999999999999,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541220128"
-    },
-    "Obstacle_55": {
-      "center_x": 0.9904999999999999,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 3_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541221280"
-    },
-    "Obstacle_56": {
-      "center_x": 1.2735000000000003,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541222432"
-    },
-    "Obstacle_57": {
-      "center_x": 1.2735000000000003,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541338336"
-    },
-    "Obstacle_58": {
-      "center_x": 1.2735000000000003,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541339488"
-    },
-    "Obstacle_59": {
-      "center_x": 1.2735000000000003,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541340640"
-    },
-    "Obstacle_60": {
-      "center_x": 1.2735000000000003,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541341792"
-    },
-    "Obstacle_61": {
-      "center_x": 1.2735000000000003,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541342944"
-    },
-    "Obstacle_62": {
-      "center_x": 1.2735000000000003,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541344096"
-    },
-    "Obstacle_63": {
-      "center_x": 1.2735000000000003,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541345248"
-    },
-    "Obstacle_64": {
-      "center_x": 1.2735000000000003,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541347648"
-    },
-    "Obstacle_65": {
-      "center_x": 1.2735000000000003,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541347600"
-    },
-    "Obstacle_66": {
-      "center_x": 1.2735000000000003,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541348704"
-    },
-    "Obstacle_67": {
-      "center_x": 1.2735000000000003,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541349856"
-    },
-    "Obstacle_68": {
-      "center_x": 1.2735000000000003,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 4_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541351008"
-    },
-    "Obstacle_69": {
-      "center_x": 1.5564999999999998,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541352160"
-    },
-    "Obstacle_70": {
-      "center_x": 1.5564999999999998,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541353312"
-    },
-    "Obstacle_71": {
-      "center_x": 1.5564999999999998,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541469216"
-    },
-    "Obstacle_72": {
-      "center_x": 1.5564999999999998,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541470368"
-    },
-    "Obstacle_73": {
-      "center_x": 1.5564999999999998,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541471520"
-    },
-    "Obstacle_74": {
-      "center_x": 1.5564999999999998,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541472672"
-    },
-    "Obstacle_75": {
-      "center_x": 1.5564999999999998,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541473824"
-    },
-    "Obstacle_76": {
-      "center_x": 1.5564999999999998,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541474976"
-    },
-    "Obstacle_77": {
-      "center_x": 1.5564999999999998,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541476128"
-    },
-    "Obstacle_78": {
-      "center_x": 1.5564999999999998,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541477280"
-    },
-    "Obstacle_79": {
-      "center_x": 1.5564999999999998,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541478432"
-    },
-    "Obstacle_80": {
-      "center_x": 1.5564999999999998,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541479584"
-    },
-    "Obstacle_81": {
-      "center_x": 1.5564999999999998,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 5_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541480736"
-    },
-    "Obstacle_82": {
-      "center_x": 1.8395000000000001,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541481888"
-    },
-    "Obstacle_83": {
-      "center_x": 1.8395000000000001,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541483040"
-    },
-    "Obstacle_84": {
-      "center_x": 1.8395000000000001,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541484192"
-    },
-    "Obstacle_85": {
-      "center_x": 1.8395000000000001,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541550944"
-    },
-    "Obstacle_86": {
-      "center_x": 1.8395000000000001,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541552096"
-    },
-    "Obstacle_87": {
-      "center_x": 1.8395000000000001,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541553248"
-    },
-    "Obstacle_88": {
-      "center_x": 1.8395000000000001,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541554400"
-    },
-    "Obstacle_89": {
-      "center_x": 1.8395000000000001,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541555552"
-    },
-    "Obstacle_90": {
-      "center_x": 1.8395000000000001,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541556704"
-    },
-    "Obstacle_91": {
-      "center_x": 1.8395000000000001,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541557856"
-    },
-    "Obstacle_92": {
-      "center_x": 1.8395000000000001,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541559008"
-    },
-    "Obstacle_93": {
-      "center_x": 1.8395000000000001,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541560160"
-    },
-    "Obstacle_94": {
-      "center_x": 1.8395000000000001,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 6_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541561312"
-    },
-    "Obstacle_95": {
-      "center_x": 2.1225000000000005,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541562464"
-    },
-    "Obstacle_96": {
-      "center_x": 2.1225000000000005,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541563616"
-    },
-    "Obstacle_97": {
-      "center_x": 2.1225000000000005,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541564768"
-    },
-    "Obstacle_98": {
-      "center_x": 2.1225000000000005,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541565920"
-    },
-    "Obstacle_99": {
-      "center_x": 2.1225000000000005,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541665440"
-    },
-    "Obstacle_100": {
-      "center_x": 2.1225000000000005,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541666592"
-    },
-    "Obstacle_101": {
-      "center_x": 2.1225000000000005,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541667744"
-    },
-    "Obstacle_102": {
-      "center_x": 2.1225000000000005,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541668896"
-    },
-    "Obstacle_103": {
-      "center_x": 2.1225000000000005,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541670048"
-    },
-    "Obstacle_104": {
-      "center_x": 2.1225000000000005,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541671200"
-    },
-    "Obstacle_105": {
-      "center_x": 2.1225000000000005,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541672352"
-    },
-    "Obstacle_106": {
-      "center_x": 2.1225000000000005,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541673504"
-    },
-    "Obstacle_107": {
-      "center_x": 2.1225000000000005,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 7_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541674656"
-    },
-    "Obstacle_108": {
-      "center_x": 2.405500000000001,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541675808"
-    },
-    "Obstacle_109": {
-      "center_x": 2.405500000000001,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541676960"
-    },
-    "Obstacle_110": {
-      "center_x": 2.405500000000001,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541678112"
-    },
-    "Obstacle_111": {
-      "center_x": 2.405500000000001,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541679264"
-    },
-    "Obstacle_112": {
-      "center_x": 2.405500000000001,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541680416"
-    },
-    "Obstacle_113": {
-      "center_x": 2.405500000000001,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541681568"
-    },
-    "Obstacle_114": {
-      "center_x": 2.405500000000001,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541781088"
-    },
-    "Obstacle_115": {
-      "center_x": 2.405500000000001,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541782240"
-    },
-    "Obstacle_116": {
-      "center_x": 2.405500000000001,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541783392"
-    },
-    "Obstacle_117": {
-      "center_x": 2.405500000000001,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541784544"
-    },
-    "Obstacle_118": {
-      "center_x": 2.405500000000001,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541785696"
-    },
-    "Obstacle_119": {
-      "center_x": 2.405500000000001,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541786848"
-    },
-    "Obstacle_120": {
-      "center_x": 2.405500000000001,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 8_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541788000"
-    },
-    "Obstacle_121": {
-      "center_x": 2.6885000000000003,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541789152"
-    },
-    "Obstacle_122": {
-      "center_x": 2.6885000000000003,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541790304"
-    },
-    "Obstacle_123": {
-      "center_x": 2.6885000000000003,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541791456"
-    },
-    "Obstacle_124": {
-      "center_x": 2.6885000000000003,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541792608"
-    },
-    "Obstacle_125": {
-      "center_x": 2.6885000000000003,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541793760"
-    },
-    "Obstacle_126": {
-      "center_x": 2.6885000000000003,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541794912"
-    },
-    "Obstacle_127": {
-      "center_x": 2.6885000000000003,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541796064"
-    },
-    "Obstacle_128": {
-      "center_x": 2.6885000000000003,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541911968"
-    },
-    "Obstacle_129": {
-      "center_x": 2.6885000000000003,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541913120"
-    },
-    "Obstacle_130": {
-      "center_x": 2.6885000000000003,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541914272"
-    },
-    "Obstacle_131": {
-      "center_x": 2.6885000000000003,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541915424"
-    },
-    "Obstacle_132": {
-      "center_x": 2.6885000000000003,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541916576"
-    },
-    "Obstacle_133": {
-      "center_x": 2.6885000000000003,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 9_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541917728"
-    },
-    "Obstacle_134": {
-      "center_x": 2.9715,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541918880"
-    },
-    "Obstacle_135": {
-      "center_x": 2.9715,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541920032"
-    },
-    "Obstacle_136": {
-      "center_x": 2.9715,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541921184"
-    },
-    "Obstacle_137": {
-      "center_x": 2.9715,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541922336"
-    },
-    "Obstacle_138": {
-      "center_x": 2.9715,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541923488"
-    },
-    "Obstacle_139": {
-      "center_x": 2.9715,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541924640"
-    },
-    "Obstacle_140": {
-      "center_x": 2.9715,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541925792"
-    },
-    "Obstacle_141": {
-      "center_x": 2.9715,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541926944"
-    },
-    "Obstacle_142": {
-      "center_x": 2.9715,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541993744"
-    },
-    "Obstacle_143": {
-      "center_x": 2.9715,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541994896"
-    },
-    "Obstacle_144": {
-      "center_x": 2.9715,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541996048"
-    },
-    "Obstacle_145": {
-      "center_x": 2.9715,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541997200"
-    },
-    "Obstacle_146": {
-      "center_x": 2.9715,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 10_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541998352"
-    },
-    "Obstacle_147": {
-      "center_x": 3.254500000000001,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012541999504"
-    },
-    "Obstacle_148": {
-      "center_x": 3.254500000000001,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542000656"
-    },
-    "Obstacle_149": {
-      "center_x": 3.254500000000001,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542001808"
-    },
-    "Obstacle_150": {
-      "center_x": 3.254500000000001,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542002960"
-    },
-    "Obstacle_151": {
-      "center_x": 3.254500000000001,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542004112"
-    },
-    "Obstacle_152": {
-      "center_x": 3.254500000000001,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542005264"
-    },
-    "Obstacle_153": {
-      "center_x": 3.254500000000001,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542006416"
-    },
-    "Obstacle_154": {
-      "center_x": 3.254500000000001,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542007568"
-    },
-    "Obstacle_155": {
-      "center_x": 3.254500000000001,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542008720"
-    },
-    "Obstacle_156": {
-      "center_x": 3.254500000000001,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542075472"
-    },
-    "Obstacle_157": {
-      "center_x": 3.254500000000001,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542076624"
-    },
-    "Obstacle_158": {
-      "center_x": 3.254500000000001,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542077776"
-    },
-    "Obstacle_159": {
-      "center_x": 3.254500000000001,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 11_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542078928"
-    },
-    "Obstacle_160": {
-      "center_x": 3.5375000000000005,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542080080"
-    },
-    "Obstacle_161": {
-      "center_x": 3.5375000000000005,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542081232"
-    },
-    "Obstacle_162": {
-      "center_x": 3.5375000000000005,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542082384"
-    },
-    "Obstacle_163": {
-      "center_x": 3.5375000000000005,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542083536"
-    },
-    "Obstacle_164": {
-      "center_x": 3.5375000000000005,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542084688"
-    },
-    "Obstacle_165": {
-      "center_x": 3.5375000000000005,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542085840"
-    },
-    "Obstacle_166": {
-      "center_x": 3.5375000000000005,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542086992"
-    },
-    "Obstacle_167": {
-      "center_x": 3.5375000000000005,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542088720"
-    },
-    "Obstacle_168": {
-      "center_x": 3.5375000000000005,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542089872"
-    },
-    "Obstacle_169": {
-      "center_x": 3.5375000000000005,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542091024"
-    },
-    "Obstacle_170": {
-      "center_x": 3.5375000000000005,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542239696"
-    },
-    "Obstacle_171": {
-      "center_x": 3.5375000000000005,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542240848"
-    },
-    "Obstacle_172": {
-      "center_x": 3.5375000000000005,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 12_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542242000"
-    },
-    "Obstacle_173": {
-      "center_x": 3.8205,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542243152"
-    },
-    "Obstacle_174": {
-      "center_x": 3.8205,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542244304"
-    },
-    "Obstacle_175": {
-      "center_x": 3.8205,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542245456"
-    },
-    "Obstacle_176": {
-      "center_x": 3.8205,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542246608"
-    },
-    "Obstacle_177": {
-      "center_x": 3.8205,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542247760"
-    },
-    "Obstacle_178": {
-      "center_x": 3.8205,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542248912"
-    },
-    "Obstacle_179": {
-      "center_x": 3.8205,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542250064"
-    },
-    "Obstacle_180": {
-      "center_x": 3.8205,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542251216"
-    },
-    "Obstacle_181": {
-      "center_x": 3.8205,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542252368"
-    },
-    "Obstacle_182": {
-      "center_x": 3.8205,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542253520"
-    },
-    "Obstacle_183": {
-      "center_x": 3.8205,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542254720"
-    },
-    "Obstacle_184": {
-      "center_x": 3.8205,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542321472"
-    },
-    "Obstacle_185": {
-      "center_x": 3.8205,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 13_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542322624"
-    },
-    "Obstacle_186": {
-      "center_x": 4.103500000000001,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542323776"
-    },
-    "Obstacle_187": {
-      "center_x": 4.103500000000001,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542324928"
-    },
-    "Obstacle_188": {
-      "center_x": 4.103500000000001,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542326080"
-    },
-    "Obstacle_189": {
-      "center_x": 4.103500000000001,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542327232"
-    },
-    "Obstacle_190": {
-      "center_x": 4.103500000000001,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542328384"
-    },
-    "Obstacle_191": {
-      "center_x": 4.103500000000001,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542329536"
-    },
-    "Obstacle_192": {
-      "center_x": 4.103500000000001,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542330688"
-    },
-    "Obstacle_193": {
-      "center_x": 4.103500000000001,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542331840"
-    },
-    "Obstacle_194": {
-      "center_x": 4.103500000000001,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542332992"
-    },
-    "Obstacle_195": {
-      "center_x": 4.103500000000001,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542334144"
-    },
-    "Obstacle_196": {
-      "center_x": 4.103500000000001,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542335296"
-    },
-    "Obstacle_197": {
-      "center_x": 4.103500000000001,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542336448"
-    },
-    "Obstacle_198": {
-      "center_x": 4.103500000000001,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 14_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542403200"
-    },
-    "Obstacle_199": {
-      "center_x": 4.386499999999999,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542404400"
-    },
-    "Obstacle_200": {
-      "center_x": 4.386499999999999,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542405552"
-    },
-    "Obstacle_201": {
-      "center_x": 4.386499999999999,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542406704"
-    },
-    "Obstacle_202": {
-      "center_x": 4.386499999999999,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542407856"
-    },
-    "Obstacle_203": {
-      "center_x": 4.386499999999999,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542409008"
-    },
-    "Obstacle_204": {
-      "center_x": 4.386499999999999,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542410160"
-    },
-    "Obstacle_205": {
-      "center_x": 4.386499999999999,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542411312"
-    },
-    "Obstacle_206": {
-      "center_x": 4.386499999999999,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542412464"
-    },
-    "Obstacle_207": {
-      "center_x": 4.386499999999999,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542413616"
-    },
-    "Obstacle_208": {
-      "center_x": 4.386499999999999,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542415920"
-    },
-    "Obstacle_209": {
-      "center_x": 4.386499999999999,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542415968"
-    },
-    "Obstacle_210": {
-      "center_x": 4.386499999999999,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542417120"
-    },
-    "Obstacle_211": {
-      "center_x": 4.386499999999999,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 15_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542418272"
-    },
-    "Obstacle_212": {
-      "center_x": 4.6695,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515872448"
-    },
-    "Obstacle_213": {
-      "center_x": 4.6695,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012515872496"
-    },
-    "Obstacle_214": {
-      "center_x": 4.6695,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542536096"
-    },
-    "Obstacle_215": {
-      "center_x": 4.6695,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542537200"
-    },
-    "Obstacle_216": {
-      "center_x": 4.6695,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542538352"
-    },
-    "Obstacle_217": {
-      "center_x": 4.6695,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542539504"
-    },
-    "Obstacle_218": {
-      "center_x": 4.6695,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542540656"
-    },
-    "Obstacle_219": {
-      "center_x": 4.6695,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542541808"
-    },
-    "Obstacle_220": {
-      "center_x": 4.6695,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542542960"
-    },
-    "Obstacle_221": {
-      "center_x": 4.6695,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542544112"
-    },
-    "Obstacle_222": {
-      "center_x": 4.6695,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542545264"
-    },
-    "Obstacle_223": {
-      "center_x": 4.6695,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542546416"
-    },
-    "Obstacle_224": {
-      "center_x": 4.6695,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 16_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542547568"
-    },
-    "Obstacle_225": {
-      "center_x": 4.9525000000000015,
-      "center_y": 0.14150000000000018,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_0",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542548768"
-    },
-    "Obstacle_226": {
-      "center_x": 4.9525000000000015,
-      "center_y": 0.42449999999999966,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_1",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542549920"
-    },
-    "Obstacle_227": {
-      "center_x": 4.9525000000000015,
-      "center_y": 0.7075,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_2",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542698592"
-    },
-    "Obstacle_228": {
-      "center_x": 4.9525000000000015,
-      "center_y": 0.9904999999999995,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_3",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542699744"
-    },
-    "Obstacle_229": {
-      "center_x": 4.9525000000000015,
-      "center_y": 1.2734999999999999,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_4",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542700896"
-    },
-    "Obstacle_230": {
-      "center_x": 4.9525000000000015,
-      "center_y": 1.5565000000000002,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_5",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542702048"
-    },
-    "Obstacle_231": {
-      "center_x": 4.9525000000000015,
-      "center_y": 1.8394999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_6",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542703200"
-    },
-    "Obstacle_232": {
-      "center_x": 4.9525000000000015,
-      "center_y": 2.1225,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_7",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542704352"
-    },
-    "Obstacle_233": {
-      "center_x": 4.9525000000000015,
-      "center_y": 2.4055000000000004,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_8",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542705504"
-    },
-    "Obstacle_234": {
-      "center_x": 4.9525000000000015,
-      "center_y": 2.6885,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_9",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542706656"
-    },
-    "Obstacle_235": {
-      "center_x": 4.9525000000000015,
-      "center_y": 2.9714999999999994,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_10",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542707808"
-    },
-    "Obstacle_236": {
-      "center_x": 4.9525000000000015,
-      "center_y": 3.2544999999999997,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_11",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542708960"
-    },
-    "Obstacle_237": {
-      "center_x": 4.9525000000000015,
-      "center_y": 3.5375,
-      "center_z": -0.0005,
-      "psi": 0.0,
-      "length": 0.283,
-      "width": 0.28300000000000003,
-      "height": 0.001,
-      "visible": true,
-      "name": "Floor 17_12",
-      "type": "floor_tile",
-      "id": "<class 'scioi_py_core.core.obstacles.FloorTile'>_2012542710112"
-    }
-  },
-  "robots": {
-    "Agent 1": {
+  "objects": {
+    "<class 'EnvironmentDavid.Objects.EnvironmentDavid_Agents.TankRobotSimObject'>_1599280615328": {
+      "name": "Agent 1",
+      "class": "TankRobotSimObject",
+      "object_type": "object",
       "position": [
-        0,
-        0,
+        0.0,
+        0.0,
         0
       ],
-      "length": 0.157,
-      "width": 0.115,
-      "height": 0.052,
-      "psi": 0.0,
-      "name": "Agent 1",
-      "type": "TankRobot",
-      "id": "<class 'EnvironmentDavid.Objects.EnvironmentDavid_Agents.TankRobotSimObject'>_2012286432064"
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_1599572053872": {
+      "name": "Obstacle 1",
+      "class": "SimpleXYZRObstacle",
+      "object_type": "obstacle",
+      "position": [
+        0.0,
+        0.0,
+        0
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_1599572146304": {
+      "name": "Obstacle 2",
+      "class": "SimpleXYZRObstacle",
+      "object_type": "obstacle",
+      "position": [
+        0.5,
+        0.0,
+        0
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.SimpleXYZRObstacle'>_1599572147408": {
+      "name": "Obstacle 3",
+      "class": "SimpleXYZRObstacle",
+      "object_type": "obstacle",
+      "position": [
+        1.0,
+        0.0,
+        0
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.Wall'>_1599602618720": {
+      "name": "Wall 1",
+      "class": "Wall",
+      "object_type": "obstacle",
+      "position": [
+        2.5,
+        1.6,
+        0.0
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602619872": {
+      "name": "Floor 0_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602619920": {
+      "name": "Floor 0_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602621024": {
+      "name": "Floor 0_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602622128": {
+      "name": "Floor 0_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602647872": {
+      "name": "Floor 0_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602648976": {
+      "name": "Floor 0_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602650080": {
+      "name": "Floor 0_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602671728": {
+      "name": "Floor 0_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602672832": {
+      "name": "Floor 0_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602673936": {
+      "name": "Floor 0_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602675088": {
+      "name": "Floor 0_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602700880": {
+      "name": "Floor 0_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602702032": {
+      "name": "Floor 0_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.14149999999999974,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602703184": {
+      "name": "Floor 1_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602704336": {
+      "name": "Floor 1_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602730128": {
+      "name": "Floor 1_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602731280": {
+      "name": "Floor 1_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602732432": {
+      "name": "Floor 1_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602750032": {
+      "name": "Floor 1_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602751184": {
+      "name": "Floor 1_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602752336": {
+      "name": "Floor 1_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602753488": {
+      "name": "Floor 1_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602787472": {
+      "name": "Floor 1_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602788624": {
+      "name": "Floor 1_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602789776": {
+      "name": "Floor 1_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602820096": {
+      "name": "Floor 1_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.4245000000000001,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602821248": {
+      "name": "Floor 2_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602822400": {
+      "name": "Floor 2_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602840000": {
+      "name": "Floor 2_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602841152": {
+      "name": "Floor 2_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602842304": {
+      "name": "Floor 2_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602843456": {
+      "name": "Floor 2_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602856960": {
+      "name": "Floor 2_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602858112": {
+      "name": "Floor 2_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602859264": {
+      "name": "Floor 2_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602893248": {
+      "name": "Floor 2_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602894400": {
+      "name": "Floor 2_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602895552": {
+      "name": "Floor 2_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602896704": {
+      "name": "Floor 2_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.7075000000000005,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602922496": {
+      "name": "Floor 3_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602923648": {
+      "name": "Floor 3_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602924800": {
+      "name": "Floor 3_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602946496": {
+      "name": "Floor 3_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602947648": {
+      "name": "Floor 3_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602948800": {
+      "name": "Floor 3_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602949952": {
+      "name": "Floor 3_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602967600": {
+      "name": "Floor 3_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602968752": {
+      "name": "Floor 3_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602969904": {
+      "name": "Floor 3_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599602999792": {
+      "name": "Floor 3_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603000944": {
+      "name": "Floor 3_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603002096": {
+      "name": "Floor 3_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        0.9904999999999999,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603003248": {
+      "name": "Floor 4_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603033136": {
+      "name": "Floor 4_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603034288": {
+      "name": "Floor 4_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603035440": {
+      "name": "Floor 4_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603061232": {
+      "name": "Floor 4_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603062384": {
+      "name": "Floor 4_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603063536": {
+      "name": "Floor 4_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603064688": {
+      "name": "Floor 4_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603082288": {
+      "name": "Floor 4_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603083440": {
+      "name": "Floor 4_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603084592": {
+      "name": "Floor 4_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603110384": {
+      "name": "Floor 4_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603111536": {
+      "name": "Floor 4_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.2735000000000003,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603112688": {
+      "name": "Floor 5_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603113840": {
+      "name": "Floor 5_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603135488": {
+      "name": "Floor 5_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603136640": {
+      "name": "Floor 5_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603137792": {
+      "name": "Floor 5_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603167680": {
+      "name": "Floor 5_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603168832": {
+      "name": "Floor 5_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603169984": {
+      "name": "Floor 5_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603171136": {
+      "name": "Floor 5_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603196928": {
+      "name": "Floor 5_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603198080": {
+      "name": "Floor 5_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603199232": {
+      "name": "Floor 5_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603225024": {
+      "name": "Floor 5_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.5564999999999998,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603226176": {
+      "name": "Floor 6_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603227328": {
+      "name": "Floor 6_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603228480": {
+      "name": "Floor 6_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603258368": {
+      "name": "Floor 6_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603259520": {
+      "name": "Floor 6_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603260672": {
+      "name": "Floor 6_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603282368": {
+      "name": "Floor 6_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603283520": {
+      "name": "Floor 6_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603284672": {
+      "name": "Floor 6_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603285824": {
+      "name": "Floor 6_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603315712": {
+      "name": "Floor 6_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603316864": {
+      "name": "Floor 6_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603318016": {
+      "name": "Floor 6_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        1.8395000000000001,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603343808": {
+      "name": "Floor 7_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603344960": {
+      "name": "Floor 7_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603346112": {
+      "name": "Floor 7_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603347264": {
+      "name": "Floor 7_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603368960": {
+      "name": "Floor 7_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603370112": {
+      "name": "Floor 7_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603371264": {
+      "name": "Floor 7_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603392960": {
+      "name": "Floor 7_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603394112": {
+      "name": "Floor 7_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603395264": {
+      "name": "Floor 7_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603396416": {
+      "name": "Floor 7_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603422208": {
+      "name": "Floor 7_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603423360": {
+      "name": "Floor 7_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.1225000000000005,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603424512": {
+      "name": "Floor 8_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603454400": {
+      "name": "Floor 8_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603455552": {
+      "name": "Floor 8_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603456704": {
+      "name": "Floor 8_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603457856": {
+      "name": "Floor 8_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603483648": {
+      "name": "Floor 8_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603484800": {
+      "name": "Floor 8_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603485952": {
+      "name": "Floor 8_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603511744": {
+      "name": "Floor 8_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603512896": {
+      "name": "Floor 8_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603514048": {
+      "name": "Floor 8_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603515200": {
+      "name": "Floor 8_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603536896": {
+      "name": "Floor 8_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.405500000000001,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603538048": {
+      "name": "Floor 9_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603539200": {
+      "name": "Floor 9_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603560896": {
+      "name": "Floor 9_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603562048": {
+      "name": "Floor 9_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603563200": {
+      "name": "Floor 9_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603564352": {
+      "name": "Floor 9_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603586048": {
+      "name": "Floor 9_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603587200": {
+      "name": "Floor 9_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603588352": {
+      "name": "Floor 9_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603622336": {
+      "name": "Floor 9_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603623488": {
+      "name": "Floor 9_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603624640": {
+      "name": "Floor 9_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603625792": {
+      "name": "Floor 9_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.6885000000000003,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603643392": {
+      "name": "Floor 10_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603644544": {
+      "name": "Floor 10_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603645696": {
+      "name": "Floor 10_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603671488": {
+      "name": "Floor 10_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603672640": {
+      "name": "Floor 10_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603673792": {
+      "name": "Floor 10_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603674944": {
+      "name": "Floor 10_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603700736": {
+      "name": "Floor 10_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603701936": {
+      "name": "Floor 10_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603703088": {
+      "name": "Floor 10_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603732976": {
+      "name": "Floor 10_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603734128": {
+      "name": "Floor 10_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603735280": {
+      "name": "Floor 10_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        2.9715,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603736432": {
+      "name": "Floor 11_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603762224": {
+      "name": "Floor 11_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603763376": {
+      "name": "Floor 11_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603764528": {
+      "name": "Floor 11_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603786224": {
+      "name": "Floor 11_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603787376": {
+      "name": "Floor 11_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603788528": {
+      "name": "Floor 11_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603789680": {
+      "name": "Floor 11_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603823664": {
+      "name": "Floor 11_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603824816": {
+      "name": "Floor 11_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603825968": {
+      "name": "Floor 11_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603843568": {
+      "name": "Floor 11_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603844720": {
+      "name": "Floor 11_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.254500000000001,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603845872": {
+      "name": "Floor 12_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603847024": {
+      "name": "Floor 12_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603868720": {
+      "name": "Floor 12_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603869872": {
+      "name": "Floor 12_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603871024": {
+      "name": "Floor 12_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603896816": {
+      "name": "Floor 12_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603897968": {
+      "name": "Floor 12_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603899120": {
+      "name": "Floor 12_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603900272": {
+      "name": "Floor 12_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603930160": {
+      "name": "Floor 12_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603931984": {
+      "name": "Floor 12_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603933136": {
+      "name": "Floor 12_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603950736": {
+      "name": "Floor 12_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.5375000000000005,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603951888": {
+      "name": "Floor 13_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603953040": {
+      "name": "Floor 13_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603978832": {
+      "name": "Floor 13_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603979984": {
+      "name": "Floor 13_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603981136": {
+      "name": "Floor 13_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603982288": {
+      "name": "Floor 13_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603999888": {
+      "name": "Floor 13_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604001088": {
+      "name": "Floor 13_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604002240": {
+      "name": "Floor 13_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604040320": {
+      "name": "Floor 13_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604041472": {
+      "name": "Floor 13_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604042624": {
+      "name": "Floor 13_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604068416": {
+      "name": "Floor 13_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        3.8205,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604069568": {
+      "name": "Floor 14_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604070720": {
+      "name": "Floor 14_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604071872": {
+      "name": "Floor 14_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604093568": {
+      "name": "Floor 14_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604094720": {
+      "name": "Floor 14_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604095872": {
+      "name": "Floor 14_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604121712": {
+      "name": "Floor 14_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604122864": {
+      "name": "Floor 14_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604124016": {
+      "name": "Floor 14_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604125168": {
+      "name": "Floor 14_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604220592": {
+      "name": "Floor 14_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604221744": {
+      "name": "Floor 14_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604222896": {
+      "name": "Floor 14_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.103500000000001,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604240496": {
+      "name": "Floor 15_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604241648": {
+      "name": "Floor 15_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604242800": {
+      "name": "Floor 15_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604243952": {
+      "name": "Floor 15_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604261552": {
+      "name": "Floor 15_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604262704": {
+      "name": "Floor 15_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604263856": {
+      "name": "Floor 15_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603931456": {
+      "name": "Floor 15_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599603931408": {
+      "name": "Floor 15_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604291376": {
+      "name": "Floor 15_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604292480": {
+      "name": "Floor 15_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604334656": {
+      "name": "Floor 15_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604335808": {
+      "name": "Floor 15_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.386499999999999,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604336960": {
+      "name": "Floor 16_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604338112": {
+      "name": "Floor 16_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604355712": {
+      "name": "Floor 16_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604356864": {
+      "name": "Floor 16_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604358064": {
+      "name": "Floor 16_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604387952": {
+      "name": "Floor 16_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604389104": {
+      "name": "Floor 16_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604390256": {
+      "name": "Floor 16_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604391408": {
+      "name": "Floor 16_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604421296": {
+      "name": "Floor 16_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604422448": {
+      "name": "Floor 16_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604423600": {
+      "name": "Floor 16_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604445296": {
+      "name": "Floor 16_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.6695,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604446448": {
+      "name": "Floor 17_0",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        0.14150000000000018,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604447600": {
+      "name": "Floor 17_1",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        0.42449999999999966,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604448752": {
+      "name": "Floor 17_2",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        0.7075,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604929200": {
+      "name": "Floor 17_3",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        0.9904999999999995,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604930352": {
+      "name": "Floor 17_4",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        1.2734999999999999,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604931504": {
+      "name": "Floor 17_5",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        1.5565000000000002,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604957296": {
+      "name": "Floor 17_6",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        1.8394999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604958448": {
+      "name": "Floor 17_7",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        2.1225,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604959600": {
+      "name": "Floor 17_8",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        2.4055000000000004,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604960752": {
+      "name": "Floor 17_9",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        2.6885,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604982448": {
+      "name": "Floor 17_10",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        2.9714999999999994,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604983600": {
+      "name": "Floor 17_11",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        3.2544999999999997,
+        -0.0005
+      ],
+      "psi": 0.0
+    },
+    "<class 'scioi_py_core.core.obstacles.FloorTile'>_1599604984752": {
+      "name": "Floor 17_12",
+      "class": "FloorTile",
+      "object_type": "obstacle",
+      "position": [
+        4.9525000000000015,
+        3.5375,
+        -0.0005
+      ],
+      "psi": 0.0
     }
   }
 }

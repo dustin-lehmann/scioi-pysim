@@ -46,20 +46,27 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
         self.babylon_env.start_babylon()
 
     def update_babylon_objects(self):
-        # add all objects from the world to babylon
-        for obj in self.babylon_env.babylon_objects_dict['existing']:
-            # compare objects from last sample with objects in the world right now -> missing ones deleted
-            if obj not in self.world.objects:
-                self.babylon_env.babylon_objects_dict['deleted'][obj.name]
 
-        for obj in self.world.objects:
-            # compare objects in world right now with objects in the last sample -> missing ones added
-            if obj not in self.babylon_env.babylon_objects_dict['existing']:
-                # object has newly been added -> needs to be added to bayblon as well!
-                self.babylon_env.babylon_objects_dict['added'][obj.name]
+        sample = self.world.create_world_sample()
+        self.babylon_env.babylon_objects_dict = sample
 
-        for obj in self.world.objects:
-            self.babylon_env.babylon_objects_dict['existing'][obj.name] = obj
+        # keys = self.world.objects.keys()
+        # # used to update existing objects
+        # shared_items = {k: self.babylon_env.babylon_objects_dict['existing'][k] for k in
+        #                 self.babylon_env.babylon_objects_dict['existing'] if
+        #                 k in self.world.objects and self.babylon_env.babylon_objects_dict['existing'][k] ==
+        #                 self.world.objects[k]}
+        #
+        # added_items = {k: self.world.objects[k] for k in
+        #                set(self.world.objects) - set(self.babylon_env.babylon_objects_dict['existing'])}
+        #
+        # deleted_items = {k: self.babylon_env.babylon_objects_dict['existing'][k] for k in
+        #                  set(self.babylon_env.babylon_objects_dict['existing']) - set(self.world.objects)}
+        #
+        # self.babylon_env.babylon_objects_dict['existing'] = shared_items
+        # self.babylon_env.babylon_objects_dict['added'] = added_items
+        # self.babylon_env.babylon_objects_dict['deleted'] = deleted_items
+        # print('end')
 
 
 def main():
@@ -77,7 +84,8 @@ def main():
 
     wall1 = Wall(name='Wall 1', position=[2.5, 1.6, 0.0], lenght=2, height=0.1, world=env.world)
 
-    testbed_floor = TestbedFloor(env=env, world=env.world)  # todo: only pass env and then go from there by passing the world
+    testbed_floor = TestbedFloor(env=env,
+                                 world=env.world)  # todo: only pass env and then go from there by passing the world
 
     env.init()
 

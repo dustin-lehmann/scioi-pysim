@@ -7,7 +7,7 @@ from typing import Union
 from ..core import spaces as spaces
 from ..core import physics as physics
 from ..core import scheduling as scheduling
-
+from scioi_py_core.utils.orientations import psiFromRotMat
 
 # TODO: Should this be a scheduled object if it can be simulated and real? Probably yes, but not simulated object.
 #  There has to be a switch somewhere telling that this is real and this not
@@ -90,7 +90,8 @@ class WorldObject(scheduling.ScheduledObject):
         sample = {'name': self.name,
                   'class': self.__class__.__name__,
                   'object_type': self.object_type,
-                  'configuration': self.configuration
+                  'position' : [self.configuration.value[0], self.configuration.value[1], self.configuration.value[2]],
+                  'psi': psiFromRotMat(self.configuration.value[3])
                   }
         return sample
 
@@ -101,16 +102,6 @@ class WorldObject(scheduling.ScheduledObject):
 
     def _init(self):
         pass
-
-#
-# sample = {'world': {},
-#           'added': {},
-#           'deleted': {},
-#
-# }
-#
-# for o in world.objects:
-#     sample['world'][o.id] = o.getSample()
 
 
 # ======================================================================================================================
@@ -131,6 +122,10 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
         super().__init__(*args, **kwargs)
         self.spaces = spaces
         self.objects: dict[str, 'WorldObject'] = {}
+        self.sample = {'world': {},
+                       'added': {},
+                       'deleted': {},
+                       }
 
     # === METHODS ======================================================================================================
     def addObject(self, objects: Union[WorldObject, dict]):
@@ -214,6 +209,33 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
         for name, obj in self.objects.items():
             if obj.physics is not None:
                 obj.scheduling.actions['physics_update']()
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def create_world_sample(self) -> dict:
+        """
+        creates sample-dictionary of all world objects
+        :return: sample dictionary
+        """
+        tmp_sample = self.sample['world']
+        # reset world sample -> clear all objects
+        self.sample['world'] = {}
+
+        for o in self.objects.values():
+            self.sample['world'][o.id] = o.getSample()
+
+        # shared_items = {k: self.babylon_env.babylon_objects_dict['world'][k] for k in
+        #                 self.babylon_env.babylon_objects_dict['world'] if
+        #                 k in self.world.objects and self.babylon_env.babylon_objects_dict['world'][k] ==
+        #                 self.world.objects[k]}
+        # determine which objects have been added
+        self.sample['added'] = {k: self.sample['world'][k] for k in
+                       set(self.sample['world']) - set(tmp_sample)}
+
+        self.sample['deleted'] = {k: tmp_sample[k] for k in
+                         set(tmp_sample) - set(self.sample['world'])}
+
+        return self.sample
+
 
     # ------------------------------------------------------------------------------------------------------------------
     def collisionCheck(self):
