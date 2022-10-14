@@ -8,10 +8,7 @@ from scioi_py_core.core.world import WorldObject
 
 
 class BabylonVisualizationEnvironment:
-    # # list where all not moving objects are stored
-    # obstacles_list: list['Obstacle']
-    # # list with all the robot_textures that are active in the testbed
-    # robots_list: list['TankRobotSimObject']
+    # list where all objects that are displayed (visible + invisible) in simulation
     babylon_objects_dict: dict
 
     size_x: float
@@ -25,51 +22,12 @@ class BabylonVisualizationEnvironment:
     def __init__(self, texture_settings=None, *args, **kwargs):
         self.texture_settings = texture_settings
 
-        # self.obstacles_list = []
-        # self.robots_list = []
         self.babylon_objects_dict = {}
 
         self.start_time = time.time()
 
     def toJson(self, file=None):
-        json_dict = {'textures': self.texture_settings, 'objects': {}}
-        # textures
-
-        json_dict['objects'] = self.babylon_objects_dict['world'] #todo: uncomment
-        # # obstacles
-        # for idx, obstacle in enumerate(self.obstacles_list):
-        #     obstacle_name = f"Obstacle_{idx}"
-        #
-        #     obstacle_dict = {
-        #         'center_x': obstacle.configuration['x'],  # todo: give an array
-        #         'center_y': obstacle.configuration['y'],
-        #         'center_z': obstacle.configuration['z'],
-        #         'psi': psiFromRotMat(obstacle.configuration['rot']),
-        #         'length': obstacle.physics.bounding_objects['cuboid'].dimensions[0],
-        #         'width': obstacle.physics.bounding_objects['cuboid'].dimensions[1],
-        #         'height': obstacle.physics.bounding_objects['cuboid'].dimensions[2],
-        #         'visible': obstacle.visible,
-        #         'name': obstacle.name,
-        #         'type': obstacle.type,
-        #         'id': obstacle.id
-        #     }
-        #     json_dict['environment'][obstacle_name] = obstacle_dict
-        #
-        # # robots
-        # for idx, robot in enumerate(self.robots_list):
-        #     orientation_test = robot.physics.bounding_objects['body'].orientation
-        #
-        #     robot_dict = {
-        #         'position': list(robot.physics.bounding_objects['body'].position),
-        #         'length': robot.physics.length,
-        #         'width': robot.physics.width,
-        #         'height': robot.physics.height,
-        #         'psi': psiFromRotMat(robot.configuration['rot']),
-        #         'name': robot.name,
-        #         'type': robot.type,
-        #         'id': robot.id
-        #     }
-        #     json_dict['robots'][robot.name] = robot_dict
+        json_dict = {'textures': self.texture_settings, 'objects': self.babylon_objects_dict['world']}
 
         if file is not None:
             try:
@@ -81,6 +39,7 @@ class BabylonVisualizationEnvironment:
 
         return json.dumps(json_dict, indent=2)
 
+    @staticmethod
     def dict_to_json(self, objects_list: list, json_dict):
         for idx, obstacle in enumerate(objects_list):
             obstacle_name = f"Obstacle_{idx}"
@@ -110,11 +69,11 @@ class BabylonVisualizationEnvironment:
         sample['t'] = time.time() - self.start_time
 
         # remove deleted items from dict with currently existing items
-        self.babylon_objects_dict['existing'] = {k: self.babylon_objects_dict['existing'][k] for k in
-                                                 self.babylon_objects_dict['existing'] if
+        self.babylon_objects_dict['existing'] = {k: self.babylon_objects_dict['world'][k] for k in
+                                                 self.babylon_objects_dict['world'] if
                                                  k not in self.babylon_objects_dict['deleted']}
         # add all newly added items to existing items
-        self.babylon_objects_dict['existing'] = self.babylon_objects_dict['existing'] | \
+        self.babylon_objects_dict['existing'] = self.babylon_objects_dict['world'] | \
                                                 self.babylon_objects_dict['added']
 
         return sample

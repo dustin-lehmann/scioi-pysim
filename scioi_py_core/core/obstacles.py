@@ -27,6 +27,7 @@ class SimpleXYZRObstacle(Obstacle):
                  **kwargs):
         super().__init__(name=name, world=world, *args, **kwargs)
 
+
         if world is None:
             raise Exception('obstacle has no world!')  # todo: better ways to make sure these params are given?
 
@@ -52,6 +53,16 @@ class SimpleXYZRObstacle(Obstacle):
     def visible(self, state: bool):
         self._visible = state
         # todo: add object to sample
+
+    @property
+    def sample_params(self):
+        params = {'length': self.physics.bounding_objects['cuboid'].dimensions[0],
+                  'width': self.physics.bounding_objects['cuboid'].dimensions[1],
+                  'height': self.physics.bounding_objects['cuboid'].dimensions[2],
+                  'visible': self.visible}
+
+        print('Still working')
+        return params
 
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],

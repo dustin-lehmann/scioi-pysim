@@ -57,7 +57,7 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
         self.proximity_sphere.update(position=self.bounding_objects['body'].position)
 
     def _getProximitySphereRadius(self):
-        return (np.sqrt(self.length**2 + self.width**2 + self.height**2)/2)*1.1
+        return (np.sqrt(self.length ** 2 + self.width ** 2 + self.height ** 2) / 2) * 1.1
 
 
 class TankRobotSimObject(core.dynamics.DynamicWorldObject):
@@ -72,6 +72,13 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
     def action_physics_update(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], 0],
                             orientation=self.configuration['rot'])
+
+    @property
+    def sample_params(self):  # todo
+        params = {'length': self.physics.bounding_objects['body'].dimensions[0],
+                  'width': self.physics.bounding_objects['body'].dimensions[1],
+                  'height': self.physics.bounding_objects['body'].dimensions[2]}
+        return params
 
     def _init(self, *args, **kwargs):
         self.dynamics.state = [0, 0, 0]

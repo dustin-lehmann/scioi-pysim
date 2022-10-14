@@ -9,6 +9,7 @@ from ..core import physics as physics
 from ..core import scheduling as scheduling
 from scioi_py_core.utils.orientations import psiFromRotMat
 
+
 # TODO: Should this be a scheduled object if it can be simulated and real? Probably yes, but not simulated object.
 #  There has to be a switch somewhere telling that this is real and this not
 
@@ -90,10 +91,24 @@ class WorldObject(scheduling.ScheduledObject):
         sample = {'name': self.name,
                   'class': self.__class__.__name__,
                   'object_type': self.object_type,
-                  'position' : [self.configuration.value[0], self.configuration.value[1], self.configuration.value[2]],
-                  'psi': psiFromRotMat(self.configuration.value[3])
+                  'position': {'x': self.configuration.value[0], 'y': self.configuration.value[1],
+                               'z': self.configuration.value[2]},
+                  'psi': psiFromRotMat(self.configuration.value[3]),
+                  'parameters': self.sample_params
                   }
         return sample
+
+    # ------------------------------------------------------------------------------------------------------------------
+    @property
+    @abstractmethod
+    def sample_params(self):
+        """
+        this function is supposed to be tailored to each different class type since the can have specific parameters
+        relevant for babylon
+        :return: specific object parameters
+        """
+        params = {}
+        return params
 
     # === ACTIONS ======================================================================================================
     @abstractmethod
@@ -229,13 +244,12 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
         #                 self.world.objects[k]}
         # determine which objects have been added
         self.sample['added'] = {k: self.sample['world'][k] for k in
-                       set(self.sample['world']) - set(tmp_sample)}
+                                set(self.sample['world']) - set(tmp_sample)}
 
         self.sample['deleted'] = {k: tmp_sample[k] for k in
-                         set(tmp_sample) - set(self.sample['world'])}
+                                  set(tmp_sample) - set(self.sample['world'])}
 
         return self.sample
-
 
     # ------------------------------------------------------------------------------------------------------------------
     def collisionCheck(self):

@@ -1,10 +1,11 @@
 {
   "materials": {
-    "obstacle": "walls_dark.png",
-    "wall": "walls_dark.png",
-    "floor_tile": "floor_bright.png"
+    "Obstacle": "walls_dark.png",
+    "Wall": "walls_dark.png",
+    "FloorTile": "floor_bright.png",
+    "SimpleXYZRObstacle": "walls_dark.png"
   },
   "robots": {
-    "tank_robots": "robot_1.babylon"
+    "TankRobotSimObject": "robot_1.babylon"
   }
 }
