@@ -61,7 +61,6 @@ class SimpleXYZRObstacle(Obstacle):
                   'height': self.physics.bounding_objects['cuboid'].dimensions[2],
                   'visible': self.visible}
 
-        print('Still working')
         return params
 
     def action_physics_update(self, config, *args, **kwargs):
@@ -90,14 +89,14 @@ class TestbedFloor:
     """
 
     def __init__(self, env, *args, **kwargs):
-        for x in range(0, env.tiles_x):
-            for y in range(0, env.tiles_y):
+        for x in range(0, env.world.tiles_x):
+            for y in range(0, env.world.tiles_y):
                 # calculate position of next floortile
-                position = [env.tile_size['x'] / 2 + x * env.tile_size['x'],
-                            env.tile_size['y'] / 2 + y * env.tile_size['y'], 0]
+                position = [env.world.tile_size['x'] / 2 + x * env.world.tile_size['x'],
+                            env.world.tile_size['y'] / 2 + y * env.world.tile_size['y'], 0]
                 # create a new floortile
                 FloorTile(name=f'Floor {x}_{y}', position=position,
-                          tilesize=env.tile_size, *args, **kwargs)
+                          tilesize=env.world.tile_size, *args, **kwargs)
 
 
 class Wall(SimpleXYZRObstacle):

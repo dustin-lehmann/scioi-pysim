@@ -12,9 +12,6 @@ class EnvironmentDavid(core.environment.Environment):
     run_mode = 'rt'
     Ts = 0.02
 
-    tiles_x: int = 18
-    tiles_y: int = 13
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.world = EnvironmentDavid_World.DynamicWorld_XYZR_Simple(name='World', parent=self)
@@ -37,22 +34,6 @@ class EnvironmentDavid(core.environment.Environment):
 
         core.scheduling.registerActions(self.world, self.scheduling.actions['world'])
         self.joystick = joystick.Joystick()
-
-    # todo remove from here
-    @property
-    def tile_size(self) -> dict:
-        """
-        calculate tilesize from the size of the testbed and the number of tiles for x and y
-        :return: list with tilesize [x,y]
-        """
-        x_limits = self.world.spaces.coordinate_space.dimensions[0].limits
-        x_size = x_limits[1] - x_limits[0]
-        y_limits = self.world.spaces.coordinate_space.dimensions[1].limits
-        y_size = y_limits[1] - y_limits[0]
-        tilesize = {'x': x_size / self.tiles_x,
-                    'y': y_size / self.tiles_y}
-
-        return tilesize
 
     # === ACTIONS ======================================================================================================
 
