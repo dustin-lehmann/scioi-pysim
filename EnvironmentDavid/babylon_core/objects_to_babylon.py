@@ -39,23 +39,6 @@ class BabylonVisualizationEnvironment:
 
         return json.dumps(json_dict, indent=2)
 
-    @staticmethod
-    def dict_to_json(self, objects_list: list, json_dict):
-        for idx, obstacle in enumerate(objects_list):
-            obstacle_name = f"Obstacle_{idx}"
-            obstacle.name = obstacle_name  # todo: removable?
-            obstacle_dict = {
-                'center_x': obstacle.configuration['x'],
-                'center_y': obstacle.configuration['y'],
-                'center_z': obstacle.configuration['z'],
-                'psi': psiFromRotMat(obstacle['rot']),
-                'length': obstacle.physics.dimensions[0],
-                'width': obstacle.physics.dimensions[1],
-                'height': obstacle.physics.dimensions[0],
-                'type': obstacle.type
-            }
-            json_dict['environment'][obstacle_name] = obstacle_dict
-
     def generate_sample(self):
         """
         generate a sample with data for:

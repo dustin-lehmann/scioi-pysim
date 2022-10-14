@@ -12,9 +12,6 @@ class EnvironmentDavid(core.environment.Environment):
     run_mode = 'rt'
     Ts = 0.02
 
-    # parameters that determine the size and amount of tiles the testbed has
-    size_x: float = 5.094  # todo: put those values somewhere it makes sense
-    size_y: float = 3.679
     tiles_x: int = 18
     tiles_y: int = 13
 

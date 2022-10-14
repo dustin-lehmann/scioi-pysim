@@ -41,6 +41,7 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
         super()._init(*args, **kwargs)
 
         if self.visualization == 'babylon':
+            # initialize world for babylon
             self.update_babylon_objects()
 
         self.babylon_env.start_babylon()
@@ -71,7 +72,7 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
 
 def main():
     env = EnvironmentDavid_thisExample(Ts=0.04, visualization='babylon', texture_settings='standard_textures')
-    # floor = BabylonSimpleFloor(env)
+
     agent1 = TankRobotSimObject(name='Agent 1', world=env.world)
     env.agent1 = agent1
 
