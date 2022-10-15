@@ -45,10 +45,10 @@ class createBoxFromJson {
         this.body.visibility = state
     }
 
-        setState(x,y,psi) {
-        // console.log(psi)
-        this.setPosition(x,y)
-        this.setOrientation(psi)
+    setState(x,y,z,psi) {
+    // console.log(psi)
+    this.setPosition(x,y,z)
+    this.setOrientation(psi)
     }
 
     setPosition(x, y, z) {
@@ -370,7 +370,7 @@ class LNDW_scene_simple extends Scene {
             // object is an obstacle -> create ObstacleBox
             if (value['object_type'] == 'obstacle') {
                 console.log(value['visible'])
-                value['name'] = new createBoxFromJson(this.scene,
+                value['babylon'] = new createBoxFromJson(this.scene,
                     value["parameters"]['length'],
                     value["parameters"]['width'],
                     value["parameters"]['height'],
@@ -384,7 +384,7 @@ class LNDW_scene_simple extends Scene {
 
             if (value['object_type'] == 'agent') {
 
-                value['name'] = new Robot(this.scene,
+                value['babylon'] = new Robot(this.scene,
                     value['id'],
                     value['name'],
                     value['parameters']['length'],
@@ -431,17 +431,20 @@ class LNDW_scene_simple extends Scene {
 
     onSample(sample) {
 
-
         console.log(sample)
 
         //update all existing world objects
         for (const [key, value] of Object.entries(sample['world'])) {
+            // console.log(value)
+            babylon_objects[key]['babylon'].setState(value['position']['x'], value['position']['y'], value['position']['z'], value['psi'])
+
             if (babylon_objects[key].object_type == 'obstacle') {
-                console.log(babylon_objects[key])
+                // put obstacle specific functions here! -> babylon_objects[key]['babylon'].function_call()
             }
 
-        if (babylon_objects[key].object_type == 'agent') {
-            console.log("agent here")
+            if (babylon_objects[key].object_type == 'agent') {
+                // console.log(value)
+                // put agent specific functions here!
             }
         }
 
