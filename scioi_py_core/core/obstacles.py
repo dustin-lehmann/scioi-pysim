@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 import numpy as np
-
+from scioi_py_core.utils.orientations import psiFromRotMat
 import scioi_py_core.core as core
 
 
@@ -59,7 +59,11 @@ class SimpleXYZRObstacle(Obstacle):
         params = {'length': self.physics.bounding_objects['cuboid'].dimensions[0],
                   'width': self.physics.bounding_objects['cuboid'].dimensions[1],
                   'height': self.physics.bounding_objects['cuboid'].dimensions[2],
-                  'visible': self.visible}
+                  'visible': self.visible,
+                  'position':{'x': self.configuration['x'], 'y': self.configuration['y'],
+                               'z': self.configuration['z']},
+                  'psi': psiFromRotMat(self.configuration.value[3])
+                  }
 
         return params
 

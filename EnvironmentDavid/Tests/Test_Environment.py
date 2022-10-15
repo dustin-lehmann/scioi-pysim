@@ -32,7 +32,7 @@ class EnvironmentDavid_thisExample(EnvironmentDavid):
 
     def action_visualization(self, *args, **kwargs):
         super().action_visualization(*args, **kwargs)
-
+        self.update_babylon_objects()
         sample = self.babylon_env.generate_sample()  # todo: move to the init where this function should be added
         self.babylon_env.webapp.sendSample(sample)
         time.sleep(0.001)

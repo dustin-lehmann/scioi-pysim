@@ -91,9 +91,9 @@ class WorldObject(scheduling.ScheduledObject):
         sample = {'name': self.name,
                   'class': self.__class__.__name__,
                   'object_type': self.object_type,
-                  'position': {'x': self.configuration.value[0], 'y': self.configuration.value[1],
-                               'z': self.configuration.value[2]},
-                  'psi': psiFromRotMat(self.configuration.value[3]),
+                  # 'position': {'x': self.configuration.value[0], 'y': self.configuration.value[1],
+                  #              'z': self.configuration.value[2]},
+                  # 'psi': psiFromRotMat(self.configuration.value[3]),
                   'parameters': self.sample_params
                   }
         return sample

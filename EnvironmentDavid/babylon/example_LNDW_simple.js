@@ -46,7 +46,7 @@ class createBoxFromJson {
     }
 
     setState(x,y,z,psi) {
-    // console.log(psi)
+    console.log(x,y,z,psi)
     this.setPosition(x,y,z)
     this.setOrientation(psi)
     }
@@ -109,11 +109,11 @@ class Robot {
 
     }
 
-    setState(x, y, psi){
-        this.position = [x,y]
+    setState(x, y,z, psi){
+        this.position = [x,y,z]
         this.psi = psi
         if (this.robot_model.loaded) {
-            this.robot_model.setPosition(x,y)
+            this.robot_model.setPosition(x,y,z)
             this.robot_model.setOrientation(psi)
         }
 
@@ -136,13 +136,13 @@ class BoxRobot {
         this.material = new BABYLON.StandardMaterial("material", scene);
         this.body.material = this.material
 
-        this.setState(position[0], position[1], psi)
+        this.setState(position[0], position[1],position[2], psi)
 
         return this;
     }
 
-    setState(x, y, psi){
-        this.body.position = ToBabylon([x,y,this.height/2])
+    setState(x, y,z, psi){
+        this.body.position = ToBabylon([x,y,z])
         this.body.rotation.y = psi
     }
 
@@ -233,14 +233,14 @@ class Robot_Model {
         this.loaded = true
     }
 
-    setState(x,y,psi) {
+    setState(x,y,z,psi) {
         // console.log(psi)
-        this.setPosition(x,y)
+        this.setPosition(x,y,z)
         this.setOrientation(psi)
     }
 
-    setPosition(x, y) {
-        this.mesh.position = ToBabylon([x,y,0.004])
+    setPosition(x, y,z) {
+        this.mesh.position = ToBabylon([x,y,z])
 
 
         // this.pivotPointWheels.position.x = y
@@ -363,22 +363,22 @@ class LNDW_scene_simple extends Scene {
     }
 
     buildEnvironment() {
-        console.log(babylon_objects)
+        // console.log(babylon_objects)
         for (const [key, value] of Object.entries(babylon_objects)) {
             // console.log(value['type'])
             // console.log(value['length'])
             // object is an obstacle -> create ObstacleBox
             if (value['object_type'] == 'obstacle') {
-                console.log(value['visible'])
+                // console.log(value['parameters']['height'])
                 value['babylon'] = new createBoxFromJson(this.scene,
                     value["parameters"]['length'],
                     value["parameters"]['width'],
                     value["parameters"]['height'],
-                    value["position"]['x'],
-                    value["position"]['y'],
-                    value['position']['z'],
-                    value["psi"],
-                    value['parameters']["visible"],
+                    value['parameters']['position']['x'],
+                    value['parameters']['position']['y'],
+                    value['parameters']['position']['z'],
+                    value['parameters']['psi'],
+                    value['parameters']['visible'],
                     value["class"],)
             }
 
@@ -390,8 +390,8 @@ class LNDW_scene_simple extends Scene {
                     value['parameters']['length'],
                     value['parameters']['width'],
                     value['parameters']['height'], // todo-> von class auf Texture schließen!
-                    value['position'],
-                    value['psi'],
+                    value['parameters']['position'],
+                    value['parameters']['psi'],
                     this.shadowGenerator)
 
             }
@@ -436,7 +436,7 @@ class LNDW_scene_simple extends Scene {
         //update all existing world objects
         for (const [key, value] of Object.entries(sample['world'])) {
             // console.log(value)
-            babylon_objects[key]['babylon'].setState(value['position']['x'], value['position']['y'], value['position']['z'], value['psi'])
+            babylon_objects[key]['babylon'].setState(value['parameters']['position']['x'], value['parameters']['position']['y'], value['parameters']['position']['z'], value['parameters']['psi'])
 
             if (babylon_objects[key].object_type == 'obstacle') {
                 // put obstacle specific functions here! -> babylon_objects[key]['babylon'].function_call()

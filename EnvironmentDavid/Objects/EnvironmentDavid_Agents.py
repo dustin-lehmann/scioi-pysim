@@ -4,6 +4,9 @@ import scioi_py_core.core as core
 import scioi_py_core.utils.orientations as ori
 from scioi_py_core.core.obstacles import FloorTile
 
+from scioi_py_core.utils.orientations import psiFromRotMat
+
+
 from . import EnvironmentDavid_Dynamics
 from . import EnvironmentDavid_World
 
@@ -78,7 +81,11 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
     def sample_params(self):  # todo
         params = {'length': self.physics.bounding_objects['body'].dimensions[0],
                   'width': self.physics.bounding_objects['body'].dimensions[1],
-                  'height': self.physics.bounding_objects['body'].dimensions[2]}
+                  'height': self.physics.bounding_objects['body'].dimensions[2],
+                  'position':{'x': self.configuration.value[0], 'y': self.configuration.value[1],
+                               'z': self.configuration.value[2]},
+                  'psi': psiFromRotMat(self.configuration['rot'])
+                  }
         return params
 
     def _init(self, *args, **kwargs):
