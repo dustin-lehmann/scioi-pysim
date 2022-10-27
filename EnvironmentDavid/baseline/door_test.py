@@ -52,7 +52,7 @@ env.toJson(file="../babylon/objects.json")
 env.build()
 
 # 4. Start the Webapp
-webapp = BABYLON_LiveBackend("../babylon/example_LNDW_simple.html", options={})
+webapp = BABYLON_LiveBackend("../babylon/pysim_env.html", options={})
 
 cell_1 = env.getCell(8, 12)
 cell_2 = env.getCell(9, 12)

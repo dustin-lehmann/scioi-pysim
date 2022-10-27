@@ -10,6 +10,7 @@ import scioi_py_core.core as core
 
 class Obstacle(core.world.WorldObject, ABC):
     object_type = 'obstacle'
+    static = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -17,32 +18,38 @@ class Obstacle(core.world.WorldObject, ABC):
 
 
 # ======================================================================================================================
-class SimpleXYZRObstacle(Obstacle):
+class CuboidObstacle_3D(Obstacle):
     """
     Simple Basis for obstacles used in Simulation
     """
     physics: core.physics.CuboidPhysics
+    object_type = 'obstacle'
+    size: dict
 
-    def __init__(self, length: float, width: float, height: float, position, visible=True, name=None, world=None, *args,
+    def __init__(self, size_x: float, size_y: float, size_z: float, position, orientation=None, visible=True, name=None,
+                 world: core.world.World = None, *args,
                  **kwargs):
+        # Check if the world space is 3D
         super().__init__(name=name, world=world, *args, **kwargs)
+        assert (isinstance(self.world.space, core.spaces.Space3D))
 
+        self.size = {
+            'x': size_x,
+            'y': size_y,
+            'z': size_z
+        }
 
-        if world is None:
-            raise Exception('obstacle has no world!')  # todo: better ways to make sure these params are given?
+        self.configuration['pos']['x'] = position[0]
+        self.configuration['pos']['y'] = position[1]
+        self.configuration['pos']['z'] = position[2]
 
-        if name is None:
-            raise Exception('obstacle has no name!')
+        if orientation is not None:
+            self.configuration['ori'] = orientation
+        else:
+            self.configuration['ori'] = np.eye(3)
 
-        self.configuration['x'] = position[0]
-        self.configuration['y'] = position[1]
-        self.configuration['z'] = position[2]
-        self.configuration['rot'] = np.eye(3)
-
-        self.physics = core.physics.CuboidPhysics(length=length, width=width, height=height, position=position,
-                                                  orientation=np.eye(3))
-
-        self.type = 'obstacle'
+        self.physics = core.physics.CuboidPhysics(size_x=size_x, size_y=size_y, size_z=size_z, position=position,
+                                                  orientation=self.configuration['ori'])
         self.visible = visible
 
     @property
@@ -54,35 +61,41 @@ class SimpleXYZRObstacle(Obstacle):
         self._visible = state
         # todo: add object to sample
 
-    @property
-    def sample_params(self):
-        params = {'length': self.physics.bounding_objects['cuboid'].dimensions[0],
-                  'width': self.physics.bounding_objects['cuboid'].dimensions[1],
-                  'height': self.physics.bounding_objects['cuboid'].dimensions[2],
-                  'visible': self.visible,
-                  'position':{'x': self.configuration['x'], 'y': self.configuration['y'],
-                               'z': self.configuration['z']},
-                  'psi': psiFromRotMat(self.configuration.value[3])
-                  }
-
+    def _getParameters(self):
+        params = super()._getParameters()
+        params['size'] = {
+            'x': self.size['x'],
+            'y': self.size['y'],
+            'z': self.size['z'],
+        }
         return params
 
-    def action_physics_update(self, config, *args, **kwargs):
+    def _getSample(self):
+        sample = super()._getSample()
+        return sample
+
+    # def getSample(self):
+    #     sample = super().getSample()
+    #     sample['position'] = {'x': self.configuration['x'], 'y': self.configuration['y'],
+    #                           'z': self.configuration['z']}
+    #     sample['psi'] = psiFromRotMat(self.configuration['rot'])
+
+    def _updatePhysics(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],
                             orientation=np.eye(3))
 
 
-class FloorTile(SimpleXYZRObstacle):
+class FloorTile(CuboidObstacle_3D):
     """
     create a square floor tile, size depending on how many tiles exist in Testbed and its general measurements
     """
 
-    def __init__(self, position, tilesize, height: float = 0.001, *args, **kwargs):
+    def __init__(self, position, tilesize, size_z: float = 0.001, *args, **kwargs):
         # set z-coordinate of tile to actual floor level
-        position[2] = -height / 2
+        position[2] = -size_z / 2
         tilesize_x = tilesize['x']
         tilesize_y = tilesize['y']
-        super().__init__(length=tilesize_y, width=tilesize_x, height=height, position=position, visible=True, *args,
+        super().__init__(size_x=tilesize_y, size_y=tilesize_x, size_z=size_z, position=position, visible=True, *args,
                          **kwargs)
         self.type = 'floor_tile'
 
@@ -103,16 +116,16 @@ class TestbedFloor:
                           tilesize=env.world.tile_size, *args, **kwargs)
 
 
-class Wall(SimpleXYZRObstacle):
+class Wall(CuboidObstacle_3D):
     """
     create a wall
     """
     wall_height: float
     wall_length: float
 
-    def __init__(self, position: list['float'], lenght: float, height: float, *args, **kwargs):
+    def __init__(self, position: list['float'], lenght: float, size_z: float, *args, **kwargs):
         wall_thickness = 0.01
-        super().__init__(length=lenght, width=wall_thickness, height=height, position=position, visible=True,
+        super().__init__(size_x=lenght, size_y=wall_thickness, size_z=size_z, position=position, visible=True,
                          *args,
                          **kwargs)
         self.type = 'wall'

@@ -11446,7 +11446,7 @@
     /**
      * Checks if `value` is an empty object, collection, map, or set.
      *
-     * Objects are considered empty if they have no own enumerable string keyed
+     * Environment are considered empty if they have no own enumerable string keyed
      * properties.
      *
      * Array-like values such as `arguments` objects, arrays, buffers, strings, or

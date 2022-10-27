@@ -42,7 +42,7 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
         self.height = height
 
         self.bounding_objects = {
-            'body': core.physics.CuboidPrimitive(dimensions=[self.length, self.width, self.height], position=[0, 0, 0],
+            'body': core.physics.CuboidPrimitive(size=[self.length, self.width, self.height], position=[0, 0, 0],
                                                  orientation=np.eye(3))
         }
 
@@ -73,21 +73,25 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
         self.physics: TankRobotPhysicalObject = TankRobotPhysicalObject(*args, **kwargs)
         super().__init__(*args, **kwargs, collision_check=True, collidable=True, collision_excludes=[FloorTile])
 
-    def action_physics_update(self, config, *args, **kwargs):
+    def _updatePhysics(self, config, *args, **kwargs):
         self.physics.update(position=[self.configuration['x'], self.configuration['y'], 0],
                             orientation=self.configuration['rot'])
 
-    @property
-    def sample_params(self):  # todo
+    def _getParameters(self):  # todo
         params = {'length': self.physics.bounding_objects['body'].dimensions[0],
                   'width': self.physics.bounding_objects['body'].dimensions[1],
                   'height': self.physics.bounding_objects['body'].dimensions[2],
-                  'position':{'x': self.configuration.value[0], 'y': self.configuration.value[1],
-                               'z': self.configuration.value[2]},
-                  'psi': psiFromRotMat(self.configuration['rot'])
                   }
         return params
 
+    def getSample(self):
+        sample = super().getSample()
+        sample['position'] = {'x': self.configuration.value[0], 'y': self.configuration.value[1],
+                     'z': self.configuration.value[2]}
+        sample['psi'] = psiFromRotMat(self.configuration['rot'])
+
+        return sample
+
     def _init(self, *args, **kwargs):
         self.dynamics.state = [0, 0, 0]
-        self.action_physics_update(self.configuration)
+        self._updatePhysics(self.configuration)

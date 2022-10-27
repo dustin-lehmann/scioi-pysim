@@ -487,7 +487,7 @@ class BabylonVisualizationEnvironment:
                 'length': obstacle.physics.bounding_objects['cuboid'].dimensions[0],
                 'width': obstacle.physics.bounding_objects['cuboid'].dimensions[1],
                 'height': obstacle.physics.bounding_objects['cuboid'].dimensions[2],
-                'type': obstacle.type
+                'type': obstacle.datatype
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 
@@ -527,7 +527,7 @@ class BabylonVisualizationEnvironment:
                 'length': obstacle.physics.dimensions[0],
                 'width': obstacle.physics.dimensions[1],
                 'height': obstacle.physics.dimensions[0],
-                'type': obstacle.type
+                'type': obstacle.datatype
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
 

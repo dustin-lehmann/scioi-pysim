@@ -46,7 +46,13 @@ class BabylonVisualization(BabylonVisualizationEnvironment):
     def _start_webapp(self):
 
         asyncio.set_event_loop(asyncio.new_event_loop())
-        self.webapp = BABYLON_LiveBackend("../babylon/example_LNDW_simple.html", options={})
+        self.webapp = BABYLON_LiveBackend("../babylon/pysim_env.html", options={})
         self.webapp.start()
         while True:
             time.sleep(0.1)
+
+
+
+if __name__ == '__main__':
+    vis = BabylonVisualization()
+    vis._start_webapp()

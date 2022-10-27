@@ -39,7 +39,7 @@ space_map_cfs_to_cos = core.spaces.Mapping(space_from=configuration_space_world,
 world_spaces_XYZR = core.world.WorldSpaces()
 world_spaces_XYZR.coordinate_space = coordinate_space_world
 world_spaces_XYZR.configuration_space = configuration_space_world
-world_spaces_XYZR.map_configToCoordinateSpace = space_map_cfs_to_cos
+world_spaces_XYZR.coordinate_mapping = space_map_cfs_to_cos
 
 
 # === WORLD ============================================================================================================

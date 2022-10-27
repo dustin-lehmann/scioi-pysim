@@ -80,7 +80,7 @@ def example_multiple_phases():
 
 
 def example_scheduled_objects():
-    print("--- Example Scheduled Objects")
+    print("--- Example Scheduled Environment")
     # Define a scheduled object
     object1 = scheduling.ScheduledObject(name="Object 1")
 

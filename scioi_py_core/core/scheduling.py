@@ -222,9 +222,10 @@ class ScheduledObject(ABC):
         self.scheduling = SchedulingData(_object=self)
 
         if name is None:
-            name = f"{id(self)}"
+            name = f"{type(self).__name__}_{id(self)}"
 
-        self.name = name
+        if not hasattr(self, 'name'):
+            self.name = name
 
         action_entry = Action(name='_entry', function=self._action_entry)
         action_exit = Action(name='_exit', function=self._action_exit)

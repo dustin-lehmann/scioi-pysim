@@ -34,10 +34,10 @@ class Dynamics(ScheduledObject):
             self.spaces = spaces
 
         if state is None:
-            state = self.spaces.state_space.zeros()
+            state = self.spaces.state_space.getState()
 
         self.state = state
-        self.input = self.spaces.input_space.zeros()
+        self.input = self.spaces.input_space.getState()
 
         if Ts is not None:
             self.Ts = Ts  # TODO: or should this be taken from somewhere else?
@@ -97,33 +97,30 @@ class LinearDynamics(Dynamics):
 
 
 # ======================================================================================================================
-@dataclasses.dataclass
-class DynamicWorldObjectSpaces:
-    state_space: sp.Space = None
-    input_space: sp.Space = None
-    output_space: sp.Space = None
-    config_space: sp.Space = None
-    map_statespace_to_configspace: sp.Mapping = None
-
 class DynamicWorldObject(WorldObject, ABC):
     dynamics: Dynamics
-    spaces: DynamicWorldObjectSpaces
 
     # === INIT =========================================================================================================
     def __init__(self, name, world, *args, **kwargs):
-        super().__init__(*args, **kwargs, name=name)
+        super().__init__(name=name, world=world, *args, **kwargs)
 
         # Register the dynamics action in the World Dynamics Phase
         Action(name='dynamics', function=self.action_dynamics, object=self)
 
-        self.world = world
-        self.world.addObject(self)
         self.registerChild(self.dynamics)
 
     # === PROPERTIES ===================================================================================================
     @property
+    def state(self):
+        return self.dynamics.state
+
+    @state.setter
+    def state(self, value):
+        self.dynamics.state.set(value)
+
+    @property
     def configuration(self):
-        return self.spaces.config_space.map(self.dynamics.state)
+        return self.space.map(self.dynamics.state)
 
     @configuration.setter
     def configuration(self, value):

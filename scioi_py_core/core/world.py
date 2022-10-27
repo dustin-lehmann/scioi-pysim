@@ -4,25 +4,21 @@ import re
 from abc import ABC, abstractmethod
 from typing import Union
 
-from ..core import spaces as spaces
-from ..core import physics as physics
-from ..core import scheduling as scheduling
-from scioi_py_core.utils.orientations import psiFromRotMat
+import scioi_py_core.core.spaces as core_spaces
+import scioi_py_core.core.scheduling as scheduling
+import scioi_py_core.core.physics as physics
 
-
-# TODO: Should this be a scheduled object if it can be simulated and real? Probably yes, but not simulated object.
-#  There has to be a switch somewhere telling that this is real and this not
 
 @dataclasses.dataclass
 class CollisionSettings:
     check: bool = False
     collidable: bool = True
-    _includes: ['WorldObject'] = dataclasses.field(default_factory=lambda: [WorldObject])
-    _excludes: ['WorldObject'] = dataclasses.field(default_factory=list)
+    includes: ['WorldObject'] = dataclasses.field(default_factory=lambda: [WorldObject])
+    excludes: ['WorldObject'] = dataclasses.field(default_factory=list)
 
 
 @dataclasses.dataclass
-class CollisionState:
+class CollisionData:
     settings: CollisionSettings = dataclasses.field(default_factory=CollisionSettings)
     collision_state: bool = False
     collision_objects: list = dataclasses.field(default_factory=list)
@@ -31,116 +27,225 @@ class CollisionState:
 # ======================================================================================================================
 class WorldObject(scheduling.ScheduledObject):
     world: 'World'
+
+    space: core_spaces.Space
+    configuration: core_spaces.State
+
+    space_global: core_spaces.Space
+    configuration_global: core_spaces.State
+
+    group: 'WorldObjectGroup'
+
     physics: physics.PhysicalBody
-    collision: CollisionState
-    coordinate: spaces.State
-    configuration: spaces.State
+    collision: CollisionData
 
     name: str  # Name given by the user
     id: str  # Unique ID of the object in the corresponding world
     object_type: str = 'object'
 
+    static: bool = False  # A static object is not considered in the generation of a sample for an external tool, unless
+    # the 'sample_flag' is set
+
+    sample_flag: bool = False
+
     # === INIT =========================================================================================================
-    def __init__(self, name: str = None, world: 'World' = None, collision_includes: [] = None,
-                 collision_excludes: [] = None, collision_check: bool = False, collidable: bool = True, *args,
-                 **kwargs):
+    def __init__(self, name: str = None, world: 'World' = None, group: 'WorldObjectGroup' = None,
+                 space: core_spaces.Space = None, *args, **kwargs):
 
-        self.id = f"{type(self)}_{id(self)}"
+        self.id = f"{type(self).__name__}_{id(self)}"
+        self._configuration = None
+
         super().__init__()
-        self.name = name
+
+        if not (name is None and hasattr(self, 'name')):
+            self.name = name
+
         self.world = world
+        self.group = group
 
-        self.collision = CollisionState()
-        self.collision.settings.check = collision_check
-        self.collision.settings.collidable = collidable
-        if collision_includes is not None:
-            self.collision.settings._includes = collision_includes
-        if collision_excludes is not None:
-            self.collision.settings._excludes = collision_excludes
+        if self.group is not None and self.group.world is not None:
+            self.world = self.group.world
 
-        scheduling.Action(name='physics_update', function=self.action_physics_update,
-                          lambdas={'config': lambda: self.configuration}, object=self)
+        if space is not None:
+            self.space = space
+
+        if self.group is not None and self.group.space is not None:
+            self.space = space
+
+        if self.group is not None:
+            if hasattr(self.group, 'addObject'):
+                self.group.addObject(self)
 
         if self.world is not None:
-            if hasattr(world, 'addObject'):
-                world.addObject(self)
+            if hasattr(self.world, 'addObject'):
+                self.world.addObject(self)
+
+        if self.space is not None:
+            self._configuration = self.space.getState()
+
+        self.collision = CollisionData()
+
+        scheduling.Action(name='physics_update', function=self._updatePhysics,
+                          lambdas={'config': lambda: self.configuration}, object=self)
 
     # === PROPERTIES ===================================================================================================
-
-    @property
-    def coordinate(self):
-        return self.world.spaces.coordinate_space.map(self.configuration)
-
-    @coordinate.setter
-    def coordinate(self, value):
-        raise Exception("Setting coordinate is not implemented yet. Set the configuration instead.")
-
     @property
     def configuration(self):
         return self._configuration
 
     @configuration.setter
     def configuration(self, value):
-        if value is not None:
-            value = self.world.spaces.configuration_space.map(value)
+        if value is not None and self.space is not None:
+            # value = self.space.map(value)
+            self.sample_flag = True
+            self._configuration.set(value)
 
-        self._configuration = value
+    @property
+    def configuration_global(self):
+        return self.space_global.map(self.configuration)
+
+    @configuration_global.setter
+    def configuration_global(self, value):
+        raise Exception("Not implemented yet")
 
     # === METHODS ======================================================================================================
     def getSample(self):
-        sample = {'name': self.name,
-                  'class': self.__class__.__name__,
-                  'object_type': self.object_type,
-                  # 'position': {'x': self.configuration.value[0], 'y': self.configuration.value[1],
-                  #              'z': self.configuration.value[2]},
-                  # 'psi': psiFromRotMat(self.configuration.value[3]),
-                  'parameters': self.sample_params
+        return self._getSample()
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def translate(self, vector, space='local'):
+        assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
+        self.sample_flag = True
+        raise Exception("Need to implement")
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def rotate(self, rotation, space='local'):
+        assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
+        self.sample_flag = True
+        raise Exception("Need to implement")
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def getParameters(self):
+        return self._getParameters()
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def setConfiguration(self, configuration, space='local'):
+        assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
+        self.sample_flag = True
+        if space == 'local' or space == self.space:
+            self.configuration = configuration
+        else:
+            self.configuration_global = configuration
+
+    def getConfiguration(self, space='local'):
+        assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
+        if space == 'local' or space == self.space:
+            return self.configuration
+        else:
+            return self.configuration_global
+
+    # === ABSTRACT METHODS =============================================================================================
+    def _getParameters(self):
+        parameters = {
+            'object_type': self.object_type,
+            'id': self.id,
+            'name': self.name,
+            'configuration': self.configuration_global.serialize(),
+            'class': self.__class__.__name__
+        }
+        return parameters
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def _getSample(self):
+        sample = {'id': self.id,
+                  'configuration': self.configuration.serialize(),
+                  'parameters': self.getParameters()
                   }
         return sample
 
-    # ------------------------------------------------------------------------------------------------------------------
-    @property
-    @abstractmethod
-    def sample_params(self):
-        """
-        this function is supposed to be tailored to each different class type since the can have specific parameters
-        relevant for babylon
-        :return: specific object parameters
-        """
-        params = {}
-        return params
-
-    # === ACTIONS ======================================================================================================
-    @abstractmethod
-    def action_physics_update(self, config, *args, **kwargs):
-        pass
+    # === PRIVATE METHODS ==============================================================================================
+    def _updatePhysics(self, config, *args, **kwargs):
+        self.physics.update(config=self.configuration_global)
 
     def _init(self):
         pass
 
-
-# ======================================================================================================================
-@dataclasses.dataclass
-class WorldSpaces:
-    coordinate_space: spaces.Space = None
-    configuration_space: spaces.Space = None
-    map_configToCoordinateSpace: spaces.Mapping = None
+    # === BUILT-INS ====================================================================================================
+    def __repr__(self):
+        return f"{str(self.configuration)} (global: {str(self.configuration_global)})"
 
 
 # ======================================================================================================================
-class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled object?
-    spaces: WorldSpaces
+class WorldObjectGroup(WorldObject):
+    objects: dict[str, WorldObject]
+    local_space: core_spaces.Space
+    object_type = 'group'
+
+    def __init__(self, name: str = None, world: 'World' = None, objects: list = None,
+                 local_space: core_spaces.Space = None,
+                 *args, **kwargs):
+        super().__init__(name=name, world=world, *args, **kwargs)
+        assert (self.space == self.world.space)
+
+        if local_space is not None:
+            self.local_space = local_space
+            self.local_space.parent = self.world.space
+            self.local_space.origin = self.configuration
+
+        self.objects = {}
+
+        if objects is not None:
+            for obj in objects:
+                self.addObject(obj)
+
+    def addObject(self, object: 'WorldObject'):
+
+        if isinstance(object, WorldObject):
+            object = [object]
+
+        for obj in object:
+            assert (isinstance(obj, WorldObject))
+
+            # Check if the object already exists in  the list of objects. If so, just raise a warning and continue
+            if obj in self.objects.values():
+                logging.warning("Object already exists in group")
+                continue
+
+            for _, other in self.objects.items():
+                if obj.name == other.name:
+                    logging.warning(f"There already exists an object with name \"{obj.name}\".")
+                    break
+
+            obj.world = self.world
+
+            if self.local_space is not None:
+                obj.space = self.local_space
+
+            # Add the object to the object dictionary
+            self.objects[obj.id] = obj
+
+            logging.info(f"Added Object \"{obj.name}\" {type(obj)} to the group {self.name}")
+
+    def _updatePhysics(self, config, *args, **kwargs):
+        pass
+
+
+# ======================================================================================================================
+class World(scheduling.ScheduledObject):
+    space: core_spaces.Space
     objects: dict[str, 'WorldObject']
+    name = 'world'
+    size: dict  # Add the World Dimensions here and not in the Spaces. This makes it much easier
 
     # === INIT =========================================================================================================
-    def __init__(self, spaces: WorldSpaces, *args, **kwargs):
+    def __init__(self, space: core_spaces.Space = None, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.spaces = spaces
+        if not hasattr(self, 'space'):
+            assert (space is not None)
+            self.space = space
+
         self.objects: dict[str, 'WorldObject'] = {}
-        self.sample = {'world': {},
-                       'added': {},
-                       'deleted': {},
-                       }
+        self.size = None
 
     # === METHODS ======================================================================================================
     def addObject(self, objects: Union[WorldObject, dict]):
@@ -162,12 +267,16 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
                     break
 
             obj.scheduling.parent = self
-
             obj.world = self
+            obj.space_global = self.space
 
-            # Initialize the configuration and coordinate if not already done
-            if not (hasattr(obj, 'configuration')) or obj.configuration is None:
-                obj.configuration = self.spaces.configuration_space.none()
+            # Check if the object has a dedicated space
+            if hasattr(obj, 'space') and obj.space is not None:
+                # If the object has a dedicated space, make sure that there is a mapping to the global space
+                assert (obj.space.hasMapping(self.space))
+            else:
+                # Add the world's space as the object's space
+                obj.space = self.space
 
             # Add the object to the object dictionary
             self.objects[obj.id] = obj
@@ -226,27 +335,46 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
                 obj.scheduling.actions['physics_update']()
 
     # ------------------------------------------------------------------------------------------------------------------
-    def create_world_sample(self) -> dict:
+    def getSample(self) -> dict:
         """
                 - newly to world added objects
         - newly from world deleted objects
         - update already existing objects (e.g. their position)
         :return: sample dictionary
         """
-        tmp_sample = self.sample['world']
+        sample = {'objects': {}}
         # reset world sample -> clear all objects
-        self.sample['world'] = {}
 
-        for o in self.objects.values():
-            self.sample['world'][o.id] = o.getSample()
+        for obj in self.objects.values():
+            if not obj.static or (obj.static and obj.sample_flag):
+                sample['objects'][obj.id] = obj.getSample()
+                obj.sample_flag = False
 
-        self.sample['added'] = {k: self.sample['world'][k] for k in
-                                set(self.sample['world']) - set(tmp_sample)}
+        return sample
 
-        self.sample['deleted'] = {k: tmp_sample[k] for k in
-                                  set(tmp_sample) - set(self.sample['world'])}
+    # ------------------------------------------------------------------------------------------------------------------
+    def getDefinition(self):
+        world_definition = {'objects': {}}
 
-        return self.sample
+        for object_id, obj in self.objects.items():
+            world_definition['objects'][object_id] = obj.getParameters()
+
+        return world_definition
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def setSize(self, **kwargs):
+        self.size = {}
+        if self.space.hasDimension('pos'):
+            self.size['pos'] = {}
+            for dim, value in kwargs.items():
+                if dim in self.space['pos']:
+                    assert (isinstance(value, list))
+                    self.size['pos'][dim] = value
+        else:
+            for dim, value in kwargs.items():
+                if self.space.hasDimension(dim):
+                    assert (isinstance(value, list))
+                    self.size[dim] = value
 
     # ------------------------------------------------------------------------------------------------------------------
     def collisionCheck(self):
@@ -267,14 +395,14 @@ class World(scheduling.ScheduledObject):  # TODO: should this be a scheduled obj
                         if collision_object.collision.settings.collidable:
                             # Check if the object is in the include list
                             if any(isinstance(collision_object, include_class) for include_class in
-                                   obj.collision.settings._includes):
+                                   obj.collision.settings.includes):
                                 # Check if the object is not in the exclude list
                                 if not (any(isinstance(collision_object, exclude_class) for exclude_class in
-                                            obj.collision.settings._excludes)):
+                                            obj.collision.settings.excludes)):
                                     # do proximity sphere check
                                     if obj.physics.collisionCheck(collision_object.physics):
-                                        print('collision')
-                                        # pass
+                                        # print('collision')
+                                        pass
 
     def _init(self):
         pass

@@ -7,7 +7,7 @@ def example_1():
     space = spaces.Space(['x', 'y', 'z'])
 
     # Get a zero state from the space
-    state = space.zeros()
+    state = space.zero()
 
     # Set the x-component of the state
     state['x'] = 3

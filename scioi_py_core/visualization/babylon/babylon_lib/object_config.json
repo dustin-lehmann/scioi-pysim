@@ -1,0 +1,17 @@
+{
+  "obstacle": {
+    "BabylonObject": "PysimBox",
+    "config": {
+      "color": [
+        1,
+        0,
+        0
+      ],
+      "texture": ""
+    }
+  },
+  "tank_robot": {
+    "BabylonObject": "TankRobot",
+    "config": {}
+  }
+}

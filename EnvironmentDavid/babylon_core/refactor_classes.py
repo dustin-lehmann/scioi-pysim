@@ -207,7 +207,7 @@ class TiledFloor(Floor):
 
 class GameCircuitObject:
     """
-    connects Objects with each other so they can interact
+    connects Environment with each other so they can interact
     """
     activation_state: bool
 

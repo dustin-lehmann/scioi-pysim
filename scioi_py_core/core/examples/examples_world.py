@@ -11,7 +11,7 @@ def example_1():
     spaces = world.WorldSpaces()
     spaces.configuration_space = configuration_space
     spaces.coordinate_space = coordinate_space
-    spaces.map_configToCoordinateSpace = mapping
+    spaces.coordinate_mapping = mapping
 
     # Initialize a world with the given spaces
     w = world.World(spaces=spaces)
@@ -23,10 +23,10 @@ def example_1():
 
     print(obj.coordinate)
 
-    # Get Objects by name
+    # Get Environment by name
     o2 = w.getObjectsByName('Object 1')
 
-    # Get Objects by type
+    # Get Environment by type
     o3 = w.getObjectsByType(world.WorldObject)
 
     w.removeObject(obj)

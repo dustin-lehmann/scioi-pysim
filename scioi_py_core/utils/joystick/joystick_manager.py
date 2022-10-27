@@ -108,7 +108,7 @@ class JoystickManager:
                     # Check if I have a joystick with this id
                     js = next((js for js in self.joysticks if js.id == id), None)
                     if js is not None:
-                        callback = next((x for x in js.callbacks if x.type == 'button' and x.button == event.button),
+                        callback = next((x for x in js.callbacks if x.datatype == 'button' and x.button == event.button),
                                         None)
                         if callback is not None:
                             callback()

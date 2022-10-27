@@ -61,9 +61,9 @@ class CuboidPrimitive(ObjectPrimitive):
     discretization_type: str  # 'spacing', 'number'
     collision: CuboidCollisionData = CuboidCollisionData()
 
-    def __init__(self, dimensions: list, position: Union[np.ndarray, list] = None, orientation: np.ndarray = None,
+    def __init__(self, size: list, position: Union[np.ndarray, list] = None, orientation: np.ndarray = None,
                  discretization_type: str = 'number', discretization: Union[int, float] = 10):
-        self.dimensions = dimensions
+        self.dimensions = size
         self.position = position
         self.orientation = orientation
         self.discretization_type = discretization_type
@@ -103,10 +103,10 @@ class CuboidPrimitive(ObjectPrimitive):
             pass
 
     def getDiagonal(self):
-        test1 =self.dimensions[0]
+        test1 = self.dimensions[0]
         test2 = self.dimensions[0]
         test3 = self.dimensions[0]
-        return np.sqrt(self.dimensions[0]**2 + self.dimensions[1]**2 + self.dimensions[2]**2)
+        return np.sqrt(self.dimensions[0] ** 2 + self.dimensions[1] ** 2 + self.dimensions[2] ** 2)
 
     # === PRIVATE METHODS ==============================================================================================
     def _calcPointsIntrinsic(self, discretization, discretization_type):
@@ -241,10 +241,10 @@ class PhysicalBody(ABC):
 
 # ======================================================================================================================
 class CuboidPhysics(PhysicalBody):
-    def __init__(self, length, width, height, position, orientation):
+    def __init__(self, size_x, size_y, size_z, position, orientation):
         super().__init__()
         self.bounding_objects = {
-            'cuboid': CuboidPrimitive(dimensions=[length, width, height], position=position, orientation=orientation)
+            'cuboid': CuboidPrimitive(size=[size_x, size_y, size_z], position=position, orientation=orientation)
         }
 
     def update(self, position, orientation, *args, **kwargs):
@@ -257,10 +257,7 @@ class CuboidPhysics(PhysicalBody):
         self.proximity_sphere.position = self.bounding_objects['cuboid'].position
 
     def _getProximitySphereRadius(self):
-        return self.bounding_objects['cuboid'].getDiagonal()/2*1.1
-
-
-
+        return self.bounding_objects['cuboid'].getDiagonal() / 2 * 1.1
 
 
 # ======================================================================================================================

@@ -143,7 +143,7 @@ class Joystick:
                     raise Exception("damn")
             elif event.type == pygame.JOYBUTTONDOWN:
                 if event.instance_id == 0:
-                    callback = next((x for x in self.callbacks if x.type == 'button' and x.button == event.button),
+                    callback = next((x for x in self.callbacks if x.datatype == 'button' and x.button == event.button),
                                     None)
                     if callback is not None:
                         callback()
@@ -151,12 +151,12 @@ class Joystick:
                 pass
             elif event.type == pygame.JOYHATMOTION:
                 if event.instance_id == 0:
-                    callback = next((x for x in self.callbacks if x.type == 'hat'), None)
+                    callback = next((x for x in self.callbacks if x.datatype == 'hat'), None)
                     if callback is not None:
                         callback(value=event.value)
             elif event.type == pygame.JOYAXISMOTION:
                 if event.instance_id == 0:
-                    callback = next((x for x in self.callbacks if x.type == 'axis' and x.button == event.axis),
+                    callback = next((x for x in self.callbacks if x.datatype == 'axis' and x.button == event.axis),
                                     None)
                     if callback is not None:
                         callback(value=event.value)

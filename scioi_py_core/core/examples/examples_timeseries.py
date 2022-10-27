@@ -45,7 +45,7 @@ def example_3():
 
     # Put the data into timeseries
     ts = timeseries.Timeseries(state_vec, Ts=0.1)
-    ts.plot(legend=space.dimension_names)
+    ts.plot(legend=space.dim_names)
 
     # Extract one state from the timeseries
     v = ts['v']

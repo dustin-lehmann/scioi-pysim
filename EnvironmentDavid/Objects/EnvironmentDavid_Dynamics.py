@@ -44,7 +44,7 @@ class TankRobot_Dynamics(core.dynamics.Dynamics):
         return state
 
     def _output(self, state: sp.State):
-        output = self.spaces.output_space.zeros()
+        output = self.spaces.output_space.zero()
         output['x'] = state['x']
         output['y'] = state['y']
         output['psi'] = state['psi']

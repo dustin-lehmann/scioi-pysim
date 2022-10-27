@@ -42,7 +42,7 @@ robot_simulation = RobotSimulation(Ts=loop_time)
 env.toJson(file="../babylon/objects.json")
 
 # 4. Start the Webapp
-webapp = BABYLON_LiveBackend("../babylon/example_LNDW_simple.html", options={})
+webapp = BABYLON_LiveBackend("../babylon/pysim_env.html", options={})
 
 cell_0 = env.getCell(0, 0)
 robot_simulation.position = cell_0.floor_tile.center
