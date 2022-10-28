@@ -55,7 +55,7 @@ def generateFloor(world: World, size: list = None):
 
 
 class FloorTile(CuboidObstacle_3D):
-    height = 0.10
+    height = 0.01
     object_type = 'floor_tile'
 
     def __init__(self, position, size, *args, **kwargs):
@@ -66,6 +66,7 @@ class FloorTile(CuboidObstacle_3D):
         self.configuration['pos']['y'] = position[1]
         self.configuration['pos']['z'] = -self.height / 2
         self.configuration['ori'] = np.eye(3)
+
 
 class TiledFloor(WorldObjectGroup):
     tiles: list

@@ -6,4 +6,4 @@ from . import dynamics
 from . import scheduling
 from . import environment
 from . import physics
-
+from . import obstacles

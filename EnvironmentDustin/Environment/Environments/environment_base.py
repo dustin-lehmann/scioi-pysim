@@ -1,14 +1,15 @@
+import random
+
 from scioi_py_core import core as core
 
-from EnvironmentDustin.Environment.objects import EnvironmentTWIPR_objects
-import scioi_py_core.utils.joystick.joystick as joystick
-# from EnvironmentDustin.baseline.baseline_environment import BabylonVisualization
+from EnvironmentDustin.Environment import EnvironmentTWIPR_objects
+from scioi_py_core.visualization.babylon.babylon import BabylonVisualization
 
 
-class EnvironmentTWIPR(core.environment.Environment):
-    # babylon: BabylonVisualization
+class EnvironmentBase(core.environment.Environment):
+    babylon: (BabylonVisualization, None)
     world: EnvironmentTWIPR_objects.DynamicWorld_XYZR_Simple
-    joystick: joystick.Joystick
+    # joystick: joystick.Joystick
     run_mode = 'rt'
     Ts = 0.02
     name = 'environment'
@@ -18,10 +19,10 @@ class EnvironmentTWIPR(core.environment.Environment):
         self.world = EnvironmentTWIPR_objects.DynamicWorld_XYZR_Simple(name='world', parent=self)
         self.visualization = visualization
 
-        # if self.visualization == 'babylon':
-        #     self.babylon = BabylonVisualization(*args, **kwargs)
-        # else:
-        #     self.babylon = None
+        if self.visualization == 'babylon':
+            self.babylon = BabylonVisualization(*args, **kwargs)
+        else:
+            self.babylon = None
 
         # Actions
         core.scheduling.Action(name='input', object=self, priority=0, parent=self.action_step,
@@ -41,11 +42,13 @@ class EnvironmentTWIPR(core.environment.Environment):
         # self.joystick = joystick.Joystick()
 
     # === ACTIONS ======================================================================================================
+    def _init(self, *args, **kwargs):
+        # Set the world configuration in the babylon visualization if needed
+        if self.visualization == 'babylon':
+            self.babylon.setWorldConfig(self.world.generateWorldConfig())
+            self.babylon.start()
 
     def _action_step(self, *args, **kwargs):
-        pass
-
-    def _init(self, *args, **kwargs):
         pass
 
     def action_input(self, *args, **kwargs):
@@ -55,7 +58,12 @@ class EnvironmentTWIPR(core.environment.Environment):
         pass
 
     def action_visualization(self, *args, **kwargs):
-        pass
+        sample = {
+            'time': random.randint(0, 100),
+            'status': 'xxx',
+            'world': self.world.getSample()
+        }
+        self.babylon.sendSample(sample)
 
     def action_output(self, *args, **kwargs):
         pass

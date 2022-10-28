@@ -148,7 +148,7 @@ class TankRobotPhysicalObject(core.physics.PhysicalBody):
 
 # AGENTS ===============================================================================================================
 class TankRobotSimObject(core.dynamics.DynamicWorldObject):
-    object_type: str = 'agent'
+    object_type: str = 'tank_robot'
     space = core.spaces.Space2D()
 
     def __init__(self, *args, **kwargs):
@@ -170,14 +170,5 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
         }
         return params
 
-    # def getSample(self):
-    #     sample = super().getSample()
-    #     sample['position'] = {'x': self.configuration.value[0], 'y': self.configuration.value[1],
-    #                           'z': self.configuration.value[2]}
-    #     sample['psi'] = psiFromRotMat(self.configuration['rot'])
-    #
-    #     return sample
-
     def _init(self, *args, **kwargs):
-        self.dynamics.state = [0, 0, 0]
         self._updatePhysics()

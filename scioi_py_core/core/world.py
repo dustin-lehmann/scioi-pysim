@@ -353,7 +353,7 @@ class World(scheduling.ScheduledObject):
         return sample
 
     # ------------------------------------------------------------------------------------------------------------------
-    def getDefinition(self):
+    def generateWorldConfig(self):
         world_definition = {'objects': {}}
 
         for object_id, obj in self.objects.items():

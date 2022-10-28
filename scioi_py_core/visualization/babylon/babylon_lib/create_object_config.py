@@ -10,15 +10,22 @@ def main():
                 'texture': '',
             }
         },
-        'tank_robot': {
-            'BabylonObject': 'TankRobot',
+        'floor_tile': {
+            'BabylonObject': 'PysimBox',
             'config': {
-
+                'color': [0.7, 0.7, 0.7],
+                'texture': '/textures/material/floor_bright.png',
+            }
+        },
+        'tank_robot': {
+            'BabylonObject': 'PysimBox',
+            'config': {
+                'color': [0, 1, 0],
             }
         }
     }
 
-    with open("../../../object_config.json", "w") as output_file:
+    with open("object_config.json", "w") as output_file:
         json.dump(out, output_file, indent=2)
 
 

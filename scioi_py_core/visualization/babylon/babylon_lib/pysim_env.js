@@ -7,8 +7,6 @@ class PysimScene extends Scene {
 
         super(id);
         this.config = config
-        console.log("Config")
-        console.log(this.config)
         this.createScene();
     }
 
@@ -20,7 +18,7 @@ class PysimScene extends Scene {
         this.camera.wheelPrecision = 100;
         // --- LIGHTS ---
         this.light1 = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0.5,1,0), this.scene);
-        this.light1.intensity = 0.5
+        this.light1.intensity = 1
 
         // --- BACKGROUND ---
         this.scene.clearColor = new BABYLON.Color3(0.75,0.75,0.75);
@@ -29,9 +27,9 @@ class PysimScene extends Scene {
         this.ui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("ui", true, this.scene);
         this.textbox_time = new BABYLON.GUI.TextBlock();
         this.textbox_time.fontSize = 40;
-        this.textbox_time.text = "Time";
+        this.textbox_time.text = "";
         this.textbox_time.color = "black";
-        this.textbox_time.paddingTop = 40;
+        this.textbox_time.paddingTop = 3;
         this.textbox_time.paddingLeft = 3;
         this.textbox_time.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         this.textbox_time.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -39,23 +37,23 @@ class PysimScene extends Scene {
 
         this.textbox_status = new BABYLON.GUI.TextBlock();
         this.textbox_status.fontSize = 40;
-        this.textbox_status.text = "STATUS MESSAGES";
+        this.textbox_status.text = "";
         this.textbox_status.color = "black";
-        this.textbox_status.paddingTop = 80;
-        this.textbox_status.paddingLeft = 3;
+        this.textbox_status.paddingTop = 3;
+        this.textbox_status.paddingRight = 30;
         this.textbox_status.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-        this.textbox_status.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        this.textbox_status.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
         this.ui.addControl(this.textbox_status);
 
 
         this.textbox_title = new BABYLON.GUI.TextBlock();
         this.textbox_title.fontSize = 40;
-        this.textbox_title.text = "Title";
+        this.textbox_title.text = "";
         this.textbox_title.color = "black";
         this.textbox_title.paddingTop = 3;
         this.textbox_title.paddingLeft = 3;
         this.textbox_title.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-        this.textbox_title.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        this.textbox_title.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
         this.ui.addControl(this.textbox_title);
 
         // --- Coordinate System ---
@@ -64,29 +62,40 @@ class PysimScene extends Scene {
         // --- GENERATION OF OBJECTS ---
         this.buildWorld()
 
-        var box1 = new PysimBox(this.scene, 0.2,0.1,0.05,[0,0,0],'')
-        var box2 = new PysimBox(this.scene, 0.2,0.1,0.05,[1,0,0],'',{color: [0,1,0]})
-        var box3 = new PysimBox(this.scene, 0.2,0.1,0.05,[0,1,0],'',{color: [0,0,1]})
-        var box4 = new PysimBox(this.scene, 0.2,0.1,0.05,[0,0,1],'',{color: [0,1,1]})
 
+
+        // --- WEBAPP CONFIG ---
+        if ('webapp_config' in this.config){
+            if ('title' in this.config['webapp_config']){
+                this.textbox_title.text = this.config['webapp_config']['title']
+            }
+        }
 
         return this.scene;
     }
 
     buildWorld() {
         // Check if the config has the appropriate entries:
-        if (!("world" in this.config['environment'])){
+        if (!("world" in this.config)){
             console.warn("No world definition in the config")
             return
         }
-        if (!('objects' in this.config['environment']['world'])){
+        if (!('objects' in this.config['world'])){
             console.warn("No world objects specified in the config")
             return
         }
 
         // Loop over the config and extract the objects
-        for (const [key, value] of Object.entries(this.config['environment']['world']['objects'])){
-            console.log(key)
+        for (const [key, value] of Object.entries(this.config['world']['objects'])){
+            // Check if the object type is in the object config
+            let babylon_object_name
+            if (value.object_type in this.config['object_config']){
+                babylon_object_name = this.config['object_config'][value.object_type]['BabylonObject']
+                let objectPtr = eval(babylon_object_name)
+                world_objects[key] = new objectPtr(this.scene, key, value.object_type, value, this.config['object_config'][value.object_type]['config'])
+            } else {
+                console.warn("Cannot find the object type in the object definition")
+            }
         }
     }
 
@@ -117,7 +126,23 @@ class PysimScene extends Scene {
 
     // -----------------------------------------------------------------------------------------------------------------
     onSample(sample) {
-        // console.log(this.camera.position)
-        // console.log(sample)
+        if ('world' in sample){
+            for (const [key, value] of Object.entries(sample['world']['objects'])){
+                if (key in world_objects){
+                    world_objects[key].update(value)
+                }
+            }
+        } else {
+            console.warn("No world data in current sample")
+        }
+        if ('time' in sample){
+            this.textbox_time.text = 'Time: ' + sample['time'] + ' s'
+        } else {
+            console.warn("No time data in current sample")
+        }
+
+        if ('status' in sample){
+            this.textbox_status.text = sample['status']
+        }
     }
 }

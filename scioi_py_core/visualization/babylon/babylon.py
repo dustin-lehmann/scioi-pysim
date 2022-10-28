@@ -24,7 +24,7 @@ class BabylonVisualization:
 
     _config: dict
     _run: bool
-    Ts = 0.04
+    Ts = 0.04  # 0.04
 
     # === INIT =========================================================================================================
     def __init__(self, webapp: str = babylon_path + '/pysim_env.html', webapp_config=None,
@@ -33,20 +33,25 @@ class BabylonVisualization:
         self._config = {
             'world': {},
             'object_config': {},
-            'general': {}
+            'webapp_config': {}
         }
 
         # Load the object configuration, which stores the information which Babylon Object needs to be created for a
         # certain class
-
         if isinstance(object_config, str):
             with open(object_config) as f:
                 object_config = json.load(f)
 
         assert (isinstance(object_config, dict))
-
         self._config['object_config'] = object_config
 
+        # World config: Describes the world and all the objects within the world
+        self._config['world'] = world_config
+
+        # General config
+        self._config['webapp_config'] = webapp_config
+
+        # -----
         if webapp is not None:
             self.webapp_path = webapp
 
@@ -56,8 +61,6 @@ class BabylonVisualization:
         self._run = False
         self._data_queue = queue.Queue()
         self._webapp = None
-        self._thread = threading.Thread(target=self._threadFunction, daemon=True)
-        self._thread.start()
 
     # ==================================================================================================================
     class Process(qmt.Block):
@@ -78,11 +81,14 @@ class BabylonVisualization:
                 return self.last_sample
 
     # === METHODS ======================================================================================================
+    def setWorldConfig(self, world_config):
+        self._config['world'] = world_config
+
+    # ------------------------------------------------------------------------------------------------------------------
     def start(self):
         logging.info("Starting Babylon visualization")
-        while self._webapp is None:
-            ...
-        self._webapp.run()
+        self._thread = threading.Thread(target=self._threadFunction, daemon=True)
+        self._thread.start()
 
     # ------------------------------------------------------------------------------------------------------------------
     def sendSample(self, sample, force=False):
@@ -98,10 +104,9 @@ class BabylonVisualization:
     def _threadFunction(self):
 
         # Define a new event loop, otherwise it's not working
-        # asyncio.set_event_loop(asyncio.new_event_loop())
-
+        asyncio.set_event_loop(asyncio.new_event_loop())
         self._webapp = qmt.Webapp(self.webapp_path, config=self._config, show='chromium')
         self._webapp.setupOnlineLoop(qmt.ClockDataSource(self.Ts), self.Process(self._data_queue))
-
+        self._webapp.run()
         while True:
             time.sleep(1)

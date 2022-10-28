@@ -26,7 +26,7 @@ class createBoxFromJson {
         let texture_file = textures["materials"][classname]
 
         // relative texture path
-        let texture= "./texture_packs/textures/material_textures/"+texture_file;
+        let texture= "./texture_packs/textures/material/"+texture_file;
 
         this.material = new BABYLON.StandardMaterial(this.scene);
         this.material.diffuseTexture = new BABYLON.Texture(texture, this.scene)

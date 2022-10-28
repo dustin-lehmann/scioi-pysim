@@ -60,6 +60,15 @@ class Quaternion {
         return Quaternion.fromAngleAxis(angle, [axis.x, axis.y, axis.z]);
     }
 
+    static fromRotationMatrix(matrix){
+        let w = Math.sqrt( 1 + matrix[0][0] + matrix[1][1] + matrix[2][2])/2.0
+        let w4 = 4*w
+        let x = (matrix[2][1] - matrix[1][2]) / w4
+        let y = (matrix[0][2] - matrix[2][0]) / w4
+        let z = (matrix[1][0] - matrix[0][1]) / w4
+        return new Quaternion([w,x,y,z])
+    }
+
     get w() {return this.array[0]};
     get x() {return this.array[1]};
     get y() {return this.array[2]};
@@ -173,7 +182,8 @@ class Quaternion {
     }
 
     babylon() {
-        return new BABYLON.Quaternion(this.array[1], this.array[2], this.array[3], this.array[0]).normalize();
+        // return new BABYLON.Quaternion(this.array[1], this.array[2], this.array[3], this.array[0]).normalize();
+        return new BABYLON.Quaternion(this.array[1], this.array[3], -this.array[2], this.array[0]).normalize();
     }
 }
 
