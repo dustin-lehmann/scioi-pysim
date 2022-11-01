@@ -119,10 +119,18 @@ class PysimBox extends WorldObject {
 }
 
 // =====================================================================================================================
-class TankRobot extends WorldObject {
+class Tank_Robot extends WorldObject {
      constructor(scene, object_id, object_type, object_config, visualization_config) {
          super(scene, object_id, object_type, object_config, visualization_config);
-            console.log("BUILDING A ROBOT")
+            console.log("BUILDING A TANK ROBOT")
+
+     }
+}
+// =====================================================================================================================
+class TWIPR_Robot extends WorldObject {
+     constructor(scene, object_id, object_type, object_config, visualization_config) {
+         super(scene, object_id, object_type, object_config, visualization_config);
+            console.log("BUILDING A TWIPR ROBOT")
 
      }
 }

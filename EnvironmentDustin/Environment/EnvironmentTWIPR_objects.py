@@ -1,5 +1,8 @@
+import math
+
 import numpy as np
 from scioi_py_core import core as core
+from scioi_py_core.utils.orientations import twiprToRotMat, twiprFromRotMat
 
 # === DEFINITIONS ======================================================================================================
 Ts = 0.02
@@ -172,3 +175,120 @@ class TankRobotSimObject(core.dynamics.DynamicWorldObject):
 
     def _init(self, *args, **kwargs):
         self._updatePhysics()
+
+
+# TWIPR ================================================================================================================
+class Space3D_TWIPR(core.spaces.Space):
+    dimensions = [core.spaces.VectorDimension(name='pos', base_type=core.spaces.PositionVector2D),
+                  core.spaces.ScalarDimension(name='theta', limits=[-math.pi, math.pi], wrapping=True),
+                  core.spaces.ScalarDimension(name='psi', limits=[0, 2 * math.pi], wrapping=True)]
+
+    def _add(self, state1, state2, new_state):
+        raise Exception("Addition not allowed")
+
+
+class Mapping_TWIPR_2_3D(core.spaces.SpaceMapping):
+    space_to = core.spaces.Space3D
+    space_from = Space3D_TWIPR
+
+    def _map(self, state):
+        out = {
+            'pos': [state['pos']['x'], state['pos']['y'], 0],
+            'ori': twiprToRotMat(state['theta'].value, state['psi'].value)
+        }
+        return out
+
+
+class Mapping_3D_2_TWIPR(core.spaces.SpaceMapping):
+    space_from = core.spaces.Space3D
+    space_to = Space3D_TWIPR
+
+    def _map(self, state):
+        angles = twiprFromRotMat(state['ori'].value)
+        out = {
+            'pos': [state['pos']['x'], state['pos']['y']],
+            'theta': angles[1],
+            'psi': angles[0]
+        }
+        return out
+
+
+Space3D_TWIPR.mappings = [Mapping_3D_2_TWIPR(), Mapping_TWIPR_2_3D()]
+core.spaces.Space3D.mappings.append(Mapping_3D_2_TWIPR())
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+class TWIPR_PhysicalObject(core.physics.PhysicalBody):
+    height: float
+    width: float
+    depth: float
+
+    def __init__(self, height: float = 0.25, width: float = 0.16, depth: float = 0.08, wheel_diameter: float = 0.1,
+                 l_w: float = 0.01, *args, **kwargs):
+        super().__init__()
+
+        self.depth = depth
+        self.width = width
+        self.height = height
+        self.wheel_diameter = wheel_diameter
+        self.l_w = l_w
+
+        self.bounding_objects = {
+            'body': core.physics.CuboidPrimitive(size=[self.depth, self.width, self.height], position=[0, 0, 0],
+                                                 orientation=np.eye(3))
+        }
+
+        self.proximity_sphere.radius = self._getProximitySphereRadius()
+
+    def update(self, config, *args, **kwargs):
+        v_t = [config['pos']['x'], config['pos']['y'], self.wheel_diameter / 2]
+        v_m = [0, 0, self.height / 2 - self.l_w]
+        v_m_e = config['ori'] * v_m
+        new_position = v_t + v_m_e
+
+        self.bounding_objects['body'].position = new_position
+        self.bounding_objects['body'].orientation = config['ori']
+        self._calcProximitySphere()
+
+    def _calcProximitySphere(self):
+        self.proximity_sphere.radius = self._getProximitySphereRadius()
+        self.proximity_sphere.update(position=self.bounding_objects['body'].position)
+
+    def _getProximitySphereRadius(self):
+        return self.height / 2 * 1.1
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+class TWIPR_Agent(core.agents.Agent):
+    object_type = 'twipr_agent'
+    space = Space3D_TWIPR()
+
+    def __init__(self, world, agent_id, *args, **kwargs):
+        super().__init__(world=world, agent_id=agent_id, *args, **kwargs)
+
+        self.physics: TWIPR_PhysicalObject = TWIPR_PhysicalObject()
+
+    def _getParameters(self):
+        params = super()._getParameters()
+        params['physics'] = {}
+
+        params['size'] = {
+            'x': self.physics.depth,
+            'y': self.physics.width,
+            'z': self.physics.height
+        }
+        params['physics']['size'] = [self.physics.depth, self.physics.width, self.physics.height]
+        params['physics']['wheel_diameter'] = self.physics.wheel_diameter
+        params['physics']['l_w'] = self.physics.l_w
+        return params
+
+    def _getSample(self):
+        sample = super()._getSample()
+        x = self.configuration_global
+        x['pos'] = self.physics.bounding_objects['body'].position
+        sample['configuration'] = x.serialize()
+        return sample
+
+    def _init(self, *args, **kwargs):
+        self._updatePhysics()
+

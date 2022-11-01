@@ -144,6 +144,10 @@ class WorldObject(scheduling.ScheduledObject):
         else:
             return self.configuration_global
 
+    # ------------------------------------------------------------------------------------------------------------------
+    def _onAdd_callback(self):
+        ...
+
     # === ABSTRACT METHODS =============================================================================================
     def _getParameters(self):
         parameters = {
@@ -164,7 +168,9 @@ class WorldObject(scheduling.ScheduledObject):
         return sample
 
     # === PRIVATE METHODS ==============================================================================================
-    def _updatePhysics(self, config, *args, **kwargs):
+    def _updatePhysics(self, config=None, *args, **kwargs):
+        if config is None:
+            config = self.configuration_global
         self.physics.update(config=self.configuration_global)
 
     def _init(self):
@@ -234,6 +240,7 @@ class WorldObjectGroup(WorldObject):
 class World(scheduling.ScheduledObject):
     space: core_spaces.Space
     objects: dict[str, 'WorldObject']
+    agents: dict[str, 'WorldObject']
     name = 'world'
     size: dict  # Add the World Dimensions here and not in the Spaces. This makes it much easier
 
@@ -245,6 +252,7 @@ class World(scheduling.ScheduledObject):
             self.space = space
 
         self.objects: dict[str, 'WorldObject'] = {}
+        self.agents: dict[str, 'WorldObject'] = {}
         self.size = None
 
     # === METHODS ======================================================================================================
@@ -288,6 +296,9 @@ class World(scheduling.ScheduledObject):
 
             logging.info(f"Added Object \"{obj.name}\" {type(obj)} to the world.")
 
+            # Call the onAdd callback
+            obj._onAdd_callback()
+
     # ------------------------------------------------------------------------------------------------------------------
     def removeObject(self, objects: Union[list, WorldObject]):
         if not (isinstance(objects, list)):
@@ -302,6 +313,13 @@ class World(scheduling.ScheduledObject):
 
             # TODO: Also deregister the simulation object
             self.deregisterChild(obj)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def addAgent(self, agent: WorldObject):
+        self.agents[agent.id] = agent
+
+        if agent.id not in self.objects:
+            self.addObject(agent)
 
     # ------------------------------------------------------------------------------------------------------------------
     def getObjectsByName(self, name: str, regex=False) -> list:

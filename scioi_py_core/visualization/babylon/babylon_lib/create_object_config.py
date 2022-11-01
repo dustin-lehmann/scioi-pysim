@@ -22,6 +22,12 @@ def main():
             'config': {
                 'color': [0, 1, 0],
             }
+        },
+        'twipr_agent': {
+            'BabylonObject': 'PysimBox',
+            'config': {
+                'color': [0, 0, 1],
+            }
         }
     }
 

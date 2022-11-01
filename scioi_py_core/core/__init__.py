@@ -7,3 +7,4 @@ from . import scheduling
 from . import environment
 from . import physics
 from . import obstacles
+from . import agents

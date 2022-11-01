@@ -736,6 +736,11 @@ class MatrixValue(StateValue):
         if isinstance(other, np.ndarray) and len(other.shape) == 1:
             return self.value @ other
 
+        # Case 7
+        if isinstance(other, list) and len(other) == self.shape[0]:
+            other = np.asarray(other)
+            return self.value @ other
+
         raise Exception
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -953,6 +958,7 @@ class Space:
             if value.space.hasMapping(self):
                 mapping = next(mapping for mapping in value.space.mappings if
                                (mapping.space_to == self or isinstance(self, mapping.space_to)))
+                x = mapping.map(value, self)
                 return mapping.map(value, self)
             # The value has this state as a parent and is from the same class
             elif type(value.space) == type(self) and value.space.parent == self:
