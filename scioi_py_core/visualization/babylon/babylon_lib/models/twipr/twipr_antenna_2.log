@@ -1,0 +1,83 @@
+Exporter version: 3.3.0, Blender version: 3.3.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\work_dir\temp\scioi-pysim\scioi_py_core\visualization\babylon\babylon_lib\models\twipr\
+	Python World class constructor completed
+	WARNING: No active camera has been assigned, or is not in a currently enabled collection
+	processing begun of mesh:  Shape_IndexedFaceSet
+		processing begun of material:  Shape.642
+		processing begun of material:  Shape.643
+		processing begun of material:  Shape.644
+		processing begun of material:  Shape.645
+		processing begun of material:  Shape.646
+		processing begun of material:  Shape.647
+		processing begun of material:  Shape.648
+		processing begun of material:  Shape.649
+		processing begun of material:  Shape.650
+		processing begun of material:  Shape.651
+		processing begun of material:  Shape.652
+		processing begun of material:  Shape.653
+		processing begun of material:  Shape.654
+		processing begun of material:  Shape.655
+		processing begun of material:  Shape.656
+		processing begun of material:  Shape.657
+		processing begun of material:  Shape.658
+		processing begun of material:  Shape.659
+		processing begun of material:  Shape.660
+		processing begun of material:  Shape.661
+		processing begun of material:  Shape.662
+		processing begun of material:  Shape.663
+		processing begun of material:  Shape.664
+		processing begun of material:  Shape.665
+		processing begun of material:  Shape.666
+		processing begun of material:  Shape.667
+		processing begun of material:  Shape.668
+		processing begun of material:  Shape.669
+		processing begun of material:  Shape.670
+		processing begun of material:  Shape.671
+		processing begun of material:  Shape.672
+		processing begun of material:  Shape.673
+		processing begun of material:  Shape.674
+		processing begun of material:  Shape.675
+		processing begun of material:  Shape.676
+		processing begun of material:  Shape.677
+		processing begun of material:  Shape.678
+		processing begun of material:  Shape.679
+		processing begun of material:  Shape.680
+		processing begun of material:  Shape.681
+		processing begun of material:  Shape.682
+		processing begun of material:  Shape.683
+		processing begun of material:  Shape.684
+		processing begun of material:  Shape.685
+		processing begun of material:  Shape.686
+		processing begun of material:  Shape.687
+		processing begun of material:  Shape.688
+		processing begun of material:  Shape.689
+		processing begun of material:  Shape.690
+		processing begun of material:  Shape.691
+		processing begun of material:  Shape.692
+		processing begun of material:  Shape.693
+		processing begun of material:  Shape.694
+		processing begun of material:  Shape.695
+		processing begun of multimaterial:  twipr_antenna_2.Multimaterial#0
+		num positions      :  284761
+		num normals        :  284761
+		num tangents       :  0
+		num uvs            :  569522
+		num uvs2           :  0
+		num colors         :  1139044
+		num triangles      :  102954
+		WARNING: # of 0 area faces found:  24708
+========= Writing of JSON file started =========
+	writing mesh:  Shape_IndexedFaceSet
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 15.0176 secs

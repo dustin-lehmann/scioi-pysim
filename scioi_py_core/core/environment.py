@@ -1,3 +1,4 @@
+import time
 from abc import ABC, abstractmethod
 
 from ..core import scheduling as scheduling
@@ -52,6 +53,7 @@ class Environment(scheduling.ScheduledObject):
         self.scheduling.actions['_exit'].priority = 1000
 
         self.scheduler = scheduling.Scheduler(action=self.action_step, mode=self.run_mode, Ts=self.Ts)
+        pass
 
     # === PROPERTIES ===================================================================================================
 
@@ -73,14 +75,16 @@ class Environment(scheduling.ScheduledObject):
     def _step(self):
         # TODO: Not like this. those actions are added to an action that runs
         #  once a step which is given to the scheduler. only like this can I make the tree
-
+        time1 = time.time()
         self.scheduling.actions['entry']()
         self.scheduling.actions['step']()
         self.scheduling.actions['exit']()
+        time2 = time.time()
+        print((time2 - time1) * 1000)
 
     def _action_entry(self, *args, **kwargs):
         super()._action_entry()
-        self.scheduling.tick = + 1
+        self.scheduling.tick += 1
         self.scheduling.tick_global = self.scheduling.tick
 
     def _action_start(self, *args, **kwargs):

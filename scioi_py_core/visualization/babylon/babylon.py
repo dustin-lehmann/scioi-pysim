@@ -24,7 +24,7 @@ class BabylonVisualization:
 
     _config: dict
     _run: bool
-    Ts = 0.04  # 0.04
+    Ts = 0.03  # 0.04
 
     # === INIT =========================================================================================================
     def __init__(self, webapp: str = babylon_path + '/pysim_env.html', webapp_config=None,

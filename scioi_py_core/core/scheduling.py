@@ -1,6 +1,7 @@
 import dataclasses
 import enum
 import threading
+import time
 from abc import ABC, abstractmethod
 from typing import Union
 import simpy
@@ -190,10 +191,7 @@ class SchedulingData:
 
     @property
     def t(self):
-        if self.parent is not None:
-            return self.parent.scheduling.t
-        else:
-            return self._t
+        return self.tick_global * self.Ts
 
     @t.setter
     def t(self, value):
@@ -288,16 +286,16 @@ class ScheduledObject(ABC):
         self.scheduling.children.remove(child)
 
     # == DEFAULT ACTIONS ===============================================================================================
-    def _action_entry(self,*args, **kwargs):
+    def _action_entry(self, *args, **kwargs):
         pass
 
-    def _action_exit(self,*args, **kwargs):
+    def _action_exit(self, *args, **kwargs):
         pass
 
-    def _action_start(self,*args, **kwargs):
+    def _action_start(self, *args, **kwargs):
         pass
 
-    def _action_pause(self,*args, **kwargs):
+    def _action_pause(self, *args, **kwargs):
         pass
 
     def _action_stop(self, *args, **kwargs):

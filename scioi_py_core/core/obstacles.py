@@ -74,67 +74,60 @@ class CuboidObstacle_3D(Obstacle):
         sample = super()._getSample()
         return sample
 
-    # def getSample(self):
-    #     sample = super().getSample()
-    #     sample['position'] = {'x': self.configuration['x'], 'y': self.configuration['y'],
-    #                           'z': self.configuration['z']}
-    #     sample['psi'] = psiFromRotMat(self.configuration['rot'])
-
-    def _updatePhysics(self, config, *args, **kwargs):
-        self.physics.update(position=[self.configuration['x'], self.configuration['y'], self.configuration['z']],
-                            orientation=np.eye(3))
+    def _init(self, *args, **kwargs):
+        self._updatePhysics()
 
 
-class FloorTile(CuboidObstacle_3D):
-    """
-    create a square floor tile, size depending on how many tiles exist in Testbed and its general measurements
-    """
-
-    def __init__(self, position, tilesize, size_z: float = 0.001, *args, **kwargs):
-        # set z-coordinate of tile to actual floor level
-        position[2] = -size_z / 2
-        tilesize_x = tilesize['x']
-        tilesize_y = tilesize['y']
-        super().__init__(size_x=tilesize_y, size_y=tilesize_x, size_z=size_z, position=position, visible=True, *args,
-                         **kwargs)
-        self.type = 'floor_tile'
-
-
-class TestbedFloor:
-    """
-    creates the Floor consisting of Tiles according to the number and size specified for the environment
-    """
-
-    def __init__(self, env, *args, **kwargs):
-        for x in range(0, env.world.tiles_x):
-            for y in range(0, env.world.tiles_y):
-                # calculate position of next floortile
-                position = [env.world.tile_size['x'] / 2 + x * env.world.tile_size['x'],
-                            env.world.tile_size['y'] / 2 + y * env.world.tile_size['y'], 0]
-                # create a new floortile
-                FloorTile(name=f'Floor {x}_{y}', position=position,
-                          tilesize=env.world.tile_size, *args, **kwargs)
-
-
-class Wall(CuboidObstacle_3D):
-    """
-    create a wall
-    """
-    wall_height: float
-    wall_length: float
-
-    def __init__(self, position: list['float'], lenght: float, size_z: float, *args, **kwargs):
-        wall_thickness = 0.01
-        super().__init__(size_x=lenght, size_y=wall_thickness, size_z=size_z, position=position, visible=True,
-                         *args,
-                         **kwargs)
-        self.type = 'wall'
-
-
-class WallOnTile(Wall):
-    """
-    create a wall horizontal/vertical which is positioned bottom/left
-    """
-
-    def __init__(self, tile, orientation, *args, **kwargs):
-        pass
+# class FloorTile(CuboidObstacle_3D):
+#     """
+#     create a square floor tile, size depending on how many tiles exist in Testbed and its general measurements
+#     """
+#
+#     def __init__(self, position, tilesize, size_z: float = 0.001, *args, **kwargs):
+#         # set z-coordinate of tile to actual floor level
+#         position[2] = -size_z / 2
+#         tilesize_x = tilesize['x']
+#         tilesize_y = tilesize['y']
+#         super().__init__(size_x=tilesize_y, size_y=tilesize_x, size_z=size_z, position=position, visible=True, *args,
+#                          **kwargs)
+#         self.type = 'floor_tile'
+#
+#
+# class TestbedFloor:
+#     """
+#     creates the Floor consisting of Tiles according to the number and size specified for the environment
+#     """
+#
+#     def __init__(self, env, *args, **kwargs):
+#         for x in range(0, env.world.tiles_x):
+#             for y in range(0, env.world.tiles_y):
+#                 # calculate position of next floortile
+#                 position = [env.world.tile_size['x'] / 2 + x * env.world.tile_size['x'],
+#                             env.world.tile_size['y'] / 2 + y * env.world.tile_size['y'], 0]
+#                 # create a new floortile
+#                 FloorTile(name=f'Floor {x}_{y}', position=position,
+#                           tilesize=env.world.tile_size, *args, **kwargs)
+#
+#
+# class Wall(CuboidObstacle_3D):
+#     """
+#     create a wall
+#     """
+#     wall_height: float
+#     wall_length: float
+#
+#     def __init__(self, position: list['float'], lenght: float, size_z: float, *args, **kwargs):
+#         wall_thickness = 0.01
+#         super().__init__(size_x=lenght, size_y=wall_thickness, size_z=size_z, position=position, visible=True,
+#                          *args,
+#                          **kwargs)
+#         self.type = 'wall'
+#
+#
+# class WallOnTile(Wall):
+#     """
+#     create a wall horizontal/vertical which is positioned bottom/left
+#     """
+#
+#     def __init__(self, tile, orientation, *args, **kwargs):
+#         pass

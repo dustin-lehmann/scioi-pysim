@@ -67,6 +67,8 @@ class FloorTile(CuboidObstacle_3D):
         self.configuration['pos']['z'] = -self.height / 2
         self.configuration['ori'] = np.eye(3)
 
+        self.collision.settings.collidable = False
+
 
 class TiledFloor(WorldObjectGroup):
     tiles: list

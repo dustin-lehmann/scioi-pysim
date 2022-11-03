@@ -313,6 +313,8 @@ class VectorValue(StateValue):
 
     # ------------------------------------------------------------------------------------------------------------------
     def _setItem(self, value, index):
+        if hasattr(value, 'value'):
+            value = value.value
         value = float(value)
 
         if self.limits is not None:
@@ -850,11 +852,31 @@ class Dimension:
     value_type: type
     name: str
 
-    def __init__(self, name: str = None, base_type=None, **kwargs):
+    limits: list
+    kwargs: dict
+
+    def __init__(self, name: str = None, base_type=None, limits: list = None, **kwargs):
         self.name = name
+        self._limits = limits
+        if len(kwargs) > 0:
+            self.kwargs = kwargs
+        else:
+            self.kwargs = {}
+
         if base_type is not None:
             self.base_type = base_type
-        self.value_type = type(self.name, (self.base_type,), {**{'name': self.name}, **kwargs})
+        self.value_type = type(self.name, (self.base_type,),
+                               {**{'name': self.name, 'limits': self.limits}, **self.kwargs})
+
+    @property
+    def limits(self):
+        return self._limits
+
+    @limits.setter
+    def limits(self, value):
+        self._limits = value
+        self.value_type = type(self.name, (self.base_type,),
+                               {**{'name': self.name, 'limits': self.limits}, **self.kwargs})
 
     def getValue(self, value=None) -> StateValue:
         val = self.value_type()
@@ -955,23 +977,33 @@ class Space:
 
         # Condition 2: value is of class 'State' from another space
         if isinstance(value, State) and value.space != self:
+            # The other space knows a mapping to this space
             if value.space.hasMapping(self):
                 mapping = next(mapping for mapping in value.space.mappings if
                                (mapping.space_to == self or isinstance(self, mapping.space_to)))
-                x = mapping.map(value, self)
                 return mapping.map(value, self)
             # The value has this state as a parent and is from the same class
             elif type(value.space) == type(self) and value.space.parent == self:
                 out = self.getState(value=value.value)
                 out = value.space.origin + out
                 return out
+            elif type(value.space) == type(self):
+                out = self.getState(value=value.value)
+                return out
+            # This space knows a mapping from the other space to this space
+            elif self.hasMapping(space_to=self, space_from=value.space):
+                mapping = next((mapping.space_to == self or isinstance(self, mapping.space_to) and (
+                        mapping.space_from == value.space or isinstance(value.space, mapping.space_from))) for mapping
+                               in
+                               self.mappings)
+                return mapping.map(value, self)
 
         # Condition 3: value is a list of the correct length
         if isinstance(value, list) and len(value) == len(self.dimensions):
             return self.getState(value=value)
 
         # Condition 4: value is a ndarray of the correct length
-        if isinstance(value, np.ndarray) and value.shape == len(self.dimensions, ):
+        if isinstance(value, np.ndarray) and value.shape == (len(self.dimensions),):
             value = value.tolist()
             return self.getState(value=value)
 
@@ -979,7 +1011,7 @@ class Space:
         if isinstance(value, (int, float)) and len(self.dimensions) == 1:
             return self.getState(value=[value])
 
-        return None
+        raise Exception("Cannot map the state")
 
     # ------------------------------------------------------------------------------------------------------------------
     def add(self, value1, value2):
@@ -1028,8 +1060,14 @@ class Space:
         ...
 
     # ------------------------------------------------------------------------------------------------------------------
-    def hasMapping(self, space: 'Space'):
-        return any((map.space_to == space or isinstance(space, map.space_to)) for map in self.mappings)
+    def hasMapping(self, space_to: 'Space', space_from: 'Space' = None):
+        if space_from is None:
+            return any(
+                (mapping.space_to == space_to or isinstance(space_to, mapping.space_to)) for mapping in self.mappings)
+        else:
+            return any((mapping.space_to == space_to or isinstance(space_to, mapping.space_to) and (
+                    mapping.space_from == space_from or isinstance(space_from, mapping.space_from))) for mapping in
+                       self.mappings)
 
     def getDimension(self, index) -> Dimension:
         if isinstance(index, int):
@@ -1048,8 +1086,15 @@ class Space:
         else:
             new_state = self.getState()
 
-        value1_map = self.map(value1)
-        value2_map = self.map(value2)
+        try:
+            value1_map = self.map(value1)
+        except:
+            value1_map = None
+
+        try:
+            value2_map = self.map(value2)
+        except:
+            value2_map = None
 
         return value1_map, value2_map, new_state
 
@@ -1071,9 +1116,19 @@ class Space:
             # Case 1.2: value2 is a matrix and this space is only consisting of scalar values
             if isinstance(value2, np.ndarray) and value2.shape == (len(self.dimensions), len(self.dimensions)) and all(
                     isinstance(dim, ScalarDimension) for dim in self.dimensions):
-                raise Exception("TODO: Has to be implemented")  # TODO
+                own_value = np.asarray([dim.value for dim in state1.value])
 
-            # Case 1.3: value2 is a MatrixValue and this space is only consisting of scalar values
+                return value2 @ own_value
+
+            # Case 1.3
+            if isinstance(value2, np.ndarray) and len(value2.shape) == 2 and value2.shape[1] == len(
+                    self.dimensions) and all(
+                isinstance(dim, ScalarDimension) for dim in self.dimensions):
+                own_value = np.asarray([dim.value for dim in state1.value])
+
+                return value2 @ own_value
+
+            # Case 1.4: value2 is a MatrixValue and this space is only consisting of scalar values
             if isinstance(value2, MatrixValue) and value2.shape == (len(self.dimensions), len(self.dimensions)) and all(
                     isinstance(dim, ScalarDimension) for dim in self.dimensions):
                 raise Exception("TODO: Has to be implemented")  # TODO
@@ -1081,7 +1136,7 @@ class Space:
         # if value2_map is not None:
         #     ...
         #
-        # raise Exception("Operation not implemented in this space")
+        raise Exception("Operation not implemented in this space")
 
     # ------------------------------------------------------------------------------------------------------------------
     def _add(self, state1, state2, new_state):
@@ -1270,6 +1325,21 @@ class State:
     # ------------------------------------------------------------------------------------------------------------------
     def __setitem__(self, key, value):
         self.set(value, key)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):
+        if ufunc.__name__ == "matmul":
+            return self.__mul__(inputs[0])
+        elif ufunc.__name__ == 'subtract':
+            raise Exception("Not implemented yet!")
+            # raise Exception("Not implemented yet!")
+        elif ufunc.__name__ == 'multiply':
+            raise Exception("Not implemented yet!")
+            # return self.mul(inputs[0])
+        elif ufunc.__name__ == 'add':
+            raise Exception("Not implemented yet!")
+        else:
+            raise Exception("Not implemented yet!")
 
     # ------------------------------------------------------------------------------------------------------------------
     def __repr__(self):

@@ -8,7 +8,10 @@ import scioi_py_core.core.spaces as core_spaces
 import scioi_py_core.core.scheduling as scheduling
 import scioi_py_core.core.physics as physics
 
+from scioi_py_core.utils.babylon import setBabylonStatus
 
+
+# ======================================================================================================================
 @dataclasses.dataclass
 class CollisionSettings:
     check: bool = False
@@ -17,6 +20,7 @@ class CollisionSettings:
     excludes: ['WorldObject'] = dataclasses.field(default_factory=list)
 
 
+# ======================================================================================================================
 @dataclasses.dataclass
 class CollisionData:
     settings: CollisionSettings = dataclasses.field(default_factory=CollisionSettings)
@@ -162,7 +166,7 @@ class WorldObject(scheduling.ScheduledObject):
     # ------------------------------------------------------------------------------------------------------------------
     def _getSample(self):
         sample = {'id': self.id,
-                  'configuration': self.configuration.serialize(),
+                  'configuration': self.configuration_global.serialize(),
                   'parameters': self.getParameters()
                   }
         return sample
@@ -192,6 +196,8 @@ class WorldObjectGroup(WorldObject):
                  *args, **kwargs):
         super().__init__(name=name, world=world, *args, **kwargs)
         assert (self.space == self.world.space)
+
+        self.collision.settings.collidable = False
 
         if local_space is not None:
             self.local_space = local_space
@@ -288,11 +294,6 @@ class World(scheduling.ScheduledObject):
 
             # Add the object to the object dictionary
             self.objects[obj.id] = obj
-
-            # Add all the child actions to own actions
-            for name, action in self.scheduling.actions.items():
-                if name in obj.scheduling.actions and not name.startswith("_"):
-                    obj.scheduling.actions[name].parent = action
 
             logging.info(f"Added Object \"{obj.name}\" {type(obj)} to the world.")
 
@@ -419,8 +420,12 @@ class World(scheduling.ScheduledObject):
                                             obj.collision.settings.excludes)):
                                     # do proximity sphere check
                                     if obj.physics.collisionCheck(collision_object.physics):
-                                        # print('collision')
-                                        pass
+                                        setBabylonStatus('collision\n collision')
 
     def _init(self):
-        pass
+        # TODO: Put this in a subfunction
+        # Go over all objects and build the action tree
+        for obj_name, obj in self.objects.items():
+            for action_name, action in self.scheduling.actions.items():
+                if action_name in obj.scheduling.actions and not action_name.startswith("_"):
+                    obj.scheduling.actions[action_name].parent = action

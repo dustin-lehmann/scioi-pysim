@@ -12,10 +12,11 @@ class PysimScene extends Scene {
 
     createScene() {
         // --- CAMERA ---
-        this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, new BABYLON.Vector3(0,0,0), this.scene);
+        this.camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 20, new BABYLON.Vector3(0,0.1,0), this.scene);
         this.camera.setPosition(new BABYLON.Vector3(-0.02, 2.278,2.24));
         this.camera.attachControl(this.canvas, true);
         this.camera.wheelPrecision = 100;
+        this.camera.minZ = 0.1
         // --- LIGHTS ---
         this.light1 = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0.5,1,0), this.scene);
         this.light1.intensity = 1
@@ -38,7 +39,7 @@ class PysimScene extends Scene {
         this.textbox_status = new BABYLON.GUI.TextBlock();
         this.textbox_status.fontSize = 40;
         this.textbox_status.text = "";
-        this.textbox_status.color = "black";
+        this.textbox_status.color = "red";
         this.textbox_status.paddingTop = 3;
         this.textbox_status.paddingRight = 30;
         this.textbox_status.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -93,6 +94,7 @@ class PysimScene extends Scene {
                 babylon_object_name = this.config['object_config'][value.object_type]['BabylonObject']
                 let objectPtr = eval(babylon_object_name)
                 world_objects[key] = new objectPtr(this.scene, key, value.object_type, value, this.config['object_config'][value.object_type]['config'])
+
             } else {
                 console.warn("Cannot find the object type in the object definition")
             }
@@ -136,7 +138,7 @@ class PysimScene extends Scene {
             console.warn("No world data in current sample")
         }
         if ('time' in sample){
-            this.textbox_time.text = 'Time: ' + sample['time'] + ' s'
+            this.textbox_time.text = 'Time: ' + sample['time'].toFixed(2) + ' s'
         } else {
             console.warn("No time data in current sample")
         }

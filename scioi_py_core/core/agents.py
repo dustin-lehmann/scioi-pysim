@@ -16,6 +16,8 @@ class Agent(world.WorldObject):
                  space: spaces.Space = None, agent_id: int = 1, *args, **kwargs):
         super().__init__(name=name, world=world, group=None, space=space, *args, **kwargs)
 
+        self.collision.settings.check = True
+
         self.agent_id = agent_id  # TODO: Change this, so that the id is either given by the world or group + dynamical assignment
 
     def _getParameters(self):
@@ -29,4 +31,10 @@ class Agent(world.WorldObject):
 
 
 class DynamicAgent(Agent, dynamics.DynamicWorldObject):
-    ...
+
+    def __init__(self, name: str = None, world: world.World = None, space: spaces.Space = None, agent_id: int = 1,
+                 *args, **kwargs):
+        super().__init__(name=name, world=world, space=space, agent_id=agent_id, *args, **kwargs)
+
+
+        pass

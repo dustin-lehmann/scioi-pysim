@@ -88,9 +88,9 @@ class DynamicWorld_XYZR_Simple(core.world.World):
         calculate tilesize from the size of the testbed and the number of tiles for x and y
         :return: list with tilesize [x,y]
         """
-        x_limits = self.spaces.coordinate_space.dimensions[0].limits
+        x_limits = self.spaces.coordinate_space.size[0].limits
         x_size = x_limits[1] - x_limits[0]
-        y_limits = self.spaces.coordinate_space.dimensions[1].limits
+        y_limits = self.spaces.coordinate_space.size[1].limits
         y_size = y_limits[1] - y_limits[0]
         tilesize = {'x': x_size / self.tiles_x,
                     'y': y_size / self.tiles_y}

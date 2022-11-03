@@ -6,8 +6,9 @@ def main():
         'obstacle': {
             'BabylonObject': 'PysimBox',
             'config': {
-                'color': [1, 0, 0],
+                'color': [0.5, 0.5, 0.5],
                 'texture': '',
+                'wireframe': False
             }
         },
         'floor_tile': {
@@ -15,6 +16,8 @@ def main():
             'config': {
                 'color': [0.7, 0.7, 0.7],
                 'texture': '/textures/material/floor_bright.png',
+                 'texture_uscale': 1,
+                 'texture_vscale': 1,
             }
         },
         'tank_robot': {
@@ -23,10 +26,18 @@ def main():
                 'color': [0, 1, 0],
             }
         },
-        'twipr_agent': {
+        'twipr_agent_old': {
             'BabylonObject': 'PysimBox',
             'config': {
                 'color': [0, 0, 1],
+            },
+        },
+        'twipr_agent': {
+            'BabylonObject': 'TWIPR_Robot',
+            'config': {
+                'base_model': './models/twipr/twipr_',
+                'show_collision_frame': True,
+                # 'base_model': './models/twipr/twipr_a_blue.babylon',
             }
         }
     }

@@ -484,9 +484,9 @@ class BabylonVisualizationEnvironment:
                 'center_y': obstacle.configuration['y'],
                 'center_z': obstacle.configuration['z'],
                 'psi': psiFromRotMat(obstacle.configuration['rot']),
-                'length': obstacle.physics.bounding_objects['cuboid'].dimensions[0],
-                'width': obstacle.physics.bounding_objects['cuboid'].dimensions[1],
-                'height': obstacle.physics.bounding_objects['cuboid'].dimensions[2],
+                'length': obstacle.physics.bounding_objects['cuboid'].size[0],
+                'width': obstacle.physics.bounding_objects['cuboid'].size[1],
+                'height': obstacle.physics.bounding_objects['cuboid'].size[2],
                 'type': obstacle.datatype
             }
             json_dict['environment'][obstacle_name] = obstacle_dict
@@ -524,9 +524,9 @@ class BabylonVisualizationEnvironment:
                 'center_y': obstacle.configuration['y'],
                 'center_z': obstacle.configuration['z'],
                 'psi': psiFromRotMat(obstacle['rot']),
-                'length': obstacle.physics.dimensions[0],
-                'width': obstacle.physics.dimensions[1],
-                'height': obstacle.physics.dimensions[0],
+                'length': obstacle.physics.size[0],
+                'width': obstacle.physics.size[1],
+                'height': obstacle.physics.size[0],
                 'type': obstacle.datatype
             }
             json_dict['environment'][obstacle_name] = obstacle_dict

@@ -1,6 +1,7 @@
 import math
 
 import numpy as np
+from matplotlib import pyplot as plt
 
 import scioi_py_core.core.physics as physics
 from scioi_py_core.utils.orientations import rotmatFromEuler
@@ -59,7 +60,7 @@ def example_representations():
 
     # Update both objects
     body1.update(position=[1, 0, 0], orientation=rotmatFromEuler(angles=[-math.pi / 4, 0, 0], convention='yxz'))
-    body2.update(position=[-0.8, 0, 0], orientation=rotmatFromEuler(angles=[0, 0, 0.9*math.pi/4], convention='xyz'))
+    body2.update(position=[-0.8, 0, 0], orientation=rotmatFromEuler(angles=[0, 0, 0.9 * math.pi / 4], convention='xyz'))
 
     # Check for collision between the two bodies
     collision = body1.collisionCheck(body2)
@@ -69,6 +70,19 @@ def example_representations():
     physics.PhysicsDebugPlot(representations=[body1, body2])
 
 
+def example_cuboid():
+    ori = rotmatFromEuler(angles=[math.pi/4, math.pi/4, 0], convention='zyx')
+    cuboid1 = physics.CuboidPrimitive(size=[1, 1, 1], position=[1, 0, -5], orientation=ori)
+
+    plt.figure()
+    plt.subplot(111, projection='3d')
+    ax = plt.gca()
+
+    physics.PhysicsCuboidPlot(ax, cuboid1, plot_edge_points=True)
+    plt.show()
+
+
 if __name__ == '__main__':
     # example_spheres()
-    example_representations()
+    # example_representations()
+    example_cuboid()

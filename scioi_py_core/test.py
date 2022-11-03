@@ -1,22 +1,35 @@
 import math
 
+import numpy as np
+from matplotlib import pyplot as plt
+from numpy import nan
+
 import EnvironmentDustin.Environment.EnvironmentTWIPR_objects as obj
-import scioi_py_core.core as core
 
 
 def main():
-    twipr_space = obj.Space3D_TWIPR()
-    space_3d = core.spaces.Space3D()
+    poles = [0, -20, -3 + 1j, -3 - 1j, 0, -1.5]
+    eigenvectors = np.array([[1, nan, nan, nan, 0, nan],
+                             [nan, 1, nan, nan, nan, nan],
+                             [nan, nan, 1, 1, nan, 0],
+                             [nan, nan, nan, nan, nan, nan],
+                             [0, nan, nan, nan, 1, 1],
+                             [nan, 0, 0, 0, nan, nan]])
 
-    state1 = twipr_space.getState()
-    state1['pos'] = [1, 2]
-    state1['theta'] = 1
-    state1['psi'] = 1
+    dyn_twipr = obj.TWIPR_Dynamics(model=obj.TWIPR_Michael_Model, Ts=0.02, poles=poles, ev=eigenvectors)
 
-    state2 = state1.map(space_3d)
+    dyn_twipr.state = np.asarray([2, 3, 0, 0, 0, math.pi / 2, 2])
 
-    state3 = state2.map(twipr_space)
-    pass
+    config = dyn_twipr.state.map(obj.Space3D_TWIPR())
+    x = []
+    for i in range(0, 250):
+        dyn_twipr.update(input=[0.25, 0.25])
+        x.append(dyn_twipr.state)
+
+    theta = [state['x'].value for state in x]
+    plt.figure()
+    plt.plot(theta)
+    plt.show()
 
 
 if __name__ == '__main__':
