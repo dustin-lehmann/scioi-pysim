@@ -133,7 +133,7 @@ class PysimBox extends WorldObject {
 class Tank_Robot extends WorldObject {
      constructor(scene, object_id, object_type, object_config, visualization_config) {
          super(scene, object_id, object_type, object_config, visualization_config);
-            console.log("BUILDING A TANK ROBOT")
+
 
      }
 }
@@ -180,7 +180,8 @@ class TWIPR_Robot extends WorldObject {
     // -----------------------------------------------------------------------------------------------------------------
     setOrientation(orientation){
         this.orientation = orientation
-        const q = Quaternion.fromRotationMatrix(orientation)
+        let q = Quaternion.fromRotationMatrix(orientation)
+
         this.mesh.rotationQuaternion = q.babylon()
 
         if (this.visualization_config['show_collision_frame']){
@@ -202,7 +203,6 @@ class TWIPR_Robot extends WorldObject {
                 this.setOrientation(sample['configuration']['ori'])
             }
             if ('collision_box_pos' in sample && this.visualization_config['show_collision_frame']){
-                console.log(sample['collision_box_pos'])
                 this.collision_box.setPosition(sample['collision_box_pos'])
             }
         }

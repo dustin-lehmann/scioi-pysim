@@ -420,7 +420,7 @@ class World(scheduling.ScheduledObject):
                                             obj.collision.settings.excludes)):
                                     # do proximity sphere check
                                     if obj.physics.collisionCheck(collision_object.physics):
-                                        setBabylonStatus('collision\n collision')
+                                        setBabylonStatus('collision')
 
     def _init(self):
         # TODO: Put this in a subfunction

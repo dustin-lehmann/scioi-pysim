@@ -60,12 +60,45 @@ class Quaternion {
         return Quaternion.fromAngleAxis(angle, [axis.x, axis.y, axis.z]);
     }
 
+
     static fromRotationMatrix(matrix){
-        let w = Math.sqrt( 1 + matrix[0][0] + matrix[1][1] + matrix[2][2])/2.0
-        let w4 = 4*w
-        let x = (matrix[2][1] - matrix[1][2]) / w4
-        let y = (matrix[0][2] - matrix[2][0]) / w4
-        let z = (matrix[1][0] - matrix[0][1]) / w4
+        let m00 = matrix[0][0],
+            m01 = matrix[0][1],
+            m02 = matrix[0][2];
+        let m10 = matrix[1][0],
+            m11 = matrix[1][1],
+            m12 = matrix[1][2];
+        let m20 = matrix[2][0],
+            m21 = matrix[2][1],
+            m22 = matrix[2][2];
+
+        let t = m00 + m11 + m22;
+        let w = 0, x=0, y=0, z=0;
+        if (t > 0) {
+            let s = 0.5 / Math.sqrt(t + 1.0);
+            x = (m21 - m12) * s;
+            y = (m02 - m20) * s;
+            z = (m10 - m01) * s;
+            w = 0.25 / s;
+        } else if (m00 > m11 && m00 > m22) {
+            let s = 2.0 * Math.sqrt(1.0 + m00 - m11 - m22);
+            x = 0.25 * s;
+            y = (m01 + m10) / s;
+            z = (m02 + m20) / s;
+            w = (m21 - m12) / s;
+        } else if (m11 > m22) {
+            let s = 2.0 * Math.sqrt(1.0 + m11 - m00 - m22);
+            x = (m01 + m10) / s;
+            y = 0.25 * s;
+            z = (m12 + m21) / s;
+            w = (m02 - m20) / s;
+        } else {
+            let s = 2.0 * Math.sqrt(1.0 + m22 - m00 - m11);
+            x = (m02 + m20) / s;
+            y = (m12 + m21) / s;
+            z = 0.25 * s;
+            w = (m10 - m01) / s;
+        }
         return new Quaternion([w,x,y,z])
     }
 
