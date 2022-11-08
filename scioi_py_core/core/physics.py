@@ -3,7 +3,6 @@ import dataclasses
 from abc import ABC, abstractmethod
 from typing import Union
 
-import cp
 import numpy as np
 from matplotlib import pyplot, pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
