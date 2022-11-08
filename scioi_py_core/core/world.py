@@ -173,9 +173,10 @@ class WorldObject(scheduling.ScheduledObject):
 
     # === PRIVATE METHODS ==============================================================================================
     def _updatePhysics(self, config=None, *args, **kwargs):
-        if config is None:
-            config = self.configuration_global
-        self.physics.update(config=self.configuration_global)
+        if not self.static:
+            if config is None:
+                config = self.configuration_global
+            self.physics.update(config=self.configuration_global)
 
     def _init(self):
         pass

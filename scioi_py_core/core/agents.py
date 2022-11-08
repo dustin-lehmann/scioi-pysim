@@ -17,6 +17,7 @@ class Agent(world.WorldObject):
         super().__init__(name=name, world=world, group=None, space=space, *args, **kwargs)
 
         self.collision.settings.check = True
+        self.collision.settings.collidable = True
 
         self.agent_id = agent_id  # TODO: Change this, so that the id is either given by the world or group + dynamical assignment
 
