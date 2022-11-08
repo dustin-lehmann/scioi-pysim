@@ -1,5 +1,5 @@
 import math
-
+import time
 
 from EnvironmentDustin.Environment.Environments.environment_base import EnvironmentBase
 from EnvironmentDustin.Environment.EnvironmentTWIPR_objects import TankRobotSimObject, TWIPR_Agent, TWIPR_DynamicAgent
@@ -15,6 +15,7 @@ class Environment_SingleTWIPR_ILC(EnvironmentBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.agent1 = TWIPR_DynamicAgent(agent_id=1, name='Agent 1', world=self.world, speed_control=True)
+        self.agent2 = TWIPR_DynamicAgent(agent_id=2, name='Agent 2', world=self.world, speed_control=True)
 
         floor.generateTileFloor(self.world, tiles=[8, 3], tile_size=0.4)
 
@@ -35,7 +36,7 @@ class Environment_SingleTWIPR_ILC(EnvironmentBase):
 
     def action_controller(self, *args, **kwargs):
         super().action_controller(*args, **kwargs)
-        self.agent1.input = [-2 * self.joystick.axis[1], -4 * self.joystick.axis[2]]
+        # self.agent1.input = [-2 * self.joystick.axis[1], -4 * self.joystick.axis[2]]
         pass
 
 

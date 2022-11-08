@@ -41,10 +41,11 @@ class EnvironmentBase(core.environment.Environment):
 
         core.scheduling.registerActions(self.world, self.scheduling.actions['world'])
 
-        self.joystick = joystick.Joystick()
+        # self.joystick = joystick.Joystick()
 
     # === ACTIONS ======================================================================================================
     def _init(self, *args, **kwargs):
+        ...
         # Set the world configuration in the babylon visualization if needed
         if self.visualization == 'babylon':
             self.babylon.setWorldConfig(self.world.generateWorldConfig())
