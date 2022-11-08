@@ -253,8 +253,7 @@ class TWIPR_PhysicalObject(core.physics.PhysicalBody):
         v_m_e = config['ori'] * v_m
         new_position = v_t + v_m_e
 
-        self.bounding_objects['body'].position = new_position
-        self.bounding_objects['body'].orientation = config['ori'].value
+        self.bounding_objects['body'].update(new_position, config['ori'].value)
         self._calcProximitySphere()
 
     def _calcProximitySphere(self):

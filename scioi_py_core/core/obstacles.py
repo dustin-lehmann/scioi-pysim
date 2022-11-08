@@ -49,7 +49,7 @@ class CuboidObstacle_3D(Obstacle):
             self.configuration['ori'] = np.eye(3)
 
         self.physics = core.physics.CuboidPhysics(size_x=size_x, size_y=size_y, size_z=size_z, position=position,
-                                                  orientation=self.configuration['ori'])
+                                                  orientation=self.configuration['ori'].value)
         self.visible = visible
 
     @property

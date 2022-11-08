@@ -89,8 +89,9 @@ class WorldObject(scheduling.ScheduledObject):
 
         self.collision = CollisionData()
 
-        scheduling.Action(name='physics_update', function=self._updatePhysics,
-                          lambdas={'config': lambda: self.configuration}, object=self)
+        if not self.static:
+            scheduling.Action(name='physics_update', function=self._updatePhysics,
+                              lambdas={'config': lambda: self.configuration}, object=self)
 
     # === PROPERTIES ===================================================================================================
     @property
@@ -117,30 +118,53 @@ class WorldObject(scheduling.ScheduledObject):
         return self._getSample()
 
     # ------------------------------------------------------------------------------------------------------------------
-    def translate(self, vector, space='local'):
-        assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
-        self.sample_flag = True
-        raise Exception("Need to implement")
-
-    # ------------------------------------------------------------------------------------------------------------------
-    def rotate(self, rotation, space='local'):
-        assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
-        self.sample_flag = True
-        raise Exception("Need to implement")
-
-    # ------------------------------------------------------------------------------------------------------------------
     def getParameters(self):
         return self._getParameters()
 
     # ------------------------------------------------------------------------------------------------------------------
-    def setConfiguration(self, configuration, space='local'):
+    def translate(self, vector, space='local'):
+        ...
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def rotate(self, rotation, space='local'):
+        ...
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def setConfiguration(self, value, dimension=None, subdimension=None, space='local'):
         assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
         self.sample_flag = True
-        if space == 'local' or space == self.space:
-            self.configuration = configuration
-        else:
-            self.configuration_global = configuration
 
+        if dimension is None:
+            self.configuration = value
+        else:
+            if subdimension is None:
+                self.configuration[dimension] = value
+            else:
+                self.configuration[dimension][subdimension] = value
+
+        self._updatePhysics(self.configuration)
+
+        if isinstance(self, WorldObjectGroup):
+            for _, obj in self.objects.items():
+                obj._updatePhysics(obj.configuration)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def setPosition(self, value=None, dimension=None, **kwargs):
+        assert (self.space.hasDimension('pos'))
+        if dimension is None and len(kwargs) == 0:
+            self.setConfiguration(dimension='pos', value=value)
+        elif dimension is not None:
+            self.setConfiguration(dimension='pos', subdimension=dimension, value=value)
+        elif len(kwargs) > 0:
+            for key, key_value in kwargs.items():
+                self.setConfiguration(dimension='pos', subdimension=key, value=key_value)
+
+    # ------------------------------------------------------------------------------------------------------------------
+    def setOrientation(self, value):
+        assert (self.space.hasDimension('ori'))
+        self.setConfiguration(dimension='ori', value=value)
+
+    # ------------------------------------------------------------------------------------------------------------------
     def getConfiguration(self, space='local'):
         assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
         if space == 'local' or space == self.space:
@@ -173,10 +197,9 @@ class WorldObject(scheduling.ScheduledObject):
 
     # === PRIVATE METHODS ==============================================================================================
     def _updatePhysics(self, config=None, *args, **kwargs):
-        if not self.static:
-            if config is None:
-                config = self.configuration_global
-            self.physics.update(config=self.configuration_global)
+        if config is None:
+            config = self.configuration_global
+        self.physics.update(config=self.configuration_global)
 
     def _init(self):
         pass

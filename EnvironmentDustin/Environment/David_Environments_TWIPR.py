@@ -1,6 +1,8 @@
 import math
 import time
 
+import numpy as np
+
 from EnvironmentDustin.Environment.Environments.environment_base import EnvironmentBase
 from EnvironmentDustin.Environment.EnvironmentTWIPR_objects import TankRobotSimObject, TWIPR_Agent, TWIPR_DynamicAgent
 from scioi_py_core.core.obstacles import CuboidObstacle_3D
@@ -15,13 +17,8 @@ class Environment_SingleTWIPR_ILC(EnvironmentBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.agent1 = TWIPR_DynamicAgent(agent_id=1, name='Agent 1', world=self.world, speed_control=True)
-        self.agent2 = TWIPR_DynamicAgent(agent_id=2, name='Agent 2', world=self.world, speed_control=True)
 
-        # floor.generateTileFloor(self.world, tiles=[20, 20], tile_size=0.4)
-
-        self.agent1.state['x'] = -1
-        self.agent2.state['x'] = 1
-        self.agent2.state['psi'] = -math.pi/4
+        floor.generateTileFloor(self.world, tiles=[10, 10], tile_size=0.4)
 
         group1 = core.world.WorldObjectGroup(name='Gate', world=self.world, local_space=core.spaces.Space3D())
 
@@ -31,6 +28,8 @@ class Environment_SingleTWIPR_ILC(EnvironmentBase):
                                                          position=[0, -0.2, 0.075])
         group_object3 = core.obstacles.CuboidObstacle_3D(group=group1, size_x=0.04, size_y=0.44, size_z=0.04,
                                                          position=[0, 0, 0.17])
+
+        group1.setPosition(x=1, y=1)
 
     def action_input(self, *args, **kwargs):
         super().action_input(*args, **kwargs)

@@ -1,9 +1,11 @@
+import copy
 import dataclasses
 from abc import ABC, abstractmethod
 from typing import Union
 
+import cp
 import numpy as np
-from matplotlib import pyplot
+from matplotlib import pyplot, pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 from scioi_py_core.core import spaces
@@ -26,7 +28,8 @@ class ObjectPrimitive(ABC):
 
 # ----------------------------------------------------------------------------------------------------------------------
 def collisionCuboidCuboid(cuboid1: 'CuboidPrimitive', cuboid2: 'CuboidPrimitive'):
-    collided_points = []
+    collided_points_1 = []
+    collided_points_2 = []
 
     R_T = cuboid1.orientation.T
     for point in cuboid2.points_global:
@@ -35,16 +38,27 @@ def collisionCuboidCuboid(cuboid1: 'CuboidPrimitive', cuboid2: 'CuboidPrimitive'
 
         if abs(vec_rel_local[0]) <= cuboid1.size[0] / 2 and abs(vec_rel_local[1]) <= cuboid1.size[1] / 2 and abs(
                 vec_rel_local[2]) <= cuboid1.size[2] / 2:
-            collided_points.append(point)
+            collided_points_1.append(point)
 
-    if len(collided_points)>0:
+    if len(collided_points_1)>0:
         return True
-    else:
-        return False
+
+    R_T_2 = cuboid2.orientation.T
+    for point in cuboid1.points_global:
+        vec_rel_global = point - cuboid2.position
+        vec_rel_local = R_T_2 @ vec_rel_global
+
+        if abs(vec_rel_local[0]) <= cuboid2.size[0] / 2 and abs(vec_rel_local[1]) <= cuboid2.size[1] / 2 and abs(
+                vec_rel_local[2]) <= cuboid2.size[2] / 2:
+            collided_points_2.append(point)
+    if len(collided_points_2) > 0:
+        return True
+
+    return False
 
 
 def collisionCuboidSphere(cuboid: 'CuboidPrimitive', sphere: 'SpherePrimitive'):
-    print('the collision of cuboid and spehre has not been implemented yet! ')
+    print('the collision of cuboid and sphere has not been implemented yet! ')
     pass
 
 
@@ -87,7 +101,7 @@ class CuboidPrimitive(ObjectPrimitive):
         self.discretization = discretization
 
         self._calcPointsIntrinsic(self.discretization, self.discretization_type)
-        self.points_global = self.points_local
+        self.points_global = copy.copy(self.points_local)
         self._updatePointsGlobal()
 
     # === METHODS ======================================================================================================
@@ -100,6 +114,8 @@ class CuboidPrimitive(ObjectPrimitive):
         :param kwargs:
         :return:
         """
+        assert(isinstance(position, np.ndarray))
+        assert (isinstance(orientation, np.ndarray))
 
         if isinstance(position, list):
             position = np.asarray(position)
@@ -297,8 +313,7 @@ class CuboidPhysics(PhysicalBody):
         }
 
     def update(self, config, *args, **kwargs):
-        self.bounding_objects['cuboid'].position = config['pos'].value
-        self.bounding_objects['cuboid'].orientation = config['ori'].value
+        self.bounding_objects['cuboid'].update(position=config['pos'].value, orientation=config['ori'].value)
         self._calcProximitySphere()
 
     def _calcProximitySphere(self):
