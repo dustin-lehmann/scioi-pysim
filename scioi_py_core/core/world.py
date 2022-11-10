@@ -9,7 +9,7 @@ import scioi_py_core.core.scheduling as scheduling
 import scioi_py_core.core.physics as physics
 
 from scioi_py_core.utils.babylon import setBabylonStatus
-
+import numpy as np
 
 # ======================================================================================================================
 @dataclasses.dataclass
@@ -133,7 +133,7 @@ class WorldObject(scheduling.ScheduledObject):
     def setConfiguration(self, value, dimension=None, subdimension=None, space='local'):
         assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
         self.sample_flag = True
-
+        config_temp = self.space.map(self._configuration)
         if dimension is None:
             self.configuration = value
         else:

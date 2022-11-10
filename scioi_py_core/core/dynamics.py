@@ -174,6 +174,21 @@ class DynamicWorldObject(WorldObject, ABC):
     def configuration(self, value):
         raise Exception("Cannot set configuration of dynamic world object. Set the state instead.")
 
+    def setConfiguration(self, value, dimension=None, subdimension=None, space='local'):
+        assert (space == 'local' or space == 'global' or space == self.space or space == self.space_global)
+
+        config_temp = self.space.map(self._configuration)
+        if dimension is None:
+            config_temp = self.space.map(value)
+        else:
+            if subdimension is None:
+                config_temp[dimension] = value
+            else:
+                config_temp[dimension][subdimension] = value
+
+        self.state = self.dynamics.state_space.map(config_temp)
+        self._updatePhysics(self.configuration)
+
     # === METHODS ======================================================================================================
 
     # === ACTIONS ======================================================================================================

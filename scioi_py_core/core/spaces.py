@@ -992,10 +992,10 @@ class Space:
                 return out
             # This space knows a mapping from the other space to this space
             elif self.hasMapping(space_to=self, space_from=value.space):
-                mapping = next((mapping.space_to == self or isinstance(self, mapping.space_to) and (
-                        mapping.space_from == value.space or isinstance(value.space, mapping.space_from))) for mapping
-                               in
-                               self.mappings)
+                mapping = next((mapping for mapping in self.mappings if
+                                (mapping.space_to == self or isinstance(self, mapping.space_to)) and (
+                                            mapping.space_from == value.space or isinstance(value.space,
+                                                                                            mapping.space_from))))
                 return mapping.map(value, self)
 
         # Condition 3: value is a list of the correct length
