@@ -1,37 +1,38 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
 from EnvironmentDustin.Environment.Environments.environment_base import EnvironmentBase
-from EnvironmentDustin.Environment.EnvironmentTWIPR_objects import TankRobotSimObject, TWIPR_Agent, TWIPR_DynamicAgent
+from EnvironmentDustin.Environment.EnvironmentTWIPR_objects import TankRobotSimObject, TWIPR_Agent, TWIPR_DynamicAgent, TWIPR_ILC_Agent, standard_reference_trajectory
 from scioi_py_core.core.obstacles import CuboidObstacle_3D
 from scioi_py_core.objects.world import floor
 import scioi_py_core.core as core
 
 
 class Environment_SingleTWIPR_ILC(EnvironmentBase):
-    agent1: TWIPR_DynamicAgent
+    agent1: TWIPR_ILC_Agent
     obstacle1: CuboidObstacle_3D
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.agent1 = TWIPR_DynamicAgent(agent_id=1, name='Agent 1', world=self.world, speed_control=True)
+        self.agent1 = TWIPR_ILC_Agent(world=self.world, agent_id=1, reference=standard_reference_trajectory)
 
         floor.generateTileFloor(self.world, tiles=[6, 3], tile_size=0.4)
 
         group1 = core.world.WorldObjectGroup(name='Gate', world=self.world, local_space=core.spaces.Space3D())
 
-        group_object1 = core.obstacles.CuboidObstacle_3D(group=group1, size_x=0.04, size_y=0.04, size_z=0.15,
-                                                         position=[0, 0.2, 0.075])
-        group_object2 = core.obstacles.CuboidObstacle_3D(group=group1, size_x=0.04, size_y=0.04, size_z=0.15,
-                                                         position=[0, -0.2, 0.075])
+        post_height = 0.13
+        group_object1 = core.obstacles.CuboidObstacle_3D(group=group1, size_x=0.04, size_y=0.04, size_z=post_height,
+                                                         position=[0, 0.2, post_height/2])
+        group_object2 = core.obstacles.CuboidObstacle_3D(group=group1, size_x=0.04, size_y=0.04, size_z=post_height,
+                                                         position=[0, -0.2, post_height/2])
         group_object3 = core.obstacles.CuboidObstacle_3D(group=group1, size_x=0.04, size_y=0.44, size_z=0.04,
-                                                         position=[0, 0, 0.17])
-
-        self.agent1.setPosition(x=-1)
+                                                         position=[0, 0, post_height+0.04/2])
 
     def action_input(self, *args, **kwargs):
         super().action_input(*args, **kwargs)
 
     def action_controller(self, *args, **kwargs):
         super().action_controller(*args, **kwargs)
-
 
 
 def main():

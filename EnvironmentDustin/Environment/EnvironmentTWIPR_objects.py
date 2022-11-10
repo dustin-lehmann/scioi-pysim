@@ -1,9 +1,12 @@
 import copy
 import dataclasses
 import math
+import pickle
+import random
 import time
 
 import control
+import matplotlib.pyplot as plt
 import numpy as np
 from numpy import nan
 
@@ -11,6 +14,7 @@ from scioi_py_core import core as core
 from scioi_py_core.core import spaces as sp
 from scioi_py_core.utils import lib_control
 from scioi_py_core.utils.orientations import twiprToRotMat, twiprFromRotMat
+from scioi_py_core.utils.babylon import setBabylonSettings
 
 # === DEFINITIONS ======================================================================================================
 Ts = 0.02
@@ -351,6 +355,82 @@ TWIPR_Michael_Model = TwiprModel(m_b=2.5, m_w=0.636, l=0.026, d_w=0.28, I_w=5.17
                                  max_pitch=np.deg2rad(105))
 
 
+class TWIPR_2D_Linear:
+    model: TwiprModel
+
+    def __init__(self, model, Ts, poles=None):
+        super().__init__()
+        self.Ts = Ts
+        self.model = model
+
+        self.n = 4
+        self.p = 1
+        self.q = 1
+
+        self.K_cont = np.zeros((1, self.n))  # continuous-time state controller
+        self.K_disc = np.zeros((1, self.n))  # discrete-time state controller
+
+        # get the linear continuous model matrices
+        self.A, self.B, self.C, self.D = self.linear_model()
+        # generate a linear continuous model
+        self.sys_cont = control.StateSpace(self.A, self.B, self.C, self.D, remove_useless_states=False)
+        # convert the continuous-time model to discrete-time
+        self.sys_disc = control.c2d(self.sys_cont, self.Ts)
+        self.A_d = np.asarray(self.sys_disc.A)
+        self.B_d = np.asarray(self.sys_disc.B)
+        self.C_d = np.asarray(self.sys_disc.C)
+        self.D_d = np.asarray(self.sys_disc.D)
+
+        if poles is not None:
+            self.set_poles(poles)
+
+    def linear_model(self):
+        g = 9.81
+        C_21 = (
+                       self.model.m_b + 2 * self.model.m_w + 2 * self.model.I_w / self.model.r_w ** 2) * self.model.m_b * self.model.l
+        V_1 = (self.model.m_b + 2 * self.model.m_w + 2 * self.model.I_w / self.model.r_w ** 2) * (
+                self.model.I_y + self.model.m_b * self.model.l ** 2) - self.model.m_b ** 2 * self.model.l ** 2
+        D_22 = (
+                       self.model.m_b + 2 * self.model.m_w + 2 * self.model.I_w / self.model.r_w ** 2) * 2 * self.model.c_alpha + self.model.m_b * self.model.l * 2 * self.model.c_alpha / self.model.r_w
+        D_21 = (
+                       self.model.m_b + 2 * self.model.m_w + 2 * self.model.I_w / self.model.r_w ** 2) * 2 * self.model.c_alpha / self.model.r_w + self.model.m_b * self.model.l * 2 * self.model.c_alpha / self.model.r_w ** 2
+        C_11 = self.model.m_b ** 2 * self.model.l ** 2
+        D_12 = (
+                       self.model.I_y + self.model.m_b * self.model.l ** 2) * 2 * self.model.c_alpha / self.model.r_w - self.model.m_b * self.model.l * 2 * self.model.c_alpha
+        D_11 = (
+                       self.model.I_y + self.model.m_b * self.model.l ** 2) * 2 * self.model.c_alpha / self.model.r_w ** 2 - self.model.m_b * self.model.l * 2 * self.model.c_alpha / self.model.r_w
+
+        A = [[0.000, 1, 0, 0],
+             [0.000, -D_11 / V_1, -C_11 * g / V_1, D_12 / V_1],
+             [0.000, 0, 0, 1],
+             [0.000, D_21 / V_1, C_21 * g / V_1, -D_22 / V_1]]
+
+        B_1 = (self.model.I_y + self.model.m_b * self.model.l ** 2) / self.model.r_w + self.model.m_b * self.model.l
+        B_2 = self.model.m_b * self.model.l / self.model.r_w + self.model.m_b + 2 * self.model.m_w + 2 * self.model.I_w / self.model.r_w ** 2
+
+        B = [[0],
+             [B_1 / V_1],
+             [0],
+             [-B_2 / V_1]]
+
+        C = [[0, 0, 1, 0]]
+
+        D = 0
+
+        return np.asarray(A), np.asarray(B), np.asarray(C), np.asarray(D)
+
+    def set_poles(self, poles):
+        poles = np.asarray(poles)
+        self.K_cont = np.asarray(control.place(self.A, self.B, poles))
+        self.K_disc = np.asarray(control.place(self.A_d, self.B_d, np.exp(poles * self.Ts)))
+        self.A_hat = self.A - self.B @ self.K_cont
+        self.sys_cont = control.StateSpace(self.A_hat, self.B, self.C, self.D, remove_useless_states=False)
+        self.A_hat_d = self.A_d - self.B_d @ self.K_disc
+        self.sys_disc = control.StateSpace(self.A_hat_d, self.B_d, self.C_d, self.D_d, self.Ts,
+                                           remove_useless_states=False)
+        return self.K_disc
+
+
 class TWIPR_3D_Linear(core.dynamics.LinearDynamics):
     model: TwiprModel
     K: np.ndarray
@@ -622,7 +702,7 @@ class TWIPR_DynamicAgent(TWIPR_Agent, core.agents.DynamicAgent):
     input: core.spaces.State
     poles: list
     eigenvectors: list
-    K: np.ndarray
+    state_ctrl_K: np.ndarray
     controller_v: lib_control.PID_ctrl
     controller_psidot: lib_control.PID_ctrl
 
@@ -651,7 +731,7 @@ class TWIPR_DynamicAgent(TWIPR_Agent, core.agents.DynamicAgent):
             self.input_space = TWIPR_3D_InputSpace()
 
         self.linear_dynamics = TWIPR_3D_Linear(self.dynamics.model, Ts, poles, eigenvectors)
-        self.K = np.hstack((np.zeros((2, 1)), self.linear_dynamics.K))
+        self.state_ctrl_K = np.hstack((np.zeros((2, 1)), self.linear_dynamics.K))
         self.input = self.input_space.getState()
 
         core.scheduling.Action(name='logic', function=self._controller, object=self)
@@ -673,7 +753,7 @@ class TWIPR_DynamicAgent(TWIPR_Agent, core.agents.DynamicAgent):
         else:
             input_dynamics = self.input
 
-        input_dynamics = input_dynamics - self.K @ self.state
+        input_dynamics = input_dynamics - self.state_ctrl_K @ self.state
 
         self.dynamics.input = input_dynamics
 
@@ -712,7 +792,36 @@ class TWIPR_DynamicAgent(TWIPR_Agent, core.agents.DynamicAgent):
         ...
 
 
-standard_reference_trajectory = y_ref = [0 ,0.000197760222250443, 2.11803678398722e-05, -0.00192431976122926, -0.00615332730270171, -0.0109469705842174, -0.0109726750284568, 0.00314109970339850, 0.0424997242039622, 0.112410684401934, 0.206956128623623, 0.314388776117438, 0.424624384030855, 0.531504092587520, 0.632344339907318, 0.726580774482237, 0.814500854214386, 0.896435127229825, 0.972408345000750, 1.04209766198346, 1.10493026693230, 1.16020644070794, 1.20720625476184, 1.24529862610457, 1.27410193519773, 1.29373142884650, 1.30509563459453, 1.31006134120138, 1.31110201565285, 1.31047295027832, 1.30963323863495, 1.30922177157536, 1.30930631662257, 1.30965982770113, 1.30996481191886, 1.30994972434867, 1.30949786773374, 1.30875254893503, 1.30818871082097, 1.30855196124135, 1.31051378028126, 1.31390920626002, 1.31658347179794, 1.31325479714354, 1.29544137534898, 1.25367888373710, 1.18092399658192, 1.07430141167592, 0.934822844842898,	0.766570547670360,	0.576190859740028,	0.372759963677128,	0.167424548076854,	-0.0283162793280289,	-0.207136794339771,	-0.368318377418767,	-0.513567846522248,	-0.642925092434494,	-0.754407918301252,	-0.844997331803202,	-0.912193494933843,	-0.955634172298121,	-0.978235135241612,	-0.985958478482436,	-0.985709523100663,	-0.982841873248806,	-0.980233404456636,	-0.978812523403062,	-0.978465073275781,	-0.978773146960503,	-0.979413455756401	-0.980247798771826,	-0.981219159659383,	-0.982180374666072,	-0.982769568783324,	-0.982426074885620,	-0.980609358807766,	-0.977224675287443,	-0.973154087874496,	-0.970636351537536,	-0.973065802731135,	-0.983677050076961,	-1.00270542555312,	-1.02317436868087,	-1.02666525392914,	-0.982336312751358,	-0.854772438038150,	-0.627994145762945,	-0.352177508147913,	-0.125419966807256,	0.00210811409895107, 0.0463974593171859,	0.0428788688598347,	0.0224111802076914,	0.00342562788370501	-0.00710124071239199,	-0.00942546473025664,	-0.00682637673985390,	-0.00275955516620977,	0.000481842027831330,	0.00200718542849226, 0.00199239375341818,	0.00117230609516377, 0.000378721640301647, 0.000183951257060003, 0.00062972961798011, 0.00103310868987361, -4.31887979877787e-05]
+standard_reference_trajectory = [0, 0.000197760222250443, 2.11803678398722e-05, -0.00192431976122926,
+                                 -0.00615332730270171, -0.0109469705842174, -0.0109726750284568,
+                                 0.00314109970339850, 0.0424997242039622, 0.112410684401934, 0.206956128623623,
+                                 0.314388776117438, 0.424624384030855, 0.531504092587520, 0.632344339907318,
+                                 0.726580774482237, 0.814500854214386, 0.896435127229825, 0.972408345000750,
+                                 1.04209766198346, 1.10493026693230, 1.16020644070794, 1.20720625476184,
+                                 1.24529862610457, 1.27410193519773, 1.29373142884650, 1.30509563459453,
+                                 1.31006134120138, 1.31110201565285, 1.31047295027832, 1.30963323863495,
+                                 1.30922177157536, 1.30930631662257, 1.30965982770113, 1.30996481191886,
+                                 1.30994972434867, 1.30949786773374, 1.30875254893503, 1.30818871082097,
+                                 1.30855196124135, 1.31051378028126, 1.31390920626002, 1.31658347179794,
+                                 1.31325479714354, 1.29544137534898, 1.25367888373710, 1.18092399658192,
+                                 1.07430141167592, 0.934822844842898, 0.766570547670360, 0.576190859740028,
+                                 0.372759963677128, 0.167424548076854, -0.0283162793280289, -0.207136794339771,
+                                 -0.368318377418767, -0.513567846522248, -0.642925092434494, -0.754407918301252,
+                                 -0.844997331803202, -0.912193494933843, -0.955634172298121, -0.978235135241612,
+                                 -0.985958478482436, -0.985709523100663, -0.982841873248806, -0.980233404456636,
+                                 -0.978812523403062, -0.978465073275781, -0.978773146960503,
+                                 -0.979413455756401, - 0.980247798771826, -0.981219159659383, -0.982180374666072,
+                                 -0.982769568783324, -0.982426074885620, -0.980609358807766, -0.977224675287443,
+                                 -0.973154087874496, -0.970636351537536, -0.973065802731135, -0.983677050076961,
+                                 -1.00270542555312, -1.02317436868087, -1.02666525392914, -0.982336312751358,
+                                 -0.854772438038150, -0.627994145762945, -0.352177508147913, -0.125419966807256,
+                                 0.00210811409895107, 0.0463974593171859, 0.0428788688598347,
+                                 0.0224111802076914, 0.00342562788370501 - 0.00710124071239199,
+                                 -0.00942546473025664, -0.00682637673985390, -0.00275955516620977,
+                                 0.000481842027831330, 0.00200718542849226, 0.00199239375341818,
+                                 0.00117230609516377, 0.000378721640301647, 0.000183951257060003,
+                                 0.00062972961798011, 0.00103310868987361, -4.31887979877787e-05]
+
 
 # ======================================================================================================================
 class TWIPR_ILC_Agent(TWIPR_DynamicAgent):
@@ -724,7 +833,7 @@ class TWIPR_ILC_Agent(TWIPR_DynamicAgent):
     y_j: np.ndarray  # Current output
     e_j: np.ndarray  # Current error
     trials: list  # To save previous trials
-    J_max: int = 30  # Maximum number of trials
+    J_max: int = 20  # Maximum number of trials
     initial_state: core.spaces.State  # Initial State
 
     collision_during_trial: bool
@@ -738,28 +847,42 @@ class TWIPR_ILC_Agent(TWIPR_DynamicAgent):
     learning_finished_flag: bool
     learning_successful: bool
 
-    def __init__(self, world, agent_id, reference: np.ndarray, wait_steps: int = 50, r: float = 0.1, s: float = 0.5,
+    dynamics_2d_linear: TWIPR_2D_Linear
+
+    def __init__(self, world, agent_id, reference: np.ndarray, wait_steps: int = 50, r: float = 0.001,
+                 s: float = 0.5,
                  initial_state: list = None,
                  *args, **kwargs):
         super().__init__(world=world, agent_id=agent_id)
 
-        self.reference = reference
+        self.reference = np.asarray(reference)
         self.K = len(self.reference)
         self.j = 0
         self.k = 0
         self.u_j = np.zeros(shape=self.reference.shape)
+
+        self.u_j = np.random.normal(0, scale=1, size=self.reference.shape)
+
         self.y_j = np.zeros(shape=self.reference.shape)
         self.wait_steps = wait_steps
         self.collision_during_trial = False
         self.trials = []
 
+        self.r = r
+        self.s = s
+
         if initial_state is None:
-            initial_state = [-1, 0, 0, 0, 0, 0, 0]
+            initial_state = [-0.35, 0, 0, 0, 0, 0, 0]
 
         self.initial_state = self.dynamics.state_space.map(initial_state)
+        self.state = self.initial_state
         self.trial_state = 'wait_before_trial'
         self.learning_finished_flag = False
         self.learning_successful = False
+
+        self.dynamics_2d_linear = TWIPR_2D_Linear(model=TWIPR_Michael_Model, Ts=0.02,
+                                                  poles=[twipr_3d_poles_default[0], twipr_3d_poles_default[1],
+                                                         twipr_3d_poles_default[2], twipr_3d_poles_default[3]])
 
         self.setILC(r, s)
 
@@ -769,26 +892,33 @@ class TWIPR_ILC_Agent(TWIPR_DynamicAgent):
     # ------------------------------------------------------------------------------------------------------------------
     def setILC(self, r, s):
 
-        P = lib_control.calc_transition_matrix(self.linear_dynamics.sys, self.K)
+        P = lib_control.calc_transition_matrix(self.dynamics_2d_linear.sys_disc, self.K)
 
         Qw = np.eye(self.K)
         Rw = r * np.eye(self.K)
         Sw = s * np.eye(self.K)
         self.Q, self.L = lib_control.qlearning(P, Qw, Rw, Sw)
 
+        pass
+
     # ------------------------------------------------------------------------------------------------------------------
     def update_after_step(self):
         if self.k == self.K - 1:
             self.update_after_trial()
         else:
-            self.y_j[self.k] = self.state['theta']
+            self.y_j[self.k] = self.state['theta'].value
 
-            self.collision_during_trial = self.collision_during_trial or self.collision.collision_state
+            if self.trial_state == 'trial':
+                self.collision_during_trial = self.collision_during_trial or self.physics.collision.collision_state
+                if self.collision_during_trial:
+                    setBabylonSettings(background_color=[242 / 255, 56 / 255, 56 / 255])
             self.k = self.k + 1
 
     # ------------------------------------------------------------------------------------------------------------------
     def update_after_trial(self):
 
+        if self.learning_finished_flag:
+            return
         # Calculate the error signal
         self.e_j = self.reference - self.y_j
 
@@ -802,15 +932,42 @@ class TWIPR_ILC_Agent(TWIPR_DynamicAgent):
         })
 
         # Check if we had a collision during the trial
-        if not self.collision_during_trial:
+        if not self.collision_during_trial and self.state['x'].value > 0.0:
             # SUCCESS
             self.learning_finished_flag = True
             self.learning_successful = True
+            setBabylonSettings(status=f"Trial {self.j}: Learning successful")
+            setBabylonSettings(background_color=[29 / 255, 145 / 255, 31 / 255])
+
+            save_data = {
+                'trials': self.trials,
+                'reference': self.reference,
+                's': self.s,
+                'r': self.r,
+                'success': self.learning_successful
+            }
+            with open("ilc_data.p", "wb") as filehandler:
+                pickle.dump(save_data, filehandler)
 
         if self.j == self.J_max - 1:
             # FAILURE
             self.learning_finished_flag = True
             self.learning_successful = False
+
+            plt.plot(self.trials[-1]['y'])
+            plt.plot(standard_reference_trajectory)
+
+            setBabylonSettings(status=f"Trial {self.j}: Learning failed")
+
+            save_data = {
+                'trials': self.trials,
+                'reference': self.reference,
+                's': self.s,
+                'r': self.r,
+                'success': self.learning_successful
+            }
+            with open("ilc_data.p", "wb") as filehandler:
+                pickle.dump(save_data, filehandler)
 
         # Calculate the new input
         self.u_j = self.Q @ (self.u_j + self.L @ self.e_j)
@@ -833,13 +990,17 @@ class TWIPR_ILC_Agent(TWIPR_DynamicAgent):
     def _action_entry(self, *args, **kwargs):
         super()._action_entry(*args, **kwargs)
 
-        if self.trial_state == 'wait_before_trial' and self.k == self.wait_steps:
-            self.k = 0
-            self.trial_state = 'trial'
-        elif self.trial_state == 'wait_after_trial' and self.k == self.wait_steps:
-            self.k = 0
-            self.trial_state = 'wait_before_trial'
-            self.state = copy.copy(self.initial_state)  # COULD BE DANGEROUS
+        if not self.learning_finished_flag:
+            if self.trial_state == 'wait_before_trial' and self.k == self.wait_steps:
+                self.k = 0
+                self.trial_state = 'trial'
+            elif self.trial_state == 'wait_after_trial' and self.k == self.wait_steps:
+                self.k = 0
+                self.trial_state = 'wait_before_trial'
+                self.state = copy.copy(self.initial_state)  # COULD BE DANGEROUS
+                self.setPosition(x=self.state['x'])
+                setBabylonSettings(status=f"Trial {self.j}")
+                setBabylonSettings(background_color=0)
 
     def _action_exit(self, *args, **kwargs):
         super()._action_exit(*args, **kwargs)

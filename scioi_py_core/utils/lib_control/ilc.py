@@ -19,14 +19,13 @@ def calc_transition_matrix(sys, N):
             if markov_m < m:
                 P[i, j] = 0
             else:
-                # P[i, j] = sys.C@np.linalg.matrix_power(sys.A, (markov_m-1))@sys.B
-                DN = np.diag(diag ** (markov_m - 1))
-                P[i, j] = np.real(sys.C @ P2 @ DN @ P3 @ sys.B)
+                P[i, j] = sys.C@np.linalg.matrix_power(sys.A, (markov_m-1))@sys.B
+                # DN = np.diag(diag ** (markov_m - 1))
+                # P[i, j] = np.real(sys.C @ P2 @ DN @ P3 @ sys.B)
     return P
 
 
 def ilc_update(Q, L, u, e, *args, **kwargs):
-    # u = (Q @ u.T + L @ e.T)).T
     u = Q @ u.T + L @ e.T
     return u
 

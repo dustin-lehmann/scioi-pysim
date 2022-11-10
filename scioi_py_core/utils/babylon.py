@@ -1,11 +1,16 @@
-babylon_status_string = ''
+babylon_settings = {
+    'status': '',
+    'background_color': 0
+}
 
 
-def setBabylonStatus(status):
-    global babylon_status_string
-    babylon_status_string = status
+def setBabylonSettings(**kwargs):
+    global babylon_settings
+    for key, arg in kwargs.items():
+        if key in babylon_settings:
+            babylon_settings[key] = arg
 
 
-def getBabylonStatus():
-    global babylon_status_string
-    return babylon_status_string
+def getBabylonSettings():
+    global babylon_settings
+    return babylon_settings

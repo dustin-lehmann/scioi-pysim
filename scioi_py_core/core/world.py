@@ -8,7 +8,7 @@ import scioi_py_core.core.spaces as core_spaces
 import scioi_py_core.core.scheduling as scheduling
 import scioi_py_core.core.physics as physics
 
-from scioi_py_core.utils.babylon import setBabylonStatus
+from scioi_py_core.utils.babylon import setBabylonSettings
 import numpy as np
 
 # ======================================================================================================================
@@ -431,6 +431,7 @@ class World(scheduling.ScheduledObject):
         for key, obj in self.objects.items():
             # is a collision check to be done for this object?
             if obj.collision.settings.check:
+                obj.physics.collision.collision_state = False
                 for _, collision_object in self.objects.items():
                     # don't check with the object itself
                     if collision_object is not obj:
@@ -444,7 +445,7 @@ class World(scheduling.ScheduledObject):
                                             obj.collision.settings.excludes)):
                                     # do proximity sphere check
                                     if obj.physics.collisionCheck(collision_object.physics):
-                                        setBabylonStatus('collision')
+                                        ...
 
     def _init(self):
         # TODO: Put this in a subfunction

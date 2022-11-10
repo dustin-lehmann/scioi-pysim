@@ -48,7 +48,7 @@
     "BabylonObject": "TWIPR_Robot",
     "config": {
       "base_model": "./models/twipr/twipr_",
-      "show_collision_frame": true
+      "show_collision_frame": false
     }
   }
 }

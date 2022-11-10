@@ -22,7 +22,8 @@ class PysimScene extends Scene {
         this.light1.intensity = 1
 
         // --- BACKGROUND ---
-        this.scene.clearColor = new BABYLON.Color3(0.75,0.75,0.75);
+        this.defaultBackgroundColor = new BABYLON.Color3(0.75,0.75,0.75)
+        this.scene.clearColor = this.defaultBackgroundColor;
 
         // --- Textbox ---
         this.ui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("ui", true, this.scene);
@@ -39,7 +40,7 @@ class PysimScene extends Scene {
         this.textbox_status = new BABYLON.GUI.TextBlock();
         this.textbox_status.fontSize = 40;
         this.textbox_status.text = "";
-        this.textbox_status.color = "red";
+        this.textbox_status.color = "black";
         this.textbox_status.paddingTop = 3;
         this.textbox_status.paddingRight = 30;
         this.textbox_status.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -143,8 +144,19 @@ class PysimScene extends Scene {
             console.warn("No time data in current sample")
         }
 
-        if ('status' in sample){
-            this.textbox_status.text = sample['status']
+        if ('settings' in sample){
+            if ('status' in sample['settings']){
+                this.textbox_status.text = sample['settings']['status']
+            }
+            if ('background_color' in sample['settings']){
+                if (sample['settings']['background_color'] === 0){
+                    this.scene.clearColor = this.defaultBackgroundColor;
+                } else {
+                    this.scene.clearColor = new BABYLON.Color3(sample['settings']['background_color'][0],sample['settings']['background_color'][1],sample['settings']['background_color'][2])
+                }
+
+            }
         }
+
     }
 }

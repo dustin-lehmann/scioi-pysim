@@ -5,7 +5,7 @@ from scioi_py_core import core as core
 from EnvironmentDustin.Environment import EnvironmentTWIPR_objects
 from scioi_py_core.visualization.babylon.babylon import BabylonVisualization
 
-from scioi_py_core.utils.babylon import babylon_status_string, setBabylonStatus, getBabylonStatus
+from scioi_py_core.utils.babylon import getBabylonSettings, setBabylonSettings
 import json
 
 
@@ -41,8 +41,6 @@ class EnvironmentBase(core.environment.Environment):
 
         core.scheduling.registerActions(self.world, self.scheduling.actions['world'])
 
-
-
     # === ACTIONS ======================================================================================================
     def _init(self, *args, **kwargs):
         ...
@@ -50,10 +48,10 @@ class EnvironmentBase(core.environment.Environment):
         if self.visualization == 'babylon':
             self.babylon.setWorldConfig(self.world.generateWorldConfig())
             self.babylon.start()
+            setBabylonSettings(status='')
 
     def _action_entry(self, *args, **kwargs):
         super()._action_entry(*args, **kwargs)
-        setBabylonStatus('')
 
     def _action_step(self, *args, **kwargs):
         pass
@@ -67,8 +65,8 @@ class EnvironmentBase(core.environment.Environment):
     def action_visualization(self, *args, **kwargs):
         sample = {
             'time': self.scheduling.tick_global * self.Ts,
-            'status': getBabylonStatus(),
-            'world': self.world.getSample()
+            'world': self.world.getSample(),
+            'settings': getBabylonSettings()
         }
         self.babylon.sendSample(sample)
 

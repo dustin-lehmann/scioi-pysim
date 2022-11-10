@@ -39,7 +39,7 @@ def collisionCuboidCuboid(cuboid1: 'CuboidPrimitive', cuboid2: 'CuboidPrimitive'
                 vec_rel_local[2]) <= cuboid1.size[2] / 2:
             collided_points_1.append(point)
 
-    if len(collided_points_1)>0:
+    if len(collided_points_1) > 0:
         return True
 
     R_T_2 = cuboid2.orientation.T
@@ -273,6 +273,11 @@ class PhysicalBody(ABC):
         for _, obj in self.bounding_objects.items():
             for _, obj_other in other.bounding_objects.items():
                 collision = collision or obj.collision(obj_other)
+
+        if collision:
+            self.collision.collision_state = True
+        else:
+            self.collision.collision_state = False
 
         return collision
 
