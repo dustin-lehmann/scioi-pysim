@@ -850,7 +850,7 @@ class TWIPR_ILC_Agent(TWIPR_DynamicAgent):
     dynamics_2d_linear: TWIPR_2D_Linear
 
     def __init__(self, world, agent_id, reference: np.ndarray, wait_steps: int = 50, r: float = 0.001,
-                 s: float = 0.5,
+                 s: float = 0.1,
                  initial_state: list = None,
                  *args, **kwargs):
         super().__init__(world=world, agent_id=agent_id)

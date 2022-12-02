@@ -36,8 +36,7 @@ def main():
             'BabylonObject': 'TWIPR_Robot',
             'config': {
                 'base_model': './models/twipr/twipr_',
-                'show_collision_frame': True,
-                # 'base_model': './models/twipr/twipr_a_blue.babylon',
+                'show_collision_frame': False,
             }
         }
     }
