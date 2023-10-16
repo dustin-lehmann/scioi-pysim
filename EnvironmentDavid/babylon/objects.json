@@ -1,8 +1,0 @@
-{
-  "textures": "standard_textures",
-  "objects": {
-    "<class 'EnvironmentDavid.Objects.EnvironmentDavid_Agents.TankRobotSimObject'>_2488386998608": {
-      "name": "Agent 1",
-      "class": "TankRobotSimObject",
-      "object_type": "agent",
-      "configuration": 
