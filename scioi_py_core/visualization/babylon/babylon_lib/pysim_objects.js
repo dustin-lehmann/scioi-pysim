@@ -129,6 +129,35 @@ class PysimBox extends WorldObject {
 
 }
 
+class GridCell2D extends PysimBox {
+    constructor(scene, object_id, object_type, object_config, visualization_config) {
+        object_config.size['z'] = 0.05
+        super(scene, object_id, object_type, object_config, visualization_config);
+
+
+    }
+
+    setPosition(position) {
+        position['z'] = -this.size['z']/2
+        super.setPosition(position)
+    }
+
+    highlight(state, color){
+        if (state) {
+            this.body.material.diffuseColor = new BABYLON.Color3(color[0], color[1], color[2])
+        } else {
+            this.body.material.diffuseColor = new BABYLON.Color3(1,1,1)
+        }
+    }
+
+    update(sample) {
+        super.update(sample);
+        if ('highlight' in sample) {
+            this.highlight(sample['highlight']['state'], sample['highlight']['color'])
+        }
+    }
+}
+
 // =====================================================================================================================
 class Tank_Robot extends WorldObject {
      constructor(scene, object_id, object_type, object_config, visualization_config) {
@@ -175,6 +204,79 @@ class TWIPR_Robot extends WorldObject {
     setPosition(position) {
         this.position = position
         this.mesh.position = ToBabylon([position['x'], position['y'], this.object_config['physics']['wheel_diameter']/2])
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    setOrientation(orientation){
+        this.orientation = orientation
+        let q = Quaternion.fromRotationMatrix(orientation)
+
+        this.mesh.rotationQuaternion = q.babylon()
+
+        if (this.visualization_config['show_collision_frame']){
+            this.collision_box.setOrientation(orientation)
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    setState(state){
+        this.setPosition(state['pos'])
+        this.setOrientation(state['ori'])
+    }
+    update(sample) {
+        if ('configuration' in sample) {
+            if ('pos' in sample['configuration']){
+                this.setPosition(sample['configuration']['pos'])
+            }
+            if ('ori' in sample['configuration']){
+                this.setOrientation(sample['configuration']['ori'])
+            }
+            if ('collision_box_pos' in sample && this.visualization_config['show_collision_frame']){
+                this.collision_box.setPosition(sample['collision_box_pos'])
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+}
+
+// =====================================================================================================================
+class DiffDriveRobot extends WorldObject {
+     constructor(scene, object_id, object_type, object_config, visualization_config) {
+         super(scene, object_id, object_type, object_config, visualization_config);
+            this.loaded = false
+            this.model_name = visualization_config['base_model'] + this.object_config['agent_id'] + '.babylon'
+            BABYLON.SceneLoader.ImportMesh("", "./", this.model_name, this.scene, this.onLoad.bind(this));
+            if (visualization_config['show_collision_frame']) {
+                let scaling_factor = 1.01
+                this.collision_box = new PysimBox(this.scene, '', '', {'size': {'x': scaling_factor*this.object_config['physics']['size'][0],'y': scaling_factor*this.object_config['physics']['size'][1],'z': scaling_factor*this.object_config['physics']['size'][2]}, 'configuration': this.object_config['configuration']},{'wireframe': true, 'alpha': 0})
+            }
+            return this
+
+     }
+     onLoad(newMeshes, particleSystems, skeletons){
+
+        this.mesh = newMeshes[0]
+        this.mesh.scaling.x = 1
+        this.mesh.scaling.y = 1
+        this.mesh.scaling.z = -1  // Mirror the mesh to fit the SolidWorks Coordinate System
+
+        this.material = new BABYLON.StandardMaterial("material", this.scene);
+        this.mesh.material = this.material
+
+
+        // this.shadowGenerator.addShadowCaster(this.mesh)
+
+        // if (this.options.on_load_callback !== undefined) {
+        //     this.options.on_load_callback(this)
+        // }
+
+        this.loaded = true
+    }
+    // -----------------------------------------------------------------------------------------------------------------
+    setPosition(position) {
+        this.position = position
+        this.mesh.position = ToBabylon([position['x'], position['y'], 0])
     }
 
     // -----------------------------------------------------------------------------------------------------------------

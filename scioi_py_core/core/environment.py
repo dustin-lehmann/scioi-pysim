@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 from ..core import scheduling as scheduling
 from ..core import world as world
+from ..utils.babylon import getBabylonSettings
 
 
 class Environment(scheduling.ScheduledObject):
@@ -66,6 +67,16 @@ class Environment(scheduling.ScheduledObject):
 
     def init(self, *args, **kwargs):
         self.scheduling.actions['_init'].run(*args, **kwargs)
+
+    def getVisualizationSample(self):
+        sample = {
+            'time': self.scheduling.tick_global * self.Ts,
+            'world': self.world.getVisualizationSample(),
+            'settings': getBabylonSettings()
+        }
+        return sample
+    def getSample(self):
+        ...
 
     # === PRIVATE METHODS ==============================================================================================
     @abstractmethod

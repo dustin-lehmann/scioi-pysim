@@ -24,11 +24,11 @@ class BabylonVisualization:
 
     _config: dict
     _run: bool
-    Ts = 0.03  # 0.04
+    Ts = 0.04  # 0.04
 
     # === INIT =========================================================================================================
     def __init__(self, webapp: str = babylon_path + '/pysim_env.html', webapp_config=None,
-                 world_config=None, object_config=babylon_path + 'object_config.json'):
+                 world_config=None, object_config=babylon_path + 'object_config.json', fetch_function: callable = None):
 
         self._config = {
             'world': {},
@@ -62,15 +62,19 @@ class BabylonVisualization:
         self._data_queue = queue.Queue()
         self._webapp = None
 
+        self.fetch_function = fetch_function
+
     # ==================================================================================================================
     class Process(qmt.Block):
         last_sample: dict
         q: queue.Queue
+        fetch_function: callable
 
-        def __init__(self, q: queue.Queue):
+        def __init__(self, q: queue.Queue, fetch_function: callable = None):
             super().__init__()
             self.last_sample = {}
             self.q = q
+            self.fetch_function = fetch_function
 
         def step(self, input):
             if not self.q.empty():
@@ -78,7 +82,12 @@ class BabylonVisualization:
                 self.last_sample = sample
                 return sample
             else:
-                return self.last_sample
+                if not self.fetch_function is None:
+                    sample = self.fetch_function()
+                    self.last_sample = sample
+                    return sample
+                else:
+                    return self.last_sample
 
     # === METHODS ======================================================================================================
     def setWorldConfig(self, world_config):
@@ -106,7 +115,8 @@ class BabylonVisualization:
         # Define a new event loop, otherwise it's not working
         asyncio.set_event_loop(asyncio.new_event_loop())
         self._webapp = qmt.Webapp(self.webapp_path, config=self._config, show='chromium')
-        self._webapp.setupOnlineLoop(qmt.ClockDataSource(self.Ts), self.Process(self._data_queue))
+        self._webapp.setupOnlineLoop(qmt.ClockDataSource(self.Ts), self.Process(self._data_queue, self.fetch_function))
         self._webapp.run()
+        # self._webapp.runInProcess()
         while True:
             time.sleep(1)

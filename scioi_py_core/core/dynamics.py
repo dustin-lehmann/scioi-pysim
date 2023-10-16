@@ -149,7 +149,7 @@ class DynamicWorldObject(WorldObject, ABC):
     dynamics: Dynamics
 
     # === INIT =========================================================================================================
-    def __init__(self, name, world, space: sp.Space, *args, **kwargs):
+    def __init__(self, name, world=None, space: sp.Space=None, *args, **kwargs):
         super().__init__(name=name, world=world, space=space, *args, **kwargs)
 
         # Register the dynamics action in the World Dynamics Phase
@@ -186,6 +186,7 @@ class DynamicWorldObject(WorldObject, ABC):
             else:
                 config_temp[dimension][subdimension] = value
 
+        self._configuration = config_temp
         self.state = self.dynamics.state_space.map(config_temp)
         self._updatePhysics(self.configuration)
 

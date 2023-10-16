@@ -124,6 +124,8 @@ class Action:
 
             # Sort the dict by priority
             self.actions = {k: v for k, v in sorted(self.actions.items(), key=lambda item: item[1].priority)}
+        elif callable(action):
+            self.registerAction(Action(action))
 
     def removeAction(self, action):
         """

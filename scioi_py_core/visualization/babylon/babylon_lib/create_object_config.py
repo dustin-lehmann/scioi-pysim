@@ -20,6 +20,15 @@ def main():
                  'texture_vscale': 1,
             }
         },
+        'grid_cell_2d': {
+            'BabylonObject': 'GridCell2D',
+            'config': {
+                'color': [0.7, 0.7, 0.7],
+                'texture': '/textures/material/floor_bright.png',
+                'texture_uscale': 1,
+                'texture_vscale': 1,
+            }
+        },
         'tank_robot': {
             'BabylonObject': 'PysimBox',
             'config': {
@@ -37,7 +46,14 @@ def main():
             'config': {
                 'base_model': './models/twipr/twipr_',
                 'show_collision_frame': False,
-            }
+            },
+        },
+            'diff_drive_robot': {
+                'BabylonObject': 'DiffDriveRobot',
+                'config': {
+                    'base_model': './models/diff_drive_robot/diff_robot_',
+                    'show_collision_frame': False,
+                },
         }
     }
 

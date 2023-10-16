@@ -9,30 +9,30 @@ Exporter version: 3.3.0, Blender version: 3.3.1
 		Vert Color Precision:  3
 		Mat Weight Precision:  2
 		Keep Z-up r-handed  :  no
-		Texture directory   :  D:\work_dir\temp\scioi-pysim\scioi_py_core\visualization\babylon\babylon_lib\models\twipr\
+		Texture directory   :  D:\work_dir\projects\software\python\libraries\scioi-pysim\scioi_py_core\visualization\babylon\babylon_lib\models\twipr\
 	Python World class constructor completed
 	WARNING: No active camera has been assigned, or is not in a currently enabled collection
-	processing begun of mesh:  Shape_IndexedFaceSet
-		processing begun of material:  Shape.036
-		processing begun of material:  Shape.037
-		processing begun of material:  Shape.038
-		processing begun of material:  Shape.039
-		processing begun of material:  Shape.040
-		processing begun of material:  Shape.041
-		processing begun of material:  Shape.042
-		processing begun of material:  Shape.043
-		processing begun of material:  Shape.044
+	processing begun of mesh:  Shape_IndexedFaceSet.008
+		processing begun of material:  Shape.017
+		processing begun of material:  Shape.009
+		processing begun of material:  Shape.010
+		processing begun of material:  Shape.011
+		processing begun of material:  Shape.012
+		processing begun of material:  Shape.013
+		processing begun of material:  Shape.014
+		processing begun of material:  Shape.015
+		processing begun of material:  Shape.016
 		processing begun of multimaterial:  twipr_2.Multimaterial#0
-		num positions      :  48712
-		num normals        :  48712
+		num positions      :  48718
+		num normals        :  48718
 		num tangents       :  0
-		num uvs            :  97424
+		num uvs            :  97436
 		num uvs2           :  0
-		num colors         :  194848
+		num colors         :  194872
 		num triangles      :  16996
 		WARNING: # of 0 area faces found:  2152
 ========= Writing of JSON file started =========
-	writing mesh:  Shape_IndexedFaceSet
+	writing mesh:  Shape_IndexedFaceSet.008
 ========= Writing of JSON file completed =========
 ========= end of processing =========
-elapsed time:  0 min, 1.7934 secs
+elapsed time:  0 min, 1.7756 secs

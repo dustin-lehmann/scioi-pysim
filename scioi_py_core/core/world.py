@@ -28,6 +28,28 @@ class CollisionData:
     collision_objects: list = dataclasses.field(default_factory=list)
 
 
+@dataclasses.dataclass
+class WorldObjectVisualization:
+    static: bool = False
+    sample_flag: bool = False
+    _sample: dict = dataclasses.field(default_factory=dict)
+
+    @property
+    def sample(self):
+        return self._sample
+
+    @sample.setter
+    def sample(self, value):
+        self._sample = value
+        self.sample_flag = True
+
+    def getSample(self):
+        sample = self.sample
+        self._sample = {}
+        self.sample_flag = False
+        return sample
+
+
 # ======================================================================================================================
 class WorldObject(scheduling.ScheduledObject):
     world: 'World'
@@ -47,10 +69,9 @@ class WorldObject(scheduling.ScheduledObject):
     id: str  # Unique ID of the object in the corresponding world
     object_type: str = 'object'
 
-    static: bool = False  # A static object is not considered in the generation of a sample for an external tool, unless
-    # the 'sample_flag' is set
+    static: bool = False
 
-    sample_flag: bool = False
+    visualization: WorldObjectVisualization = None
 
     # === INIT =========================================================================================================
     def __init__(self, name: str = None, world: 'World' = None, group: 'WorldObjectGroup' = None,
@@ -89,9 +110,12 @@ class WorldObject(scheduling.ScheduledObject):
 
         self.collision = CollisionData()
 
+        self.visualization = WorldObjectVisualization()
+
         if not self.static:
             scheduling.Action(name='physics_update', function=self._updatePhysics,
                               lambdas={'config': lambda: self.configuration}, object=self)
+
 
     # === PROPERTIES ===================================================================================================
     @property
@@ -118,6 +142,12 @@ class WorldObject(scheduling.ScheduledObject):
         return self._getSample()
 
     # ------------------------------------------------------------------------------------------------------------------
+    def getVisualizationSample(self):
+        sample = self._getSample()
+        sample_visualization = self.visualization.getSample()
+        sample = {**sample, **sample_visualization}
+        return sample
+    # ------------------------------------------------------------------------------------------------------------------
     def getParameters(self):
         return self._getParameters()
 
@@ -138,9 +168,9 @@ class WorldObject(scheduling.ScheduledObject):
             self.configuration = value
         else:
             if subdimension is None:
-                self.configuration[dimension] = value
+                self._configuration[dimension] = value
             else:
-                self.configuration[dimension][subdimension] = value
+                self._configuration[dimension][subdimension] = value
 
         self._updatePhysics(self.configuration)
 
@@ -275,7 +305,7 @@ class World(scheduling.ScheduledObject):
     size: dict  # Add the World Dimensions here and not in the Spaces. This makes it much easier
 
     # === INIT =========================================================================================================
-    def __init__(self, space: core_spaces.Space = None, *args, **kwargs):
+    def __init__(self, space: core_spaces.Space = None, size=None,  *args, **kwargs):
         super().__init__(*args, **kwargs)
         if not hasattr(self, 'space'):
             assert (space is not None)
@@ -283,7 +313,10 @@ class World(scheduling.ScheduledObject):
 
         self.objects: dict[str, 'WorldObject'] = {}
         self.agents: dict[str, 'WorldObject'] = {}
-        self.size = None
+        self.size = size
+
+        if self.size is not None:
+            raise NotImplementedError()
 
     # === METHODS ======================================================================================================
     def addObject(self, objects: Union[WorldObject, dict]):
@@ -391,10 +424,18 @@ class World(scheduling.ScheduledObject):
         for obj in self.objects.values():
             if not obj.static or (obj.static and obj.sample_flag):
                 sample['objects'][obj.id] = obj.getSample()
-                obj.sample_flag = False
 
         return sample
 
+    # ------------------------------------------------------------------------------------------------------------------
+    def getVisualizationSample(self) -> dict:
+
+        sample = {'objects': {}}
+        for obj in self.objects.values():
+            if not obj.static or (obj.static and obj.visualization.sample_flag):
+                sample['objects'][obj.id] = obj.getVisualizationSample()
+
+        return sample
     # ------------------------------------------------------------------------------------------------------------------
     def generateWorldConfig(self):
         world_definition = {'objects': {}}

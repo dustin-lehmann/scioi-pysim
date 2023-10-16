@@ -117,6 +117,14 @@ class TiledFloor(WorldObjectGroup):
 
 
 def generateTileFloor(world: World, tiles=None, tile_size=None, origin: str = 'center'):
+    '''
+    Generates a tiled floor
+    :param world:
+    :param tiles:
+    :param tile_size:
+    :param origin:
+    :return:
+    '''
     # Case 1: World Size + Number of Tiles given
     if tile_size is None and tiles is not None and world.size is not None:
         size_x = world.size['pos']['x']
@@ -150,6 +158,24 @@ def generateTileFloor(world: World, tiles=None, tile_size=None, origin: str = 'c
         floor = TiledFloor(world=world, dimensions={'x': dimension_x, 'y': dimension_y},
                            tile_size=[tile_size[0], tile_size[1]],
                            tile_number=tiles)
+        return floor
+
+    elif tile_size is not None and world.size is not None:
+        if isinstance(tile_size, (float, int)):
+            tile_size = [tile_size, tile_size]
+
+        # # Check if the number of tiles is a whole number
+        # assert ((world.size['pos']['x'][1] - world.size['pos']['x'][0]) % tile_size[0] == 0)
+        # assert ((world.size['pos']['y'][1] - world.size['pos']['y'][0]) % tile_size[1] == 0)
+
+        # Calculate the number of tiles
+        tiles_x = int((world.size['pos']['x'][1] - world.size['pos']['x'][0]) / tile_size[0])
+        tiles_y = int((world.size['pos']['y'][1] - world.size['pos']['y'][0]) / tile_size[1])
+
+        # Generate the floor
+        floor = TiledFloor(world=world, dimensions={'x': world.size['pos']['x'], 'y': world.size['pos']['y']},
+                           tile_size=[tile_size[0], tile_size[1]], tile_number=[tiles_x, tiles_y])
+
         return floor
 
     else:
